@@ -7,152 +7,134 @@ function roundTo(num, decimal) {
     return Math.round( ( num + Number.EPSILON ) * Math.pow( 10, decimal ) ) / Math.pow( 10, decimal )
 }
 
-function executeCalc() {
-    var equipType = document.querySelector('input[name="radioEquipType"]:checked').value
-    var currentReforge = document.getElementById("currentReforge").value
-    var targetReforge = document.getElementById("targetReforge").value
-
-    if (isNaN(currentReforge) || isNaN(targetReforge)) {
-
-        var tipModal = new bootstrap.Modal(document.getElementById('tipModal'))
-        tipModal.show()
-
-    } else if ((currentReforge >= targetReforge) || (currentReforge > 21) || (targetReforge > 21)) {
-
-        var tipModal = new bootstrap.Modal(document.getElementById('tipModal'))
-        tipModal.show()
-
+function level_check(input_lv, default_num) {
+    if (isNaN(input_lv)) {
+        return default_num
     } else {
-
-        var questMatCost = []
-        var dropMatCost = [
-            2000, 2000, 2000, 2000, 2000, 2000, 
-            2000, 2000, 2000, 4000, 4000, 4000, 
-            4000, 4000, 4000, 6000, 6000, 6000,
-            6000, 6000, 6000
-        ]
-        var magicCrystalCost = [
-            100, 100, 100, 100, 100, 100,
-            100, 100, 100, 200, 200, 200, 
-            200, 200, 200, 300, 300, 300, 
-            300, 300, 300
-        ]
-        var edCost = [
-            300000, 300000, 300000, 300000, 300000, 300000,
-            300000, 300000, 300000, 900000, 900000, 900000,
-            900000, 900000, 900000, 1800000, 1800000, 1800000,
-            1800000, 1800000, 1800000
-        ]
-        guaranteedGauge = [
-            0.10000, 0.06667, 0.05000, 0.10000, 0.06667, 0.03333,
-            0.10000, 0.05000, 0.02500, 0.10000, 0.03333, 0.01667,
-            0.05000, 0.02500, 0.01250, 0.02500, 0.00833, 0.00417,
-            0.02500, 0.00556, 0.00278
-        ]
-        guaranteedNeed = []
-        guaranteedGauge.forEach(function(item, index, array) {
-            guaranteedNeed.push(Math.ceil(1 / item))
-        })
-        upgradeRate = [
-            0.1200, 0.1000, 0.0600, 0.1000, 0.0800, 0.0400,
-            0.0800, 0.0500, 0.0200, 0.0600, 0.0300, 0.0100,
-            0.0500, 0.0200, 0.0100, 0.0300, 0.0050, 0.0025,
-            0.0300, 0.0050, 0.0025
-        ]
-        expectedValue = []
-        for (i = 0 ; i < 21 ; i++) {
-            expectedValue.push(
-                Math.ceil(1 + ((1 - upgradeRate[i]) - Math.pow(1 - upgradeRate[i], guaranteedNeed[i])) / upgradeRate[i])
-            )
+        input_lv = parseInt(input_lv)
+        if (input_lv < 1) {
+            input_lv = 1
         }
-
-        
-        if (equipType == "radioAmet") {
-            document.getElementById("tEquipType").innerHTML = "虹霓防具 " + currentReforge + " → " + targetReforge
-            document.getElementById("tReforgeMaterial_1").innerHTML = "13 珠"
-            document.getElementById("tReforgeMaterial_2").innerHTML = "13 冰"
-            document.getElementById("tRequireDaysLbl_1").innerHTML = "所需天數 (175 / 週)"
-            document.getElementById("tRequireDaysFullLbl_1").innerHTML = "所需天數 (275 / 週)"
-            document.getElementById("tRequireDaysLbl_2").innerHTML = "所需天數 (175 / 週)"
-            document.getElementById("tRequireDaysFullLbl_2").innerHTML = "所需天數 (275 / 週)"
-
-            questMatCost = [
-                3, 3, 3, 3, 3, 3,
-                3, 3, 3, 6, 6, 6, 
-                6, 6, 6, 9, 9, 9,
-                9, 9, 9
-            ]
-        } else {
-            document.getElementById("tEquipType").innerHTML = "泰納防具 " + currentReforge + " → " + targetReforge
-            document.getElementById("tReforgeMaterial_1").innerHTML = "17 珠"
-            document.getElementById("tReforgeMaterial_2").innerHTML = "17 冰"
-            document.getElementById("tRequireDaysLbl_1").innerHTML = "-"
-            document.getElementById("tRequireDaysFullLbl_1").innerHTML = "所需天數 (2,100 / 週)"
-            document.getElementById("tRequireDaysLbl_2").innerHTML = "-"
-            document.getElementById("tRequireDaysFullLbl_2").innerHTML = "所需天數 (2,100 / 週)"
-            
-            questMatCost = [
-                15, 15, 15, 15, 15, 15,
-                15, 15, 15, 30, 30, 30,
-                30, 30, 30, 45, 45, 45,
-                45, 45, 45
-            ]
-
-            dropMatCost[8] = 4000
+        if (input_lv > 999) {
+            input_lv = 999
         }
-
-        excTime = 0
-        excQuestMatCost = 0
-        excDropMatCost = 0
-        excMagicCrystalCost = 0
-        excEDCost = 0
-
-        guaTime = 0
-        guaQuestMatCost = 0
-        guaDropMatCost = 0
-        guaMagicCrystalCost = 0
-        guaEDCost = 0
-
-        for (i = currentReforge ; i < targetReforge ; i++) {
-            excTime += expectedValue[i]
-            excQuestMatCost += expectedValue[i] * questMatCost[i]
-            excDropMatCost += expectedValue[i] * dropMatCost[i]
-            excMagicCrystalCost += expectedValue[i] * magicCrystalCost[i]
-            excEDCost += expectedValue[i] * edCost[i]
-
-            guaTime += guaranteedNeed[i]
-            guaQuestMatCost += guaranteedNeed[i] * questMatCost[i]
-            guaDropMatCost += guaranteedNeed[i] * dropMatCost[i]
-            guaMagicCrystalCost += guaranteedNeed[i] * magicCrystalCost[i]
-            guaEDCost += guaranteedNeed[i] * edCost[i]
-        }
-
-        document.getElementById("tExcTime").innerHTML = numberWithCommas(excTime) + " 次"
-        document.getElementById("tExcQuestMat").innerHTML = numberWithCommas(excQuestMatCost)
-        document.getElementById("tExcDropMat").innerHTML = numberWithCommas(excDropMatCost)
-        document.getElementById("tExcMagicCrystal").innerHTML = numberWithCommas(excMagicCrystalCost)
-        document.getElementById("tExcED").innerHTML = numberWithCommas(excEDCost)
-
-        document.getElementById("tGuaTime").innerHTML = numberWithCommas(guaTime) + " 次"
-        document.getElementById("tGuaQuestMat").innerHTML = numberWithCommas(guaQuestMatCost)
-        document.getElementById("tGuaDropMat").innerHTML = numberWithCommas(guaDropMatCost)
-        document.getElementById("tGuaMagicCrystal").innerHTML = numberWithCommas(guaMagicCrystalCost)
-        document.getElementById("tGuaED").innerHTML = numberWithCommas(guaEDCost)
-
-        if (equipType == "radioAmet") {
-            document.getElementById("tRequireDays_1").innerHTML = roundTo(excQuestMatCost / 175, 2) + " 週"
-            document.getElementById("tRequireDaysFull_1").innerHTML = roundTo(excQuestMatCost / 275, 2) + " 週"
-            document.getElementById("tRequireDays_2").innerHTML = roundTo(guaQuestMatCost / 175, 2) + " 週"
-            document.getElementById("tRequireDaysFull_2").innerHTML = roundTo(guaQuestMatCost / 275, 2) + " 週"
-
-        } else {
-            document.getElementById("tRequireDays_1").innerHTML = "- 週"
-            document.getElementById("tRequireDaysFull_1").innerHTML = roundTo(excQuestMatCost / 2100, 2) + " 週"
-            document.getElementById("tRequireDays_2").innerHTML = "- 週"
-            document.getElementById("tRequireDaysFull_2").innerHTML = roundTo(guaQuestMatCost / 2100, 2) + " 週"
-
-        }
+        return input_lv
     }
+}
 
+function exp_check(input_exp, default_num) {
+    if (isNaN(input_exp)) {
+        return default_num
+    } else {
+        return parseInt(input_exp)
+    }
+}
+
+function time_check(input_time, default_num) {
+    if (isNaN(input_time)) {
+        return default_num
+    } else {
+        return parseInt(input_time)
+    }
+}
+
+function plan_time_check(input_time, default_num) {
+    if (isNaN(input_time)) {
+        return default_num
+    } else {
+        if (input_time < 1) {
+            return 1
+        }
+        if (input_time > 24) {
+            return 24
+        }
+        return parseInt(input_time)
+    }
+}
+
+function input_check(c_lv, t_lv, exp_per_run, time_per_run, plan_time) {
+    // Level
+    c_lv = level_check(c_lv, 300)
+    t_lv = level_check(t_lv, 400)
+    if (c_lv > t_lv) {
+        temp_lv = c_lv
+        c_lv = t_lv
+        t_lv = temp_lv
+    }
+    document.getElementById("currentLevel").value = c_lv
+    document.getElementById("targetLevel").value = t_lv
+
+    // EXP Per Run
+    exp_per_run = exp_check(exp_per_run, 300)
+    document.getElementById("expPerRun").value = exp_per_run
+
+    // Time Per Run
+    time_per_run = time_check(time_per_run, 120)
+    document.getElementById("timePerRun").value = time_per_run
+
+    // Plan Time
+    plan_time = plan_time_check(plan_time, 2)
+    document.getElementById("planTime").value = plan_time
     
+}
+
+function format_time_to_ms(input_time) {
+    min = Math.trunc(input_time / 60)
+    sec = input_time % 60
+    return min + ":" + sec.toString().padStart(2, '0')
+}
+
+function executeCalc() {
+
+    var int_formatter = new Intl.NumberFormat('en-US')
+
+    input_check(
+        document.getElementById("currentLevel").value,
+        document.getElementById("targetLevel").value, 
+        document.getElementById("expPerRun").value, 
+        document.getElementById("timePerRun").value, 
+        document.getElementById("planTime").value
+    )
+
+    var currentLevel = parseInt(document.getElementById("currentLevel").value)
+    var targetLevel = parseInt(document.getElementById("targetLevel").value)
+    var expPerRun = parseInt(document.getElementById("expPerRun").value)
+    var timePerRun = parseInt(document.getElementById("timePerRun").value)
+    var planTime = parseInt(document.getElementById("planTime").value)
+
+    // 輸入
+    document.getElementById("inputCurrentLevel").innerHTML = currentLevel
+    document.getElementById("inputTargetLevel").innerHTML = targetLevel
+    document.getElementById("inputExpPerRun").innerHTML = expPerRun + "m"
+    document.getElementById("inputTimePerRun").innerHTML = format_time_to_ms(timePerRun)
+    document.getElementById("inputPlanTime").innerHTML = planTime
+
+    // 概要
+    required_exp = expTable[targetLevel - 1] - expTable[currentLevel - 1]
+    need_run = Math.ceil(required_exp / (expPerRun * 1000000))
+    need_total_sec = need_run * timePerRun
+
+    need_detail_hour = Math.trunc(need_total_sec / 3600)
+    need_detail_min = Math.trunc(need_total_sec % 3600 / 60)
+    need_detail_sec = need_total_sec % 60
+    
+    document.getElementById("resultNeedExp").innerHTML = int_formatter.format(required_exp)
+    document.getElementById("resultNeedRun").innerHTML = int_formatter.format(need_run)
+    document.getElementById("resultNeedHour").innerHTML = int_formatter.format(need_detail_hour)
+    document.getElementById("resultNeedMinute").innerHTML = need_detail_min
+    document.getElementById("resultNeedSecond").innerHTML = need_detail_sec
+
+    run_per_hour = Math.trunc(3600 / timePerRun)
+    exp_per_hour = run_per_hour * expPerRun
+
+    document.getElementById("resultRunPerHour").innerHTML = run_per_hour
+    document.getElementById("resultExpPerHour").innerHTML = int_formatter.format(exp_per_hour) + "m"
+
+    // 規劃
+    need_day = Math.ceil(need_total_sec / (planTime * 3600))
+
+    document.getElementById("planPlanTime").innerHTML = planTime
+    document.getElementById("planNeedDay").innerHTML = int_formatter.format(need_day)
+    document.getElementById("planCurrentLevel").innerHTML = currentLevel
+    document.getElementById("planTargetLevel").innerHTML = targetLevel
 }
