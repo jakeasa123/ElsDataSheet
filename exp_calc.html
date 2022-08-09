@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="expTable.js"></script>
-        <script src="expCalcScript.js"></script>
+        <script src="../ElsDataSheet/js/expTable.js"></script>
+        <script src="../ElsDataSheet/js/expCalcScript.js"></script>
     </head>
     <body>
 
@@ -19,8 +19,8 @@
         <div class="container p-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="/ElsDataSheet/index.html">初始頁面</a></li>
-                    <li class="breadcrumb-item"><a href="/ElsDataSheet/reforge_data.html">鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">初始頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">鍛造數據</a></li>
                     <li class="breadcrumb-item active" aria-current="page">經驗試算</li>
                 </ol>
             </nav>
@@ -56,7 +56,7 @@
                     <div class="mb-3">
                         <label for="planTime" class="form-label">每日時間規劃：</label>
                         <input type="input" class="form-control" id="planTime" aria-describedby="planTimeHelp" onchange="executeCalc()" value="2">
-                        <div id="planTimeHelp" class="form-text">此欄位用於規劃每日的進度，用於計算每日完成特定時數的話，需要多少天數來達成目標。</div>
+                        <div id="planTimeHelp" class="form-text">此欄位用於規劃每日的進度，將計算每日完成特定時數的話，需要多少天數來達成目標。</div>
                     </div>
                     
                 </div>
