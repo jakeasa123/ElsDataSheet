@@ -22,6 +22,7 @@
                     <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">初始頁面</a></li>
                     <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">鍛造數據</a></li>
                     <li class="breadcrumb-item active" aria-current="page">經驗試算</li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/def_calc.html">防禦性能</a></li>
                 </ol>
             </nav>
         </div>
@@ -44,13 +45,13 @@
                     <div class="mb-3">
                         <label for="expPerRun" class="form-label">每場副本經驗值：</label>
                         <input type="input" class="form-control" id="expPerRun" aria-describedby="expPerRunHelp" onchange="executeCalc()" value="300">
-                        <div id="expPerRunHelp" class="form-text">請以百萬 (million) 為單位，例如每場副本 3 億 (300,000,000) 經驗值時，請填入「300」。</div>
+                        <div id="expPerRunHelp" class="form-text">請以百萬 (million) 為單位填入，例如每場副本 3 億 (300,000,000) 經驗值時，請填入「300」。</div>
                     </div>
         
                     <div class="mb-3">
                         <label for="timePerRun" class="form-label">每場副本所需時間：</label>
                         <input type="input" class="form-control" id="timePerRun" aria-describedby="timePerRunHelp" onchange="executeCalc()" value="120">
-                        <div id="timePerRunHelp" class="form-text">請以「秒數」的方式填入，例如每場花費「02:10」則填入「130」。</div>
+                        <div id="timePerRunHelp" class="form-text">請以「秒」為單位填入，例如每場花費「02:10」則填入「130」；另外由於過場需要些許時間，建議填入的數值多增加 10 至 20 秒。</div>
                     </div>
         
                     <div class="mb-3">
@@ -64,19 +65,19 @@
                 <div class="col">
 
                     <span class="badge bg-primary">輸入</span>
-                    <p>目標自等級 <mark id="inputCurrentLevel">300</mark> 提升到等級 <mark id="inputTargetLevel">400</mark>。</p>
-                    <p>每場副本取得 <mark id="inputExpPerRun">300m</mark> 點經驗值，但需要花費 <mark id="inputTimePerRun">2:00</mark> 的時間。</p>
+                    <p>目標自等級<mark id="inputCurrentLevel">300</mark>提升到等級<mark id="inputTargetLevel">400</mark>。</p>
+                    <p>每場副本取得<mark id="inputExpPerRun">300m</mark>點經驗值，但需要花費<mark id="inputTimePerRun">2:00</mark>的時間。</p>
                     <p>在規劃上預計每日花費 <mark id="inputPlanTime">2</mark> 小時在這個副本上。</p>
 
                     <span class="badge bg-success">概要</span>
-                    <p>總計需要 <mark id="resultNeedExp">1,186,692,689,564</mark> 點經驗值。</p>
-                    <p>預估需要 <mark id="resultNeedRun">3,956</mark> 場副本。</p>
-                    <p>預估需要 <mark id="resultNeedHour">131</mark> 小時 <mark id="resultNeedMinute">52</mark> 分鐘又 <mark id="resultNeedSecond">0</mark> 秒鐘。</p>
-                    <p>預估每小時完成 <mark id="resultRunPerHour">30</mark> 次副本，並取得 <mark id="resultExpPerHour">9,000m</mark> 點的經驗值。</p>
+                    <p>總計需要<mark id="resultNeedExp">1,186,692,689,564</mark>點經驗值。</p>
+                    <p>預估需要<mark id="resultNeedRun">3,956</mark>場副本。</p>
+                    <p>預估需要<mark id="resultNeedHour">131</mark>小時<mark id="resultNeedMinute">52</mark>分鐘又<mark id="resultNeedSecond">0</mark>秒鐘。</p>
+                    <p>預估每小時完成<mark id="resultRunPerHour">30</mark>次副本，並取得<mark id="resultExpPerHour">9,000m</mark>點的經驗值。</p>
 
                     <span class="badge bg-danger">規劃</span>
-                    <p>如果每天完成 <mark id="planPlanTime">2</mark> 小時的進度的話：</p>
-                    <p>預估經過 <mark id="planNeedDay">66</mark> 天之後，可以達成等級 <mark id="planCurrentLevel">300</mark> → 等級 <mark id="planTargetLevel">400</mark> 的目標。</p>
+                    <p>如果每天完成<mark id="planPlanTime">2</mark>小時的進度的話：</p>
+                    <p>預估經過<mark id="planNeedDay">66</mark>天之後，可以達成等級<mark id="planCurrentLevel">300</mark> → 等級<mark id="planTargetLevel">400</mark>的目標。</p>
                     
                 </div>
             </div>

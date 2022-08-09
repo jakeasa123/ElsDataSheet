@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>Els 防禦性能計算機</title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="../ElsDataSheet/js/defCalcScript.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>Els 防禦性能計算機</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">初始頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/exp_calc.html">經驗試算</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">防禦性能</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="container p-3">
+            <div class="row">
+
+                <div class="col">
+                    <p>此頁面用於<mark>計算泰納布洛斯褲子的二星詞條</mark>，其結果並不適用於其他項目（例如聖獸鎧甲精靈石）。</p>
+
+                    <div class="mb-3">
+                        <label for="dmgReduce" class="form-label">傷害減少：</label>
+                        <input type="input" class="form-control" id="dmgReduce" onchange="executeCalc()" value="30.0">
+                        <div id="dmgReduceHelp" class="form-text">請填入目前角色面板上的傷害減少數值，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="def" class="form-label">防禦力：</label>
+                        <input type="input" class="form-control" id="def" onchange="executeCalc()" value="11750">
+                        <div id="defHelp" class="form-text">請填入目前角色面板上的防禦力，可以填入物理、魔法或兩者的平均值。</div>
+                    </div>
+                    
+                </div>
+
+                <div class="col">
+
+                    <span class="badge bg-primary">輸入</span>
+                    <p>原始傷害減少數值為<mark id="inputDmgReduce">30.0%</mark>。</p>
+                    <p>原始防禦力數值為<mark id="inputDef">11,750</mark>，可以減少<mark id="inputDefReduce">73.88%</mark>的傷害。</p>
+
+                    <span class="badge bg-success">概要</span>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">項目</th>
+                                <th scope="col">原始數值</th>
+                                <th scope="col">成長數值</th>
+                                <th scope="col">減傷效益</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">傷害減少</th>
+                                <td class="text-end" id="resultDmgReduce">30.0%</td>
+                                <td class="text-end" id="resultDmgReduceBuff">33.0%</td>
+                                <td class="text-end"><mark id="resultDmgReduceDmg">95.71%</mark></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">防禦力</th>
+                                <td class="text-end" id="resultDef">11,750</td>
+                                <td class="text-end" id="resultDefBuff">12,925</td>
+                                <td class="text-end"><mark id="resultDefDmg">93.12%</mark></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">HP</th>
+                                <td class="text-end">-</td>
+                                <td class="text-end">-</td>
+                                <td class="text-end"><mark>90.91%</mark></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>上表列出之成長數值，代表該項數值經過<mark>泰納布洛斯褲子的二星詞條</mark>增幅後的數值。</p>
+                    <p>減傷效益代表為<mark>成長數值所得到的傷害，是原始數值所得到的傷害的多少百分比</mark>，因此<mark>越低者表現越佳</mark>。</p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-3">
+
+            <h5>注意事項:</h5>
+            <p>[1] 對數值的運算上可能會出現些許誤差，其結果僅供參考。</p>
+            <p>[2] 未經過嚴謹驗證，請勿過分參照。</p>
+
+        </div>
+
+        <div class="container p-3">
+
+            <h5>參考與引用資料:</h5>
+            <p>[1] <strong>ElWiki</strong>: <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a></p>
+
+        </div>
+
+    </body>
+</html>
