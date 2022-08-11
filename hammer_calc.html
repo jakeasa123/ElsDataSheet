@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>Els 強化鐵鎚成本</title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+        <script src="../ElsDataSheet/js/hammerCalcScript.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>Els 強化鐵鎚成本</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">防具鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/exp_calc.html">共鳴經驗試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/def_calc.html">防禦屬性性能</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">強化鐵鎚成本</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="container p-3">
+            <div class="row">
+
+                <div class="col-4">
+
+                    <div class="mb-3">
+                        <label for="ecPrice" class="form-label">EC 比值：</label>
+                        <input type="input" class="form-control" id="ecPrice" onchange="executeCalc()" value="230000">
+                        <div id="ecPriceHelp" class="form-text">請填入目前的 EC 比值，若 1 EC 需要支付 23 萬 ED 時，即是填入「230000」。</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="stonePrice" class="form-label">強化守護石售價：</label>
+                        <input type="input" class="form-control" id="stonePrice" onchange="executeCalc()" value="7000000">
+                        <div id="stonePriceHelp" class="form-text">請填入「用於強化道具至 +11 的強化守護石」，在市場上的 ED 售價。</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="crystalPrice" class="form-label">強化守護水晶售價：</label>
+                        <input type="input" class="form-control" id="crystalPrice" onchange="executeCalc()" value="700000">
+                        <div id="crystalPriceHelp" class="form-text">請填入「用於強化道具至 +12 或 +13 的強化守護水晶」，在市場上的 ED 售價。</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="scrollPrice" class="form-label">強化修復卷售價：</label>
+                        <input type="input" class="form-control" id="scrollPrice" onchange="executeCalc()" value="54000000">
+                        <div id="scrollPriceHelp" class="form-text">請填入「用於修復損壞的防具的強化修復卷」，在市場上的 ED 售價。</div>
+                    </div>
+                    
+                </div>
+
+                <div class="col">
+
+                    <span class="badge bg-primary">輸入</span>
+                    <p>購買 1 EC，大約需要<mark id="inputECPrice">230,000</mark>的 ED。</p>
+                    <p>販售 1 顆強化守護石，大約能換得<mark id="inputStonePrice">7,000,000</mark>的 ED。</p>
+                    <p>販售 1 顆強化守護水晶，大約能換得<mark id="inputCrystalPrice">700,000</mark>的 ED。</p>
+                    <p>販售 1 張強化修復卷，大約能換得<mark id="inputScrollPrice">54,000,000</mark>的 ED。</p>
+
+                    <span class="badge bg-success">概要</span>
+                    <p>所需 ED = <mark>所需 EC * EC 比值</mark></p>
+                    <p>道具價值 = <mark>強化道具數量 * 強化道具售價</mark></p>
+                    <p>鐵鎚成本 = <mark>(所需 ED - 道具價值) / 鐵鎚數量</mark></p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">購買項目</th>
+                                <th scope="col">所需 EC</th>
+                                <th scope="col">所需 ED</th>
+                                <th scope="col">道具價值</th>
+                                <th scope="col">鐵鎚成本</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">強化守護石組合包</th>
+                                <td class="text-end">800 EC</td>
+                                <td class="text-end"><mark id="resultStoneED">184,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultStonePrice">140,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultStoneHammer">14,666,667</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">強化守護水晶組合包</th>
+                                <td class="text-end">1,050 EC</td>
+                                <td class="text-end"><mark id="resultCrystalED">241,500,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultCrystalPrice">7,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultCrystalHammer">23,450,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">強化修復卷組合包</th>
+                                <td class="text-end">1,200 EC</td>
+                                <td class="text-end"><mark id="resultScrollED">276,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultScrollPrice">270,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultScrollHammer">1,200,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">大強化守護石組合包</th>
+                                <td class="text-end">3,000 EC</td>
+                                <td class="text-end"><mark id="resultBigStoneED">690,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultBigStonePrice">700,000,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultBigStoneHammer">-500,000</mark>ED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
