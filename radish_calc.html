@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>Els 尋找蘿蔔試算</title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+        <script src="../ElsDataSheet/js/radishCalcScript.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>Els 尋找蘿蔔試算</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">防具鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/exp_calc.html">共鳴經驗試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/def_calc.html">防禦屬性性能</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/hammer_calc.html">鐵鎚成本試算</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">尋找蘿蔔試算</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="container p-3">
+            <div class="row">
+
+                <div class="col-4">
+
+                    <div class="mb-3">
+                        <label for="magicPotionPrice" class="form-label">胖胖杯售價：</label>
+                        <input type="input" class="form-control" id="magicPotionPrice" onchange="executeCalcPotion()" value="30000">
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="applePrice" class="form-label">一般蘋果售價：</label>
+                        <input type="input" class="form-control" id="applePrice" onchange="executeCalcPotion()" value="60000">
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="recoveryPotionPrice" class="form-label">不重要的完全恢復藥水售價：</label>
+                        <input type="input" class="form-control" id="recoveryPotionPrice" onchange="executeCalcPotion()" value="15000">
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="icePrice" class="form-label">紅豆冰售價：</label>
+                        <input type="input" class="form-control" id="icePrice" onchange="executeCalcPotion()" value="70000">
+                    </div>
+                    
+                </div>
+
+                <div class="col">
+
+                    <span class="badge bg-primary">輸入</span>
+                    <p>販售 1 瓶胖胖杯，大約能換得<mark id="inputMagicPotionPrice">30,000</mark>的 ED。</p>
+                    <p>販售 1 顆一般蘋果，大約能換得<mark id="inputApplePrice">60,000</mark>的 ED。</p>
+                    <p>販售 1 瓶不重要的完全恢復藥水，大約能換得<mark id="inputRecoveryPotionPrice">15,000</mark>的 ED。</p>
+                    <p>販售 1 杯紅豆冰，大約能換得<mark id="inputIcePrice">70,000</mark>的 ED。</p>
+
+                    <span class="badge bg-success">概要</span>
+                    <p>單位所得 = <mark>全數售出所得 / 所需蘿蔔數量</mark></p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">兌換項目</th>
+                                <th scope="col">所需蘿蔔數量</th>
+                                <th scope="col">單次兌換數量</th>
+                                <th scope="col">全數售出所得</th>
+                                <th scope="col">單一蘿蔔所得</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">胖胖杯</th>
+                                <td class="text-end">1 蘿蔔</td>
+                                <td class="text-end">5 瓶</td>
+                                <td class="text-end"><mark id="resultMagicPotionPrice">150,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultMagicPotionPricePerRadish">150,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">一般蘋果</th>
+                                <td class="text-end">5 蘿蔔</td>
+                                <td class="text-end">10 顆</td>
+                                <td class="text-end"><mark id="resultApplePrice">600,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultApplePricePerRadish">120,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">不重要的完全恢復藥水</th>
+                                <td class="text-end">5 蘿蔔</td>
+                                <td class="text-end">10 瓶</td>
+                                <td class="text-end"><mark id="resultRecoveryPotionPrice">150,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultRecoveryPotionPricePerRadish">30,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">紅豆冰</th>
+                                <td class="text-end">10 蘿蔔</td>
+                                <td class="text-end">10 杯</td>
+                                <td class="text-end"><mark id="resultIcePrice">700,000</mark>ED</td>
+                                <td class="text-end"><mark id="resultIcePricePerRadish">70,000</mark>ED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
