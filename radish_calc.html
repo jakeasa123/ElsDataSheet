@@ -30,6 +30,7 @@
         </div>
         
         <div class="container p-3">
+
             <div class="row">
 
                 <div class="col-4">
@@ -109,7 +110,206 @@
                     </table>
 
                 </div>
+
             </div>
+            
+            <div class="row mt-5">
+                <h5>下表用於<mark>計算黑茲浩克兌換項目的推算價值</mark>請務必留意注意事項:</h5>
+                <p>[1] 所有單位以「百萬 (million)」計算，但<mark>唯獨冰塊 (虹霓珠) 要填入完整的價位</mark>，也就是看板上冰塊售價 5,000 時，就請直接填入「5000」。</p>
+                <p>[2] 時裝兌換上，官方設有群組的規定，<mark>在單個兌換項目上，不會考量必須先兌換冰機的問題</mark>，例如兌換上衣時裝箱子要 14 隻黑茲浩克，就只會計算<mark>上衣時裝箱子價格 / 14</mark>而已。</p>
+                <p>[3] 延續 [2] 之說明，每個群組下會列出「完整兌換」的數據，是指<mark>包含冰機在內，兌換該群組所有項目一次</mark>的所需花費以及預估所得。</p>
+
+                <h6 class="text-center mt-3">自由兌換項目</h6>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">兌換項目</th>
+                                    <th scope="col">所需黑茲浩克</th>
+                                    <th scope="col">項目單價</th>
+                                    <th scope="col">推算單位價值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center" scope="row">虹霓珠</th>
+                                    <td class="text-end">1 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="glaciaPrice" onchange="executeCalcHedgehog()" value="5000">
+                                    </td>
+                                    <td class="text-end"><mark id="resultAmetPrice">33,333,500</mark>ED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">兌換項目</th>
+                                    <th scope="col">所需黑茲浩克</th>
+                                    <th scope="col">項目單價</th>
+                                    <th scope="col">推算單位價值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center" scope="row">鑑定卷軸</th>
+                                    <td class="text-end">3 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="reScrollPrice" onchange="executeCalcHedgehog()" value="6.5">
+                                    </td>
+                                    <td class="text-end"><mark id="resultReScrollPrice">21,666,667</mark>ED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h6 class="text-center mt-3">群組兌換項目</h6>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">兌換項目</th>
+                                    <th scope="col">所需黑茲浩克</th>
+                                    <th scope="col">項目單價</th>
+                                    <th scope="col">推算單位價值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center" scope="row">剉冰機箱子</th>
+                                    <td class="text-end">8 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="burnerPriceA" onchange="executeCalcHedgehog()" value="14">
+                                    </td>
+                                    <td class="text-end"><mark id="resultBurnerPriceA">17,500,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">上衣時裝箱子</th>
+                                    <td class="text-end">14 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="topPrice" onchange="executeCalcHedgehog()" value="200">
+                                    </td>
+                                    <td class="text-end"><mark id="resultTopPrice">14,285,714</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">下褲時裝箱子</th>
+                                    <td class="text-end">14 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="btmPrice" onchange="executeCalcHedgehog()" value="200">
+                                    </td>
+                                    <td class="text-end"><mark id="resultBtmPrice">14,285,714</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">手套時裝箱子</th>
+                                    <td class="text-end">13 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="glovePrice" onchange="executeCalcHedgehog()" value="200">
+                                    </td>
+                                    <td class="text-end"><mark id="resultGlovePrice">15,384,615</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">鞋子時裝箱子</th>
+                                    <td class="text-end">13 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="shoesPrice" onchange="executeCalcHedgehog()" value="200">
+                                    </td>
+                                    <td class="text-end"><mark id="resultShoesPrice">15,384,615</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">頭髮時裝箱子</th>
+                                    <td class="text-end">16 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="hairPrice" onchange="executeCalcHedgehog()" value="200">
+                                    </td>
+                                    <td class="text-end"><mark id="resultHairPrice">12,500,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">特髮時裝箱子</th>
+                                    <td class="text-end">16 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="speHairPrice" onchange="executeCalcHedgehog()" value="200">
+                                    </td>
+                                    <td class="text-end"><mark id="resultSpeHairPrice">12,500,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">完整兌換</th>
+                                    <td class="text-end">94 隻</td>
+                                    <td class="text-end"><mark id="fullPriceA">1,340,000,000</mark>ED</td>
+                                    <td class="text-end"><mark id="resultFullPriceA">14,255,319</mark>ED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">兌換項目</th>
+                                    <th scope="col">所需黑茲浩克</th>
+                                    <th scope="col">項目單價</th>
+                                    <th scope="col">推算單位價值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center" scope="row">剉冰機箱子</th>
+                                    <td class="text-end">8 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="burnerPriceB" onchange="executeCalcHedgehog()" value="14" disabled>
+                                    </td>
+                                    <td class="text-end"><mark id="resultBurnerPriceB">17,500,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">武器時裝箱子</th>
+                                    <td class="text-end">16 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="weaponPrice" onchange="executeCalcHedgehog()" value="300">
+                                    </td>
+                                    <td class="text-end"><mark id="resultWeaponPrice">18,750,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">上衣飾品箱子</th>
+                                    <td class="text-end">16 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="acc1Price" onchange="executeCalcHedgehog()" value="300">
+                                    </td>
+                                    <td class="text-end"><mark id="resultAcc1Price">18,750,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">臉中飾品箱子</th>
+                                    <td class="text-end">16 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="acc2Price" onchange="executeCalcHedgehog()" value="300">
+                                    </td>
+                                    <td class="text-end"><mark id="resultAcc2Price">18,750,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">耳環飾品箱子</th>
+                                    <td class="text-end">16 隻</td>
+                                    <td class="text-end">
+                                        <input type="input" class="form-control" id="acc3Price" onchange="executeCalcHedgehog()" value="300">
+                                    </td>
+                                    <td class="text-end"><mark id="resultAcc3Price">18,750,000</mark>ED</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">完整兌換</th>
+                                    <td class="text-end">72 隻</td>
+                                    <td class="text-end"><mark id="fullPriceB">1,340,000,000</mark>ED</td>
+                                    <td class="text-end"><mark id="resultFullPriceB">18,611,111</mark>ED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>若要修改此群組的剉冰機箱子價格，<mark>需要修改左側群組的剉冰機箱子價格</mark>，會自動連帶更新。</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
         
     </body>
