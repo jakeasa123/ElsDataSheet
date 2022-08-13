@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>Els 尋找蘿蔔試算</title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+        <script src="../ElsDataSheet/js/raid12CalcScript.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>Els 尋找蘿蔔試算</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">防具鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/exp_calc.html">共鳴經驗試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/def_calc.html">防禦屬性性能</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/hammer_calc.html">鐵鎚成本試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/radish_calc.html">尋找蘿蔔試算</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">１２襲擊試算</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="container p-3">
+
+            <span class="badge bg-primary">火焰的象徵</span>
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width: 35%">兌換項目</th>
+                        <th scope="col" style="width: 20%">項目單價</th>
+                        <th scope="col" style="width: 15%">素材數量</th>
+                        <th scope="col" style="width: 15%">素材單價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-center" scope="row">10x 紅豆冰</th>
+                        <td class="text-center"><input class="form-control" id="inputIcePotion" value="80000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">2 顆</td>
+                        <td class="text-end"><mark id="resultIcePotion">400,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">10x 化石藥水</th>
+                        <td class="text-center"><input class="form-control" id="inputMountPotion" value="80000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">2 顆</td>
+                        <td class="text-end"><mark id="resultMountPotion">400,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">1x 適應力靈藥</th>
+                        <td class="text-center"><input class="form-control" id="inputAdaptPotion" value="900000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">2 顆</td>
+                        <td class="text-end"><mark id="resultAdaptPotion">450,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">10x 燦爛的紅色魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputRedStone" value="800000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">40 顆</td>
+                        <td class="text-end"><mark id="resultRedStone">200,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">10x 燦爛的藍色魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputBlueStone" value="800000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">40 顆</td>
+                        <td class="text-end"><mark id="resultBlueStone">200,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">10x 燦爛的黃色魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputYellowStone" value="800000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">40 顆</td>
+                        <td class="text-end"><mark id="resultYellowStone">200,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">2x 燦爛的巨型魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputGiantStone" value="3500000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">40 顆</td>
+                        <td class="text-end"><mark id="resultGiantStone">175,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">1x 12R 重置券</th>
+                        <td class="text-center"><input class="form-control" id="input12RCoupon" value="90000000" onchange="executeCalcSymbol()"></td>
+                        <td class="text-center">350 顆</td>
+                        <td class="text-end"><mark id="result12RCoupon">257,142.86</mark>ED</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-text">請留意「12R 重置券」較難售出的問題。</div>
+
+            <span class="badge bg-primary mt-5">火焰的結晶體</span>
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width: 35%">兌換項目</th>
+                        <th scope="col" style="width: 20%">項目單價</th>
+                        <th scope="col" style="width: 15%">素材數量</th>
+                        <th scope="col" style="width: 15%">素材單價</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-center" scope="row">300x 化石藥水</th>
+                        <td class="text-center"><input class="form-control" id="inputMountPotionCrystal" value="80000" onchange="executeCalcCrystal()"></td>
+                        <td class="text-center">2 顆</td>
+                        <td class="text-end"><mark id="resultMountPotionCrystal">12,000,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">60x 燦爛的紅色魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputRedStoneCrystal" value="800000" onchange="executeCalcCrystal()"></td>
+                        <td class="text-center">3 顆</td>
+                        <td class="text-end"><mark id="resultRedStoneCrystal">16,000,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">60x 燦爛的藍色魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputBlueStoneCrystal" value="800000" onchange="executeCalcCrystal()"></td>
+                        <td class="text-center">3 顆</td>
+                        <td class="text-end"><mark id="resultBlueStoneCrystal">16,000,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">60x 燦爛的黃色魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputYellowStoneCrystal" value="800000" onchange="executeCalcCrystal()"></td>
+                        <td class="text-center">3 顆</td>
+                        <td class="text-end"><mark id="resultYellowStoneCrystal">16,000,000</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">10x 燦爛的巨型魔力石</th>
+                        <td class="text-center"><input class="form-control" id="inputGiantStoneCrystal" value="3500000" onchange="executeCalcCrystal()"></td>
+                        <td class="text-center">3 顆</td>
+                        <td class="text-end"><mark id="resultGiantStoneCrystal">11,666,666.67</mark>ED</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" scope="row">1x 12R 重置券</th>
+                        <td class="text-center"><input class="form-control" id="input12RCouponCrystal" value="90000000" onchange="executeCalcCrystal()"></td>
+                        <td class="text-center">5 顆</td>
+                        <td class="text-end"><mark id="result12RCouponCrystal">18,000,000</mark>ED</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-text">請留意「12R 重置券」較難售出的問題。</div>
+
+
+        </div>
+        
+    </body>
+</html>
