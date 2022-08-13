@@ -8,6 +8,7 @@
         <script src="../ElsDataSheet/js/equipInfoTable.js"></script>
         <script src="../ElsDataSheet/js/setInfoTable.js"></script>
         <script src="../ElsDataSheet/js/combiCalcScript.js"></script>
+        <script src="../ElsDataSheet/js/saveLoadScript.js"></script>
     </head>
     <body onload="initialData()">
 
@@ -49,10 +50,11 @@
                         <a class="list-group-item list-group-item-action" id="list-equip-list" data-bs-toggle="list" href="#list-equip" role="tab" aria-controls="list-equip">防具性能</a>
                         <a class="list-group-item list-group-item-action" id="list-other-list" data-bs-toggle="list" href="#list-other" role="tab" aria-controls="list-other">其他數值</a>
                         <a class="list-group-item list-group-item-action" id="list-personal-list" data-bs-toggle="list" href="#list-personal" role="tab" aria-controls="list-personal">個人自訂</a>
+                        <a class="list-group-item list-group-item-action" id="list-saveload-list" data-bs-toggle="list" href="#list-saveload" role="tab" aria-controls="list-saveload">賽弗羅德</a>
                     </div>
                 </div>
                 <div class="col-9">
-                    <div class="tab-content" id="nav-tabContent" style="overflow-y: scroll;">
+                    <div class="tab-content" id="nav-tabContent">
                         
                         <!-- 職業特性 -->
                         <div class="tab-pane fade show active" id="list-job" role="tabpanel" aria-labelledby="list-job-list">
@@ -295,6 +297,25 @@
                             </div>
                         </div>
 
+                        <!-- Save Load -->
+                        <div class="tab-pane fade" id="list-saveload" role="tabpanel" aria-labelledby="list-saveload-list">
+                            <p class="mb-5">此區域用於產生或讀取數據字串，可以便捷地載入先前輸入的資訊。</p>
+                            
+                            <span class="badge bg-success mb-3">產生數據字串</span>
+                            <div class="mb-5">
+                                <input class="form-control" id="inputSaveData">
+                                <button type="button" class="btn btn-success mt-1" onclick="saveData()">產生</button>
+                                <button type="button" class="btn btn-success mt-1 mx-3" onclick="copyData()">複製</button>
+                            </div>
+
+                            <span class="badge bg-danger mb-3">讀取數據字串</span>
+                            <div class="mb-3">
+                                <div id="inputLoadDataHelp" class="form-text">請留意讀取後將取代目前所有輸入欄位的資訊。</div>
+                                <input class="form-control" id="inputLoadData" aria-describedby="inputLoadDataHelp">
+                                <button type="button" class="btn btn-danger mt-1" onclick="loadData()">讀取</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -382,9 +403,6 @@
             </div>
             <div class="d-grid gap-2 m-3">
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#submitModal">開始試算</button>
-            </div>
-            <div class="progress m-3">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="progressBar"></div>
             </div>
             <div class="mb-3">
                 <label for="calcNote" class="form-label">試算筆記本</label>
