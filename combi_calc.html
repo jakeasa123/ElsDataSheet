@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-9">
-                    <div class="tab-content" id="nav-tabContent" style="height: 300px; overflow-y: scroll;">
+                    <div class="tab-content" id="nav-tabContent" style="overflow-y: scroll;">
                         
                         <!-- 職業特性 -->
                         <div class="tab-pane fade show active" id="list-job" role="tabpanel" aria-labelledby="list-job-list">
@@ -128,20 +128,32 @@
                             <div class="mb-3">
                                 <span class="badge bg-info mb-3">計算機制</span>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="inputEquipRadio" id="inputEquipRadioOnlyOne" onclick="equipRadioSelect()" checked>
-                                    <label class="form-check-label" for="inputEquipRadioOnlyOne">
-                                        簡易試算（僅試算防具 A 的數據）
+                                    <input class="form-check-input" type="radio" name="inputEquipRadio" id="inputEquipRadioAmet" onclick="equipRadioSelect()" checked>
+                                    <label class="form-check-label" for="inputEquipRadioAmet">
+                                        試算虹霓降魔防具
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="inputEquipRadio" id="inputEquipRadioTene" onclick="equipRadioSelect()">
+                                    <label class="form-check-label" for="inputEquipRadioTene">
+                                        試算泰納布洛斯防具
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="inputEquipRadio" id="inputEquipRadioBoth" onclick="equipRadioSelect()">
                                     <label class="form-check-label" for="inputEquipRadioBoth">
-                                        完整試算（試算防具 A 與防具 B 的數據，會花費數倍的時間）
+                                        完整試算（試算虹霓降魔防具與泰納布洛斯防具的數據，會花費數倍的時間）
                                     </label>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <span class="badge bg-dark mb-3">防具 A</span>
+                                <span class="badge bg-dark mb-3">虹霓降魔防具</span>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkBoxAmetType" checked>
+                                    <label class="form-check-label" for="checkBoxAmetType">
+                                        以「丹套」進行計算
+                                    </label>
+                                </div>
                                 <table class="table table-striped align-middle table-sm">
                                     <thead>
                                         <tr class="text-center">
@@ -154,54 +166,39 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-center" scope="row">上衣</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeTopA">
-                                                    <option value="13" selected>虹霓降魔</option>
-                                                    <option value="17">泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeTopA" value="11"></td>
-                                            <td><input class="form-control" id="inputEquipReforgeTopA" value="15"></td>
+                                            <td class="text-center">虹霓降魔</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeTopAmet" value="11"></td>
+                                            <td><input class="form-control" id="inputEquipReforgeTopAmet" value="15"></td>
                                         </tr>
                                         <tr>
                                             <th class="text-center" scope="row">下褲</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeBottomA">
-                                                    <option value="13" selected>虹霓降魔</option>
-                                                    <option value="17">泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeBottomA" value="11"></td>
-                                            <td><input class="form-control" id="inputEquipReforgeBottomA" value="15"></td>
+                                            <td class="text-center">虹霓降魔</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeBottomAmet" value="11"></td>
+                                            <td><input class="form-control" id="inputEquipReforgeBottomAmet" value="15"></td>
                                         </tr>
                                         <tr>
                                             <th class="text-center" scope="row">手套</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeGloveA">
-                                                    <option value="13" selected>虹霓降魔</option>
-                                                    <option value="17">泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeGloveA" value="11"></td>
-                                            <td><input class="form-control" id="inputEquipReforgeGloveA" value="15"></td>
+                                            <td class="text-center">虹霓降魔</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeGloveAmet" value="11"></td>
+                                            <td><input class="form-control" id="inputEquipReforgeGloveAmet" value="15"></td>
                                         </tr>
                                         <tr>
                                             <th class="text-center" scope="row">鞋子</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeShoesA">
-                                                    <option value="13" selected>虹霓降魔</option>
-                                                    <option value="17">泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeShoesA" value="11"></td>
-                                            <td><input class="form-control" id="inputEquipReforgeShoesA" value="15"></td>
+                                            <td class="text-center">虹霓降魔</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeShoesAmet" value="11"></td>
+                                            <td><input class="form-control" id="inputEquipReforgeShoesAmet" value="15"></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p class="equipHintA">若選擇完整試算，群組 A 會強制調整為「虹霓降魔」防具的群組。</p>
                             </div>
                             <div class="mb-3">
-                                <span class="badge bg-dark mb-3">防具 B</span>
+                                <span class="badge bg-dark mb-3">泰納布洛斯防具</span>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkBoxTeneType" checked>
+                                    <label class="form-check-label" for="checkBoxTeneType">
+                                        以「流血/團攻」進行計算
+                                    </label>
+                                </div>
                                 <table class="table table-striped align-middle table-sm">
                                     <thead>
                                         <tr class="text-center">
@@ -214,51 +211,35 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-center" scope="row">上衣</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeTopB" disabled>
-                                                    <option value="13">虹霓降魔</option>
-                                                    <option value="17" selected>泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeTopB" value="11" disabled></td>
-                                            <td><input class="form-control" id="inputEquipReforgeTopB" value="15" disabled></td>
+                                            <td class="text-center">泰納布洛斯</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeTopTene" value="11" disabled></td>
+                                            <td><input class="form-control" id="inputEquipReforgeTopTene" value="15" disabled></td>
                                         </tr>
                                         <tr>
                                             <th class="text-center" scope="row">下褲</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeBottomB" disabled>
-                                                    <option value="13">虹霓降魔</option>
-                                                    <option value="17" selected>泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeBottomB" value="11" disabled></td>
-                                            <td><input class="form-control" id="inputEquipReforgeBottomB" value="15" disabled></td>
+                                            <td class="text-center">泰納布洛斯</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeBottomTene" value="11" disabled></td>
+                                            <td><input class="form-control" id="inputEquipReforgeBottomTene" value="15" disabled></td>
                                         </tr>
                                         <tr>
                                             <th class="text-center" scope="row">手套</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeGloveB" disabled>
-                                                    <option value="13">虹霓降魔</option>
-                                                    <option value="17" selected>泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeGloveB" value="11" disabled></td>
-                                            <td><input class="form-control" id="inputEquipReforgeGloveB" value="15" disabled></td>
+                                            <td class="text-center">泰納布洛斯</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeGloveTene" value="11" disabled></td>
+                                            <td><input class="form-control" id="inputEquipReforgeGloveTene" value="15" disabled></td>
                                         </tr>
                                         <tr>
                                             <th class="text-center" scope="row">鞋子</th>
-                                            <td>
-                                                <select class="form-select" id="inputEquipTypeShoesB" disabled>
-                                                    <option value="13">虹霓降魔</option>
-                                                    <option value="17" selected>泰納布洛斯</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="form-control" id="inputEquipUpgradeShoesB" value="11" disabled></td>
-                                            <td><input class="form-control" id="inputEquipReforgeShoesB" value="15" disabled></td>
+                                            <td class="text-center">泰納布洛斯</td>
+                                            <td><input class="form-control" id="inputEquipUpgradeShoesTene" value="11" disabled></td>
+                                            <td><input class="form-control" id="inputEquipReforgeShoesTene" value="15" disabled></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p class="equipHintB">若選擇完整試算，群組 B 會強制調整為「泰納布洛斯」防具的群組。</p>
+                                <p>泰納布洛斯防具會固定以「一星技傷」與「三星血殺」數值進行計算。</p>
+                                <p>以「流血/團攻」進行計算時，<mark>最終試算數值會乘上 1.1 倍</mark>。</p>
+                                <p>三星血殺會使最終試算數值再次提升:</p>
+                                <p>[半套]: <mark>試算數值 * 60% * 100% + 試算數值 * 40% * 104% = 101.6% 試算數值</mark></p>
+                                <p>[全套]: <mark>試算數值 * 20% * 100% + 試算數值 * 80% * 108% = 106.4% 試算數值</mark></p>
                             </div>
                         </div>
 
@@ -268,11 +249,6 @@
                                 <label for="inputOtherBossDmgStone" class="form-label">Boss 傷害魔法石</label>
                                 <input class="form-control" id="inputOtherBossDmgStone" aria-describedby="inputOtherBossDmgStoneHelp" value="0">
                                 <div id="inputOtherBossDmgStoneHelp" class="form-text">全身裝備的魔法石當中，所鑲嵌「Boss 傷害魔法石」的合計數量；每 1 顆將被視為 2.5% 的 Boss 傷害，因此，鑲嵌於武器的魔法石，需要計為 2 顆。</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputOtherSkillDmg" class="form-label">特定技能傷害</label>
-                                <input class="form-control" id="inputOtherSkillDmg" aria-describedby="inputOtherSkillDmgHelp" value="0">
-                                <div id="inputOtherSkillDmgHelp" class="form-text">經由虹霓降魔防具或是泰納布洛斯防具，所取得的「特定技能傷害 + x%」效果總和。</div>
                             </div>
                             <div class="mb-3">
                                 <label for="inputOtherDeBuff" class="form-label">魔界 DeBuff</label>
@@ -289,10 +265,6 @@
                         <!-- 個人自訂 -->
                         <div class="tab-pane fade" id="list-personal" role="tabpanel" aria-labelledby="list-personal-list">
                             <p>此區域為填入特定的追加數值時使用，大多用於填入「稱號」、「協同」、「溫泉」與「靈藥」。</p>
-                            <div class="mb-3">
-                                <label for="inputPerPolar" class="form-label">兩極化</label>
-                                <input class="form-control" id="inputPerPolar" value="3">
-                            </div>
                             <div class="mb-3">
                                 <label for="inputPerAtkPower" class="form-label">攻擊力 + %</label>
                                 <input class="form-control" id="inputPerAtkPower" value="0">
@@ -312,6 +284,10 @@
                             <div class="mb-3">
                                 <label for="inputPerAllSkillDmg" class="form-label">所有技能傷害</label>
                                 <input class="form-control" id="inputPerAllSkillDmg" value="0">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputPerPolar" class="form-label">兩極化</label>
+                                <input class="form-control" id="inputPerPolar" value="3">
                             </div>
                             <div class="mb-3">
                                 <label for="inputPerAdapt" class="form-label">適應力</label>
@@ -335,7 +311,7 @@
                     </div>
                 </div>
                 <div class="col-9">
-                    <div class="tab-content" id="nav-tabContent" style="height: 300px; overflow-y: scroll;">
+                    <div class="tab-content" id="nav-tabContent" style="height: 500px; overflow-y: scroll;">
 
                         <!-- 考量選擇 -->
                         <div class="tab-pane fade show active" id="list-input-acc" role="tabpanel" aria-labelledby="list-input-acc-list">
@@ -344,8 +320,8 @@
                             <table class="table table-striped align-middle table-sm" id="combiEquipTable">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col" style="width: 10%">啟用</th>
-                                        <th scope="col" style="width: 10%">名稱</th>
+                                        <th scope="col" style="width: 7%">啟用</th>
+                                        <th scope="col" style="width: 13%">名稱</th>
                                         <th scope="col" style="width: 10%">部位</th>
                                         <th scope="col" style="width: 10%">套裝</th>
                                         <th scope="col" style="width: 10%">技能傷害</th>
@@ -391,15 +367,15 @@
         </div>
 
         <div class="container p-3">
-            <span class="badge bg-danger mb-3">試算數據</span>
+            <span class="badge bg-danger mb-3">試算筆記</span>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkBoxCooldown">
+                <input class="form-check-input" type="checkbox" id="checkBoxCooldown">
                 <label class="form-check-label" for="checkBoxCooldown">
                     僅考慮包含「時裝左五: 埃力格」或是「上衣飾品: 童話上衣」的組合（具備冷卻時間減少效果）
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkBoxVer55">
+                <input class="form-check-input" type="checkbox" id="checkBoxVer55">
                 <label class="form-check-label" for="checkBoxVer55">
                     以兩極化與適應力上限 55% 版本試算
                 </label>
@@ -408,16 +384,163 @@
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#submitModal">開始試算</button>
             </div>
             <div class="progress m-3">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="progressBar"></div>
+            </div>
+            <div class="mb-3">
+                <label for="calcNote" class="form-label">試算筆記本</label>
+                <textarea class="form-control" id="calcNote" rows="10"></textarea>
             </div>
         </div>
 
         <div class="container p-3">
+            <div class="row">
+                <div class="col-3">
+                    <span class="badge bg-dark mb-3">人物數值</span>
+                    <table class="table table-striped align-middle table-sm">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" style="width: 70%">項目</th>
+                                <th scope="col" style="width: 30%">數值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">攻擊力 + %</th>
+                                <td class="text-center" id="resultAtkPower">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">暴擊傷害</th>
+                                <td class="text-center" id="resultCritDmg">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">Boss 傷害</th>
+                                <td class="text-center" id="resultBossDmg">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">特定技能傷害</th>
+                                <td class="text-center" id="resultSkillDmg">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">所有技能傷害</th>
+                                <td class="text-center" id="resultAllSkillDmg">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">兩極化</th>
+                                <td class="text-center" id="resultPolar">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">適應力</th>
+                                <td class="text-center" id="resultAdapt">未計算</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <h5>注意事項:</h5>
-            <p>[1] 此頁面僅有粗略地計算少部分屬性，其結果僅供參考。</p>
-            <p>[2] 對數值的運算上可能會出現些許誤差，其結果僅供參考。</p>
+                <div class="col-3">
+                    <span class="badge bg-dark mb-3">共鳴分配</span>
+                    <table class="table table-striped align-middle table-sm">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" style="width: 70%">項目</th>
+                                <th scope="col" style="width: 30%">數值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">兩極化</th>
+                                <td class="text-center" id="resultResonPolar">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">Boss 傷害</th>
+                                <td class="text-center" id="resultResonBossDmg">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">適應力</th>
+                                <td class="text-center" id="resultResonAdapt">未計算</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-3">
+                    <span class="badge bg-dark mb-3">裝備與飾品選擇</span>
+                    <table class="table table-striped align-middle table-sm">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" style="width: 40%">部位</th>
+                                <th scope="col" style="width: 60%">選擇</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 虹霓降魔防具 - 丹套,七界權能,魅影武器,魅影支援,魅影臉中,七界上衣,七界下衣,魅影手臂,童話耳環,極光項鍊,4攻,魅影右二,魅影右三 -->
+                            <tr>
+                                <th class="text-center" scope="row">防具</th>
+                                <td class="text-center" id="resultCombiEquip">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">時裝左五</th>
+                                <td class="text-center" id="resultCombiAvaLeft">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">時裝武器</th>
+                                <td class="text-center" id="resultCombiAvaWeapon">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">支援飾品</th>
+                                <td class="text-center" id="resultCombiAccSup">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">臉中飾品</th>
+                                <td class="text-center" id="resultCombiAccMid">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">上衣飾品</th>
+                                <td class="text-center" id="resultCombiAccTop">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">下衣飾品</th>
+                                <td class="text-center" id="resultCombiAccBtm">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">手臂飾品</th>
+                                <td class="text-center" id="resultCombiAccHand">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">耳環飾品</th>
+                                <td class="text-center" id="resultCombiAccEarRing">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">項鍊飾品</th>
+                                <td class="text-center" id="resultCombiAccNeck">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">聖獸精靈</th>
+                                <td class="text-center" id="resultCombiArtRing">未計算</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-3">
+                    <span class="badge bg-dark mb-3">最終數值</span>
+                    <table class="table table-striped align-middle table-sm">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" style="width: 40%">#</th>
+                                <th scope="col" style="width: 60%">數值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 虹霓降魔防具 - 丹套,七界權能,魅影武器,魅影支援,魅影臉中,七界上衣,七界下衣,魅影手臂,童話耳環,極光項鍊,4攻,魅影右二,魅影右三 -->
+                            <tr>
+                                <th class="text-center" scope="row">評估</th>
+                                <td class="text-center" id="resultValue">未計算</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
+            </div>
         </div>
 
         <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
@@ -437,7 +560,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">放棄試算</button>
-                        <button type="button" class="btn btn-danger" onclick="submitCalc()">確定進行</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="submitCalc()">確定進行</button>
                     </div>
                 </div>
             </div>

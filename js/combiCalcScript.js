@@ -1,3 +1,5 @@
+var int_formatter = new Intl.NumberFormat('en-US')
+
 // Basic Function
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -5,6 +7,10 @@ function numberWithCommas(x) {
 
 function roundTo(num, decimal) {
     return Math.round( ( num + Number.EPSILON ) * Math.pow( 10, decimal ) ) / Math.pow( 10, decimal )
+}
+
+function getOccurrence(array, value) {
+    return array.filter((v) => (v === value)).length;
 }
 
 // Object
@@ -27,46 +33,68 @@ function weaponTypeSelect() {
 }
 
 function equipRadioSelect() {
-    if (document.getElementById("inputEquipRadioOnlyOne").checked) {
-        document.getElementById("inputEquipTypeTopB").disabled = true
-        document.getElementById("inputEquipTypeBottomB").disabled = true
-        document.getElementById("inputEquipTypeGloveB").disabled = true
-        document.getElementById("inputEquipTypeShoesB").disabled = true
+    if (document.getElementById("inputEquipRadioAmet").checked) {
+        document.getElementById("inputEquipUpgradeTopAmet").disabled = false
+        document.getElementById("inputEquipUpgradeBottomAmet").disabled = false
+        document.getElementById("inputEquipUpgradeGloveAmet").disabled = false
+        document.getElementById("inputEquipUpgradeShoesAmet").disabled = false
 
-        document.getElementById("inputEquipUpgradeTopB").disabled = true
-        document.getElementById("inputEquipUpgradeBottomB").disabled = true
-        document.getElementById("inputEquipUpgradeGloveB").disabled = true
-        document.getElementById("inputEquipUpgradeShoesB").disabled = true
+        document.getElementById("inputEquipReforgeTopAmet").disabled = false
+        document.getElementById("inputEquipReforgeBottomAmet").disabled = false
+        document.getElementById("inputEquipReforgeGloveAmet").disabled = false
+        document.getElementById("inputEquipReforgeShoesAmet").disabled = false
 
-        document.getElementById("inputEquipReforgeTopB").disabled = true
-        document.getElementById("inputEquipReforgeBottomB").disabled = true
-        document.getElementById("inputEquipReforgeGloveB").disabled = true
-        document.getElementById("inputEquipReforgeShoesB").disabled = true
+        document.getElementById("inputEquipUpgradeTopTene").disabled = true
+        document.getElementById("inputEquipUpgradeBottomTene").disabled = true
+        document.getElementById("inputEquipUpgradeGloveTene").disabled = true
+        document.getElementById("inputEquipUpgradeShoesTene").disabled = true
+
+        document.getElementById("inputEquipReforgeTopTene").disabled = true
+        document.getElementById("inputEquipReforgeBottomTene").disabled = true
+        document.getElementById("inputEquipReforgeGloveTene").disabled = true
+        document.getElementById("inputEquipReforgeShoesTene").disabled = true
+
+    } else if (document.getElementById("inputEquipRadioTene").checked) {
+        document.getElementById("inputEquipUpgradeTopAmet").disabled = true
+        document.getElementById("inputEquipUpgradeBottomAmet").disabled = true
+        document.getElementById("inputEquipUpgradeGloveAmet").disabled = true
+        document.getElementById("inputEquipUpgradeShoesAmet").disabled = true
+
+        document.getElementById("inputEquipReforgeTopAmet").disabled = true
+        document.getElementById("inputEquipReforgeBottomAmet").disabled = true
+        document.getElementById("inputEquipReforgeGloveAmet").disabled = true
+        document.getElementById("inputEquipReforgeShoesAmet").disabled = true
+
+        document.getElementById("inputEquipUpgradeTopTene").disabled = false
+        document.getElementById("inputEquipUpgradeBottomTene").disabled = false
+        document.getElementById("inputEquipUpgradeGloveTene").disabled = false
+        document.getElementById("inputEquipUpgradeShoesTene").disabled = false
+
+        document.getElementById("inputEquipReforgeTopTene").disabled = false
+        document.getElementById("inputEquipReforgeBottomTene").disabled = false
+        document.getElementById("inputEquipReforgeGloveTene").disabled = false
+        document.getElementById("inputEquipReforgeShoesTene").disabled = false
+
     } else {
-        document.getElementById("inputEquipTypeTopB").disabled = false
-        document.getElementById("inputEquipTypeBottomB").disabled = false
-        document.getElementById("inputEquipTypeGloveB").disabled = false
-        document.getElementById("inputEquipTypeShoesB").disabled = false
+        document.getElementById("inputEquipUpgradeTopAmet").disabled = false
+        document.getElementById("inputEquipUpgradeBottomAmet").disabled = false
+        document.getElementById("inputEquipUpgradeGloveAmet").disabled = false
+        document.getElementById("inputEquipUpgradeShoesAmet").disabled = false
 
-        document.getElementById("inputEquipUpgradeTopB").disabled = false
-        document.getElementById("inputEquipUpgradeBottomB").disabled = false
-        document.getElementById("inputEquipUpgradeGloveB").disabled = false
-        document.getElementById("inputEquipUpgradeShoesB").disabled = false
+        document.getElementById("inputEquipReforgeTopAmet").disabled = false
+        document.getElementById("inputEquipReforgeBottomAmet").disabled = false
+        document.getElementById("inputEquipReforgeGloveAmet").disabled = false
+        document.getElementById("inputEquipReforgeShoesAmet").disabled = false
 
-        document.getElementById("inputEquipReforgeTopB").disabled = false
-        document.getElementById("inputEquipReforgeBottomB").disabled = false
-        document.getElementById("inputEquipReforgeGloveB").disabled = false
-        document.getElementById("inputEquipReforgeShoesB").disabled = false
+        document.getElementById("inputEquipUpgradeTopTene").disabled = false
+        document.getElementById("inputEquipUpgradeBottomTene").disabled = false
+        document.getElementById("inputEquipUpgradeGloveTene").disabled = false
+        document.getElementById("inputEquipUpgradeShoesTene").disabled = false
 
-        document.getElementById("inputEquipTypeTopA").value = 13
-        document.getElementById("inputEquipTypeBottomA").value = 13
-        document.getElementById("inputEquipTypeGloveA").value = 13
-        document.getElementById("inputEquipTypeShoesA").value = 13
-
-        document.getElementById("inputEquipTypeTopB").value = 17
-        document.getElementById("inputEquipTypeBottomB").value = 17
-        document.getElementById("inputEquipTypeGloveB").value = 17
-        document.getElementById("inputEquipTypeShoesB").value = 17
+        document.getElementById("inputEquipReforgeTopTene").disabled = false
+        document.getElementById("inputEquipReforgeBottomTene").disabled = false
+        document.getElementById("inputEquipReforgeGloveTene").disabled = false
+        document.getElementById("inputEquipReforgeShoesTene").disabled = false
     }
 }
 
@@ -329,35 +357,1063 @@ function appendSet(input_data) {
 // Calc
 function submitCalc() {
     if (inputCheck()) {
-        
+        calcNote = document.getElementById("calcNote")
+        calcNote.value = ""
+
+        // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+        var charInfo = [0, 0, 0, 0, 0, 0, 0]
+        charInfo = updateByJob(charInfo)
+        charInfo = updateByWeapon(charInfo)
+        charInfo = updateByOther(charInfo)
+        charInfo = updateByPersonal(charInfo)
+        charInfo = updateByEquip(charInfo)
+        charInfo = updateByFixedEffect(charInfo)
+
+        if (document.getElementById("inputEquipRadioBoth").checked) {
+            calcNote.value += "# 已經計入「職業特性」、「武器性能」、「其他數值」、「個人自訂」和「固定項目」數值。\n由於需要計算虹霓降魔防具與泰納布洛斯防具，此階段尚未計入\n"
+        } else {
+            calcNote.value += "# 已經計入「職業特性」、「武器性能」、「防具性能」、「其他數值」、「個人自訂」和「固定項目」數值。\n"
+        }
+        calcNote.value += "- 固定項目: 火魔的印記、魂靈皇冠、瑪瑙碎片或巴力溫毛飾、艾特島飾品組、嗜肉骨斷、聖獸與賦靈錄\n"
+        calcNote.value += "- 目前數值: 攻擊力 + " + charInfo[0] + "%、暴擊傷害 + " + charInfo[1] + "%、Boss 傷害 + " + charInfo[2] + "%、特定技能傷害 + " + charInfo[3] + "%、所有技能傷害 + " + charInfo[4] + "%、兩極化 + " + charInfo[5] + "%、適應力 + " + charInfo[6] + "%\n\n"
+
+        calcNote.value += "# 讀取考量選擇 ... ...\n"
+        var equipDetail = readEquipInfo()
+        var combiCount = 1
+        equipDetail.forEach(function(part) {
+            combiCount *= part.length
+        });
+        calcNote.value += "- 分類 [ 左五 ] 包含 [ " + equipDetail[0].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 武器 ] 包含 [ " + equipDetail[1].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 支援 ] 包含 [ " + equipDetail[2].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 臉中 ] 包含 [ " + equipDetail[3].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 上衣 ] 包含 [ " + equipDetail[4].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 下衣 ] 包含 [ " + equipDetail[5].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 手臂 ] 包含 [ " + equipDetail[6].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 耳環 ] 包含 [ " + equipDetail[7].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 項鍊 ] 包含 [ " + equipDetail[8].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 聖獸戒指 ] 包含 [ " + equipDetail[9].length + " ] 種選擇\n"
+        calcNote.value += "# 目前具有 [ " + int_formatter.format(combiCount) + " ] 種組合。\n\n"
+
+        var setDetail = readSetInfo()
+        calcNote.value += "# 讀取套裝效果 ... ...\n"
+        calcNote.value += "# 得到 [ " + int_formatter.format(setDetail.length) + " ] 種套裝效果資料。\n\n"
+
+        calcNote.value += "# 展開計算 ... ...\n"
+        executeCalc(calcNote, charInfo, equipDetail, setDetail)
+        calcNote.value += "# 計算完成。\n"
+
+    } else {
+        alert("進行試算中途無法進行數值轉換，可能有部分欄位包含非數字的字元。")
     }
 }
 
 function inputCheck() {
-    try {
-        var tempNum = 0
-        var checkTargetList = [
-            // 職業特性
-            'inputJobAtkPower', 'inputJobCritDmg', 'inputJobBossDmg', 'inputJobSkillDmg', 'inputJobAllSkillDmg',
-            // 武器性能
-            'inputWeaponUpgrade', 'inputWeaponAtkPower', 'inputWeaponCritDmg',
-            // 防具性能
-            'inputEquipUpgradeTopA', 'inputEquipReforgeTopA', 'inputEquipUpgradeBottomA', 'inputEquipReforgeBottomA', 'inputEquipUpgradeGloveA', 'inputEquipReforgeGloveA', 'inputEquipUpgradeShoesA', 'inputEquipReforgeShoesA', 
-            'inputEquipUpgradeTopB', 'inputEquipReforgeTopB', 'inputEquipUpgradeBottomB', 'inputEquipReforgeBottomB', 'inputEquipUpgradeGloveB', 'inputEquipReforgeGloveB', 'inputEquipUpgradeShoesB', 'inputEquipReforgeShoesB', 
-            // 其他數值
-            'inputOtherBossDmgStone', 'inputOtherSkillDmg', 'inputOtherDeBuff', 'inputOtherReson',
-            // 個人自訂
-            'inputPerPolar', 'inputPerAtkPower', 'inputPerCritDmg', 'inputPerBossDmg', 'inputPerSkillDmg', 'inputPerAllSkillDmg', 'inputPerAdapt',
-        ]
-        checkTargetList.forEach(function(item) {
-            // tempNum = parseFloat(document.getElementById(item).value)
-            tempNum = parseFloat('0a')
-            throw BreakException
-        });
-        return true
+    var cancelFlag = true
+    var checkTargetList = [
+        // 職業特性
+        'inputJobAtkPower', 'inputJobCritDmg', 'inputJobBossDmg', 'inputJobSkillDmg', 'inputJobAllSkillDmg',
+        // 武器性能
+        'inputWeaponUpgrade', 'inputWeaponAtkPower', 'inputWeaponCritDmg',
+        // 防具性能
+        'inputEquipUpgradeTopAmet', 'inputEquipReforgeTopAmet', 'inputEquipUpgradeBottomAmet', 'inputEquipReforgeBottomAmet', 'inputEquipUpgradeGloveAmet', 'inputEquipReforgeGloveAmet', 'inputEquipUpgradeShoesAmet', 'inputEquipReforgeShoesAmet', 
+        'inputEquipUpgradeTopTene', 'inputEquipReforgeTopTene', 'inputEquipUpgradeBottomTene', 'inputEquipReforgeBottomTene', 'inputEquipUpgradeGloveTene', 'inputEquipReforgeGloveTene', 'inputEquipUpgradeShoesTene', 'inputEquipReforgeShoesTene',  
+        // 其他數值 'inputOtherSkillDmg'
+        'inputOtherBossDmgStone', 'inputOtherDeBuff', 'inputOtherReson',
+        // 個人自訂
+        'inputPerPolar', 'inputPerAtkPower', 'inputPerCritDmg', 'inputPerBossDmg', 'inputPerSkillDmg', 'inputPerAllSkillDmg', 'inputPerAdapt',
+    ]
+    checkTargetList.forEach(function(item) {
+        if (isNaN(document.getElementById(item).value)) {
+            cancelFlag = false
+        }
+    })
+    return cancelFlag
+}
+
+function updateByJob(inputInfo) {
+    // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+    inputInfo[0] += parseFloat(document.getElementById("inputJobAtkPower").value)
+    inputInfo[1] += parseFloat(document.getElementById("inputJobCritDmg").value)
+    inputInfo[2] += parseFloat(document.getElementById("inputJobBossDmg").value)
+    inputInfo[3] += parseFloat(document.getElementById("inputJobSkillDmg").value)
+    inputInfo[4] += parseFloat(document.getElementById("inputJobAllSkillDmg").value)
+
+    return inputInfo
+}
+
+function updateByWeapon(inputInfo) {
+    // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+    var weaponType = document.getElementById("inputWeaponType").value
+    var weaponUpgrade = parseInt(document.getElementById("inputWeaponUpgrade").value)
+    var weaponStage = parseInt(document.getElementById("inputWeaponStage").value)
+
+    if (weaponType == "FOJ") {
+        inputInfo[6] += 5
+
+        if (weaponUpgrade >= 10) {
+            inputInfo[4] += 10
+        }
+    } 
+    else if (weaponType == "VOS") {
+        inputInfo[6] += 5
+
+        if (weaponUpgrade >= 10) {
+            inputInfo[0] += 10
+        }
+        if (weaponUpgrade >= 12) {
+            inputInfo[5] += 7
+        }
+        if (weaponUpgrade >= 13) {
+            inputInfo[1] += 10
+        }
+
+        if (weaponStage >= 5) {
+            inputInfo[4] += 10
+        }
     }
-    catch (e) {
-        alert('部分欄位設置錯誤，可能是在應為數字的欄位中填入了數字以外的項目。' + e)
-        return false
+    
+    inputInfo[0] += parseFloat(document.getElementById("inputWeaponAtkPower").value)
+    inputInfo[1] += parseFloat(document.getElementById("inputWeaponCritDmg").value)
+
+    return inputInfo
+}
+
+function updateByOther(inputInfo) {
+    // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+    inputInfo[2] += parseFloat(document.getElementById("inputOtherBossDmgStone").value) * 2.5
+    // inputInfo[3] += parseFloat(document.getElementById("inputOtherSkillDmg").value)
+
+    return inputInfo
+}
+
+function updateByPersonal(inputInfo) {
+    // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+    inputInfo[0] += parseFloat(document.getElementById("inputPerAtkPower").value)
+    inputInfo[1] += parseFloat(document.getElementById("inputPerCritDmg").value)
+    inputInfo[2] += parseFloat(document.getElementById("inputPerBossDmg").value)
+    inputInfo[3] += parseFloat(document.getElementById("inputPerSkillDmg").value)
+    inputInfo[4] += parseFloat(document.getElementById("inputPerAllSkillDmg").value)
+    inputInfo[5] += parseFloat(document.getElementById("inputPerPolar").value)
+    inputInfo[6] += parseFloat(document.getElementById("inputPerAdapt").value)
+
+    return inputInfo
+}
+
+function updateByEquip(inputInfo) {
+    // Amet
+    if (document.getElementById("inputEquipRadioAmet").checked) {
+        // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+        ["Top", "Bottom", "Glove", "Shoes"].forEach(function(part) {
+            upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Amet").value
+            reforgeLv = document.getElementById("inputEquipReforge" + part + "Amet").value
+
+            // Basic
+            inputInfo[6] += 2
+            if (part == "Glove") {
+                inputInfo[4] += (upgradeLv * 5)
+            }
+
+            // Upgrade
+            if (upgradeLv >= 10) {
+                inputInfo[2] += 3
+            }
+            if (upgradeLv >= 11) {
+                inputInfo[6] += 1
+            }
+
+            // Reforge
+            if (reforgeLv >= 3) {
+                inputInfo[1] += 3
+            }
+            if (reforgeLv >= 6) {
+                inputInfo[3] += 5
+            }
+            if (reforgeLv >= 9) {
+                inputInfo[1] += 3
+            }
+            if (reforgeLv >= 12) {
+                inputInfo[3] += 5
+            }
+            if (reforgeLv >= 15) {
+                inputInfo[6] += 1
+            }
+            if (reforgeLv >= 18) {
+                inputInfo[1] += 3
+            }
+            if (reforgeLv >= 21) {
+                inputInfo[0] += 3
+            }
+
+        });
+
+        if (document.getElementById("checkBoxAmetType").checked) {
+            inputInfo[5] += 20
+        }
+
+    }
+    // Tene
+    else if (document.getElementById("inputEquipRadioTene").checked) {
+        // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+        ["Top", "Bottom", "Glove", "Shoes"].forEach(function(part) {
+            upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Tene").value
+            reforgeLv = document.getElementById("inputEquipReforge" + part + "Tene").value
+
+            // Basic
+            inputInfo[4] += 1.5
+            inputInfo[6] += 2
+            if (part == "Glove") {
+                inputInfo[3] += 10
+                inputInfo[4] += (upgradeLv * 5)
+            }
+
+            // Upgrade
+            if (upgradeLv >= 10) {
+                inputInfo[2] += 5
+            }
+            if (upgradeLv >= 11) {
+                inputInfo[6] += 1
+            }
+
+            // Reforge
+            if (reforgeLv >= 3) {
+                inputInfo[1] += 3
+            }
+            if (reforgeLv >= 6) {
+                inputInfo[3] += 5
+            }
+            if (reforgeLv >= 9) {
+                inputInfo[1] += 3
+            }
+            if (reforgeLv >= 12) {
+                inputInfo[3] += 5
+            }
+            if (reforgeLv >= 15) {
+                inputInfo[0] += 2
+            }
+            if (reforgeLv >= 18) {
+                inputInfo[3] += 5
+            }
+            if (reforgeLv >= 21) {
+                inputInfo[6] += 2
+            }
+
+        });
+    }
+
+    return inputInfo
+}
+
+function updateByFixedEffect(inputInfo) {
+    // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+
+    // 火魔的印記
+    inputInfo[4] += 10
+
+    // 魂靈皇冠
+    inputInfo[6] += 2
+
+    // 瑪瑙碎片 or 巴力溫毛飾
+    inputInfo[6] += 2
+
+    // 艾特島飾品組
+    inputInfo[0] += 1
+    inputInfo[3] += 20
+
+    // 嗜肉骨斷
+    inputInfo[0] -= 24
+    inputInfo[2] += 80
+
+    // 聖獸
+    inputInfo[0] += 3
+    inputInfo[1] += 18
+    inputInfo[2] += 15
+    inputInfo[3] += 5
+
+    // 賦靈錄
+    inputInfo[0] += 3.75
+    inputInfo[1] += 1.5
+    inputInfo[2] += 5
+    inputInfo[3] += 3
+    inputInfo[5] += 1.2
+
+    return inputInfo
+}
+
+function readEquipInfo() {
+    var idNumber = (document.getElementById("combiEquipTable").rows.length - 1)
+    var tempArray = [[], [], [], [], [], [], [], [], [], []]
+
+    for (i = 0 ; i < idNumber ; i++) {
+        var part = document.getElementById("combiEquipPart_" + i).value
+        var enable = document.getElementById("combiEquipEnable_" + i).checked
+
+        if (enable) {
+            if (part == "左五") {
+                tempArray[0].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "武器") {
+                tempArray[1].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "支援") {
+                tempArray[2].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "臉中") {
+                tempArray[3].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "上衣") {
+                tempArray[4].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "下衣") {
+                tempArray[5].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "手臂") {
+                tempArray[6].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "耳環") {
+                tempArray[7].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "項鍊") {
+                tempArray[8].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            } else if (part == "聖獸戒指") {
+                tempArray[9].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
+            }
+        }
+    }
+
+    return tempArray
+}
+
+function readSetInfo() {
+    var idNumber = (document.getElementById("combiSetTable").rows.length - 1)
+    var tempArray = []
+
+    for (i = 0 ; i < idNumber ; i++) {
+        tempArray.push(
+            [
+                document.getElementById("combiSetName_" + i).value,
+                document.getElementById("combiSetSetName_" + i).value,
+                parseInt(document.getElementById("combiSetSetRequire_" + i).value),
+                parseFloat(document.getElementById("combiSetSkillDmg_" + i).value),
+                parseFloat(document.getElementById("combiSetAtkPower_" + i).value),
+                parseFloat(document.getElementById("combiSetCritDmg_" + i).value),
+                parseFloat(document.getElementById("combiSetPolar_" + i).value),
+                parseFloat(document.getElementById("combiSetBossDmg_" + i).value),
+                parseFloat(document.getElementById("combiSetAdapt_" + i).value)
+            ]
+        )
+    }
+
+    return tempArray
+}
+
+function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
+    var needCoolDown = document.getElementById("checkBoxCooldown").checked
+    var maxPolar = 45
+    var maxAdapt = 45
+    if (document.getElementById("checkBoxVer55").checked) {
+        maxPolar = 55
+        maxAdapt = 55
+    }
+    var deBuff = document.getElementById("inputOtherDeBuff").value
+    var resonLv = document.getElementById("inputOtherReson").value
+
+    var avatarLeft = equipDetail[0]
+    var avatarWeapon = equipDetail[1]
+    var accSupport = equipDetail[2]
+    var accFaceMiddle = equipDetail[3]
+    var accTop = equipDetail[4]
+    var accBottom = equipDetail[5]
+    var accHand = equipDetail[6]
+    var accEarRing = equipDetail[7]
+    var accNecklace = equipDetail[8]
+    var artRing = equipDetail[9]
+    
+    var calcType = document.getElementById("inputEquipRadioBoth").checked
+    
+    var bestAnswer = [0]
+    
+    // Both Calc
+    if (calcType) {
+        var equipTypeList = ["虹霓", "混搭", "泰納"]
+
+        avatarLeft.forEach(function(ava_left) {
+            avatarWeapon.forEach(function(ava_wp) {
+                accSupport.forEach(function(acc_sup) {
+                    accFaceMiddle.forEach(function(acc_face_mid) {
+                        accTop.forEach(function(acc_top) {
+                            accBottom.forEach(function(acc_btm) {
+                                accHand.forEach(function(acc_hand) {
+                                    accEarRing.forEach(function(acc_ear_ring) {
+                                        accNecklace.forEach(function(acc_neck) {
+                                            artRing.forEach(function(art_ring) {
+                                                equipTypeList.forEach(function(equipType) {
+
+                                                    if (needCoolDown) {
+                                                        if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣")) {
+                                                            bestAnswer = combiCalcBoth(
+                                                                equipType,
+                                                                charDetail.slice(),
+                                                                [
+                                                                    ava_left,
+                                                                    ava_wp,
+                                                                    acc_sup,
+                                                                    acc_face_mid,
+                                                                    acc_top,
+                                                                    acc_btm,
+                                                                    acc_hand,
+                                                                    acc_ear_ring,
+                                                                    acc_neck,
+                                                                    art_ring
+                                                                ],
+                                                                setDetail,
+                                                                maxPolar,
+                                                                maxAdapt,
+                                                                deBuff,
+                                                                resonLv,
+                                                                bestAnswer
+                                                            )
+                                                        }
+                                                    }
+    
+                                                    else {
+                                                        bestAnswer = combiCalcBoth(
+                                                            equipType,
+                                                            charDetail.slice(),
+                                                            [
+                                                                ava_left,
+                                                                ava_wp,
+                                                                acc_sup,
+                                                                acc_face_mid,
+                                                                acc_top,
+                                                                acc_btm,
+                                                                acc_hand,
+                                                                acc_ear_ring,
+                                                                acc_neck,
+                                                                art_ring
+                                                            ],
+                                                            setDetail,
+                                                            maxPolar,
+                                                            maxAdapt,
+                                                            deBuff,
+                                                            resonLv,
+                                                            bestAnswer
+                                                        )
+                                                    }
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+
+    } 
+    // Normal Calc
+    else {
+        var equipType = ""
+        if (document.getElementById("inputEquipRadioAmet").checked) {
+            equipType = "虹霓降魔防具"
+            if (document.getElementById("checkBoxAmetType").checked) {
+                equipType += " - 丹套"
+            } else {
+                equipType += " - 無設定"
+            }
+        } else {
+            equipType = "泰納布洛斯防具"
+            if (document.getElementById("checkBoxTeneType").checked) {
+                equipType += " - 以「流血/團攻」進行計算"
+            } else {
+                equipType += " - 無設定"
+            }
+        }
+
+        avatarLeft.forEach(function(ava_left) {
+            avatarWeapon.forEach(function(ava_wp) {
+                accSupport.forEach(function(acc_sup) {
+                    accFaceMiddle.forEach(function(acc_face_mid) {
+                        accTop.forEach(function(acc_top) {
+                            accBottom.forEach(function(acc_btm) {
+                                accHand.forEach(function(acc_hand) {
+                                    accEarRing.forEach(function(acc_ear_ring) {
+                                        accNecklace.forEach(function(acc_neck) {
+                                            artRing.forEach(function(art_ring) {
+
+                                                if (needCoolDown) {
+                                                    if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣")) {
+                                                        bestAnswer = combiCalc(
+                                                            equipType,
+                                                            charDetail.slice(),
+                                                            [
+                                                                ava_left,
+                                                                ava_wp,
+                                                                acc_sup,
+                                                                acc_face_mid,
+                                                                acc_top,
+                                                                acc_btm,
+                                                                acc_hand,
+                                                                acc_ear_ring,
+                                                                acc_neck,
+                                                                art_ring
+                                                            ],
+                                                            setDetail,
+                                                            maxPolar,
+                                                            maxAdapt,
+                                                            deBuff,
+                                                            resonLv,
+                                                            bestAnswer
+                                                        )
+                                                    }
+                                                }
+
+                                                else {
+                                                    bestAnswer = combiCalc(
+                                                        equipType,
+                                                        charDetail.slice(),
+                                                        [
+                                                            ava_left,
+                                                            ava_wp,
+                                                            acc_sup,
+                                                            acc_face_mid,
+                                                            acc_top,
+                                                            acc_btm,
+                                                            acc_hand,
+                                                            acc_ear_ring,
+                                                            acc_neck,
+                                                            art_ring
+                                                        ],
+                                                        setDetail,
+                                                        maxPolar,
+                                                        maxAdapt,
+                                                        deBuff,
+                                                        resonLv,
+                                                        bestAnswer
+                                                    )
+                                                }
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    }
+
+    // Display
+    // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力
+    document.getElementById("resultValue").innerHTML = int_formatter.format(roundTo(bestAnswer[0], 2))
+
+    document.getElementById("resultAtkPower").innerHTML = bestAnswer[1]
+    document.getElementById("resultCritDmg").innerHTML = bestAnswer[2]
+    document.getElementById("resultBossDmg").innerHTML = bestAnswer[3]
+    document.getElementById("resultSkillDmg").innerHTML = bestAnswer[4]
+    document.getElementById("resultAllSkillDmg").innerHTML = bestAnswer[5]
+    document.getElementById("resultPolar").innerHTML = bestAnswer[6]
+    document.getElementById("resultAdapt").innerHTML = bestAnswer[7]
+
+    document.getElementById("resultResonPolar").innerHTML = bestAnswer[8]
+    document.getElementById("resultResonBossDmg").innerHTML = bestAnswer[9]
+    document.getElementById("resultResonAdapt").innerHTML = bestAnswer[10]
+
+    document.getElementById("resultCombiEquip").innerHTML = bestAnswer[11]
+    document.getElementById("resultCombiAvaLeft").innerHTML = bestAnswer[12]
+    document.getElementById("resultCombiAvaWeapon").innerHTML = bestAnswer[13]
+    document.getElementById("resultCombiAccSup").innerHTML = bestAnswer[14]
+    document.getElementById("resultCombiAccMid").innerHTML = bestAnswer[15]
+    document.getElementById("resultCombiAccTop").innerHTML = bestAnswer[16]
+    document.getElementById("resultCombiAccBtm").innerHTML = bestAnswer[17]
+    document.getElementById("resultCombiAccHand").innerHTML = bestAnswer[18]
+    document.getElementById("resultCombiAccEarRing").innerHTML = bestAnswer[19]
+    document.getElementById("resultCombiAccNeck").innerHTML = bestAnswer[20]
+    document.getElementById("resultCombiArtRing").innerHTML = bestAnswer[21]
+
+    noteArea.value += "- 推薦組合: " + bestAnswer + "\n"
+}
+
+function combiCalc(equipType, charDetail, equipDetail, setDetail, maxPolar, maxAdapt, deBuff, resonLv, bestAnswer) {
+    // Equip
+    var useSetList = []
+    equipDetail.forEach(function(equip) {
+        if (equip[2] != "") {
+            useSetList.push(equip[2])
+        }
+
+        charDetail[4] += equip[3]
+        charDetail[0] += equip[4]
+        charDetail[1] += equip[5]
+        charDetail[5] += equip[6]
+        charDetail[2] += equip[7]
+        charDetail[6] += equip[8]
+    });
+
+    // Set
+    setDetail.forEach(function(set) {
+        if (getOccurrence(useSetList, set[1]) >= set[2]) {
+            charDetail[4] += set[3]
+            charDetail[0] += set[4]
+            charDetail[1] += set[5]
+            charDetail[5] += set[6]
+            charDetail[2] += set[7]
+            charDetail[6] += set[8]
+        }
+    });
+
+    // Reson
+    if (resonLv > 0) {
+        tempLv = Math.min(resonLv, 100)
+        resonLv -= tempLv
+        charDetail[3] += tempLv * 0.35
+    }
+
+    var adaptLv = 0
+    if (resonLv > 0) {
+        adaptLv = Math.min(resonLv, roundTo((maxAdapt - charDetail[6]) / 0.07, 0), 100)
+        resonLv -= adaptLv
+        charDetail[6] += adaptLv * 0.07
+    }
+
+    var polarLv = 0
+    if (resonLv > 0) {
+        polarLv = Math.min(resonLv, roundTo((maxPolar - charDetail[5]) / 0.15, 0), 50)
+        resonLv -= polarLv
+        charDetail[5] += polarLv * 0.15
+    }
+
+    var bossDmgLv = 0
+    if (resonLv > 0) {
+        bossDmgLv = Math.min(resonLv, 50)
+        resonLv -= bossDmgLv
+        charDetail[2] += bossDmgLv * 0.3
+    }
+
+    // Result
+    var resultValue = 100.0 * (100 + charDetail[0]) / 100 * (150 + charDetail[1]) / 100 * (100 + charDetail[2]) / 100 * (100 + charDetail[3]) / 100 * (100 + charDetail[4]) / 100
+    resultValue *= (100 + Math.min(maxPolar, charDetail[5])) / 100
+    resultValue *= (100 - deBuff + Math.min(maxAdapt, charDetail[6])) / 100
+
+    if (equipType == "泰納布洛斯防具 - 以「流血/團攻」進行計算") {
+        resultValue *= 1.1 * 1.064
+    } else if (equipType == "泰納布洛斯防具 - 無設定") {
+        resultValue *= 1.064
+    }
+    
+    if (resultValue > bestAnswer[0]) {
+        var resultList = [resultValue]
+
+        charDetail.forEach(function(status) {
+            resultList.push(status)
+        });
+
+        resultList.push(polarLv)
+        resultList.push(bossDmgLv)
+        resultList.push(adaptLv)
+
+        resultList.push(equipType)
+        equipDetail.forEach(function(equip) {
+            resultList.push(equip[0])
+        });
+
+        return resultList
+    } else {
+        return bestAnswer
+    }
+}
+
+function combiCalcBoth(equipType, charDetail, equipDetail, setDetail, maxPolar, maxAdapt, deBuff, resonLv, bestAnswer) {
+    var resultValue = 100
+    if (equipType == "虹霓") {
+        ["Top", "Bottom", "Glove", "Shoes"].forEach(function(part) {
+            upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Amet").value
+            reforgeLv = document.getElementById("inputEquipReforge" + part + "Amet").value
+
+            // Basic
+            charDetail[6] += 2
+            if (part == "Glove") {
+                charDetail[4] += (upgradeLv * 5)
+            }
+
+            // Upgrade
+            if (upgradeLv >= 10) {
+                charDetail[2] += 3
+            }
+            if (upgradeLv >= 11) {
+                charDetail[6] += 1
+            }
+
+            // Reforge
+            if (reforgeLv >= 3) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 6) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 9) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 12) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 15) {
+                charDetail[6] += 1
+            }
+            if (reforgeLv >= 18) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 21) {
+                charDetail[0] += 3
+            }
+        });
+
+        if (document.getElementById("checkBoxAmetType").checked) {
+            charDetail[5] += 20
+        }
+    }
+    else if (equipType == "混搭") {
+        // 虹霓
+        ["Bottom", "Shoes"].forEach(function(part) {
+            upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Amet").value
+            reforgeLv = document.getElementById("inputEquipReforge" + part + "Amet").value
+
+            // Basic
+            charDetail[6] += 2
+            if (part == "Glove") {
+                charDetail[4] += (upgradeLv * 5)
+            }
+
+            // Upgrade
+            if (upgradeLv >= 10) {
+                charDetail[2] += 3
+            }
+            if (upgradeLv >= 11) {
+                charDetail[6] += 1
+            }
+
+            // Reforge
+            if (reforgeLv >= 3) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 6) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 9) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 12) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 15) {
+                charDetail[6] += 1
+            }
+            if (reforgeLv >= 18) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 21) {
+                charDetail[0] += 3
+            }
+        });
+
+        if (document.getElementById("checkBoxAmetType").checked) {
+            charDetail[5] += 7
+        }
+
+        // 泰納
+        ["Top", "Glove"].forEach(function(part) {
+            upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Tene").value
+            reforgeLv = document.getElementById("inputEquipReforge" + part + "Tene").value
+
+            // Basic
+            charDetail[4] += 1.5
+            charDetail[6] += 2
+            if (part == "Glove") {
+                charDetail[3] += 10
+                charDetail[4] += (upgradeLv * 5)
+            }
+
+            // Upgrade
+            if (upgradeLv >= 10) {
+                charDetail[2] += 5
+            }
+            if (upgradeLv >= 11) {
+                charDetail[6] += 1
+            }
+
+            // Reforge
+            if (reforgeLv >= 3) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 6) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 9) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 12) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 15) {
+                charDetail[0] += 2
+            }
+            if (reforgeLv >= 18) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 21) {
+                charDetail[6] += 2
+            }
+        });
+
+        if (document.getElementById("checkBoxTeneType").checked) {
+            resultValue *= 1.1
+        }
+        resultValue *= 1.016
+    }
+    else {
+        ["Top", "Bottom", "Glove", "Shoes"].forEach(function(part) {
+            upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Tene").value
+            reforgeLv = document.getElementById("inputEquipReforge" + part + "Tene").value
+
+            // Basic
+            charDetail[4] += 1.5
+            charDetail[6] += 2
+            if (part == "Glove") {
+                charDetail[3] += 10
+                charDetail[4] += (upgradeLv * 5)
+            }
+
+            // Upgrade
+            if (upgradeLv >= 10) {
+                charDetail[2] += 5
+            }
+            if (upgradeLv >= 11) {
+                charDetail[6] += 1
+            }
+
+            // Reforge
+            if (reforgeLv >= 3) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 6) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 9) {
+                charDetail[1] += 3
+            }
+            if (reforgeLv >= 12) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 15) {
+                charDetail[0] += 2
+            }
+            if (reforgeLv >= 18) {
+                charDetail[3] += 5
+            }
+            if (reforgeLv >= 21) {
+                charDetail[6] += 2
+            }
+        });
+
+        if (document.getElementById("checkBoxTeneType").checked) {
+            resultValue *= 1.1
+        }
+        resultValue *= 1.064
+    }
+
+    // Equip
+    var useSetList = []
+    equipDetail.forEach(function(equip) {
+        if (equip[2] != "") {
+            useSetList.push(equip[2])
+        }
+
+        charDetail[4] += equip[3]
+        charDetail[0] += equip[4]
+        charDetail[1] += equip[5]
+        charDetail[5] += equip[6]
+        charDetail[2] += equip[7]
+        charDetail[6] += equip[8]
+    });
+
+    // Set
+    setDetail.forEach(function(set) {
+        if (getOccurrence(useSetList, set[1]) >= set[2]) {
+            charDetail[4] += set[3]
+            charDetail[0] += set[4]
+            charDetail[1] += set[5]
+            charDetail[5] += set[6]
+            charDetail[2] += set[7]
+            charDetail[6] += set[8]
+        }
+    });
+
+    // Reson
+    if (resonLv > 0) {
+        tempLv = Math.min(resonLv, 100)
+        resonLv -= tempLv
+        charDetail[3] += tempLv * 0.35
+    }
+
+    var adaptLv = 0
+    if (resonLv > 0) {
+        adaptLv = Math.min(resonLv, roundTo((maxAdapt - charDetail[6]) / 0.07, 0), 100)
+        resonLv -= adaptLv
+        charDetail[6] += adaptLv * 0.07
+    }
+
+    var polarLv = 0
+    if (resonLv > 0) {
+        polarLv = Math.min(resonLv, roundTo((maxPolar - charDetail[5]) / 0.15, 0), 50)
+        resonLv -= polarLv
+        charDetail[5] += polarLv * 0.15
+    }
+
+    var bossDmgLv = 0
+    if (resonLv > 0) {
+        bossDmgLv = Math.min(resonLv, 50)
+        resonLv -= bossDmgLv
+        charDetail[2] += bossDmgLv * 0.3
+    }
+
+    // Result
+    resultValue *= (100 + charDetail[0]) / 100 * (150 + charDetail[1]) / 100 * (100 + charDetail[2]) / 100 * (100 + charDetail[3]) / 100 * (100 + charDetail[4]) / 100
+    resultValue *= (100 + Math.min(maxPolar, charDetail[5])) / 100
+    resultValue *= (100 - deBuff + Math.min(maxAdapt, charDetail[6])) / 100
+    
+    if (resultValue > bestAnswer[0]) {
+        var resultList = [resultValue]
+
+        charDetail.forEach(function(status) {
+            resultList.push(status)
+        });
+
+        resultList.push(polarLv)
+        resultList.push(bossDmgLv)
+        resultList.push(adaptLv)
+
+        resultList.push(equipType)
+        equipDetail.forEach(function(equip) {
+            resultList.push(equip[0])
+        });
+
+        return resultList
+    } else {
+        return bestAnswer
     }
 }
