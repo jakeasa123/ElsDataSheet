@@ -38,44 +38,44 @@ function executeCalcSymbol() {
 
     document.getElementById("resultIcePotion").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputIcePotion").value) * 10 / 2, 2
+            parseInt(document.getElementById("inputIcePotion").value) * 10 / 2, 0
         )
     )
     document.getElementById("resultMountPotion").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputMountPotion").value) * 10 / 2, 2
+            parseInt(document.getElementById("inputMountPotion").value) * 10 / 2, 0
         )
     )
     document.getElementById("resultAdaptPotion").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputAdaptPotion").value) * 1 / 2, 2
+            parseInt(document.getElementById("inputAdaptPotion").value) * 1 / 2, 0
         )
     )
 
     document.getElementById("resultRedStone").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputRedStone").value) * 10 / 40, 2
+            parseInt(document.getElementById("inputRedStone").value) * 10 / 40, 0
         )
     )
     document.getElementById("resultBlueStone").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputBlueStone").value) * 10 / 40, 2
+            parseInt(document.getElementById("inputBlueStone").value) * 10 / 40, 0
         )
     )
     document.getElementById("resultYellowStone").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputYellowStone").value) * 10 / 40, 2
+            parseInt(document.getElementById("inputYellowStone").value) * 10 / 40, 0
         )
     )
     document.getElementById("resultGiantStone").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputGiantStone").value) * 2 / 40, 2
+            parseInt(document.getElementById("inputGiantStone").value) * 2 / 40, 0
         )
     )
 
     document.getElementById("result12RCoupon").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("input12RCoupon").value) * 1 / 350, 2
+            parseInt(document.getElementById("input12RCoupon").value) * 1 / 350, 0
         )
     )
 }
@@ -108,34 +108,34 @@ function executeCalcCrystal() {
     
     document.getElementById("resultMountPotionCrystal").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputMountPotionCrystal").value) * 300 / 2, 2
+            parseInt(document.getElementById("inputMountPotionCrystal").value) * 300 / 2, 0
         )
     )
 
     document.getElementById("resultRedStoneCrystal").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputRedStoneCrystal").value) * 60 / 3, 2
+            parseInt(document.getElementById("inputRedStoneCrystal").value) * 60 / 3, 0
         )
     )
     document.getElementById("resultBlueStoneCrystal").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputBlueStoneCrystal").value) * 60 / 3, 2
+            parseInt(document.getElementById("inputBlueStoneCrystal").value) * 60 / 3, 0
         )
     )
     document.getElementById("resultYellowStoneCrystal").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputYellowStoneCrystal").value) * 60 / 3, 2
+            parseInt(document.getElementById("inputYellowStoneCrystal").value) * 60 / 3, 0
         )
     )
     document.getElementById("resultGiantStoneCrystal").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("inputGiantStoneCrystal").value) * 10 / 3, 2
+            parseInt(document.getElementById("inputGiantStoneCrystal").value) * 10 / 3, 0
         )
     )
 
     document.getElementById("result12RCouponCrystal").innerHTML = int_formatter.format(
         roundTo(
-            parseInt(document.getElementById("input12RCouponCrystal").value) * 1 / 5, 2
+            parseInt(document.getElementById("input12RCouponCrystal").value) * 1 / 5, 0
         )
     )
 }
