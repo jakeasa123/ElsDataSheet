@@ -182,11 +182,13 @@ function autoUpdate(target) {
 
         // Cookie
         document.cookie = target + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        console.log(decodeURIComponent(document.cookie))
     } else {
         var expireDate = new Date();
         expireDate.setTime(expireDate.getTime() + 31536000000)
         expireDate = expireDate.toUTCString()
         document.cookie = target + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/";
+        console.log(decodeURIComponent(document.cookie))
     }
 }
 
