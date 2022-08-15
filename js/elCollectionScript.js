@@ -86,9 +86,10 @@ function initialTable() {
                 var tempId = charName + "_" + pathName
 
                 // Cookie
-                const expireDate = new Date();
-                expireDate = expireDate.setTime(expireDate.getTime() + (365*24*60*60*1000)).toUTCString();
-                document.cookie = tempId + "=40,6; expires=" + expireDate + "; path=/";
+                var expireDate = new Date();
+                expireDate.setTime(expireDate.getTime() + 31536000000)
+                expireDate = expireDate.toUTCString()
+                document.cookie = tempId + "=40,6; expires=" + expireDate + "; path=/"
     
                 // tr
                 var trId = "tr_" + tempId
@@ -182,8 +183,9 @@ function autoUpdate(target) {
         // Cookie
         document.cookie = target + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     } else {
-        const expireDate = new Date();
-        expireDate = expireDate.setTime(expireDate.getTime() + (365*24*60*60*1000)).toUTCString();
+        var expireDate = new Date();
+        expireDate.setTime(expireDate.getTime() + 31536000000)
+        expireDate = expireDate.toUTCString()
         document.cookie = target + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/";
     }
 }
