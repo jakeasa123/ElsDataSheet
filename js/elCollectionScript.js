@@ -166,8 +166,8 @@ function inputOnClick(target) {
             clickElement.setAttribute("class", "btn btn-warning")
         } else if (lastReward == 0) {
             clickElement.setAttribute("class", "btn btn-danger")
-            autoUpdate(target)
         }
+        autoUpdate(target)
     } else {
         alert("欄位「" + target + "」的「禁戒的獎章」中，已經無法再兌換成經驗家成吊牌。")
     }
@@ -180,23 +180,22 @@ function autoUpdate(target) {
     if (parseInt(magicStone) <= 0 && parseInt(secretReward) <= 0) {
         document.getElementById("tr_" + target).remove()
 
-        // Cookie
         document.cookie = target + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        console.log(decodeURIComponent(document.cookie))
     } else {
         var expireDate = new Date();
         expireDate.setTime(expireDate.getTime() + 31536000000)
         expireDate = expireDate.toUTCString()
-        document.cookie = target + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/";
-        console.log(decodeURIComponent(document.cookie))
+        document.cookie = target + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/"
+
     }
 }
 
 function deleteCookie() {
-    characterList.forEach(charName => {
-        for ( i = 0 ; i < pathList.length ; i++) {
-            document.cookie = charName + "_" + pathList[i] + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        }
+    cookieData = decodeURIComponent(document.cookie).split("; ")
+
+    cookieData.forEach(cData => {
+        cName = cData.split("=")
+        document.cookie = cName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     });
     alert("delete")
 }
