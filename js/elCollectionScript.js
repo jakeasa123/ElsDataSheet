@@ -19,15 +19,13 @@ function initialTable() {
     } 
     // No Cookie Exist
     else {
-        tempCookie = ""
-
         characterList.forEach(charName => {
             for ( i = 0 ; i < pathList.length ; i++) {
                 pathName = pathList[i]
                 var tempId = charName + "_" + pathName
 
                 // Cookie
-                tempCookie += tempId + "=40,6; "
+                document.cookie = tempId + "=40,6; expires=Tue, 31 Dec 2030 00:00:00 GMT; path=/";
     
                 // tr
                 var trId = "tr_" + tempId
@@ -79,8 +77,6 @@ function initialTable() {
                 document.getElementById("td_" + tempId + "_SecretReward").appendChild(tempChild)
             }
         });
-
-        document.cookie = tempCookie + "path=/"
     }
 
     alert(document.cookie)
@@ -124,4 +120,13 @@ function autoDelete(target) {
     if (parseInt(magicStone.value) <= 0 && parseInt(secretReward.innerHTML.substring(3, 4)) <= 0) {
         document.getElementById("tr_" + target).remove()
     }
+}
+
+function deleteCookie() {
+    characterList.forEach(charName => {
+        for ( i = 0 ; i < pathList.length ; i++) {
+            document.cookie = charName + "_" + pathName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        }
+    });
+    alert("delete")
 }
