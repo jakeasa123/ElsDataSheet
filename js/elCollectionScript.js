@@ -79,7 +79,7 @@ function initialTable() {
         });
     }
 
-    alert(document.cookie)
+    alert(decodeURIComponent(document.cookie))
 }
 
 function inputOnChange(target) {
