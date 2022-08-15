@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>Els 賦靈錄記錄表</title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+        <script src="../ElsDataSheet/js/elCollectionScript.js"></script>
+    </head>
+    <body onload="initialTable()">
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>Els 賦靈錄記錄表</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">防具鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/exp_calc.html">共鳴經驗試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/def_calc.html">防禦屬性性能</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/hammer_calc.html">鐵鎚成本試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/radish_calc.html">尋找蘿蔔試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/raid12_calc.html">１２襲擊試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/raid15_calc.html">１５襲擊試算</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">賦靈錄記錄表</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="container p-3">
+            <p>仍在測試中。</p>
+            <p>此頁面透過 Cookie 保存，清除瀏覽記錄、清除 Cookie、更換瀏覽器或更換設備會無法讀取前次內容。</p>
+        </div>
+        
+        <div class="container p-3">
+            
+            <table class="table table-striped align-middle table-sm">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" style="width: 20%">角色</th>
+                        <th scope="col" style="width: 20%">分支</th>
+                        <th scope="col" style="width: 30%">賢者魔法石</th>
+                        <th scope="col" style="width: 30%">禁戒的獎章</th>
+                    </tr>
+                </thead>
+                <tbody id="jobTableBody">
+                    
+                </tbody>
+            </table>
+        </div>
+        
+    </body>
+</html>
