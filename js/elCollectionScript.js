@@ -18,9 +18,11 @@ function initialTable() {
         cookieData = decodeURIComponent(document.cookie).split("; ")
 
         cookieData.forEach(cData => {
+            //菈比_3rd   40,6
             var tempId = cData.split("=")
             var tempName = tempId[0].split("_")
             var tempValue = tempId[1].split(",")
+            tempId = tempId[0]
 
             var charName = tempName[0]
             var pathName = tempName[1]
@@ -150,7 +152,8 @@ function inputOnChange(target) {
     if (isNaN(inputElement.value)) {
         alert("欄位「" + target + "」的「賢者魔法石」中，輸入了錯誤的字元，將自動修復成「40」以防錯誤，請再修正。")
         inputElement.value = "40"
-    } 
+    }
+
     autoUpdate(target)
 }
 
@@ -167,9 +170,10 @@ function inputOnClick(target) {
         } else if (lastReward == 0) {
             clickElement.setAttribute("class", "btn btn-danger")
         }
+
         autoUpdate(target)
     } else {
-        alert("欄位「" + target + "」的「禁戒的獎章」中，已經無法再兌換成經驗家成吊牌。")
+        alert("欄位「" + target + "」的「禁戒的獎章」中，已經無法再兌換成經驗加成吊牌。")
     }
 }
 
@@ -194,7 +198,7 @@ function deleteCookie() {
     cookieData = decodeURIComponent(document.cookie).split("; ")
 
     cookieData.forEach(cData => {
-        cName = cData.split("=")
+        cName = cData.split("=")[0]
         document.cookie = cName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     });
     alert("delete")
