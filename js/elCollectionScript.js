@@ -15,70 +15,80 @@ function roundTo(num, decimal) {
 function initialTable() {
     // Exist Old Cookie
     if (document.cookie) {
-        cookieData = decodeURIComponent(document.cookie).split("; ")
+        var cookieData = decodeURIComponent(document.cookie).split("; ")
 
+        var cookieDict = {}
         cookieData.forEach(cData => {
-            //菈比_3rd   40,6
-            var tempId = cData.split("=")
-            var tempName = tempId[0].split("_")
-            var tempValue = tempId[1].split(",")
-            tempId = tempId[0]
-
-            var charName = tempName[0]
-            var pathName = tempName[1]
-            var magicStone = tempValue[0]
-            var secretReward = tempValue[1]
-
-            // tr
-            var trId = "tr_" + tempId
-
-            var tempChild = document.createElement('tr')
-            tempChild.setAttribute("id", trId)
-            document.getElementById("jobTableBody").appendChild(tempChild)
-
-            // th
-            tempChild = document.createElement('th')
-            tempChild.setAttribute("id", "th_" + tempId)
-            tempChild.setAttribute("class", "text-center")
-            tempChild.setAttribute("scope", "row")
-            tempChild.textContent = charName
-            document.getElementById(trId).appendChild(tempChild)
-
-            // td - Line
-            tempChild = document.createElement('td')
-            tempChild.setAttribute("id", "td_" + tempId)
-            tempChild.setAttribute("class", "text-center")
-            tempChild.textContent = pathName
-            document.getElementById(trId).appendChild(tempChild)
-
-            // td - Magic Stone
-            tempChild = document.createElement('td')
-            tempChild.setAttribute("id", "td_" + tempId + "_MagicStone")
-            tempChild.setAttribute("class", "text-center")
-            document.getElementById(trId).appendChild(tempChild)
-
-            tempChild = document.createElement('input')
-            tempChild.setAttribute("id", "input_" + tempId + "_MagicStone")
-            tempChild.setAttribute("class", "form-control")
-            tempChild.setAttribute("value", magicStone)
-            tempChild.setAttribute("onchange", "inputOnChange(\'" + tempId + "\')")
-            document.getElementById("td_" + tempId + "_MagicStone").appendChild(tempChild)
-
-            // td - Secret Reward
-            tempChild = document.createElement('td')
-            tempChild.setAttribute("id", "td_" + tempId + "_SecretReward")
-            tempChild.setAttribute("class", "text-center")
-            document.getElementById(trId).appendChild(tempChild)
-
-            tempChild = document.createElement('button')
-            tempChild.setAttribute("id", "button_" + tempId + "_SecretReward")
-            tempChild.setAttribute("type", "form-button")
-            tempChild.setAttribute("class", "btn btn-info")
-            tempChild.textContent = "剩餘 " + secretReward + " 次"
-            tempChild.setAttribute("onclick", "inputOnClick(\'" + tempId + "\')")
-            document.getElementById("td_" + tempId + "_SecretReward").appendChild(tempChild)
+            tempData = cData.split("=")
+            cookieDict[tempData[0]] = tempData[1].split(",")
         });
+
+        characterList.forEach(charName => {
+            pathList.forEach(pathName => {
+                var tempId = charName + "_" + pathName
+
+                if (cookieDict[tempId] != undefined) {
+                    var magicStone = cookieDict[tempId][0]
+                    var secretReward = parseInt(cookieDict[tempId][1])
+
+                    // tr
+                    var trId = "tr_" + tempId
         
+                    var tempChild = document.createElement('tr')
+                    tempChild.setAttribute("id", trId)
+                    document.getElementById("jobTableBody").appendChild(tempChild)
+        
+                    // th
+                    tempChild = document.createElement('th')
+                    tempChild.setAttribute("id", "th_" + tempId)
+                    tempChild.setAttribute("class", "text-center")
+                    tempChild.setAttribute("scope", "row")
+                    tempChild.textContent = charName
+                    document.getElementById(trId).appendChild(tempChild)
+        
+                    // td - Line
+                    tempChild = document.createElement('td')
+                    tempChild.setAttribute("id", "td_" + tempId)
+                    tempChild.setAttribute("class", "text-center")
+                    tempChild.textContent = pathName
+                    document.getElementById(trId).appendChild(tempChild)
+        
+                    // td - Magic Stone
+                    tempChild = document.createElement('td')
+                    tempChild.setAttribute("id", "td_" + tempId + "_MagicStone")
+                    tempChild.setAttribute("class", "text-center")
+                    document.getElementById(trId).appendChild(tempChild)
+        
+                    tempChild = document.createElement('input')
+                    tempChild.setAttribute("id", "input_" + tempId + "_MagicStone")
+                    tempChild.setAttribute("class", "form-control")
+                    tempChild.setAttribute("value", magicStone)
+                    tempChild.setAttribute("onchange", "inputOnChange(\'" + tempId + "\')")
+                    document.getElementById("td_" + tempId + "_MagicStone").appendChild(tempChild)
+        
+                    // td - Secret Reward
+                    tempChild = document.createElement('td')
+                    tempChild.setAttribute("id", "td_" + tempId + "_SecretReward")
+                    tempChild.setAttribute("class", "text-center")
+                    document.getElementById(trId).appendChild(tempChild)
+        
+                    tempChild = document.createElement('button')
+                    tempChild.setAttribute("id", "button_" + tempId + "_SecretReward")
+                    tempChild.setAttribute("type", "form-button")
+                    if (secretReward > 1) {
+                        tempChild.setAttribute("class", "btn btn-info")
+                    } else if (secretReward == 1) {
+                        tempChild.setAttribute("class", "btn btn-warning")
+                    } else {
+                        tempChild.setAttribute("class", "btn btn-danger")
+                    }
+                    tempChild.textContent = "剩餘 " + secretReward + " 次"
+                    tempChild.setAttribute("onclick", "inputOnClick(\'" + tempId + "\')")
+                    document.getElementById("td_" + tempId + "_SecretReward").appendChild(tempChild)
+
+                }
+            });
+        });
     } 
     // No Cookie Exist
     else {
