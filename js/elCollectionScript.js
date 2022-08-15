@@ -125,7 +125,7 @@ function autoDelete(target) {
 function deleteCookie() {
     characterList.forEach(charName => {
         for ( i = 0 ; i < pathList.length ; i++) {
-            document.cookie = charName + "_" + pathName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+            document.cookie = charName + "_" + pathList[i] + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
         }
     });
     alert("delete")
