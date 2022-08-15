@@ -15,6 +15,67 @@ function roundTo(num, decimal) {
 function initialTable() {
     // Exist Old Cookie
     if (document.cookie) {
+        cookieData = decodeURIComponent(document.cookie).split("; ")
+
+        cookieData.forEach(cData => {
+            var tempId = cData.split("=")
+            var tempName = tempId[0].split("_")
+            var tempValue = tempId[1].split(",")
+
+            var charName = tempName[0]
+            var pathName = tempName[1]
+            var magicStone = tempValue[0]
+            var secretReward = tempValue[1]
+
+            // tr
+            var trId = "tr_" + tempId
+
+            var tempChild = document.createElement('tr')
+            tempChild.setAttribute("id", trId)
+            document.getElementById("jobTableBody").appendChild(tempChild)
+
+            // th
+            tempChild = document.createElement('th')
+            tempChild.setAttribute("id", "th_" + tempId)
+            tempChild.setAttribute("class", "text-center")
+            tempChild.setAttribute("scope", "row")
+            tempChild.textContent = charName
+            document.getElementById(trId).appendChild(tempChild)
+
+            // td - Line
+            tempChild = document.createElement('td')
+            tempChild.setAttribute("id", "td_" + tempId)
+            tempChild.setAttribute("class", "text-center")
+            tempChild.textContent = pathName
+            document.getElementById(trId).appendChild(tempChild)
+
+            // td - Magic Stone
+            tempChild = document.createElement('td')
+            tempChild.setAttribute("id", "td_" + tempId + "_MagicStone")
+            tempChild.setAttribute("class", "text-center")
+            document.getElementById(trId).appendChild(tempChild)
+
+            tempChild = document.createElement('input')
+            tempChild.setAttribute("id", "input_" + tempId + "_MagicStone")
+            tempChild.setAttribute("class", "form-control")
+            tempChild.setAttribute("value", magicStone)
+            tempChild.setAttribute("onchange", "inputOnChange(\'" + tempId + "\')")
+            document.getElementById("td_" + tempId + "_MagicStone").appendChild(tempChild)
+
+            // td - Secret Reward
+            tempChild = document.createElement('td')
+            tempChild.setAttribute("id", "td_" + tempId + "_SecretReward")
+            tempChild.setAttribute("class", "text-center")
+            document.getElementById(trId).appendChild(tempChild)
+
+            tempChild = document.createElement('button')
+            tempChild.setAttribute("id", "button_" + tempId + "_SecretReward")
+            tempChild.setAttribute("type", "form-button")
+            tempChild.setAttribute("class", "btn btn-info")
+            tempChild.textContent = "剩餘 " + secretReward + " 次"
+            tempChild.setAttribute("onclick", "inputOnClick(\'" + tempId + "\')")
+            document.getElementById("td_" + tempId + "_SecretReward").appendChild(tempChild)
+        });
         
     } 
     // No Cookie Exist
@@ -25,7 +86,9 @@ function initialTable() {
                 var tempId = charName + "_" + pathName
 
                 // Cookie
-                document.cookie = tempId + "=40,6; expires=Tue, 31 Dec 2030 00:00:00 GMT; path=/";
+                const expireDate = new Date();
+                expireDate = expireDate.setTime(expireDate.getTime() + (365*24*60*60*1000)).toUTCString();
+                document.cookie = tempId + "=40,6; expires=" + expireDate + "; path=/";
     
                 // tr
                 var trId = "tr_" + tempId
@@ -78,8 +141,6 @@ function initialTable() {
             }
         });
     }
-
-    alert(decodeURIComponent(document.cookie))
 }
 
 function inputOnChange(target) {
@@ -89,7 +150,7 @@ function inputOnChange(target) {
         alert("欄位「" + target + "」的「賢者魔法石」中，輸入了錯誤的字元，將自動修復成「40」以防錯誤，請再修正。")
         inputElement.value = "40"
     } 
-    autoDelete(target)
+    autoUpdate(target)
 }
 
 function inputOnClick(target) {
@@ -104,21 +165,26 @@ function inputOnClick(target) {
             clickElement.setAttribute("class", "btn btn-warning")
         } else if (lastReward == 0) {
             clickElement.setAttribute("class", "btn btn-danger")
-            autoDelete(target)
+            autoUpdate(target)
         }
     } else {
         alert("欄位「" + target + "」的「禁戒的獎章」中，已經無法再兌換成經驗家成吊牌。")
     }
-
-    autoDelete(target)
 }
 
-function autoDelete(target) {
-    var magicStone = document.getElementById("input_" + target + "_MagicStone")
-    var secretReward = document.getElementById("button_" + target + "_SecretReward")
+function autoUpdate(target) {
+    var magicStone = document.getElementById("input_" + target + "_MagicStone").value
+    var secretReward = document.getElementById("button_" + target + "_SecretReward").innerHTML.substring(3, 4)
 
-    if (parseInt(magicStone.value) <= 0 && parseInt(secretReward.innerHTML.substring(3, 4)) <= 0) {
+    if (parseInt(magicStone) <= 0 && parseInt(secretReward) <= 0) {
         document.getElementById("tr_" + target).remove()
+
+        // Cookie
+        document.cookie = target + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    } else {
+        const expireDate = new Date();
+        expireDate = expireDate.setTime(expireDate.getTime() + (365*24*60*60*1000)).toUTCString();
+        document.cookie = target + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/";
     }
 }
 
