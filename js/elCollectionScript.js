@@ -76,7 +76,7 @@ function initialTable() {
                     tempChild.setAttribute("id", "button_" + tempId + "_SecretReward")
                     tempChild.setAttribute("type", "form-button")
                     if (secretReward > 1) {
-                        tempChild.setAttribute("class", "btn btn-info")
+                        tempChild.setAttribute("class", "btn btn-outline-primary")
                     } else if (secretReward == 1) {
                         tempChild.setAttribute("class", "btn btn-warning")
                     } else {
@@ -96,12 +96,6 @@ function initialTable() {
             for ( i = 0 ; i < pathList.length ; i++) {
                 pathName = pathList[i]
                 var tempId = charName + "_" + pathName
-
-                // Cookie
-                var expireDate = new Date();
-                expireDate.setTime(expireDate.getTime() + 31536000000)
-                expireDate = expireDate.toUTCString()
-                document.cookie = tempId + "=40,6; expires=" + expireDate + "; path=/"
     
                 // tr
                 var trId = "tr_" + tempId
@@ -147,7 +141,7 @@ function initialTable() {
                 tempChild = document.createElement('button')
                 tempChild.setAttribute("id", "button_" + tempId + "_SecretReward")
                 tempChild.setAttribute("type", "form-button")
-                tempChild.setAttribute("class", "btn btn-info")
+                tempChild.setAttribute("class", "btn btn-outline-primary")
                 tempChild.textContent = "剩餘 6 次"
                 tempChild.setAttribute("onclick", "inputOnClick(\'" + tempId + "\')")
                 document.getElementById("td_" + tempId + "_SecretReward").appendChild(tempChild)
@@ -193,15 +187,9 @@ function autoUpdate(target) {
 
     if (parseInt(magicStone) <= 0 && parseInt(secretReward) <= 0) {
         document.getElementById("tr_" + target).remove()
-
-        document.cookie = target + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    } else {
-        var expireDate = new Date();
-        expireDate.setTime(expireDate.getTime() + 31536000000)
-        expireDate = expireDate.toUTCString()
-        document.cookie = target + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/"
-
     }
+
+    saveCookie(false)
 }
 
 function deleteCookie() {
@@ -211,5 +199,31 @@ function deleteCookie() {
         cName = cData.split("=")[0]
         document.cookie = cName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     });
-    alert("delete")
+}
+
+function saveCookie(showModal) {
+    // Expire Date
+    var expireDate = new Date()
+    expireDate.setTime(expireDate.getTime() + 31536000000)
+    expireDate = expireDate.toUTCString()
+
+    // Save Cookie
+    characterList.forEach(charName => {
+        pathList.forEach(pathName => {
+            var jobName = charName + "_" + pathName
+
+            var magicStoneInput = document.getElementById("input_" + jobName + "_MagicStone")
+            if (magicStoneInput != undefined) {
+                var magicStone = magicStoneInput.value
+                var secretReward = document.getElementById("button_" + jobName + "_SecretReward").innerHTML.substring(3, 4)
+                document.cookie = jobName + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/"
+            }
+        });
+    });
+
+    // Display
+    if (showModal) {
+        var saveModal = new bootstrap.Modal(document.getElementById("saveModal"))
+        saveModal.show()
+    }
 }
