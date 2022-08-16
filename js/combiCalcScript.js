@@ -1086,14 +1086,14 @@ function combiCalc(equipType, charDetail, equipDetail, setDetail, maxPolar, maxA
 
     var adaptLv = 0
     if (resonLv > 0) {
-        adaptLv = Math.min(resonLv, roundTo((maxAdapt - charDetail[6]) / 0.07, 0), 100)
+        adaptLv = Math.min(resonLv, Math.max(0, roundTo((maxAdapt - charDetail[6]) / 0.07, 0)), 100)
         resonLv -= adaptLv
         charDetail[6] += adaptLv * 0.07
     }
 
     var polarLv = 0
     if (resonLv > 0) {
-        polarLv = Math.min(resonLv, roundTo((maxPolar - charDetail[5]) / 0.15, 0), 50)
+        polarLv = Math.min(resonLv, Math.max(0, roundTo((maxPolar - charDetail[5]) / 0.15, 0)), 50)
         resonLv -= polarLv
         charDetail[5] += polarLv * 0.15
     }
@@ -1372,14 +1372,14 @@ function combiCalcBoth(equipType, charDetail, equipDetail, setDetail, maxPolar, 
 
     var adaptLv = 0
     if (resonLv > 0) {
-        adaptLv = Math.min(resonLv, roundTo((maxAdapt - charDetail[6]) / 0.07, 0), 100)
+        adaptLv = Math.min(resonLv, Math.max(0, roundTo((maxAdapt - charDetail[6]) / 0.07, 0)), 100)
         resonLv -= adaptLv
         charDetail[6] += adaptLv * 0.07
     }
 
     var polarLv = 0
     if (resonLv > 0) {
-        polarLv = Math.min(resonLv, roundTo((maxPolar - charDetail[5]) / 0.15, 0), 50)
+        polarLv = Math.min(resonLv, Math.max(0, roundTo((maxPolar - charDetail[5]) / 0.15, 0)), 50)
         resonLv -= polarLv
         charDetail[5] += polarLv * 0.15
     }
