@@ -16,7 +16,10 @@ function getOccurrence(array, value) {
 // Object
 function initialData() {
     equipInfo.forEach(function(item) {
-        appendEquip(item)
+        appendEquip(item, true)
+    });
+    unreleaseEquipInfo.forEach(function(item) {
+        appendEquip(item, false)
     });
     setInfo.forEach(function(item) {
         appendSet(item)
@@ -98,7 +101,7 @@ function equipRadioSelect() {
     }
 }
 
-function appendEquip(input_data) {
+function appendEquip(input_data, default_enable) {
     var idNumber = (document.getElementById("combiEquipTable").rows.length - 1).toString()
     
     // tr
@@ -116,7 +119,9 @@ function appendEquip(input_data) {
     tempChild.setAttribute("id", "combiEquipEnable_" + idNumber)
     tempChild.setAttribute("class", "form-check-input")
     tempChild.setAttribute("type", "checkbox")
-    tempChild.setAttribute("checked", "checked")
+    if (default_enable) {
+        tempChild.setAttribute("checked", "checked")
+    }
     document.getElementById("combiEquipTdEnable_" + idNumber).appendChild(tempChild)
 
     // 名稱
@@ -862,7 +867,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
                                                 equipTypeList.forEach(function(equipType) {
 
                                                     if (needCoolDown) {
-                                                        if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣")) {
+                                                        if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣") || (acc_top[0] == "聖光上衣")) {
                                                             bestAnswer = combiCalcBoth(
                                                                 equipType,
                                                                 charDetail.slice(),
