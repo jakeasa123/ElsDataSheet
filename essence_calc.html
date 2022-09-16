@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>Els 精髓成本試算</title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+        <script src="../ElsDataSheet/js/essenceCalcScript.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>Els 精髓成本試算</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/reforge_data.html">防具鍛造數據</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/exp_calc.html">共鳴經驗試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/def_calc.html">防禦屬性性能</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/hammer_calc.html">鐵鎚成本試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/radish_calc.html">尋找蘿蔔試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/raid12_calc.html">１２襲擊試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/raid15_calc.html">１５襲擊試算</a></li>
+                    <li class="breadcrumb-item"><a href="../ElsDataSheet/el_collection.html">賦靈錄記錄表</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">精髓成本試算</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="container p-3">
+            <div class="row">
+
+                <div class="col-4">
+                    <span class="badge bg-primary">成本</span>
+        
+                    <div class="mb-3">
+                        <label for="elEssencePrice" class="form-label">艾爾精髓售價</label>
+                        <input type="input" class="form-control" id="elEssencePrice" onchange="executeCalc()" value="25000">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="elShardPrice" class="form-label">艾爾結晶售價</label>
+                        <input type="input" class="form-control" id="elShardPrice" onchange="executeCalc()" value="50000">
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="alchElixirPrice" class="form-label">煉金靈藥售價</label>
+                        <input type="input" class="form-control" id="alchElixirPrice" onchange="executeCalc()" value="35000">
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="crystalPrice" class="form-label">魔法結晶售價</label>
+                        <input type="input" class="form-control" id="crystalPrice" onchange="executeCalc()" value="5000">
+                    </div>
+                    
+                </div>
+
+                <div class="col-8">
+
+                    <span class="badge bg-success">試算</span>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">入手方式</th>
+                                <th scope="col">所需支出</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">直接購入精髓</th>
+                                <td class="text-end"><mark id="resultBuy">25,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">屬性結晶轉換</th>
+                                <td class="text-end"><mark id="resultTransfer">16,667</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">專職煉金製造</th>
+                                <td class="text-end"><mark id="resultAlchCreate">13,310</mark>ED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
