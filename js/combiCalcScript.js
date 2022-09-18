@@ -379,7 +379,7 @@ function submitCalc() {
         } else {
             calcNote.value += "# 已經計入「職業特性」、「武器性能」、「防具性能」、「其他數值」、「個人自訂」和「固定項目」數值。\n"
         }
-        calcNote.value += "- 固定項目: 火魔的印記、魂靈皇冠、瑪瑙碎片或巴力溫毛飾、艾特島飾品組、嗜肉骨斷、聖獸與賦靈錄\n"
+        calcNote.value += "- 固定項目: 火魔的印記、瑪瑙碎片或巴力溫毛飾、艾特島飾品組、嗜肉骨斷、聖獸與賦靈錄\n"
         calcNote.value += "- 目前數值: 攻擊力 + " + charInfo[0] + "%、暴擊傷害 + " + charInfo[1] + "%、Boss 傷害 + " + charInfo[2] + "%、特定技能傷害 + " + charInfo[3] + "%、所有技能傷害 + " + charInfo[4] + "%、兩極化 + " + charInfo[5] + "%、適應力 + " + charInfo[6] + "%\n\n"
 
         calcNote.value += "# 讀取考量選擇 ... ...\n"
@@ -391,6 +391,7 @@ function submitCalc() {
         calcNote.value += "- 分類 [ 左五 ] 包含 [ " + equipDetail[0].length + " ] 種選擇\n"
         calcNote.value += "- 分類 [ 武器 ] 包含 [ " + equipDetail[1].length + " ] 種選擇\n"
         calcNote.value += "- 分類 [ 支援 ] 包含 [ " + equipDetail[2].length + " ] 種選擇\n"
+        calcNote.value += "- 分類 [ 臉上 ] 包含 [ " + equipDetail[10].length + " ] 種選擇\n"
         calcNote.value += "- 分類 [ 臉中 ] 包含 [ " + equipDetail[3].length + " ] 種選擇\n"
         calcNote.value += "- 分類 [ 上衣 ] 包含 [ " + equipDetail[4].length + " ] 種選擇\n"
         calcNote.value += "- 分類 [ 下衣 ] 包含 [ " + equipDetail[5].length + " ] 種選擇\n"
@@ -615,9 +616,6 @@ function updateByFixedEffect(inputInfo) {
     // 火魔的印記
     inputInfo[4] += 10
 
-    // 魂靈皇冠
-    inputInfo[6] += 2
-
     // 瑪瑙碎片 or 巴力溫毛飾
     inputInfo[6] += 2
 
@@ -647,7 +645,7 @@ function updateByFixedEffect(inputInfo) {
 
 function readEquipInfo() {
     var idNumber = (document.getElementById("combiEquipTable").rows.length - 1)
-    var tempArray = [[], [], [], [], [], [], [], [], [], []]
+    var tempArray = [[], [], [], [], [], [], [], [], [], [], []]
 
     for (i = 0 ; i < idNumber ; i++) {
         var part = document.getElementById("combiEquipPart_" + i).value
@@ -794,6 +792,20 @@ function readEquipInfo() {
                         parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
                     ]
                 )
+            } else if (part == "頭上") {
+                tempArray[10].push(
+                    [
+                        document.getElementById("combiEquipName_" + i).value,
+                        document.getElementById("combiEquipPart_" + i).value,
+                        document.getElementById("combiEquipSetName_" + i).value,
+                        parseFloat(document.getElementById("combiEquipSkillDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAtkPower_" + i).value),
+                        parseFloat(document.getElementById("combiEquipCritDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipPolar_" + i).value),
+                        parseFloat(document.getElementById("combiEquipBossDmg_" + i).value),
+                        parseFloat(document.getElementById("combiEquipAdapt_" + i).value)
+                    ]
+                )
             }
         }
     }
@@ -838,6 +850,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
     var avatarLeft = equipDetail[0]
     var avatarWeapon = equipDetail[1]
     var accSupport = equipDetail[2]
+    var accFaceTop = equipDetail[10]
     var accFaceMiddle = equipDetail[3]
     var accTop = equipDetail[4]
     var accBottom = equipDetail[5]
@@ -857,17 +870,45 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
         avatarLeft.forEach(function(ava_left) {
             avatarWeapon.forEach(function(ava_wp) {
                 accSupport.forEach(function(acc_sup) {
-                    accFaceMiddle.forEach(function(acc_face_mid) {
-                        accTop.forEach(function(acc_top) {
-                            accBottom.forEach(function(acc_btm) {
-                                accHand.forEach(function(acc_hand) {
-                                    accEarRing.forEach(function(acc_ear_ring) {
-                                        accNecklace.forEach(function(acc_neck) {
-                                            artRing.forEach(function(art_ring) {
-                                                equipTypeList.forEach(function(equipType) {
-
-                                                    if (needCoolDown) {
-                                                        if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣") || (acc_top[0] == "聖光上衣")) {
+                    accFaceTop.forEach(function(acc_face_top) {
+                        accFaceMiddle.forEach(function(acc_face_mid) {
+                            accTop.forEach(function(acc_top) {
+                                accBottom.forEach(function(acc_btm) {
+                                    accHand.forEach(function(acc_hand) {
+                                        accEarRing.forEach(function(acc_ear_ring) {
+                                            accNecklace.forEach(function(acc_neck) {
+                                                artRing.forEach(function(art_ring) {
+                                                    equipTypeList.forEach(function(equipType) {
+    
+                                                        if (needCoolDown) {
+                                                            if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣") || (acc_top[0] == "聖光上衣")) {
+                                                                bestAnswer = combiCalcBoth(
+                                                                    equipType,
+                                                                    charDetail.slice(),
+                                                                    [
+                                                                        ava_left,
+                                                                        ava_wp,
+                                                                        acc_sup,
+                                                                        acc_face_top,
+                                                                        acc_face_mid,
+                                                                        acc_top,
+                                                                        acc_btm,
+                                                                        acc_hand,
+                                                                        acc_ear_ring,
+                                                                        acc_neck,
+                                                                        art_ring
+                                                                    ],
+                                                                    setDetail,
+                                                                    maxPolar,
+                                                                    maxAdapt,
+                                                                    deBuff,
+                                                                    resonLv,
+                                                                    bestAnswer
+                                                                )
+                                                            }
+                                                        }
+        
+                                                        else {
                                                             bestAnswer = combiCalcBoth(
                                                                 equipType,
                                                                 charDetail.slice(),
@@ -875,6 +916,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
                                                                     ava_left,
                                                                     ava_wp,
                                                                     acc_sup,
+                                                                    acc_face_top,
                                                                     acc_face_mid,
                                                                     acc_top,
                                                                     acc_btm,
@@ -891,32 +933,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
                                                                 bestAnswer
                                                             )
                                                         }
-                                                    }
-    
-                                                    else {
-                                                        bestAnswer = combiCalcBoth(
-                                                            equipType,
-                                                            charDetail.slice(),
-                                                            [
-                                                                ava_left,
-                                                                ava_wp,
-                                                                acc_sup,
-                                                                acc_face_mid,
-                                                                acc_top,
-                                                                acc_btm,
-                                                                acc_hand,
-                                                                acc_ear_ring,
-                                                                acc_neck,
-                                                                art_ring
-                                                            ],
-                                                            setDetail,
-                                                            maxPolar,
-                                                            maxAdapt,
-                                                            deBuff,
-                                                            resonLv,
-                                                            bestAnswer
-                                                        )
-                                                    }
+                                                    });
                                                 });
                                             });
                                         });
@@ -952,16 +969,44 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
         avatarLeft.forEach(function(ava_left) {
             avatarWeapon.forEach(function(ava_wp) {
                 accSupport.forEach(function(acc_sup) {
-                    accFaceMiddle.forEach(function(acc_face_mid) {
-                        accTop.forEach(function(acc_top) {
-                            accBottom.forEach(function(acc_btm) {
-                                accHand.forEach(function(acc_hand) {
-                                    accEarRing.forEach(function(acc_ear_ring) {
-                                        accNecklace.forEach(function(acc_neck) {
-                                            artRing.forEach(function(art_ring) {
-
-                                                if (needCoolDown) {
-                                                    if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣")) {
+                    accFaceTop.forEach(function(acc_face_top) {
+                        accFaceMiddle.forEach(function(acc_face_mid) {
+                            accTop.forEach(function(acc_top) {
+                                accBottom.forEach(function(acc_btm) {
+                                    accHand.forEach(function(acc_hand) {
+                                        accEarRing.forEach(function(acc_ear_ring) {
+                                            accNecklace.forEach(function(acc_neck) {
+                                                artRing.forEach(function(art_ring) {
+    
+                                                    if (needCoolDown) {
+                                                        if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣")) {
+                                                            bestAnswer = combiCalc(
+                                                                equipType,
+                                                                charDetail.slice(),
+                                                                [
+                                                                    ava_left,
+                                                                    ava_wp,
+                                                                    acc_sup,
+                                                                    acc_face_top,
+                                                                    acc_face_mid,
+                                                                    acc_top,
+                                                                    acc_btm,
+                                                                    acc_hand,
+                                                                    acc_ear_ring,
+                                                                    acc_neck,
+                                                                    art_ring
+                                                                ],
+                                                                setDetail,
+                                                                maxPolar,
+                                                                maxAdapt,
+                                                                deBuff,
+                                                                resonLv,
+                                                                bestAnswer
+                                                            )
+                                                        }
+                                                    }
+    
+                                                    else {
                                                         bestAnswer = combiCalc(
                                                             equipType,
                                                             charDetail.slice(),
@@ -969,6 +1014,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
                                                                 ava_left,
                                                                 ava_wp,
                                                                 acc_sup,
+                                                                acc_face_top,
                                                                 acc_face_mid,
                                                                 acc_top,
                                                                 acc_btm,
@@ -985,32 +1031,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
                                                             bestAnswer
                                                         )
                                                     }
-                                                }
-
-                                                else {
-                                                    bestAnswer = combiCalc(
-                                                        equipType,
-                                                        charDetail.slice(),
-                                                        [
-                                                            ava_left,
-                                                            ava_wp,
-                                                            acc_sup,
-                                                            acc_face_mid,
-                                                            acc_top,
-                                                            acc_btm,
-                                                            acc_hand,
-                                                            acc_ear_ring,
-                                                            acc_neck,
-                                                            art_ring
-                                                        ],
-                                                        setDetail,
-                                                        maxPolar,
-                                                        maxAdapt,
-                                                        deBuff,
-                                                        resonLv,
-                                                        bestAnswer
-                                                    )
-                                                }
+                                                });
                                             });
                                         });
                                     });
@@ -1043,13 +1064,14 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
     document.getElementById("resultCombiAvaLeft").innerHTML = bestAnswer[12]
     document.getElementById("resultCombiAvaWeapon").innerHTML = bestAnswer[13]
     document.getElementById("resultCombiAccSup").innerHTML = bestAnswer[14]
-    document.getElementById("resultCombiAccMid").innerHTML = bestAnswer[15]
-    document.getElementById("resultCombiAccTop").innerHTML = bestAnswer[16]
-    document.getElementById("resultCombiAccBtm").innerHTML = bestAnswer[17]
-    document.getElementById("resultCombiAccHand").innerHTML = bestAnswer[18]
-    document.getElementById("resultCombiAccEarRing").innerHTML = bestAnswer[19]
-    document.getElementById("resultCombiAccNeck").innerHTML = bestAnswer[20]
-    document.getElementById("resultCombiArtRing").innerHTML = bestAnswer[21]
+    document.getElementById("resultCombiAccFaceTop").innerHTML = bestAnswer[15]
+    document.getElementById("resultCombiAccFaceMid").innerHTML = bestAnswer[16]
+    document.getElementById("resultCombiAccTop").innerHTML = bestAnswer[17]
+    document.getElementById("resultCombiAccBtm").innerHTML = bestAnswer[18]
+    document.getElementById("resultCombiAccHand").innerHTML = bestAnswer[19]
+    document.getElementById("resultCombiAccEarRing").innerHTML = bestAnswer[20]
+    document.getElementById("resultCombiAccNeck").innerHTML = bestAnswer[21]
+    document.getElementById("resultCombiArtRing").innerHTML = bestAnswer[22]
 
     noteArea.value += "- 推薦組合: " + bestAnswer + "\n"
 }
@@ -1111,7 +1133,13 @@ function combiCalc(equipType, charDetail, equipDetail, setDetail, maxPolar, maxA
     }
 
     // Result
-    var resultValue = 100.0 * (100 + charDetail[0]) / 100 * (150 + charDetail[1]) / 100 * (100 + charDetail[2]) / 100 * (100 + charDetail[3]) / 100 * (100 + charDetail[4]) / 100
+    var resultValue = 100.0
+    if (equipDetail[3][0] == "122花冠") {
+        resultValue *= 1.1
+    } else if (equipDetail[3][0] == "156皇冠") {
+        resultValue *= 1.05
+    }
+    resultValue *= (100 + charDetail[0]) / 100 * (150 + charDetail[1]) / 100 * (100 + charDetail[2]) / 100 * (100 + charDetail[3]) / 100 * (100 + charDetail[4]) / 100
     resultValue *= (100 + Math.min(maxPolar, charDetail[5])) / 100
     resultValue *= (100 - deBuff + Math.min(maxAdapt, charDetail[6])) / 100
 
