@@ -24,6 +24,8 @@ updateDetail = [
 
 // Initial
 function initialData() {
+    document.getElementById("dateDiffrent").value = defaultTimeDiffrent
+
     updateDetail.forEach(function(item) {
         var idNumber = (document.getElementById("updateSchedule").rows.length).toString()
     
