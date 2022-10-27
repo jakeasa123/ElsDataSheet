@@ -1,5 +1,5 @@
 // 預設時間差
-defaultTimeDiffrent = 181
+defaultTimeDiffrent = 195
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
@@ -18,7 +18,7 @@ updateDetail = [
     ['臨時背包改善', '2022-09-15', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293501', ''],
     ['史詩任務消耗道具獎勵改善', '2022-09-29', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293520', ''],
     ['技能調整', '2022-10-13', '', 'https://kelsword.web.fc2.com/krnotice/138952.htm'],
-    ['ADD 第四分支開放', '2022-10-27', '', ''],
+    ['ADD 第四分支開放', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
 
 ]
 
