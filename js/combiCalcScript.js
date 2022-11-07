@@ -639,6 +639,7 @@ function updateByFixedEffect(inputInfo) {
     inputInfo[2] += 5
     inputInfo[3] += 3
     inputInfo[5] += 1.2
+    inputInfo[6] += 1
 
     return inputInfo
 }
