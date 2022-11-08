@@ -183,9 +183,9 @@ function loadCookie() {
                 var tempName = tempData[0].substr(10)
                 if (save_special_target.indexOf(tempName) >= 0) {
                     if (tempData[1] == "1") {
-                        document.getElementById(target).checked = true
+                        document.getElementById(tempName).checked = true
                     } else {
-                        document.getElementById(target).checked = false
+                        document.getElementById(tempName).checked = false
                     }
                 } else {
                     document.getElementById(tempName).value = tempData[1]
