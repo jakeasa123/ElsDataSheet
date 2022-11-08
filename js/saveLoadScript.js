@@ -161,7 +161,7 @@ function saveCookie() {
 
     // Save Cookie
     save_target.forEach(target => {
-        document.cookie = target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/"
+        document.cookie = target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/combiCalc/"
     });
 
     alert('test')
