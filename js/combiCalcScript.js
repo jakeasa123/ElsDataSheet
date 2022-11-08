@@ -24,6 +24,8 @@ function initialData() {
     setInfo.forEach(function(item) {
         appendSet(item)
     });
+
+    loadCookie()
 }
 
 function weaponTypeSelect() {
@@ -362,6 +364,8 @@ function appendSet(input_data) {
 // Calc
 function submitCalc() {
     if (inputCheck()) {
+        saveCookie()
+
         calcNote = document.getElementById("calcNote")
         calcNote.value = ""
 
@@ -838,6 +842,8 @@ function readSetInfo() {
 }
 
 function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
+
+
     var needCoolDown = document.getElementById("checkBoxCooldown").checked
     var maxPolar = 45
     var maxAdapt = 45

@@ -169,8 +169,6 @@ function saveCookie() {
             document.cookie = "combiCalc_" + target + "=0; expires=" + expireDate + "; path=/"
         }
     });
-    
-    alert('test')
 }
 
 function loadCookie() {

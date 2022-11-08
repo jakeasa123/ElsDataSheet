@@ -25,7 +25,7 @@ function initialTable() {
             }
         });
 
-        if (cookieDict.length == 0) {
+        if (Object.keys(cookieDict).length == 0) {
             createTable()
 
         } else {
