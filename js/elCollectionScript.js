@@ -216,7 +216,7 @@ function saveCookie(showModal) {
             if (magicStoneInput != undefined) {
                 var magicStone = magicStoneInput.value
                 var secretReward = document.getElementById("button_" + jobName + "_SecretReward").innerHTML.substring(3, 4)
-                document.cookie = jobName + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/elColle/"
+                document.cookie = jobName + "=" + magicStone + "," + secretReward + "; expires=" + expireDate + "; path=/"
             }
         });
     });

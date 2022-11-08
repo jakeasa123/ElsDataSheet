@@ -161,7 +161,7 @@ function saveCookie() {
 
     // Save Cookie
     save_target.forEach(target => {
-        document.cookie = target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/combiCalc/"
+        document.cookie = "combiCalc" + target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/"
     });
 
     alert('test')
@@ -171,10 +171,12 @@ function loadCookie() {
     if (document.cookie) {
         var cookieData = decodeURIComponent(document.cookie).split("; ")
 
-        var cookieDict = {}
         cookieData.forEach(cData => {
             tempData = cData.split("=")
-            document.getElementById(tempData[0]).value = tempData[1]
+            if (tempData[0].substr(0, 9) == "combiCalc") {
+                document.getElementById(tempData[0].substr(9)).value = tempData[1]
+            }
+            
         });
     } 
 }
