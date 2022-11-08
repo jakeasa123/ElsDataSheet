@@ -3,16 +3,15 @@ var save_target = [
     "inputJobAtkPower", "inputJobCritDmg", "inputJobBossDmg", "inputJobSkillDmg", "inputJobAllSkillDmg",
 
     "inputWeaponType", "inputWeaponUpgrade", "inputWeaponStage", "inputWeaponAtkPower", "inputWeaponCritDmg",
-
-    "inputEquipRadioAmet", "inputEquipRadioTene", "inputEquipRadioBoth", 
     "checkBoxAmetType", "inputEquipUpgradeTopAmet", "inputEquipReforgeTopAmet", "inputEquipUpgradeBottomAmet", "inputEquipReforgeBottomAmet", "inputEquipUpgradeGloveAmet", "inputEquipReforgeGloveAmet", "inputEquipUpgradeShoesAmet", "inputEquipReforgeShoesAmet",
     "checkBoxTeneType", "inputEquipUpgradeTopTene", "inputEquipReforgeTopTene", "inputEquipUpgradeBottomTene", "inputEquipReforgeBottomTene", "inputEquipUpgradeGloveTene", "inputEquipReforgeGloveTene", "inputEquipUpgradeShoesTene", "inputEquipReforgeShoesTene",
 
     "inputOtherBossDmgStone", "inputOtherDeBuff", "inputOtherReson", 
 
     "inputPerAtkPower", "inputPerCritDmg", "inputPerBossDmg", "inputPerSkillDmg", "inputPerAllSkillDmg", "inputPerPolar", "inputPerAdapt",
-
-    "checkBoxCooldown", "checkBoxVer55"
+]
+var save_special_target = [
+    "inputEquipAmetBoth", "inputEquipTeneBoth", "inputEquipRadioBoth", "checkBoxCooldown", "checkBoxVer55"
 ]
 
 function saveData() {
@@ -161,9 +160,16 @@ function saveCookie() {
 
     // Save Cookie
     save_target.forEach(target => {
-        document.cookie = "combiCalc" + target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/"
+        document.cookie = "combiCalc_" + target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/"
     });
-
+    save_special_target.forEach(target => {
+        if (document.getElementById(target).checked) {
+            document.cookie = "combiCalc_" + target + "=1; expires=" + expireDate + "; path=/"
+        } else {
+            document.cookie = "combiCalc_" + target + "=0; expires=" + expireDate + "; path=/"
+        }
+    });
+    
     alert('test')
 }
 
@@ -173,10 +179,18 @@ function loadCookie() {
 
         cookieData.forEach(cData => {
             tempData = cData.split("=")
-            if (tempData[0].substr(0, 9) == "combiCalc") {
-                document.getElementById(tempData[0].substr(9)).value = tempData[1]
+            if (tempData[0].substr(0, 10) == "combiCalc_") {
+                var tempName = tempData[0].substr(10)
+                if (save_special_target.indexOf(tempName) >= 0) {
+                    if (tempData[1] == "1") {
+                        document.getElementById(target).checked = true
+                    } else {
+                        document.getElementById(target).checked = false
+                    }
+                } else {
+                    document.getElementById(tempName).value = tempData[1]
+                }
             }
-            
         });
     } 
 }
