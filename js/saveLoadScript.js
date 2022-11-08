@@ -11,7 +11,7 @@ var save_target = [
     "inputPerAtkPower", "inputPerCritDmg", "inputPerBossDmg", "inputPerSkillDmg", "inputPerAllSkillDmg", "inputPerPolar", "inputPerAdapt",
 ]
 var save_special_target = [
-    "inputEquipAmetBoth", "inputEquipTeneBoth", "inputEquipRadioBoth", "checkBoxCooldown", "checkBoxVer55"
+    "inputEquipRadioAmet", "inputEquipRadioTene", "inputEquipRadioBoth", "checkBoxCooldown", "checkBoxVer55"
 ]
 
 function saveData() {
