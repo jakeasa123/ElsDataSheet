@@ -1,4 +1,19 @@
 var int_formatter = new Intl.NumberFormat('en-US')
+var save_target = [
+    "inputJobAtkPower", "inputJobCritDmg", "inputJobBossDmg", "inputJobSkillDmg", "inputJobAllSkillDmg",
+
+    "inputWeaponType", "inputWeaponUpgrade", "inputWeaponStage", "inputWeaponAtkPower", "inputWeaponCritDmg",
+
+    "inputEquipRadioAmet", "inputEquipRadioTene", "inputEquipRadioBoth", 
+    "checkBoxAmetType", "inputEquipUpgradeTopAmet", "inputEquipReforgeTopAmet", "inputEquipUpgradeBottomAmet", "inputEquipReforgeBottomAmet", "inputEquipUpgradeGloveAmet", "inputEquipReforgeGloveAmet", "inputEquipUpgradeShoesAmet", "inputEquipReforgeShoesAmet",
+    "checkBoxTeneType", "inputEquipUpgradeTopTene", "inputEquipReforgeTopTene", "inputEquipUpgradeBottomTene", "inputEquipReforgeBottomTene", "inputEquipUpgradeGloveTene", "inputEquipReforgeGloveTene", "inputEquipUpgradeShoesTene", "inputEquipReforgeShoesTene",
+
+    "inputOtherBossDmgStone", "inputOtherDeBuff", "inputOtherReson", 
+
+    "inputPerAtkPower", "inputPerCritDmg", "inputPerBossDmg", "inputPerSkillDmg", "inputPerAllSkillDmg", "inputPerPolar", "inputPerAdapt",
+
+    "checkBoxCooldown", "checkBoxVer55"
+]
 
 function saveData() {
     var tempString = ""
@@ -137,5 +152,30 @@ function parseBoolean(input_var) {
     }
 }
 
+// Cookie
+function saveCookie() {
+    // Expire Date
+    var expireDate = new Date()
+    expireDate.setTime(expireDate.getTime() + 31536000000)
+    expireDate = expireDate.toUTCString()
 
+    // Save Cookie
+    save_target.forEach(target => {
+        document.cookie = target + "=" + document.getElementById(target).value + "; expires=" + expireDate + "; path=/"
+    });
+
+    alert('test')
+}
+
+function loadCookie() {
+    if (document.cookie) {
+        var cookieData = decodeURIComponent(document.cookie).split("; ")
+
+        var cookieDict = {}
+        cookieData.forEach(cData => {
+            tempData = cData.split("=")
+            document.getElementById(tempData[0]).value = tempData[1]
+        });
+    } 
+}
 

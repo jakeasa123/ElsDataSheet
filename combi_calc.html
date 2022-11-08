@@ -39,6 +39,13 @@
         <div class="container p-3">
             <h5>● 近期更動：</h5>
             <p>[1] 已經計入<mark>DE 的賦靈錄效果</mark>。</p>
+            <p>[2] 加入<mark>Cookie 保存</mark>的機制。</p>
+        </div>
+
+        <div class="container p-3">
+            <p>此頁面透過 Cookie 保存，清除瀏覽記錄、清除 Cookie、更換瀏覽器或更換設備會無法讀取前次內容。</p>
+            <p>Cookie 的保存時間設置為一年，如果超過一年未使用則有可能會被瀏覽器自動清除。</p>
+            <p>修改完欄位後按下 Enter，Cookie 就會自動儲存，若不放心則可以至「記憶功能」中進行儲存。</p>
         </div>
         
         <div class="container p-3">
@@ -51,7 +58,7 @@
                         <a class="list-group-item list-group-item-action" id="list-equip-list" data-bs-toggle="list" href="#list-equip" role="tab" aria-controls="list-equip">防具性能</a>
                         <a class="list-group-item list-group-item-action" id="list-other-list" data-bs-toggle="list" href="#list-other" role="tab" aria-controls="list-other">其他數值</a>
                         <a class="list-group-item list-group-item-action" id="list-personal-list" data-bs-toggle="list" href="#list-personal" role="tab" aria-controls="list-personal">個人自訂</a>
-                        <a class="list-group-item list-group-item-action" id="list-saveload-list" data-bs-toggle="list" href="#list-saveload" role="tab" aria-controls="list-saveload">賽弗羅德</a>
+                        <a class="list-group-item list-group-item-action" id="list-saveload-list" data-bs-toggle="list" href="#list-saveload" role="tab" aria-controls="list-saveload">記憶功能</a>
                     </div>
                 </div>
                 <div class="col-9">
@@ -306,7 +313,7 @@
                             <span class="badge bg-success mb-3">產生數據字串</span>
                             <div class="mb-5">
                                 <input class="form-control" id="inputSaveData">
-                                <button type="button" class="btn btn-success mt-1" onclick="saveData()">產生</button>
+                                <button type="button" class="btn btn-success mt-1" onclick="saveCookie()">產生</button>
                                 <button type="button" class="btn btn-success mt-1 mx-3" onclick="copyData()">複製</button>
                             </div>
 
@@ -314,7 +321,7 @@
                             <div class="mb-3">
                                 <div id="inputLoadDataHelp" class="form-text">請留意讀取後將取代目前所有輸入欄位的資訊。</div>
                                 <input class="form-control" id="inputLoadData" aria-describedby="inputLoadDataHelp">
-                                <button type="button" class="btn btn-danger mt-1" onclick="loadData()">讀取</button>
+                                <button type="button" class="btn btn-danger mt-1" onclick="loadCookie()">讀取</button>
                             </div>
                         </div>
 
