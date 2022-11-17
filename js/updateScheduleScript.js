@@ -19,6 +19,7 @@ updateDetail = [
     ['史詩任務消耗道具獎勵改善', '2022-09-29', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293520', ''],
     ['技能調整', '2022-10-13', '', 'https://kelsword.web.fc2.com/krnotice/138952.htm'],
     ['ADD 第四分支開放', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
+    ['公會系統改編與 OM 技能調整', '2022-11-10', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293574', ''],
 
 ]
 
@@ -53,6 +54,14 @@ function initialData() {
         var tempDate = new Date(item[1])
         tempDate.setDate(tempDate.getDate() + defaultTimeDiffrent)
         tempChild.innerHTML = tempDate.toISOString().substring(0, 10)
+        document.getElementById("updateObjectTr_" + idNumber).appendChild(tempChild)
+
+        // 與今日天數差
+        tempChild = document.createElement("td")
+        tempChild.setAttribute("id", "updateTdDateDiff_" + idNumber)
+        var tempToday = new Date()
+        var tempDiff = Math.ceil((tempDate - tempToday) / (1000 * 60 * 60 * 24))
+        tempChild.innerHTML = tempDiff.toString()
         document.getElementById("updateObjectTr_" + idNumber).appendChild(tempChild)
 
         // 更新公告
@@ -90,7 +99,7 @@ function initialData() {
 
 function input_check() {
     if (isNaN(document.getElementById("dateDiffrent").value)) {
-        document.getElementById("dateDiffrent").value = 181
+        document.getElementById("dateDiffrent").value = defaultTimeDiffrent
     }
 }
 
@@ -99,9 +108,14 @@ function editDateDiffrent() {
 
     var newDateDiff = parseInt(document.getElementById("dateDiffrent").value)
 
+    var tempToday = new Date()
+
     for (var i = 0 ; i < document.getElementById("updateSchedule").rows.length ; i++) {
         var tempDate = new Date(document.getElementById("updateTdDateKR_" + i).innerHTML)
         tempDate.setDate(tempDate.getDate() + newDateDiff)
+
+        var tempDiff = Math.ceil((tempDate - tempToday) / (1000 * 60 * 60 * 24))
+        document.getElementById("updateTdDateDiff_" + i).innerHTML = tempDiff.toString()
 
         document.getElementById("updateTdDateEU_" + i).innerHTML = tempDate.toISOString().substring(0, 10)
     }
