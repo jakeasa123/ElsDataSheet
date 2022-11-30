@@ -4,7 +4,6 @@ defaultTimeDiffrent = 195
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['露希爾第四分支開放', '2022-04-28', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293248', 'https://kelsword.web.fc2.com/balance/220428sb.htm'],
     ['拳擊活動', '2022-05-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293263', ''],
     ['寵物對戰與 DE 技能調整', '2022-05-12', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293274', 'https://kelsword.web.fc2.com/balance/220512sb.htm'],
     ['寵物對戰與表情系統改善', '2022-05-26', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293294', ''],
@@ -18,7 +17,9 @@ updateDetail = [
     ['臨時背包改善', '2022-09-15', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293501', ''],
     ['史詩任務消耗道具獎勵改善', '2022-09-29', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293520', ''],
     ['技能調整', '2022-10-13', '', 'https://kelsword.web.fc2.com/krnotice/138952.htm'],
+    ['64 位元版本開放 (NA)', '2022-10-13', '', ''],
     ['ADD 第四分支開放', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
+    ['64 位元版本開放 (TW)', '2022-11-10', '', ''],
     ['公會系統改編與 OM 技能調整', '2022-11-10', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293574', ''],
 
 ]
