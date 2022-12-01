@@ -5,7 +5,7 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../ElsDataSheet/js/hammerCalcScript.js"></script>
+        <script src="../Elsword/js/hammerCalcScript.js"></script>
     </head>
     <body>
 
@@ -18,11 +18,11 @@
         <div class="container p-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
                 </ol>
             </nav>
         </div>
-        
+
         <div class="container p-3">
             <div class="row">
 
@@ -33,25 +33,25 @@
                         <input type="input" class="form-control" id="ecPrice" onchange="executeCalc()" value="230000">
                         <div id="ecPriceHelp" class="form-text">請填入目前的 EC 比值，若 1 EC 需要支付 23 萬 ED 時，即是填入「230000」。</div>
                     </div>
-        
+
                     <div class="mb-3">
                         <label for="stonePrice" class="form-label">強化守護石售價：</label>
                         <input type="input" class="form-control" id="stonePrice" onchange="executeCalc()" value="7000000">
                         <div id="stonePriceHelp" class="form-text">請填入「用於強化道具至 +11 的強化守護石」，在市場上的 ED 售價。</div>
                     </div>
-        
+
                     <div class="mb-3">
                         <label for="crystalPrice" class="form-label">強化守護水晶售價：</label>
                         <input type="input" class="form-control" id="crystalPrice" onchange="executeCalc()" value="700000">
                         <div id="crystalPriceHelp" class="form-text">請填入「用於強化道具至 +12 或 +13 的強化守護水晶」，在市場上的 ED 售價。</div>
                     </div>
-        
+
                     <div class="mb-3">
                         <label for="scrollPrice" class="form-label">強化修復卷售價：</label>
                         <input type="input" class="form-control" id="scrollPrice" onchange="executeCalc()" value="54000000">
                         <div id="scrollPriceHelp" class="form-text">請填入「用於修復損壞的防具的強化修復卷」，在市場上的 ED 售價。</div>
                     </div>
-                    
+
                 </div>
 
                 <div class="col">
@@ -111,6 +111,6 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
 </html>

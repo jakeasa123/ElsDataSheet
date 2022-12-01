@@ -5,11 +5,11 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../ElsDataSheet/js/equipInfoTable.js"></script>
-        <script src="../ElsDataSheet/js/unreleaseEquipInfoTable.js"></script>
-        <script src="../ElsDataSheet/js/setInfoTable.js"></script>
-        <script src="../ElsDataSheet/js/combiCalcScript.js"></script>
-        <script src="../ElsDataSheet/js/saveLoadScript.js"></script>
+        <script src="../Elsword/js/equipInfoTable.js"></script>
+        <script src="../Elsword/js/unreleaseEquipInfoTable.js"></script>
+        <script src="../Elsword/js/setInfoTable.js"></script>
+        <script src="../Elsword/js/combiCalcScript.js"></script>
+        <script src="../Elsword/js/saveLoadScript.js"></script>
     </head>
     <body onload="initialData()">
 
@@ -22,7 +22,7 @@
         <div class="container p-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../ElsDataSheet/index.html">返回入口頁面</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
                 </ol>
             </nav>
         </div>
@@ -34,7 +34,7 @@
             <p>[3] 延續 [2] 之說明，若計算過程發現電腦延遲、卡頓或其他不良情形發生，請<mark>立即關閉瀏覽器並放棄使用此頁面的功能</mark>。</p>
             <p>[4] 為簡化計算，共鳴等級的配置順序固定為「技能傷害 → 適應力 → 兩極化 → Boss 傷害」。</p>
             <p>[5] 數據僅供參考，不要過分參照。</p>
-        
+
         <div class="container p-3">
             <span class="badge bg-primary mb-3">角色數據</span>
             <div class="row">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-9">
                     <div class="tab-content" id="nav-tabContent">
-                        
+
                         <!-- 職業特性 -->
                         <div class="tab-pane fade show active" id="list-job" role="tabpanel" aria-labelledby="list-job-list">
                             <div class="mb-3">會額外顯示於 BUFF 狀態列上的被動或主動技能 BUFF，除「暴擊傷害 + x%」通常為加算性質外，大致上均為乘算性質，不必列於職業特性之中。</div>
@@ -80,7 +80,7 @@
                                 <div id="inputJobAllSkillDmgHelp" class="form-text">基於職業本身，所取得的「所有技能傷害 + x%」效果總和。</div>
                             </div>
                         </div>
-                        
+
                         <!-- 武器性能 -->
                         <div class="tab-pane fade" id="list-weapon" role="tabpanel" aria-labelledby="list-weapon-list">
                             <div class="mb-3">
@@ -296,7 +296,7 @@
                         <!-- Save Load -->
                         <div class="tab-pane fade" id="list-saveload" role="tabpanel" aria-labelledby="list-saveload-list">
                             <p class="mb-5">此區域用於產生或讀取數據字串，可以便捷地載入先前輸入的資訊。</p>
-                            
+
                             <span class="badge bg-success mb-3">產生數據字串</span>
                             <div class="mb-5">
                                 <input class="form-control" id="inputSaveData">
@@ -333,7 +333,7 @@
                         <!-- 考量選擇 -->
                         <div class="tab-pane fade show active" id="list-input-acc" role="tabpanel" aria-labelledby="list-input-acc-list">
                             <button type="button" class="btn btn-primary" onclick="appendEquip(false)">新增選擇</button>
-                            
+
                             <table class="table table-striped align-middle table-sm" id="combiEquipTable">
                                 <thead>
                                     <tr class="text-center">
@@ -357,7 +357,7 @@
                         <!-- 套裝效果 -->
                         <div class="tab-pane fade" id="list-set" role="tabpanel" aria-labelledby="list-set-list">
                             <button type="button" class="btn btn-primary" onclick="appendSet(false)">新增套裝</button>
-                            
+
                             <table class="table table-striped align-middle table-sm" id="combiSetTable">
                                 <thead>
                                     <tr class="text-center">
@@ -475,7 +475,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
                 <div class="col-3">
                     <span class="badge bg-dark mb-3">裝備與飾品選擇</span>
                     <table class="table table-striped align-middle table-sm">
@@ -538,7 +538,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
                 <div class="col-3">
                     <span class="badge bg-dark mb-3">最終數值</span>
                     <table class="table table-striped align-middle table-sm">
