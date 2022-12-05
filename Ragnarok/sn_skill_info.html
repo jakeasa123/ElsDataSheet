@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>RO Hyper Novice 技能整理</title>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="../Ragnarok/js/backToTopButton.js"></script>
+        <link rel="stylesheet" href="../Ragnarok/css/backToTopButton.css">
+    </head>
+    <body onload="initialData()">
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>RO Hyper Novice 技能整理</h1>
+
+        </div>
+
+        <div class="container p-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="container p-3">
+
+            <div class="mb-1"><span class="badge rounded-pill bg-success">物理方面技能</span></div>
+            <p>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_SELFSTUDY_TATICS" role="button">獨學-戰鬥學</a>
+            </p>
+            <p>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_DOUBLEBOWLINGBASH" role="button">雙重怪物互擊</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_MEGA_SONIC_BLOW" role="button">超級音速投擲</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_SHIELD_CHAIN_RUSH" role="button">連續盾牌衝擊</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_SPIRAL_PIERCE_MAX" role="button">最大螺旋擊刺</a>
+            </p>
+            <p>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_BREAKINGLIMIT" role="button">突破極限</a>
+            </p>
+
+            <div class="mt-3 mb-1"><span class="badge rounded-pill bg-success">魔法方面技能</span></div>
+            <p>
+                <a class="btn btn-outline-primary btn-sm mx-3 my-1" href="#HN_SELFSTUDY_SOCERY" role="button">獨學-魔法學</a>
+            </p>
+            <p>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_METEOR_STORM_BUSTER" role="button">隕石轟炸</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_JUPITEL_THUNDER_STORM" role="button">雷霆風暴</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_JACK_FROST_NOVA" role="button">凍僵新星</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_HELLS_DRIVE" role="button">地獄撼動</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_GROUND_GRAVITATION" role="button">重力曠野</a>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_NAPALM_VULCAN_STRIKE" role="button">念力直擊</a>
+            </p>
+            <p>
+                <a class="btn btn-outline-primary btn-sm mx-3" href="#HN_RULEBREAK" role="button">打破規則</a>
+            </p>
+        </div>
+
+        <div class="container p-3">
+            <div class="mb-1"><span class="badge bg-success">物理方面技能詳細資訊</span></div>
+
+            <!-- 獨學-戰鬥學 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_SELFSTUDY_TATICS"><img alt="HN_SELFSTUDY_TATICS" src="../Ragnarok/image/HN_SELFSTUDY_TATICS.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            獨學-戰鬥學<br />
+                            독학-전투학<br />
+                            Self Study - Tactics<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            透過提高活用身體技術的知識，增加自身的 P.ATK，並提升各種物理技能的傷害。<br />
+                            雙重怪物互擊/超級音速投擲/最大螺旋擊刺的技能傷害提高(技能等級)%。<br />
+                            連續盾牌衝擊的技能傷害提高(技能等級x2)%。<br />
+                            <br />
+                            [Lv 1] : P.ATK + 1<br />
+                            [Lv 2] : P.ATK + 2<br />
+                            [Lv 3] : P.ATK + 3<br />
+                            [Lv 4] : P.ATK + 4<br />
+                            [Lv 5] : P.ATK + 5<br />
+                            [Lv 6] : P.ATK + 6<br />
+                            [Lv 7] : P.ATK + 7<br />
+                            [Lv 8] : P.ATK + 8<br />
+                            [Lv 9] : P.ATK + 9<br />
+                            [Lv10] : P.ATK + 10<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">無</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">被動技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，對雙重怪物互擊/超級音速投擲/最大螺旋擊刺的關聯係數自 10% 提升為 15%、對連續盾牌衝擊的關聯係數自 20% 提升為 30%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 雙重怪物互擊 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_DOUBLEBOWLINGBASH"><img alt="HN_DOUBLEBOWLINGBASH" src="../Ragnarok/image/HN_DOUBLEBOWLINGBASH.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            雙重怪物互擊<br />
+                            더블 볼링 배쉬<br />
+                            Double Bowling Bash<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            對目標以及其周圍 7x7 格範圍內的對象，造成近距離物理傷害並擊退。<br />
+                            依據範圍內的敵人數量增加攻擊次數，最大造成 5 次攻擊。<br />
+                            依據獨學-戰鬥學的習得等級、施展者的基本等級以及 POW 增加傷害。<br />
+                            詠唱後，1 秒內會陷入無法切換武器的狀態。<br />
+                            <br />
+                            [Lv 1] : 每 1 次 ATK 300+(獨學-戰鬥學Lv x3)%<br />
+                            [Lv 2] : 每 1 次 ATK 500+(獨學-戰鬥學Lv x6)%<br />
+                            [Lv 3] : 每 1 次 ATK 700+(獨學-戰鬥學Lv x9)%<br />
+                            [Lv 4] : 每 1 次 ATK 900+(獨學-戰鬥學Lv x12)%<br />
+                            [Lv 5] : 每 1 次 ATK 1100+(獨學-戰鬥學Lv x15)%<br />
+                            [Lv 6] : 每 1 次 ATK 1300+(獨學-戰鬥學Lv x18)%<br />
+                            [Lv 7] : 每 1 次 ATK 1500+(獨學-戰鬥學Lv x21)%<br />
+                            [Lv 8] : 每 1 次 ATK 1700+(獨學-戰鬥學Lv x24)%<br />
+                            [Lv 9] : 每 1 次 ATK 1900+(獨學-戰鬥學Lv x27)%<br />
+                            [Lv10] : 每 1 次 ATK 2100+(獨學-戰鬥學Lv x30)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-戰鬥學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定目標近距離物理傷害技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 2</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 擊退效果自 2 格降低為 1 格；以等級 10 為基準，每 1 次攻擊倍率自 2650% 提升為 3200%。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 72 降低為 65、AP 恢復量自 2 提升為 3、每 1 次攻擊倍率自 2100% 提升為 2650%、擊退效果自最大 6 格降低為 2 格，且攻擊範圍自 7x7 格提升為 9x9 格。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 超級音速投擲 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_MEGA_SONIC_BLOW"><img alt="HN_MEGA_SONIC_BLOW" src="../Ragnarok/image/HN_MEGA_SONIC_BLOW.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            超級音速投擲<br />
+                            메가 소닉 블로우<br />
+                            Mega Sonic Blow<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            對一名目標造成強力的近距離物理傷害，一定機率賦予「暈眩」異常狀態。<br />
+                            異常狀態的賦予機率與持續時間，受到目標的異常狀態耐性影響。<br />
+                            對現有 HP 未滿 50% 的目標施展時，傷害變為 2 倍。<br />
+                            依據獨學-戰鬥學的習得等級、施展者的基本等級以及 POW 增加傷害。<br />
+                            依據施展者的暴擊機率，適用暴擊；發動暴擊的情形，暴擊傷害增加效果僅會適用一半。<br />
+                            <br />
+                            [Lv 1] : ATK 950+(獨學-戰鬥學Lv x5)%<br />
+                            [Lv 2] : ATK 1100+(獨學-戰鬥學Lv x10)%<br />
+                            [Lv 3] : ATK 1250+(獨學-戰鬥學Lv x15)%<br />
+                            [Lv 4] : ATK 1400+(獨學-戰鬥學Lv x20)%<br />
+                            [Lv 5] : ATK 1550+(獨學-戰鬥學Lv x25)%<br />
+                            [Lv 6] : ATK 1700+(獨學-戰鬥學Lv x30)%<br />
+                            [Lv 7] : ATK 1850+(獨學-戰鬥學Lv x35)%<br />
+                            [Lv 8] : ATK 2000+(獨學-戰鬥學Lv x40)%<br />
+                            [Lv 9] : ATK 2150+(獨學-戰鬥學Lv x45)%<br />
+                            [Lv10] : ATK 2300+(獨學-戰鬥學Lv x50)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">雙重怪物互擊 7</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定目標近距離物理傷害技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">0.3 秒</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 獨立延遲自 0.3 秒提升為 0.35 秒；以等級 10 為基準，攻擊倍率自 5350% 提升為 8400%。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 45 提升為 60、AP 恢復量自 1 提升為 2 且攻擊倍率自 2300% 提升為 5350%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 連續盾牌衝擊 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_SHIELD_CHAIN_RUSH"><img alt="HN_SHIELD_CHAIN_RUSH" src="../Ragnarok/image/HN_SHIELD_CHAIN_RUSH.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            連續盾牌衝擊<br />
+                            쉴드 체인 러쉬<br />
+                            Shield Chain Rush<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            僅能在裝備盾牌時使用。<br />
+                            向目標投擲盾牌，對目標以及其周圍 7x7 格內的對象造成遠距離物理傷害。<br />
+                            受到攻擊的敵人於 5 秒內，移動速度 - 20% 並且受到的傷害 + 10%（除了 Boss 階級魔物）。<br />
+                            依據獨學-戰鬥學的習得等級、施展者的基本等級以及 POW 增加傷害。<br />
+                            詠唱後，1.2 秒內會陷入無法切換武器的狀態。<br />
+                            <br />
+                            [Lv 1] : ATK 700+(獨學-戰鬥學Lv x3)%<br />
+                            [Lv 2] : ATK 1000+(獨學-戰鬥學Lv x6)%<br />
+                            [Lv 3] : ATK 1300+(獨學-戰鬥學Lv x9)%<br />
+                            [Lv 4] : ATK 1600+(獨學-戰鬥學Lv x12)%<br />
+                            [Lv 5] : ATK 1900+(獨學-戰鬥學Lv x15)%<br />
+                            [Lv 6] : ATK 2200+(獨學-戰鬥學Lv x18)%<br />
+                            [Lv 7] : ATK 2500+(獨學-戰鬥學Lv x21)%<br />
+                            [Lv 8] : ATK 2800+(獨學-戰鬥學Lv x24)%<br />
+                            [Lv 9] : ATK 3100+(獨學-戰鬥學Lv x27)%<br />
+                            [Lv10] : ATK 3400+(獨學-戰鬥學Lv x30)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-戰鬥學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定目標遠距離物理傷害技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">0.3 秒</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 獨立延遲自 0.3 秒提升為 0.35 秒；以等級 10 為基準，攻擊倍率自 5100% 提升為 5700%。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 施展距離自受等級影響變更為固定 7 格；以等級 10 為基準，SP 消耗自 65 降低為 62、AP 恢復量自 1 提升為 2、攻擊倍率自 3400% 提升為 5100% 且攻擊範圍自 7x7 格提升為 9x9 格。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 最大螺旋擊刺 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_SPIRAL_PIERCE_MAX"><img alt="HN_SPIRAL_PIERCE_MAX" src="../Ragnarok/image/HN_SPIRAL_PIERCE_MAX.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            最大螺旋擊刺<br />
+                            스파이럴 피어스 맥스<br />
+                            Spiral Pierce Max<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            使用追加迴轉力的強力突刺攻擊一名目標，造成遠距離物理傷害。<br />
+                            受到攻擊的敵人於 2 秒內，無法移動（除了 Boss 階級魔物）。<br />
+                            依據目標的體型，傷害會有補正效果（小型: 1.5 倍/中型: 1.3 倍/大型: 1.2 倍）。<br />
+                            依據獨學-戰鬥學的習得等級、施展者的基本等級以及 POW 增加傷害。<br />
+                            <br />
+                            [Lv 1] : ATK (750+(獨學-戰鬥學Lv x3))x補正%<br />
+                            [Lv 2] : ATK (1000+(獨學-戰鬥學Lv x6))x補正%<br />
+                            [Lv 3] : ATK (1250+(獨學-戰鬥學Lv x9))x補正%<br />
+                            [Lv 4] : ATK (1500+(獨學-戰鬥學Lv x12))x補正%<br />
+                            [Lv 5] : ATK (1750+(獨學-戰鬥學Lv x15))x補正%<br />
+                            [Lv 6] : ATK (2000+(獨學-戰鬥學Lv x18))x補正%<br />
+                            [Lv 7] : ATK (2250+(獨學-戰鬥學Lv x21))x補正%<br />
+                            [Lv 8] : ATK (2500+(獨學-戰鬥學Lv x24))x補正%<br />
+                            [Lv 9] : ATK (2750+(獨學-戰鬥學Lv x27))x補正%<br />
+                            [Lv10] : ATK (3000+(獨學-戰鬥學Lv x30))x補正%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">連續盾牌衝擊 7</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定目標遠距離物理傷害技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">0.3 秒</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 獨立延遲自 0.3 秒提升為 0.35 秒；以等級 10 為基準，攻擊倍率自 4050% 提升為 8700%。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 47 提升為 55、AP 恢復量自 1 提升為 2 且攻擊倍率自 3000% 提升為 4050%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 突破極限 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_BREAKINGLIMIT"><img alt="HN_BREAKINGLIMIT" src="../Ragnarok/image/HN_BREAKINGLIMIT.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            突破極限<br />
+                            한계돌파<br />
+                            Breaking Limit<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            突破自身肉體的極限，發揮出強大的力量。<br />
+                            300 秒內，增加雙重怪物互擊/超級音速投擲/連續盾牌衝擊/最大螺旋擊刺的傷害。<br />
+                            <br />
+                            雙重怪物互擊 : 增加 50%<br />
+                            超級音速投擲 : 增加 100%<br />
+                            連續盾牌衝擊 : 增加 50%<br />
+                            最大螺旋擊刺 : 增加 100%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">
+                            雙重怪物互擊 7<br />
+                            連續盾牌衝擊 7<br />
+                            超級音速投擲 7<br />
+                            最大螺旋擊刺 7<br />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">對自身輔助技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP - 150</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 對超級音速投擲/最大螺旋擊刺的關聯係數自 70% 提升為 100%。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 對超級音速投擲/最大螺旋擊刺的關聯係數自 100% 降低為 70%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="container p-3">
+            <div class="mb-1"><span class="badge bg-success">魔法方面技能詳細資訊</span></div>
+
+            <!-- 獨學-魔法學 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_SELFSTUDY_SOCERY"><img alt="HN_SELFSTUDY_SOCERY" src="../Ragnarok/image/HN_SELFSTUDY_SOCERY.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            獨學-魔法學<br />
+                            독학-마도학<br />
+                            Self Study - Sorcery<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            透過提高活用魔力技術的知識，增加自身的 S.MATK，並提升各種魔法技能的傷害。<br />
+                            隕石轟炸(落下傷害)/雷霆風暴/凍僵新星(爆炸傷害)/地獄撼動/重力曠野(重力場傷害)的技能傷害提高(技能等級)%。<br />
+                            念力直擊的技能傷害提高(技能等級x2)%。<br />
+                            <br />
+                            [Lv 1] : S.MATK + 1<br />
+                            [Lv 2] : S.MATK + 2<br />
+                            [Lv 3] : S.MATK + 3<br />
+                            [Lv 4] : S.MATK + 4<br />
+                            [Lv 5] : S.MATK + 5<br />
+                            [Lv 6] : S.MATK + 6<br />
+                            [Lv 7] : S.MATK + 7<br />
+                            [Lv 8] : S.MATK + 8<br />
+                            [Lv 9] : S.MATK + 9<br />
+                            [Lv10] : S.MATK + 10<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">無</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">被動技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">N/A</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 隕石轟炸 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_METEOR_STORM_BUSTER"><img alt="HN_METEOR_STORM_BUSTER" src="../Ragnarok/image/HN_METEOR_STORM_BUSTER.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            隕石轟炸<br />
+                            메테오 스톰 버스터<br />
+                            Meteor Storm Buster<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            對指定 1 格地面以及其周圍 9x9 格範圍內，隨機位置落下隕石。隕石落下位置的 5x5 格範圍內的敵人會受到火屬性魔法傷害，並且一定機率賦予「暈眩」狀態。<br />
+                            在其之後爆炸，造成第二次火屬性魔法傷害。異常狀態的賦予機率與持續時間，受到目標的異常狀態耐性影響。依據獨學-魔法學的習得等級、施展者的基本等級以及 SPL 增加傷害。<br />
+                            隕石落下的數量受到技能等級影響，最小 3 次、最大 6 次。隕石的爆炸範圍受到技能等級影響，最小 7x7 格、最大 9x9 格。<br />
+                            <br />
+                            [Lv 1] : MATK(落下)600+(獨學-魔法學Lv x5)%<br />
+                            MATK(爆炸)600+(獨學-魔法學Lv x5)%<br />
+                            [Lv 2] : MATK(落下)900+(獨學-魔法學Lv x10)%<br />
+                            MATK(爆炸)750+(獨學-魔法學Lv x10)%<br />
+                            [Lv 3] : MATK(落下)1200+(獨學-魔法學Lv x15)%<br />
+                            MATK(爆炸)900+(獨學-魔法學Lv x15)%<br />
+                            [Lv 4] : MATK(落下)1500+(獨學-魔法學Lv x20)%<br />
+                            MATK(爆炸)1050+(獨學-魔法學Lv x20)%<br />
+                            [Lv 5] : MATK(落下)1800+(獨學-魔法學Lv x25)%<br />
+                            MATK(爆炸)1200+(獨學-魔法學Lv x25)%<br />
+                            [Lv 6] : MATK(落下)2100+(獨學-魔法學Lv x30)%<br />
+                            MATK(爆炸)1350+(獨學-魔法學Lv x30)%<br />
+                            [Lv 7] : MATK(落下)2400+(獨學-魔法學Lv x35)%<br />
+                            MATK(爆炸)1500+(獨學-魔法學Lv x35)%<br />
+                            [Lv 8] : MATK(落下)2700+(獨學-魔法學Lv x40)%<br />
+                            MATK(爆炸)1650+(獨學-魔法學Lv x40)%<br />
+                            [Lv 9] : MATK(落下)3000+(獨學-魔法學Lv x45)%<br />
+                            MATK(爆炸)1800+(獨學-魔法學Lv x45)%<br />
+                            [Lv10] : MATK(落下)3300+(獨學-魔法學Lv x50)%<br />
+                            MATK(爆炸)1950+(獨學-魔法學Lv x50)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-魔法學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定地面火屬性魔法技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 3</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 82 提升為 110 且攻擊倍率自 3300%(落下)/1950%(爆炸) 提升為 3500%(落下)/2050%(爆炸)。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 雷霆風暴 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_JUPITEL_THUNDER_STORM"><img alt="HN_JUPITEL_THUNDER_STORM" src="../Ragnarok/image/HN_JUPITEL_THUNDER_STORM.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            雷霆風暴<br />
+                            유피텔 선더 스톰<br />
+                            Jupitel Thunderstorm<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            向一名目標投出高度集中的電擊球，對目標以及其週圍範圍內的敵人造成風屬性魔法傷害。<br />
+                            依據獨學-魔法學的習得等級、施展者的基本等級以及 SPL 增加傷害。<br />
+                            <br />
+                            [Lv 1] : MATK 1800+(獨學-魔法學Lv x3)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 2] : MATK 3600+(獨學-魔法學Lv x6)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 3] : MATK 5400+(獨學-魔法學Lv x9)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 4] : MATK 7200+(獨學-魔法學Lv x12)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 5] : MATK 9000+(獨學-魔法學Lv x15)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv 6] : MATK 10800+(獨學-魔法學Lv x18)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv 7] : MATK 12600+(獨學-魔法學Lv x21)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv 8] : MATK 14400+(獨學-魔法學Lv x24)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv 9] : MATK 16200+(獨學-魔法學Lv x27)%<br />
+                            範圍: 9x9 格<br />
+                            [Lv10] : MATK 18000+(獨學-魔法學Lv x30)%<br />
+                            範圍: 9x9 格<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-魔法學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定目標風屬性魔法技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 2</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗 68 提升為 120。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 凍僵新星 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_JACK_FROST_NOVA"><img alt="HN_JACK_FROST_NOVA" src="../Ragnarok/image/HN_JACK_FROST_NOVA.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            凍僵新星<br />
+                            잭 프로스트 노바<br />
+                            Jack Frost Nova<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            於指定位置生成冰球，對其週圍範圍內敵人造成水屬性魔法傷害。生成的冰球會引發強力的寒氣爆炸，每 0.3 秒對其週圍範圍內敵人追加造成水屬性魔法傷害，並於 5 秒內賦予「酷寒」狀態。<br />
+                            [酷寒] 狀態 : 對水屬性攻擊的耐性 - 15%（Boss 階級魔物不會適用）。<br />
+                            依據獨學-魔法學的習得等級、施展者的基本等級以及 SPL 增加傷害。<br />
+                            攻擊範圍於技能等級 5 以下時為 7x7 格，6 以上時為 9x9 格。<br />
+                            <br />
+                            [Lv 1] : MATK(冰球)200+(獨學-魔法學Lv x3)%<br />
+                            每 1 次 MATK(爆炸) 400+(獨學-魔法學Lv x3)%<br />
+                            [Lv 2] : MATK(冰球)400+(獨學-魔法學Lv x6)%<br />
+                            每 1 次 MATK(爆炸) 600+(獨學-魔法學Lv x6)%<br />
+                            [Lv 3] : MATK(冰球)600+(獨學-魔法學Lv x9)%<br />
+                            每 1 次 MATK(爆炸) 800+(獨學-魔法學Lv x9)%<br />
+                            [Lv 4] : MATK(冰球)800+(獨學-魔法學Lv x12)%<br />
+                            每 1 次 MATK(爆炸) 1000+(獨學-魔法學Lv x12)%<br />
+                            [Lv 5] : MATK(冰球)1000+(獨學-魔法學Lv x15)%<br />
+                            每 1 次 MATK(爆炸) 1200+(獨學-魔法學Lv x15)%<br />
+                            [Lv 6] : MATK(冰球)1200+(獨學-魔法學Lv x18)%<br />
+                            每 1 次 MATK(爆炸) 1400+(獨學-魔法學Lv x18)%<br />
+                            [Lv 7] : MATK(冰球)1400+(獨學-魔法學Lv x21)%<br />
+                            每 1 次 MATK(爆炸) 1600+(獨學-魔法學Lv x21)%<br />
+                            [Lv 8] : MATK(冰球)1600+(獨學-魔法學Lv x24)%<br />
+                            每 1 次 MATK(爆炸) 1800+(獨學-魔法學Lv x24)%<br />
+                            [Lv 9] : MATK(冰球)1800+(獨學-魔法學Lv x27)%<br />
+                            每 1 次 MATK(爆炸) 2000+(獨學-魔法學Lv x27)%<br />
+                            [Lv10] : MATK(冰球)2000+(獨學-魔法學Lv x30)%<br />
+                            每 1 次 MATK(爆炸) 2200+(獨學-魔法學Lv x30)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-魔法學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定地面水屬性魔法技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 3</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 85 提升為 95 且攻擊倍率自 2200%(爆炸) 提升為 5400%(爆炸)。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 地獄撼動 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_HELLS_DRIVE"><img alt="HN_HELLS_DRIVE" src="../Ragnarok/image/HN_HELLS_DRIVE.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            地獄撼動<br />
+                            헬즈 드라이브<br />
+                            Hell's Drive<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            扭曲自身週圍的大地，使範圍內敵人受到地屬性魔法傷害。<br />
+                            依據獨學-魔法學的習得等級、施展者的基本等級以及 SPL 增加傷害。<br />
+                            <br />
+                            [Lv 1] : MATK 1550+(獨學-魔法學Lv x4)%<br />
+                            範圍: 3x3 格<br />
+                            [Lv 2] : MATK 2100+(獨學-魔法學Lv x8)%<br />
+                            範圍: 3x3 格<br />
+                            [Lv 3] : MATK 2650+(獨學-魔法學Lv x12)%<br />
+                            範圍: 3x3 格<br />
+                            [Lv 4] : MATK 3200+(獨學-魔法學Lv x16)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 5] : MATK 3750+(獨學-魔法學Lv x20)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 6] : MATK 4300+(獨學-魔法學Lv x24)%<br />
+                            範圍: 5x5 格<br />
+                            [Lv 7] : MATK 4850+(獨學-魔法學Lv x28)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv 8] : MATK 5400+(獨學-魔法學Lv x32)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv 9] : MATK 5950+(獨學-魔法學Lv x36)%<br />
+                            範圍: 7x7 格<br />
+                            [Lv10] : MATK 6500+(獨學-魔法學Lv x40)%<br />
+                            範圍: 9x9 格<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-魔法學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">無指定地屬性魔法技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 以等級 10 為基準，SP 消耗自 98 提升為 115。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 70 提升為 98、AP 恢復量自 1 提升為 2 且攻擊倍率自 6500% 提升為 8500%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 重力曠野 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_GROUND_GRAVITATION"><img alt="HN_GROUND_GRAVITATION" src="../Ragnarok/image/HN_GROUND_GRAVITATION.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            重力曠野<br />
+                            그라운드 그라비테이션<br />
+                            Ground Gravitation<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            在自身週圍展開強力的重力場，對週圍敵人強力衝擊，造成無屬性魔法傷害。展開的重力場會維持 5 秒，處在重力場範圍內的敵人每 0.5 秒會受到追加的無屬性魔法傷害，並賦予「重力場」效果。<br />
+                            [重力場] 效果 : 移動速度減少，並且受到的物理或魔法傷害增加（Boss 階級魔物不會適用）。依據獨學-魔法學的習得等級、施展者的基本等級以及 SPL 增加傷害。<br />
+                            技能範圍受到技能等級影響，最小 5x5 格、最大 9x9 格。<br />
+                            <br />
+                            [Lv 1] :MATK(衝擊)4500+(4x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)700+(2x獨學-魔法學Lv)%<br />
+                            [Lv 2] :MATK(衝擊)6000+(8x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)1000+(4x獨學-魔法學Lv)%<br />
+                            [Lv 3] :MATK(衝擊)7500+(12x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)1300+(6x獨學-魔法學Lv)%<br />
+                            [Lv 4] :MATK(衝擊)9000+(16x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)1600+(8x獨學-魔法學Lv)%<br />
+                            [Lv 5] :MATK(衝擊)10500+(20x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)1900+(10x獨學-魔法學Lv)%<br />
+                            [Lv 6] :MATK(衝擊)12000+(24x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)2200+(12x獨學-魔法學Lv)%<br />
+                            [Lv 7] :MATK(衝擊)13500+(28x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)2500+(14x獨學-魔法學Lv)%<br />
+                            [Lv 8] :MATK(衝擊)15000+(32x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)2800+(16x獨學-魔法學Lv)%<br />
+                            [Lv 9] :MATK(衝擊)16500+(36x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)3100+(18x獨學-魔法學Lv)%<br />
+                            [Lv10] :MATK(衝擊)18000+(40x獨學-魔法學Lv)%<br />
+                            每 1 次 MATK(重力)3400+(20x獨學-魔法學Lv)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-魔法學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">無指定無屬性魔法技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-11-03 開發者筆記: 以等級 10 為基準，SP 消耗自 100 提升為 120。</p>
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 88 提升為 100 且攻擊倍率自 3400% 提升為 7800%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 念力直擊 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_NAPALM_VULCAN_STRIKE"><img alt="HN_NAPALM_VULCAN_STRIKE" src="../Ragnarok/image/HN_NAPALM_VULCAN_STRIKE.png"></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            念力直擊<br />
+                            네이팜 발칸 스트라이크<br />
+                            Napalm Vulcan Strike<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            對指定目標以及其週圍 5x5 格範圍內的敵人，以念力造成強大的波動攻擊，使之受到念屬性魔法傷害並有一定機率賦予「詛咒」異常狀態。<br />
+                            異常狀態的賦予機率與持續時間，受到目標的異常狀態耐性影響。<br />
+                            依據獨學-魔法學的習得等級、施展者的基本等級以及 SPL 增加傷害。<br />
+                            <br />
+                            [Lv 1] : MATK 500+(獨學-魔法學Lv x4)%<br />
+                            [Lv 2] : MATK 750+(獨學-魔法學Lv x8)%<br />
+                            [Lv 3] : MATK 1000+(獨學-魔法學Lv x12)%<br />
+                            [Lv 4] : MATK 1250+(獨學-魔法學Lv x16)%<br />
+                            [Lv 5] : MATK 1500+(獨學-魔法學Lv x20)%<br />
+                            [Lv 6] : MATK 1750+(獨學-魔法學Lv x24)%<br />
+                            [Lv 7] : MATK 2000+(獨學-魔法學Lv x28)%<br />
+                            [Lv 8] : MATK 2250+(獨學-魔法學Lv x32)%<br />
+                            [Lv 9] : MATK 2500+(獨學-魔法學Lv x36)%<br />
+                            [Lv10] : MATK 2750+(獨學-魔法學Lv x40)%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">10</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">獨學-魔法學 5</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">指定目標念屬性魔法技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP + 1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 以等級 10 為基準，SP 消耗自 58 提升為 75、AP 恢復量自 1 提升為 2、攻擊倍率自 2750% 提升為 6850% 且攻擊範圍自 5x5 格提升為 7x7 格。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- 打破規則 -->
+            <table class="table table-bordered table-sm align-middle p-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center" colspan="2">
+                            <a name="HN_RULEBREAK"><img alt="HN_RULEBREAK" src="../Ragnarok/image/HN_RULEBREAK.png" alt=""></a>
+                        </th>
+                        <th scope="col" class="text-center" colspan="2">技能說明</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">
+                            技能名稱
+                        </th>
+
+                        <td class="text-center" style="width: 30%">
+                            打破規則<br />
+                            룰 브레이킹<br />
+                            Rule Break<br />
+                        </td>
+
+                        <td style="width: 50%" rowspan="9">
+                            打破自己與魔法的規則，發揮出更強力的魔法力量。<br />
+                            300 秒內，隕石轟炸/雷霆風暴/凍僵新星/地獄撼動/重力曠野/念力直擊的傷害增加。<br />
+                            <br />
+                            隕石轟炸(落下/爆炸) : 增加 50%<br />
+                            雷霆風暴 : 增加 70%<br />
+                            凍僵新星(冰球/爆炸) : 增加 70%<br />
+                            地獄撼動 : 增加 70%<br />
+                            重力曠野(衝擊/重力) : 增加 50%<br />
+                            念力直擊 : 增加 100%<br />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">最大等級</th>
+                        <td class="text-center" style="width: 30%">1</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">前置技能</th>
+                        <td class="text-center" style="width: 30%">
+                            隕石轟炸 5<br />
+                            雷霆風暴 5<br />
+                            凍僵新星 5<br />
+                            地獄撼動 5<br />
+                            重力曠野 5<br />
+                            念力直擊 5<br />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能類型</th>
+                        <td class="text-center" style="width: 30%">對自身輔助技能</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">固定詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">變動詠唱時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">共通延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">獨立延遲時間</th>
+                        <td class="text-center" style="width: 30%">未知</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">AP 恢復或消耗</th>
+                        <td class="text-center" style="width: 30%">AP - 150</td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-center" style="width: 20%">技能改動</th>
+                        <td style="width: 80%" colspan="3">
+                            <p>2022-06-02 實裝: 等同下述開發者筆記內容。</p>
+                            <p>2022-04-01 開發者筆記: 對念力直擊的關聯係數自 100% 降低為 40%。</p>
+                            <p>2021-11-03 新增此技能。</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Back to Top Button -->
+        <button onclick="backToTopFunc()" id="backToTopBtn" title="Go to top" class="btn btn-danger btn-floating btn-lg">Top</button>
+
+    </body>
+</html>
