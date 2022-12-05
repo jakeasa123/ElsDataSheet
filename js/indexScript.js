@@ -6,7 +6,7 @@ window.onload = function() {
         whiteEyeCount += 1
         if (whiteEyeCount >= 5) {
             alert("ㄋ豪瑟ㄛ")
-            window.location.href = "../ElsDataSheet/Elsword/combi_calc.html"
+            window.location.href = "../GameDataColle/Elsword/combi_calc.html"
         }
     });
 
