@@ -5,22 +5,27 @@ defaultTimeDiffrent = 195
 updateDetail = [
 
     ['拳擊活動', '2022-05-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293263', ''],
-    ['寵物對戰與 DE 技能調整', '2022-05-12', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293274', 'https://kelsword.web.fc2.com/balance/220512sb.htm'],
     ['寵物對戰與表情系統改善', '2022-05-26', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293294', ''],
     ['坐騎競速與技能調整', '2022-06-09', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293327', 'https://kelsword.web.fc2.com/balance/220609sb.htm'],
     ['布告欄交易系統與便利性改善', '2022-06-23', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293343&tnum=4', ''],
-    ['蕾娜第四分支開放', '2022-07-07', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293372', ''],
-    ['第二季票開始與諸多改善', '2022-07-21', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293400', 'https://kelsword.web.fc2.com/krnotice/138104.htm'],
-    ['深淵襲擊戰 18R 開放', '2022-08-04', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293430', ''],
-    ['菈比第四分支開放', '2022-08-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293461', ''],
-    ['深淵襲擊戰 18R 改善與技能調整', '2022-09-01', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293480', 'https://kelsword.web.fc2.com/krnotice/138564.htm'],
+    ['蕾娜第四分支', '2022-07-07', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293372', ''],
+    ['第二季票與諸多改善', '2022-07-21', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293400', 'https://kelsword.web.fc2.com/krnotice/138104.htm'],
+    ['18R 深淵襲擊戰', '2022-08-04', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293430', ''],
+    ['菈比第四分支', '2022-08-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293461', ''],
+    ['18R 深淵襲擊戰 改善與技能調整', '2022-09-01', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293480', 'https://kelsword.web.fc2.com/krnotice/138564.htm'],
     ['臨時背包改善', '2022-09-15', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293501', ''],
     ['史詩任務消耗道具獎勵改善', '2022-09-29', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293520', ''],
     ['技能調整', '2022-10-13', '', 'https://kelsword.web.fc2.com/krnotice/138952.htm'],
-    ['64 位元版本開放 (NA)', '2022-10-13', '', ''],
-    ['ADD 第四分支開放', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
-    ['64 位元版本開放 (TW)', '2022-11-10', '', ''],
+    ['64 位元版本 (NA)', '2022-10-13', '', ''],
+    ['ADD 第四分支', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
+    ['64 位元版本 (TW)', '2022-11-10', '', ''],
     ['公會系統改編與 OM 技能調整', '2022-11-10', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293574', ''],
+    ['第三季票、染髮系統與技能調整', '2022-11-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293588', 'https://kelsword.web.fc2.com/krnotice/139336.htm'],
+    ['愛利西斯第四分支', '2022-12-08', '', ''],
+    ['襲擊挑戰模式與泰納抽取改善', '2022-12-22', '', ''],
+    ['澄第四分支', '2023-01-05', '', ''],
+    ['亞殷第四分支', '2023-02-02', '', ''],
+    ['諾亞第四分支', '2023-03-02', '', ''],
 
 ]
 
@@ -30,7 +35,7 @@ function initialData() {
 
     updateDetail.forEach(function(item) {
         var idNumber = (document.getElementById("updateSchedule").rows.length).toString()
-    
+
         // tr
         var tempChild = document.createElement("tr")
         tempChild.setAttribute("id", "updateObjectTr_" + idNumber)
@@ -42,7 +47,7 @@ function initialData() {
         tempChild.setAttribute("id", "updateTdDescribe_" + idNumber)
         tempChild.innerHTML = item[0]
         document.getElementById("updateObjectTr_" + idNumber).appendChild(tempChild)
-        
+
         // 韓版實裝日期
         tempChild = document.createElement("td")
         tempChild.setAttribute("id", "updateTdDateKR_" + idNumber)
@@ -94,7 +99,7 @@ function initialData() {
             tempChild.textContent = "點此前往"
             document.getElementById("updateTdBtn2_" + idNumber).appendChild(tempChild)
         }
-        
+
     });
 }
 
