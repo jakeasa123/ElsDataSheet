@@ -1,128 +1,286 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>95 的試作網頁</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../GameDataColle/js/indexScript.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>彈跳鯰魚精</title>
+        <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
-
-            <h1>95 的試作網頁</h1>
-
-        </div>
-
-        <div class="container p-3 text-end">
-
-            <p>最終更新: 2022-12-05 18:30</p>
-
-        </div>
-
-        <div class="container p-3">
-            <p>● 注意事項：</p>
-            <p>[1] 此網站內的<mark>資料可能並不正確</mark>。</p>
-            <p>[2] 更新頻率不定，<mark>資料可能不會隨遊戲更新而更新</mark>。</p>
-            <p>[3] 任何的計算都有可能<mark>有些許的誤差</mark>。</p>
-            <p>[4] 資料<mark>僅供參考</mark>，請勿過分參照。</p>
-        </div>
-
-        <div class="container p-3">
-
-            <div class="accordion" id="accordionLink">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="accordionLink-Elsword">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-Elsword-Info" aria-expanded="true" aria-controls="accordionLink-Elsword-Info">
-                            艾爾之光 Elsword Online
-                        </button>
-                    </h2>
-                    <div id="accordionLink-Elsword-Info" class="accordion-collapse collapse show" aria-labelledby="accordionLink-Elsword" data-bs-parent="#accordionLink">
-                        <div class="accordion-body">
-                            <div class="mb-1"><span class="badge bg-success">角色相關</span></div>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/exp_calc.html" role="button">共鳴經驗試算</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/el_collection.html" role="button">賦靈錄記錄表</a>
-
-                            <div class="mt-3 mb-1"><span class="badge bg-success">裝備道具</span></div>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/reforge_data.html" role="button">防具鍛造數據</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/def_calc.html" role="button">防禦屬性性能</a>
-
-                            <div class="mt-3 mb-1"><span class="badge bg-success">其他項目</span></div>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/hammer_calc.html" role="button">鐵鎚成本試算</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/raid12_calc.html" role="button">１２襲擊試算</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/raid15_calc.html" role="button">１５襲擊試算</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/essence_calc.html" role="button">精髓成本試算</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/update_schedule.html" role="button">版本時程推估</a>
-
-                            <div class="mt-3 mb-1"><span class="badge bg-success">期間限定</span></div>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/radish_calc.html" role="button">尋找蘿蔔試算</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="accordionLink-FF14">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-FF14-Info" aria-expanded="false" aria-controls="accordionLink-FF14-Info">
-                            FINAL FANTASY XIV
-                        </button>
-                    </h2>
-                    <div id="accordionLink-FF14-Info" class="accordion-collapse collapse" aria-labelledby="accordionLink-FF14" data-bs-parent="#accordionLink">
-                        <div class="accordion-body">
-                            <p>該放什麼好呢？ 我也不知道，所以姑且先放張照片吧。</p>
-                            <img src="../GameDataColle/image/ff14_01.png" class="img-thumbnail" alt="隨便擺的一張照片，顯示不出來就隨便吧" id="testImage">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="accordionLink-Ragnarok">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-Ragnarok-Info" aria-expanded="false" aria-controls="accordionLink-Ragnarok-Info">
-                            仙境傳說 Ragnarok Online
-                        </button>
-                    </h2>
-                    <div id="accordionLink-Ragnarok-Info" class="accordion-collapse collapse" aria-labelledby="accordionLink-Ragnarok" data-bs-parent="#accordionLink">
-                        <div class="accordion-body">
-                            <p>此處僅整理<strong>與 Hyper Novice 有關的資訊</strong>，以及<strong>我自己的廢文</strong>。</p>
-
-                            <div class="mb-1"><span class="badge bg-success">Hyper Novice 相關</span></div>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Ragnarok/sn_skill_info.html" role="button">技能整理</a>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Ragnarok/sn_equip_info.html" role="button">裝備整理</a>
-
-                            <div class="mt-3 mb-1"><span class="badge bg-success">廢文清單</span></div>
-                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Ragnarok/sn_equip_info.html" role="button">還沒弄好</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="accordionLink-History">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-History-Info" aria-expanded="false" aria-controls="accordionLink-History-Info">
-                            編輯記錄
-                        </button>
-                    </h2>
-                    <div id="accordionLink-History-Info" class="accordion-collapse collapse" aria-labelledby="accordionLink-History" data-bs-parent="#accordionLink">
-                        <div class="accordion-body">
-                            <p>很晚才開始打算寫這邊，所以沒什麼東西。</p>
-                            <p><span class="badge rounded-pill bg-info text-dark">2022-12-05</span> 變更 Repository 的名字、修正連結、更新 Elsword 版本時程推估，追加 Ragnarok 的區域。</p>
-                            <p><span class="badge rounded-pill bg-info text-dark">2022-12-01</span> 大幅度調動檔案的編排位置。</p>
-                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-30</span> 版本時程推估追加「64 位元版本」的資訊。</p>
-                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-17</span> 版本時程推估追加顯示「與今日天數差」的資訊。</p>
-                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-09</span> 修正賦靈錄記錄表使用的 Cookie 會與其他頁面相撞的問題，並於 cC 中加入 Cookie 儲存的機制。</p>
-                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-08</span> 依據遊戲版本，cC 將會計入 DE 於賦靈錄中的效果。</p>
-                        </div>
-                    </div>
-                </div>
+    <body id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">彈跳鯰魚精</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="image/profile.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">關於</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#note">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#elsword">艾爾之光</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ragnarok">仙境傳說</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ff14">FINAL FANTASY XIV</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#refandcopyright">資訊來源</a></li>
+                </ul>
             </div>
+        </nav>
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+            <!-- About -->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        彈跳<span class="text-primary">鯰魚精</span>
+                    </h1>
 
+                    <div class="subheading mb-5">
+                        Namazu · Elsword · Ragnarok · FINAL FANTASY XIV
+                    </div>
+
+                    <p class="lead mb-5">
+                        這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的資料。
+                    </p>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Note -->
+            <section class="resume-section" id="note">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            此網站中的資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            綜上所述，請勿過分參照此網站內的任何資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Elsword -->
+            <section class="resume-section" id="elsword">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">艾爾之光 Elsword Online</h2>
+
+                    <div class="mb-1"><span class="badge bg-primary">人物角色</span></div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/exp_calc.html">共鳴經驗試算</a></h3>
+                            <div>透過計算所需的經驗值以及效率，推算出達成目標所需要的時間。</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/el_collection.html">賦靈錄記錄表</a></h3>
+                            <div>用於記錄賦靈錄角色中，重點共用資源的使用狀況。</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-1"><span class="badge bg-primary">裝備道具</span></div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/raid12_calc.html">羅索襲擊道具交換</a></h3>
+                            <div>計算羅索襲擊的獎勵中，能帶來最大利益的交換項目。</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/raid15_calc.html">貝爾德襲擊道具交換</a></h3>
+                            <div>計算貝爾德襲擊的獎勵中，能帶來最大利益的交換項目。</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/hammer_calc.html">艾爾精髓成本</a></h3>
+                            <div>經由各個素材的單價，計算出艾爾精髓入手成本最低的來源。</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/update_schedule.html">版本時程推估</a></h3>
+                            <div>計算出目前版本與韓服版本之間的差距，並推算各個改版實裝的日期。</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/hammer_calc.html">鐵鎚成本試算</a></h3>
+                            <div>透過 EC 的比值，推算出艾爾鐵鎚的成本。</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-1"><span class="badge bg-primary">期間限定</span></div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Elsword/radish_calc.html">尋找黑茲浩克試算</a></h3>
+                            <div>經由使用者輸入的市價，計算出推薦的兌換項目。</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ragnarok -->
+            <section class="resume-section" id="ragnarok">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">仙境傳說 Ragnarok Online</h2>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Ragnarok/sn_skill_info.html">技能資訊</a></h3>
+                            <div>列出 Hyper Novice 的所有技能，並整理其改版資訊。</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0"><a class="topic-link js-scroll-trigger" href="Ragnarok/sn_equip_info.html">裝備資訊</a></h3>
+                            <div>整理與 Hyper Novice 有關的新裝備。</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- FINAL FANTASY XIV -->
+            <section class="resume-section" id="ff14">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">FINAL FANTASY XIV</h2>
+                    <p>FINAL FANTASY XIV 的資訊網站都很齊全，這裡還不知道要放些什麼，所以先放個我自己的角色吧。</p>
+                    <p class="mb-0">
+                        <img src="../GameDataColle/image/ff14_01.png" class="img-thumbnail" alt="隨便擺的一張照片，顯示不出來就隨便吧" id="testImage">
+                    </p>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- History -->
+            <section class="resume-section" id="history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <p>很晚才開始打算寫這邊，所以沒什麼東西。</p>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-12-08 大幅度改動首頁的排版。
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-12-05 變更 Repository 的名字、修正連結、更新 Elsword 版本時程推估，追加 Ragnarok 的區域。
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-12-01 大幅度調動檔案的編排位置。
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-11-30 版本時程推估追加「64 位元版本」的資訊。
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-11-17 版本時程推估追加顯示「與今日天數差」的資訊。
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-11-09 修正賦靈錄記錄表使用的 Cookie 會與其他頁面相撞的問題，並於 cC 中加入 Cookie 儲存的機制。
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info text-warning"></i></span>
+                            2022-11-08 依據遊戲版本，cC 將會計入 DE 於賦靈錄中的效果。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="refandcopyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            仙境傳說 Ragnarok Online © GRAVITY CO., Ltd. & Lee MyoungJin(studio DTDS). ALL Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            FINAL FANTASY XIV © 2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved.
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
         </div>
 
-        <div class="container p-3">
-            <p>艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.</p>
-            <p>FINAL FANTASY XIV © 2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved.</p>
-            <p>仙境傳說 Ragnarok Online © GRAVITY CO., Ltd. & Lee MyoungJin(studio DTDS). ALL Rights Reserved.</p>
-            <p>此站其他內容、圖片或文字 © saketora95</p>
-        </div>
 
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
     </body>
 </html>

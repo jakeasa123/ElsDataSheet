@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <title>95 的試作網頁</title>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="../GameDataColle/js/indexScript.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid p-3 bg-info text-black text-center">
+
+            <h1>95 的試作網頁</h1>
+
+        </div>
+
+        <div class="container p-3 text-end">
+
+            <p>最終更新: 2022-12-05 18:30</p>
+
+        </div>
+
+        <div class="container p-3">
+            <p>● 注意事項：</p>
+            <p>[1] 此網站內的<mark>資料可能並不正確</mark>。</p>
+            <p>[2] 更新頻率不定，<mark>資料可能不會隨遊戲更新而更新</mark>。</p>
+            <p>[3] 任何的計算都有可能<mark>有些許的誤差</mark>。</p>
+            <p>[4] 資料<mark>僅供參考</mark>，請勿過分參照。</p>
+        </div>
+
+        <div class="container p-3">
+
+            <div class="accordion" id="accordionLink">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionLink-Elsword">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-Elsword-Info" aria-expanded="true" aria-controls="accordionLink-Elsword-Info">
+                            艾爾之光 Elsword Online
+                        </button>
+                    </h2>
+                    <div id="accordionLink-Elsword-Info" class="accordion-collapse collapse show" aria-labelledby="accordionLink-Elsword" data-bs-parent="#accordionLink">
+                        <div class="accordion-body">
+                            <div class="mb-1"><span class="badge bg-success">角色相關</span></div>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/exp_calc.html" role="button">共鳴經驗試算</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/el_collection.html" role="button">賦靈錄記錄表</a>
+
+                            <div class="mt-3 mb-1"><span class="badge bg-success">裝備道具</span></div>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/reforge_data.html" role="button">防具鍛造數據</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/def_calc.html" role="button">防禦屬性性能</a>
+
+                            <div class="mt-3 mb-1"><span class="badge bg-success">其他項目</span></div>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/hammer_calc.html" role="button">鐵鎚成本試算</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/raid12_calc.html" role="button">１２襲擊試算</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/raid15_calc.html" role="button">１５襲擊試算</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/essence_calc.html" role="button">精髓成本試算</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/update_schedule.html" role="button">版本時程推估</a>
+
+                            <div class="mt-3 mb-1"><span class="badge bg-success">期間限定</span></div>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Elsword/radish_calc.html" role="button">尋找蘿蔔試算</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionLink-FF14">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-FF14-Info" aria-expanded="false" aria-controls="accordionLink-FF14-Info">
+                            FINAL FANTASY XIV
+                        </button>
+                    </h2>
+                    <div id="accordionLink-FF14-Info" class="accordion-collapse collapse" aria-labelledby="accordionLink-FF14" data-bs-parent="#accordionLink">
+                        <div class="accordion-body">
+                            <p>該放什麼好呢？ 我也不知道，所以姑且先放張照片吧。</p>
+                            <img src="../GameDataColle/image/ff14_01.png" class="img-thumbnail" alt="隨便擺的一張照片，顯示不出來就隨便吧" id="testImage">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionLink-Ragnarok">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-Ragnarok-Info" aria-expanded="false" aria-controls="accordionLink-Ragnarok-Info">
+                            仙境傳說 Ragnarok Online
+                        </button>
+                    </h2>
+                    <div id="accordionLink-Ragnarok-Info" class="accordion-collapse collapse" aria-labelledby="accordionLink-Ragnarok" data-bs-parent="#accordionLink">
+                        <div class="accordion-body">
+                            <p>此處僅整理<strong>與 Hyper Novice 有關的資訊</strong>，以及<strong>我自己的廢文</strong>。</p>
+
+                            <div class="mb-1"><span class="badge bg-success">Hyper Novice 相關</span></div>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Ragnarok/sn_skill_info.html" role="button">技能整理</a>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Ragnarok/sn_equip_info.html" role="button">裝備整理</a>
+
+                            <div class="mt-3 mb-1"><span class="badge bg-success">廢文清單</span></div>
+                            <a class="btn btn-primary mx-3 my-1" href="../GameDataColle/Ragnarok/sn_equip_info.html" role="button">還沒弄好</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="accordionLink-History">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionLink-History-Info" aria-expanded="false" aria-controls="accordionLink-History-Info">
+                            編輯記錄
+                        </button>
+                    </h2>
+                    <div id="accordionLink-History-Info" class="accordion-collapse collapse" aria-labelledby="accordionLink-History" data-bs-parent="#accordionLink">
+                        <div class="accordion-body">
+                            <p>很晚才開始打算寫這邊，所以沒什麼東西。</p>
+                            <p><span class="badge rounded-pill bg-info text-dark">2022-12-05</span> 變更 Repository 的名字、修正連結、更新 Elsword 版本時程推估，追加 Ragnarok 的區域。</p>
+                            <p><span class="badge rounded-pill bg-info text-dark">2022-12-01</span> 大幅度調動檔案的編排位置。</p>
+                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-30</span> 版本時程推估追加「64 位元版本」的資訊。</p>
+                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-17</span> 版本時程推估追加顯示「與今日天數差」的資訊。</p>
+                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-09</span> 修正賦靈錄記錄表使用的 Cookie 會與其他頁面相撞的問題，並於 cC 中加入 Cookie 儲存的機制。</p>
+                            <p><span class="badge rounded-pill bg-info text-dark">2022-11-08</span> 依據遊戲版本，cC 將會計入 DE 於賦靈錄中的效果。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container p-3">
+            <p>艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.</p>
+            <p>FINAL FANTASY XIV © 2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved.</p>
+            <p>仙境傳說 Ragnarok Online © GRAVITY CO., Ltd. & Lee MyoungJin(studio DTDS). ALL Rights Reserved.</p>
+            <p>此站其他內容、圖片或文字 © saketora95</p>
+        </div>
+
+    </body>
+</html>
