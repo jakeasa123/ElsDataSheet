@@ -1,12 +1,10 @@
 // 預設時間差
-defaultTimeDiffrent = 195
+defaultTimeDiffrent = 181
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
     ['拳擊活動', '2022-05-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293263', ''],
-    ['寵物對戰與表情系統改善', '2022-05-26', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293294', ''],
-    ['坐騎競速與技能調整', '2022-06-09', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293327', 'https://kelsword.web.fc2.com/balance/220609sb.htm'],
     ['布告欄交易系統與便利性改善', '2022-06-23', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293343&tnum=4', ''],
     ['蕾娜第四分支', '2022-07-07', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293372', ''],
     ['第二季票與諸多改善', '2022-07-21', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293400', 'https://kelsword.web.fc2.com/krnotice/138104.htm'],
@@ -21,7 +19,7 @@ updateDetail = [
     ['64 位元版本 (TW)', '2022-11-10', '', ''],
     ['公會系統改編與 OM 技能調整', '2022-11-10', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293574', ''],
     ['第三季票、染髮系統與技能調整', '2022-11-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293588', 'https://kelsword.web.fc2.com/krnotice/139336.htm'],
-    ['愛利西斯第四分支', '2022-12-08', '', ''],
+    ['愛利西斯第四分支', '2022-12-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293601', ''],
     ['襲擊挑戰模式與泰納抽取改善', '2022-12-22', '', ''],
     ['澄第四分支', '2023-01-05', '', ''],
     ['亞殷第四分支', '2023-02-02', '', ''],
