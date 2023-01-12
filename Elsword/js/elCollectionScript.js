@@ -32,18 +32,18 @@ function initialTable() {
             characterList.forEach(charName => {
                 pathList.forEach(pathName => {
                     var tempId = charName + "_" + pathName
-    
+
                     if (cookieDict[tempId] != undefined) {
                         var magicStone = cookieDict[tempId][0]
                         var secretReward = parseInt(cookieDict[tempId][1])
-    
+
                         // tr
                         var trId = "tr_" + tempId
-            
+
                         var tempChild = document.createElement('tr')
                         tempChild.setAttribute("id", trId)
                         document.getElementById("jobTableBody").appendChild(tempChild)
-            
+
                         // th
                         tempChild = document.createElement('th')
                         tempChild.setAttribute("id", "th_" + tempId)
@@ -51,33 +51,33 @@ function initialTable() {
                         tempChild.setAttribute("scope", "row")
                         tempChild.textContent = charName
                         document.getElementById(trId).appendChild(tempChild)
-            
+
                         // td - Line
                         tempChild = document.createElement('td')
                         tempChild.setAttribute("id", "td_" + tempId)
                         tempChild.setAttribute("class", "text-center")
                         tempChild.textContent = pathName
                         document.getElementById(trId).appendChild(tempChild)
-            
+
                         // td - Magic Stone
                         tempChild = document.createElement('td')
                         tempChild.setAttribute("id", "td_" + tempId + "_MagicStone")
                         tempChild.setAttribute("class", "text-center")
                         document.getElementById(trId).appendChild(tempChild)
-            
+
                         tempChild = document.createElement('input')
                         tempChild.setAttribute("id", "input_" + tempId + "_MagicStone")
                         tempChild.setAttribute("class", "form-control")
                         tempChild.setAttribute("value", magicStone)
                         tempChild.setAttribute("onchange", "inputOnChange(\'" + tempId + "\')")
                         document.getElementById("td_" + tempId + "_MagicStone").appendChild(tempChild)
-            
+
                         // td - Secret Reward
                         tempChild = document.createElement('td')
                         tempChild.setAttribute("id", "td_" + tempId + "_SecretReward")
                         tempChild.setAttribute("class", "text-center")
                         document.getElementById(trId).appendChild(tempChild)
-            
+
                         tempChild = document.createElement('button')
                         tempChild.setAttribute("id", "button_" + tempId + "_SecretReward")
                         tempChild.setAttribute("type", "form-button")
@@ -91,12 +91,12 @@ function initialTable() {
                         tempChild.textContent = "剩餘 " + secretReward + " 次"
                         tempChild.setAttribute("onclick", "inputOnClick(\'" + tempId + "\')")
                         document.getElementById("td_" + tempId + "_SecretReward").appendChild(tempChild)
-    
+
                     }
                 });
             });
         }
-    } 
+    }
     // No Cookie Exist
     else {
         createTable()
@@ -163,7 +163,7 @@ function createTable() {
 
 function inputOnChange(target) {
     var inputElement = document.getElementById("input_" + target + "_MagicStone")
-    
+
     if (isNaN(inputElement.value)) {
         alert("欄位「" + target + "」的「賢者魔法石」中，輸入了錯誤的字元，將自動修復成「40」以防錯誤，請再修正。")
         inputElement.value = "40"
@@ -196,11 +196,11 @@ function autoUpdate(target) {
     var magicStone = document.getElementById("input_" + target + "_MagicStone").value
     var secretReward = document.getElementById("button_" + target + "_SecretReward").innerHTML.substring(3, 4)
 
+    saveCookie(false)
+
     if (parseInt(magicStone) <= 0 && parseInt(secretReward) <= 0) {
         document.getElementById("tr_" + target).remove()
     }
-
-    saveCookie(false)
 }
 
 function deleteCookie() {
