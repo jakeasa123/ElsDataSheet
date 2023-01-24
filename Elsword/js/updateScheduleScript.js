@@ -1,13 +1,9 @@
 // 預設時間差
-defaultTimeDiffrent = 209
+defaultTimeDiffrent = 181
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['拳擊活動', '2022-05-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293263', ''],
-    ['布告欄交易系統與便利性改善', '2022-06-23', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293343&tnum=4', ''],
-    ['蕾娜第四分支', '2022-07-07', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293372', ''],
-    ['第二季票與諸多改善', '2022-07-21', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293400', 'https://kelsword.web.fc2.com/krnotice/138104.htm'],
     ['18R 深淵襲擊戰', '2022-08-04', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293430', ''],
     ['菈比第四分支', '2022-08-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293461', ''],
     ['18R 深淵襲擊戰 改善與技能調整', '2022-09-01', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293480', 'https://kelsword.web.fc2.com/krnotice/138564.htm'],
@@ -22,6 +18,7 @@ updateDetail = [
     ['愛利西斯第四分支', '2022-12-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293601', ''],
     ['襲擊挑戰模式與泰納抽取改善', '2022-12-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293614', ''],
     ['澄第四分支與技能調整', '2023-01-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293631', 'https://kelsword.web.fc2.com/krnotice/139723.htm'],
+    ['18R 深淵襲擊戰 改善與澄第四分支技能調整', '2023-01-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293656', ''],
     ['亞殷第四分支', '2023-02-02', '', ''],
     ['諾亞第四分支', '2023-03-02', '', ''],
 
