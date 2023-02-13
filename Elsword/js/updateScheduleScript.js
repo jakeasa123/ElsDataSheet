@@ -1,5 +1,5 @@
 // 預設時間差
-defaultTimeDiffrent = 181
+defaultTimeDiffrent = 195
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
@@ -19,7 +19,8 @@ updateDetail = [
     ['襲擊挑戰模式與泰納抽取改善', '2022-12-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293614', ''],
     ['澄第四分支與技能調整', '2023-01-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293631', 'https://kelsword.web.fc2.com/krnotice/139723.htm'],
     ['18R 深淵襲擊戰 改善與澄第四分支技能調整', '2023-01-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293656', ''],
-    ['亞殷第四分支', '2023-02-02', '', ''],
+    ['亞殷第四分支', '2023-02-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293672', ''],
+    ['技能調整', '2023-02-16', '', 'https://kelsword.web.fc2.com/krnotice/140137.htm'],
     ['諾亞第四分支', '2023-03-02', '', ''],
 
 ]
