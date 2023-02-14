@@ -6,12 +6,12 @@ var save_target = [
     "checkBoxAmetType", "inputEquipUpgradeTopAmet", "inputEquipReforgeTopAmet", "inputEquipUpgradeBottomAmet", "inputEquipReforgeBottomAmet", "inputEquipUpgradeGloveAmet", "inputEquipReforgeGloveAmet", "inputEquipUpgradeShoesAmet", "inputEquipReforgeShoesAmet",
     "checkBoxTeneType", "inputEquipUpgradeTopTene", "inputEquipReforgeTopTene", "inputEquipUpgradeBottomTene", "inputEquipReforgeBottomTene", "inputEquipUpgradeGloveTene", "inputEquipReforgeGloveTene", "inputEquipUpgradeShoesTene", "inputEquipReforgeShoesTene",
 
-    "inputOtherBossDmgStone", "inputOtherDeBuff", "inputOtherReson", 
+    "inputOtherBossDmgStone", "inputOtherDeBuff", "inputOtherReson",
 
     "inputPerAtkPower", "inputPerCritDmg", "inputPerBossDmg", "inputPerSkillDmg", "inputPerAllSkillDmg", "inputPerPolar", "inputPerAdapt",
 ]
 var save_special_target = [
-    "inputEquipRadioAmet", "inputEquipRadioTene", "inputEquipRadioBoth", "checkBoxCooldown", "checkBoxVer55"
+    "inputEquipRadioAmet", "inputEquipRadioTene", "inputEquipRadioBoth", "checkBoxCooldown"
 ]
 
 function saveData() {
@@ -67,10 +67,9 @@ function saveData() {
     tempString += ", " + document.getElementById("inputPerAllSkillDmg").value
     tempString += ", " + document.getElementById("inputPerPolar").value
     tempString += ", " + document.getElementById("inputPerAdapt").value
-    
+
     // CheckBox
     tempString += ", " + document.getElementById("checkBoxCooldown").checked
-    tempString += ", " + document.getElementById("checkBoxVer55").checked
 
     // Result
     var inputSaveData = document.getElementById("inputSaveData")
@@ -85,7 +84,7 @@ function loadData() {
     var inputData = document.getElementById("inputLoadData").value
     if (inputData != "") {
         inputData = inputData.split(", ")
-        
+
         // Job
         document.getElementById("inputJobAtkPower").value = inputData[0]
         document.getElementById("inputJobCritDmg").value = inputData[1]
@@ -136,10 +135,9 @@ function loadData() {
         document.getElementById("inputPerAllSkillDmg").value = inputData[38]
         document.getElementById("inputPerPolar").value = inputData[39]
         document.getElementById("inputPerAdapt").value = inputData[40]
-        
+
         // CheckBox
         document.getElementById("checkBoxCooldown").checked = parseBoolean(inputData[41])
-        document.getElementById("checkBoxVer55").checked = parseBoolean(inputData[42])
     }
 }
 
@@ -190,6 +188,5 @@ function loadCookie() {
                 }
             }
         });
-    } 
+    }
 }
-

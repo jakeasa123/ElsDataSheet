@@ -88,7 +88,7 @@
                                 <select class="form-select" id="inputWeaponType" aria-describedby="inputWeaponTypeHelp" onchange="weaponTypeSelect()">
                                     <option value="FOJ">12R 魔人 FOJ</option>
                                     <option value="VOS" selected>15R 鎮魂 VOS</option>
-                                    <option value="18R">18R 未知 Unknown</option>
+                                    <option value="SOA">18R 暗鬼 SOA</option>
                                 </select>
                                 <div id="inputWeaponTypeHelp" class="form-text">選擇目前使用的武器類型。</div>
                             </div>
@@ -338,15 +338,16 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col" style="width: 7%">啟用</th>
-                                        <th scope="col" style="width: 13%">名稱</th>
-                                        <th scope="col" style="width: 10%">部位</th>
-                                        <th scope="col" style="width: 10%">套裝</th>
-                                        <th scope="col" style="width: 10%">技能傷害</th>
-                                        <th scope="col" style="width: 10%">攻擊力</th>
-                                        <th scope="col" style="width: 10%">暴擊傷害</th>
-                                        <th scope="col" style="width: 10%">兩極化</th>
-                                        <th scope="col" style="width: 10%">Boss 傷害</th>
-                                        <th scope="col" style="width: 10%">適應力</th>
+                                        <th scope="col" style="width: 12%">名稱</th>
+                                        <th scope="col" style="width: 9%">部位</th>
+                                        <th scope="col" style="width: 9%">套裝</th>
+                                        <th scope="col" style="width: 9%">技能傷害</th>
+                                        <th scope="col" style="width: 9%">攻擊力</th>
+                                        <th scope="col" style="width: 9%">暴擊傷害</th>
+                                        <th scope="col" style="width: 9%">兩極化</th>
+                                        <th scope="col" style="width: 9%">Boss 傷害</th>
+                                        <th scope="col" style="width: 9%">適應力</th>
+                                        <th scope="col" style="width: 10%">流血</th>
                                     </tr>
                                 </thead>
                                 <tbody id="combiEquipList">
@@ -361,15 +362,16 @@
                             <table class="table table-striped align-middle table-sm" id="combiSetTable">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col" style="width: 20%">名稱</th>
-                                        <th scope="col" style="width: 10%">套裝</th>
-                                        <th scope="col" style="width: 10%">件數</th>
-                                        <th scope="col" style="width: 10%">技能傷害</th>
-                                        <th scope="col" style="width: 10%">攻擊力</th>
-                                        <th scope="col" style="width: 10%">暴擊傷害</th>
-                                        <th scope="col" style="width: 10%">兩極化</th>
-                                        <th scope="col" style="width: 10%">Boss 傷害</th>
-                                        <th scope="col" style="width: 10%">適應力</th>
+                                        <th scope="col" style="width: 12%">名稱</th>
+                                        <th scope="col" style="width: 9%">套裝</th>
+                                        <th scope="col" style="width: 9%">件數</th>
+                                        <th scope="col" style="width: 9%">技能傷害</th>
+                                        <th scope="col" style="width: 9%">攻擊力</th>
+                                        <th scope="col" style="width: 9%">暴擊傷害</th>
+                                        <th scope="col" style="width: 9%">兩極化</th>
+                                        <th scope="col" style="width: 9%">Boss 傷害</th>
+                                        <th scope="col" style="width: 9%">適應力</th>
+                                        <th scope="col" style="width: 9%">流血</th>
                                     </tr>
                                 </thead>
                                 <tbody id="combiSetList">
@@ -389,12 +391,6 @@
                 <input class="form-check-input" type="checkbox" id="checkBoxCooldown">
                 <label class="form-check-label" for="checkBoxCooldown">
                     僅考慮具備冷卻時間減少效果 5% 的配置
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="checkBoxVer55">
-                <label class="form-check-label" for="checkBoxVer55">
-                    以兩極化與適應力上限 55% 版本試算
                 </label>
             </div>
             <div class="d-grid gap-2 m-3">
@@ -445,6 +441,10 @@
                             <tr>
                                 <th class="text-center" scope="row">適應力</th>
                                 <td class="text-center" id="resultAdapt">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">流血</th>
+                                <td class="text-center" id="resultBlood">未計算</td>
                             </tr>
                         </tbody>
                     </table>
@@ -498,6 +498,10 @@
                             <tr>
                                 <th class="text-center" scope="row">時裝武器</th>
                                 <td class="text-center" id="resultCombiAvaWeapon">未計算</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">武器飾品</th>
+                                <td class="text-center" id="resultCombiAccWeapon">未計算</td>
                             </tr>
                             <tr>
                                 <th class="text-center" scope="row">支援飾品</th>
