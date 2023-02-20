@@ -26,20 +26,20 @@ function executeCalc() {
 
             var tipModal = new bootstrap.Modal(document.getElementById('tipModal'))
             tipModal.show()
-    
+
         } else {
-    
+
             var questMatCost = []
             var dropMatCost = [
-                2000, 2000, 2000, 2000, 2000, 2000, 
-                2000, 2000, 2000, 4000, 4000, 4000, 
+                2000, 2000, 2000, 2000, 2000, 2000,
+                2000, 2000, 2000, 4000, 4000, 4000,
                 4000, 4000, 4000, 6000, 6000, 6000,
                 6000, 6000, 6000
             ]
             var magicCrystalCost = [
                 100, 100, 100, 100, 100, 100,
-                100, 100, 100, 200, 200, 200, 
-                200, 200, 200, 300, 300, 300, 
+                100, 100, 100, 200, 200, 200,
+                200, 200, 200, 300, 300, 300,
                 300, 300, 300
             ]
             var edCost = [
@@ -70,8 +70,8 @@ function executeCalc() {
                     Math.ceil(1 + ((1 - upgradeRate[i]) - Math.pow(1 - upgradeRate[i], guaranteedNeed[i])) / upgradeRate[i])
                 )
             }
-    
-            
+
+
             if (equipType == "radioAmet") {
                 document.getElementById("tEquipType").innerHTML = "虹霓防具 " + currentReforge + " → " + targetReforge
                 document.getElementById("tReforgeMaterial_1").innerHTML = "13 珠"
@@ -80,10 +80,10 @@ function executeCalc() {
                 document.getElementById("tRequireDaysFullLbl_1").innerHTML = "所需天數 (275 / 週)"
                 document.getElementById("tRequireDaysLbl_2").innerHTML = "所需天數 (175 / 週)"
                 document.getElementById("tRequireDaysFullLbl_2").innerHTML = "所需天數 (275 / 週)"
-    
+
                 questMatCost = [
                     3, 3, 3, 3, 3, 3,
-                    3, 3, 3, 6, 6, 6, 
+                    3, 3, 3, 6, 6, 6,
                     6, 6, 6, 9, 9, 9,
                     9, 9, 9
                 ]
@@ -95,67 +95,67 @@ function executeCalc() {
                 document.getElementById("tRequireDaysFullLbl_1").innerHTML = "所需天數 (2,100 / 週)"
                 document.getElementById("tRequireDaysLbl_2").innerHTML = "-"
                 document.getElementById("tRequireDaysFullLbl_2").innerHTML = "所需天數 (2,100 / 週)"
-                
+
                 questMatCost = [
                     15, 15, 15, 15, 15, 15,
                     15, 15, 15, 30, 30, 30,
                     30, 30, 30, 45, 45, 45,
                     45, 45, 45
                 ]
-    
+
                 dropMatCost[8] = 4000
             }
-    
+
             excTime = 0
             excQuestMatCost = 0
             excDropMatCost = 0
             excMagicCrystalCost = 0
             excEDCost = 0
-    
+
             guaTime = 0
             guaQuestMatCost = 0
             guaDropMatCost = 0
             guaMagicCrystalCost = 0
             guaEDCost = 0
-    
+
             for (i = currentReforge ; i < targetReforge ; i++) {
                 excTime += expectedValue[i]
                 excQuestMatCost += expectedValue[i] * questMatCost[i]
                 excDropMatCost += expectedValue[i] * dropMatCost[i]
                 excMagicCrystalCost += expectedValue[i] * magicCrystalCost[i]
                 excEDCost += expectedValue[i] * edCost[i]
-    
+
                 guaTime += guaranteedNeed[i]
                 guaQuestMatCost += guaranteedNeed[i] * questMatCost[i]
                 guaDropMatCost += guaranteedNeed[i] * dropMatCost[i]
                 guaMagicCrystalCost += guaranteedNeed[i] * magicCrystalCost[i]
                 guaEDCost += guaranteedNeed[i] * edCost[i]
             }
-    
+
             document.getElementById("tExcTime").innerHTML = numberWithCommas(excTime) + " 次"
             document.getElementById("tExcQuestMat").innerHTML = numberWithCommas(excQuestMatCost)
             document.getElementById("tExcDropMat").innerHTML = numberWithCommas(excDropMatCost)
             document.getElementById("tExcMagicCrystal").innerHTML = numberWithCommas(excMagicCrystalCost)
             document.getElementById("tExcED").innerHTML = numberWithCommas(excEDCost)
-    
+
             document.getElementById("tGuaTime").innerHTML = numberWithCommas(guaTime) + " 次"
             document.getElementById("tGuaQuestMat").innerHTML = numberWithCommas(guaQuestMatCost)
             document.getElementById("tGuaDropMat").innerHTML = numberWithCommas(guaDropMatCost)
             document.getElementById("tGuaMagicCrystal").innerHTML = numberWithCommas(guaMagicCrystalCost)
             document.getElementById("tGuaED").innerHTML = numberWithCommas(guaEDCost)
-    
+
             if (equipType == "radioAmet") {
-                document.getElementById("tRequireDays_1").innerHTML = roundTo(excQuestMatCost / 175, 2) + " 週"
-                document.getElementById("tRequireDaysFull_1").innerHTML = roundTo(excQuestMatCost / 275, 2) + " 週"
-                document.getElementById("tRequireDays_2").innerHTML = roundTo(guaQuestMatCost / 175, 2) + " 週"
-                document.getElementById("tRequireDaysFull_2").innerHTML = roundTo(guaQuestMatCost / 275, 2) + " 週"
-    
+                document.getElementById("tRequireDays_1").innerHTML = roundTo(excQuestMatCost / 550, 2) + " 週"
+                document.getElementById("tRequireDaysFull_1").innerHTML = roundTo(excQuestMatCost / 550, 2) + " 週"
+                document.getElementById("tRequireDays_2").innerHTML = roundTo(guaQuestMatCost / 550, 2) + " 週"
+                document.getElementById("tRequireDaysFull_2").innerHTML = roundTo(guaQuestMatCost / 550, 2) + " 週"
+
             } else {
                 document.getElementById("tRequireDays_1").innerHTML = "- 週"
                 document.getElementById("tRequireDaysFull_1").innerHTML = roundTo(excQuestMatCost / 2100, 2) + " 週"
                 document.getElementById("tRequireDays_2").innerHTML = "- 週"
                 document.getElementById("tRequireDaysFull_2").innerHTML = roundTo(guaQuestMatCost / 2100, 2) + " 週"
-    
+
             }
         }
     }
