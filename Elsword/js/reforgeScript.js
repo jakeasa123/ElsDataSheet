@@ -145,9 +145,9 @@ function executeCalc() {
             document.getElementById("tGuaED").innerHTML = numberWithCommas(guaEDCost)
 
             if (equipType == "radioAmet") {
-                document.getElementById("tRequireDays_1").innerHTML = roundTo(excQuestMatCost / 550, 2) + " 週"
+                document.getElementById("tRequireDays_1").innerHTML = roundTo(excQuestMatCost / 350, 2) + " 週"
                 document.getElementById("tRequireDaysFull_1").innerHTML = roundTo(excQuestMatCost / 550, 2) + " 週"
-                document.getElementById("tRequireDays_2").innerHTML = roundTo(guaQuestMatCost / 550, 2) + " 週"
+                document.getElementById("tRequireDays_2").innerHTML = roundTo(guaQuestMatCost / 350, 2) + " 週"
                 document.getElementById("tRequireDaysFull_2").innerHTML = roundTo(guaQuestMatCost / 550, 2) + " 週"
 
             } else {
