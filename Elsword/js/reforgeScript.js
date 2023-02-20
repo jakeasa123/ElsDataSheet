@@ -76,10 +76,10 @@ function executeCalc() {
                 document.getElementById("tEquipType").innerHTML = "虹霓防具 " + currentReforge + " → " + targetReforge
                 document.getElementById("tReforgeMaterial_1").innerHTML = "13 珠"
                 document.getElementById("tReforgeMaterial_2").innerHTML = "13 冰"
-                document.getElementById("tRequireDaysLbl_1").innerHTML = "所需天數 (175 / 週)"
-                document.getElementById("tRequireDaysFullLbl_1").innerHTML = "所需天數 (275 / 週)"
-                document.getElementById("tRequireDaysLbl_2").innerHTML = "所需天數 (175 / 週)"
-                document.getElementById("tRequireDaysFullLbl_2").innerHTML = "所需天數 (275 / 週)"
+                document.getElementById("tRequireDaysLbl_1").innerHTML = "所需天數 (350 / 週)"
+                document.getElementById("tRequireDaysFullLbl_1").innerHTML = "所需天數 (550 / 週)"
+                document.getElementById("tRequireDaysLbl_2").innerHTML = "所需天數 (350 / 週)"
+                document.getElementById("tRequireDaysFullLbl_2").innerHTML = "所需天數 (550 / 週)"
 
                 questMatCost = [
                     3, 3, 3, 3, 3, 3,
