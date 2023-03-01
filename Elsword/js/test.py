@@ -94,13 +94,20 @@ print()
 for item in rate:
     temp = 0
     ls = []
+
+    add_rate = item[0] * 10
+
     for i in range(0, 5):
         if i == 0:
-            temp += i * 20
-            ls.append(int(temp))
+            temp += item[i] * 20
+
         elif i == 2:
-            temp += i * 10
-            ls.append(int(temp))
+            temp += item[i] * 10 - add_rate
+
+        else:
+            temp += item[i] * 10
+
+        ls.append(int(temp))
     print(ls)
 
 # file.close()

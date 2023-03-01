@@ -47,8 +47,8 @@
                     <table class="table table-sm table-striped table-hover text-center p-3">
                         <thead>
                             <tr>
-                                <th scope="col">項目</th>
-                                <th scope="col">次數</th>
+                                <th scope="col" class="col-4">項目</th>
+                                <th scope="col" class="col-8">次數</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,8 +83,8 @@
                     <table class="table table-sm table-striped table-hover text-center p-3">
                         <thead>
                             <tr>
-                                <th scope="col">消耗資源</th>
-                                <th scope="col">個數</th>
+                                <th scope="col" class="col-4" >消耗資源</th>
+                                <th scope="col" class="col-8" >個數</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,7 +112,13 @@
                 <!-- Control Panel -->
                 <div class="col-3">
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-outline-primary" onclick="normalUpgrade()">一般強化</button>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="use-el-hammer" checked>
+                            <label class="form-check-label" for="use-el-hammer">
+                                使用艾爾鐵鎚
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-3" onclick="normalUpgrade()">一般強化</button>
                         <button type="button" class="btn btn-outline-primary mt-3" onclick="protectUpgrade()">守護石強化</button>
                         <button type="button" class="btn btn-outline-primary mt-3" onclick="upgradeUntil(11)">直上 +11</button>
                         <button type="button" class="btn btn-outline-danger mt-3" onclick="upgradeUntil(12)">直上 +12</button>
