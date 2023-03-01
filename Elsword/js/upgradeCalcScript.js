@@ -401,16 +401,16 @@ function upgradeUntil(target_level) {
         }
     }
     temp_text += '→ 經歷 '
-        + copy_dict['upgrade-time'] + ' 次強化、'
-        + copy_dict['success-time'] + ' 次成功、'
-        + copy_dict['break-time'] + ' 次破壞、'
-        + copy_dict['no-change-time'] + ' 次無變化、'
-        + copy_dict['down-time'] + ' 次下降、'
-        + copy_dict['return-time'] + ' 次歸零\n'
-    temp_text += '→ 消耗 ' + copy_dict['protect-stone'] + ' 顆守護石\n'
-    temp_text += '→ 消耗 ' + copy_dict['protect-crystal'] + ' 顆守護水晶\n'
-    temp_text += '→ 消耗 ' + copy_dict['repair-scroll'] + ' 張修復卷軸\n'
-    temp_text += '→ 消耗 ' + copy_dict['el-hammer'] + ' 把艾爾鐵鎚\n\n'
+        + numberWithCommas(copy_dict['upgrade-time']) + ' 次強化、'
+        + numberWithCommas(copy_dict['success-time']) + ' 次成功、'
+        + numberWithCommas(copy_dict['break-time']) + ' 次破壞、'
+        + numberWithCommas(copy_dict['no-change-time']) + ' 次無變化、'
+        + numberWithCommas(copy_dict['down-time']) + ' 次下降、'
+        + numberWithCommas(copy_dict['return-time']) + ' 次歸零\n'
+    temp_text += '→ 消耗 ' + numberWithCommas(copy_dict['protect-stone']) + ' 顆守護石\n'
+    temp_text += '→ 消耗 ' + numberWithCommas(copy_dict['protect-crystal']) + ' 顆守護水晶\n'
+    temp_text += '→ 消耗 ' + numberWithCommas(copy_dict['repair-scroll']) + ' 張修復卷軸\n'
+    temp_text += '→ 消耗 ' + numberWithCommas(copy_dict['el-hammer']) + ' 把艾爾鐵鎚\n\n'
 
     upgrade_note.value = temp_text + upgrade_note.value
 
