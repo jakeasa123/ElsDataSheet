@@ -92,7 +92,7 @@ function initialData() {
             tempChild.setAttribute("id", "updateBtn2_" + idNumber)
             tempChild.setAttribute("type", "button")
             tempChild.setAttribute("class", "btn btn-outline-primary")
-            tempChild.setAttribute("onclick", "window.location.href='" + item[3] + "';")
+            tempChild.setAttribute("onclick", "window.open(\'" + item[2] + "\', \'_blank\')")
             tempChild.textContent = "點此前往"
             document.getElementById("updateTdBtn2_" + idNumber).appendChild(tempChild)
         }
