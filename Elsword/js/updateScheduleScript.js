@@ -5,23 +5,23 @@ defaultTimeDiffrent = 195
 updateDetail = [
 
     ['18R 深淵襲擊戰', '2022-08-04', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293430', ''],
-    ['菈比第四分支', '2022-08-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293461', ''],
-    ['18R 深淵襲擊戰 改善與技能調整', '2022-09-01', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293480', 'https://kelsword.web.fc2.com/krnotice/138564.htm'],
+    ['菈比第四分支 TP', '2022-08-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293461', ''],
+    ['18R 改善與技能調整', '2022-09-01', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293480', 'https://kelsword.web.fc2.com/krnotice/138564.htm'],
     ['臨時背包改善', '2022-09-15', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293501', ''],
     ['史詩任務消耗道具獎勵改善', '2022-09-29', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293520', ''],
     ['技能調整', '2022-10-13', '', 'https://kelsword.web.fc2.com/krnotice/138952.htm'],
     ['64 位元版本 (NA)', '2022-10-13', '', ''],
-    ['ADD 第四分支', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
+    ['ADD 第四分支 OM', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
     ['64 位元版本 (TW)', '2022-11-10', '', ''],
     ['公會系統改編與 OM 技能調整', '2022-11-10', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293574', ''],
     ['第三季票、染髮系統與技能調整', '2022-11-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293588', 'https://kelsword.web.fc2.com/krnotice/139336.htm'],
-    ['愛利西斯第四分支', '2022-12-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293601', ''],
+    ['愛利西斯第四分支 AD', '2022-12-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293601', ''],
     ['12R 挑戰模式與泰納抽取改善', '2022-12-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293614', ''],
-    ['澄第四分支與技能調整', '2023-01-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293631', 'https://kelsword.web.fc2.com/krnotice/139723.htm'],
-    ['18R 深淵襲擊戰 改善與澄第四分支技能調整', '2023-01-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293656', ''],
-    ['亞殷第四分支', '2023-02-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293672', ''],
+    ['澄第四分支 DiA 與技能調整', '2023-01-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293631', 'https://kelsword.web.fc2.com/krnotice/139723.htm'],
+    ['18R 改善與 DiA 技能調整', '2023-01-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293656', ''],
+    ['亞殷第四分支 BG', '2023-02-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293672', ''],
     ['技能調整', '2023-02-16', '', 'https://kelsword.web.fc2.com/krnotice/140137.htm'],
-    ['諾亞第四分支', '2023-03-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293708', ''],
+    ['諾亞第四分支 MO', '2023-03-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293708', ''],
     ['15R 挑戰模式', '2023-03-16', '', ''],
 
 ]
@@ -77,7 +77,7 @@ function initialData() {
             tempChild.setAttribute("id", "updateBtn1_" + idNumber)
             tempChild.setAttribute("type", "button")
             tempChild.setAttribute("class", "btn btn-outline-primary")
-            tempChild.setAttribute("onclick", "window.location.href='" + item[2] + "';")
+            tempChild.setAttribute("onclick", "window.open(\'" + item[2] + "\', \'_blank\')")
             tempChild.textContent = "點此前往"
             document.getElementById("updateTdBtn1_" + idNumber).appendChild(tempChild)
         }

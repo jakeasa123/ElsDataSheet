@@ -1,56 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>Els 版本時程推估</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../Elsword/js/updateScheduleScript.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="共鳴經驗試算 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>版本時程推估 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/updateScheduleScript.js"></script>
     </head>
-    <body onload="initialData()">
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
+    <body id="page-top" onload="initialData()">
 
-            <h1>Els 版本時程推估</h1>
-
-        </div>
-
-        <div class="container p-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container p-3">
-
-            <div class="mb-3">
-                <span class="badge bg-primary">自訂時間差</span>
-                <input type="input" class="form-control" id="dateDiffrent" onchange="editDateDiffrent()">
-                <div id="dateDiffrentHelp" class="form-text">若需要臨時觀看其他時間差距下的推估時程，請修改此欄的數字。</div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 版本時程推估</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#main-area">時程推估</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://saketora95.github.io/GameDataColle/">返回首頁</a></li>
+                </ul>
             </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Main Area -->
+            <section class="resume-section" id="main-area">
+                <div class="resume-section-content">
+
+                    <div class="container p-3">
+
+                        <div class="mb-3">
+                            <span class="badge bg-primary">自訂時間差</span>
+                            <input type="input" class="form-control" id="dateDiffrent" onchange="editDateDiffrent()">
+                            <div id="dateDiffrentHelp" class="form-text">若需要臨時觀看其他時間差距下的推估時程，請修改此欄的數字。</div>
+                        </div>
+
+                    </div>
+
+                    <div class="container p-3">
+
+                        <span class="badge bg-primary">改版時程表</span>
+                        <table class="table table-striped align-middle">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">更新概要</th>
+                                    <th scope="col">韓版實裝日期</th>
+                                    <th scope="col">歐服推估日期</th>
+                                    <th scope="col">與今日天數差</th>
+                                    <th scope="col">更新公告</th>
+                                    <th scope="col">技能調整</th>
+                                </tr>
+                            </thead>
+                            <tbody id="updateSchedule">
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            此僅僅是推估，不代表實際的更新日期，經常會有一至兩週的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-14 · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
 
         </div>
-
-        <div class="container p-3">
-
-            <span class="badge bg-primary">改版時程表</span>
-            <table class="table table-striped align-middle">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">更新概要</th>
-                        <th scope="col">韓版實裝日期</th>
-                        <th scope="col">歐服推估日期</th>
-                        <th scope="col">與今日天數差</th>
-                        <th scope="col">更新公告</th>
-                        <th scope="col">技能調整</th>
-                    </tr>
-                </thead>
-                <tbody id="updateSchedule">
-                </tbody>
-            </table>
-        </div>
-
     </body>
 </html>
