@@ -71,7 +71,7 @@ function input_check(c_lv, t_lv, exp_per_run, time_per_run, plan_time) {
     // Plan Time
     plan_time = plan_time_check(plan_time, 2)
     document.getElementById("planTime").value = plan_time
-    
+
 }
 
 function format_time_to_ms(input_time) {
@@ -86,9 +86,9 @@ function executeCalc() {
 
     input_check(
         document.getElementById("currentLevel").value,
-        document.getElementById("targetLevel").value, 
-        document.getElementById("expPerRun").value, 
-        document.getElementById("timePerRun").value, 
+        document.getElementById("targetLevel").value,
+        document.getElementById("expPerRun").value,
+        document.getElementById("timePerRun").value,
         document.getElementById("planTime").value
     )
 
@@ -101,9 +101,9 @@ function executeCalc() {
     // 輸入
     document.getElementById("inputCurrentLevel").innerHTML = currentLevel
     document.getElementById("inputTargetLevel").innerHTML = targetLevel
-    document.getElementById("inputExpPerRun").innerHTML = expPerRun + "m"
-    document.getElementById("inputTimePerRun").innerHTML = format_time_to_ms(timePerRun)
-    document.getElementById("inputPlanTime").innerHTML = planTime
+    // document.getElementById("inputExpPerRun").innerHTML = expPerRun + "m"
+    // document.getElementById("inputTimePerRun").innerHTML = format_time_to_ms(timePerRun)
+    // document.getElementById("inputPlanTime").innerHTML = planTime
 
     // 概要
     required_exp = expTable[targetLevel - 1] - expTable[currentLevel - 1]
@@ -113,7 +113,7 @@ function executeCalc() {
     need_detail_hour = Math.trunc(need_total_sec / 3600)
     need_detail_min = Math.trunc(need_total_sec % 3600 / 60)
     need_detail_sec = need_total_sec % 60
-    
+
     document.getElementById("resultNeedExp").innerHTML = int_formatter.format(required_exp)
     document.getElementById("resultNeedRun").innerHTML = int_formatter.format(need_run)
     document.getElementById("resultNeedHour").innerHTML = int_formatter.format(need_detail_hour)

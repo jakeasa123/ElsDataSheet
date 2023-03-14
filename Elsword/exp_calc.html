@@ -1,100 +1,202 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>Els 共鳴經驗試算</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../Elsword/js/expTable.js"></script>
-        <script src="../Elsword/js/expCalcScript.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="共鳴經驗試算 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>共鳴經驗試算 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="https://saketora95.github.io/GameDataColle/css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="https://saketora95.github.io/GameDataColle/js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/expTable.js"></script>
+        <script src="js/expCalcScript.js"></script>
     </head>
-    <body>
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
+    <body id="page-top">
 
-            <h1>Els 共鳴經驗試算</h1>
-
-        </div>
-
-        <div class="container p-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container p-3">
-            <div class="row">
-
-                <div class="col">
-
-                    <div class="mb-3">
-                        <label for="currentLevel" class="form-label">當前等級：</label>
-                        <input type="input" class="form-control" id="currentLevel" onchange="executeCalc()" value="300">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="targetLevel" class="form-label">目標等級：</label>
-                        <input type="input" class="form-control" id="targetLevel" onchange="executeCalc()" value="400">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="expPerRun" class="form-label">每場副本經驗值：</label>
-                        <input type="input" class="form-control" id="expPerRun" aria-describedby="expPerRunHelp" onchange="executeCalc()" value="300">
-                        <div id="expPerRunHelp" class="form-text">請以百萬 (million) 為單位填入，例如每場副本 3 億 (300,000,000) 經驗值時，請填入「300」。</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="timePerRun" class="form-label">每場副本所需時間：</label>
-                        <input type="input" class="form-control" id="timePerRun" aria-describedby="timePerRunHelp" onchange="executeCalc()" value="120">
-                        <div id="timePerRunHelp" class="form-text">請以「秒」為單位填入，例如每場花費「02:10」則填入「130」；另外由於過場需要些許時間，建議填入的數值多增加 10 至 20 秒。</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="planTime" class="form-label">每日時間規劃：</label>
-                        <input type="input" class="form-control" id="planTime" aria-describedby="planTimeHelp" onchange="executeCalc()" value="2">
-                        <div id="planTimeHelp" class="form-text">此欄位用於規劃每日的進度，將計算每日完成特定時數的話，需要多少天數來達成目標。</div>
-                    </div>
-
-                </div>
-
-                <div class="col">
-
-                    <span class="badge bg-primary">輸入</span>
-                    <p>目標自等級<mark id="inputCurrentLevel">300</mark>提升到等級<mark id="inputTargetLevel">400</mark>。</p>
-                    <p>每場副本取得<mark id="inputExpPerRun">300m</mark>點經驗值，但需要花費<mark id="inputTimePerRun">2:00</mark>的時間。</p>
-                    <p>在規劃上預計每日花費 <mark id="inputPlanTime">2</mark> 小時在這個副本上。</p>
-
-                    <span class="badge bg-success">概要</span>
-                    <p>總計需要<mark id="resultNeedExp">1,186,692,689,564</mark>點經驗值。</p>
-                    <p>預估需要<mark id="resultNeedRun">3,956</mark>場副本。</p>
-                    <p>預估需要<mark id="resultNeedHour">131</mark>小時<mark id="resultNeedMinute">52</mark>分鐘又<mark id="resultNeedSecond">0</mark>秒鐘。</p>
-                    <p>預估每小時完成<mark id="resultRunPerHour">30</mark>次副本，並取得<mark id="resultExpPerHour">9,000m</mark>點的經驗值。</p>
-
-                    <span class="badge bg-danger">規劃</span>
-                    <p>如果每天完成<mark id="planPlanTime">2</mark>小時的進度的話：</p>
-                    <p>預估經過<mark id="planNeedDay">66</mark>天之後，可以達成等級<mark id="planCurrentLevel">300</mark> → 等級<mark id="planTargetLevel">400</mark>的目標。</p>
-
-                </div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 共鳴經驗試算</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://saketora95.github.io/GameDataColle/image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calculator">計算區域</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://saketora95.github.io/GameDataColle/">返回首頁</a></li>
+                </ul>
             </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Calculator -->
+            <section class="resume-section" id="calculator">
+                <div class="resume-section-content">
+                    <div class="row">
+
+                        <div class="col">
+
+                            <div class="mb-3">
+                                <label for="currentLevel" class="form-label"><b>當前等級</b></label>
+                                <input type="input" class="form-control" id="currentLevel" onchange="executeCalc()" value="300">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="targetLevel" class="form-label"><b>目標等級</b></label>
+                                <input type="input" class="form-control" id="targetLevel" onchange="executeCalc()" value="400">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="expPerRun" class="form-label"><b>每場副本經驗值</b></label>
+                                <input type="input" class="form-control" id="expPerRun" aria-describedby="expPerRunHelp" onchange="executeCalc()" value="300">
+                                <div id="expPerRunHelp" class="form-text">請以百萬（million）為單位填入，例如每場副本 3 億（300,000,000）經驗值時，請填入「300」。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="timePerRun" class="form-label"><b>每場副本所需時間</b></label>
+                                <input type="input" class="form-control" id="timePerRun" aria-describedby="timePerRunHelp" onchange="executeCalc()" value="120">
+                                <div id="timePerRunHelp" class="form-text">請以「秒」為單位填入，例如每場花費「02:10」則填入「130」；另外由於過場需要些許時間，建議填入的數值多增加 10 至 20 秒。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="planTime" class="form-label"><b>每日投入時數規劃</b></label>
+                                <input type="input" class="form-control" id="planTime" aria-describedby="planTimeHelp" onchange="executeCalc()" value="2">
+                                <div id="planTimeHelp" class="form-text">請以「小時」為單位填入；用於計算每天投入特定時數賺取經驗值後，預計需要的天數。</div>
+                            </div>
+
+                        </div>
+
+                        <div class="col align-self-center">
+
+                            <span class="badge bg-primary">概要</span>
+                            <p>自等級<mark id="inputCurrentLevel">300</mark>提升到等級<mark id="inputTargetLevel">400</mark>，總計需要<mark id="resultNeedExp">1,186,692,689,564</mark>點經驗值，也就是<mark id="resultNeedRun">3,956</mark>場副本；要完成這些場次，則需要<mark id="resultNeedHour">131</mark>小時<mark id="resultNeedMinute">52</mark>分鐘又<mark id="resultNeedSecond">0</mark>秒鐘。</p>
+                            <p>預估上，您每小時將可以完成<mark id="resultRunPerHour">30</mark>次副本，並從中取得<mark id="resultExpPerHour">9,000m</mark>點的經驗值。</p>
+
+                            <span class="badge bg-primary">規劃</span>
+                            <p>按照您的規劃，如果每天完成<mark id="planPlanTime">2</mark>小時的進度的話，預計累計經過<mark id="planNeedDay">66</mark>天之後，可以達成自等級<mark id="planCurrentLevel">300</mark>提升到等級<mark id="planTargetLevel">400</mark>的目標。</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            珍重身體，酌量勞改。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            綜上所述，請勿過分參照此網站內的任何資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            ElWiki · <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            Ashal · <a class="link-primary" href="https://www.ashal.eu/" target="_blank">https://www.ashal.eu/</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <b>2023-03-14</b> · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
         </div>
-
-        <div class="container p-3">
-
-            <h5>注意事項:</h5>
-            <p>[1] 對數值的運算上可能會出現些許誤差，其結果僅供參考。</p>
-            <p>[2] 珍重身體，酌量勞改。</p>
-
-        </div>
-
-        <div class="container p-3">
-
-            <h5>參考與引用資料:</h5>
-            <p>[1] <strong>ElWiki</strong>: <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a></p>
-            <p>[2] <strong>Ashal</strong>: <a class="link-primary" href="https://www.ashal.eu/" target="_blank">https://www.ashal.eu/</a></p>
-
-        </div>
-
     </body>
 </html>
