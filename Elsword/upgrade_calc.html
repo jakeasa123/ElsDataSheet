@@ -1,284 +1,402 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>Els 歹運強化自嗨</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="歹運強化自嗨 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
 
+        <title>歹運強化自嗨 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
         <script src="../Elsword/js/upgradeCalcScript.js"></script>
     </head>
-    <body>
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
+    <body id="page-top">
 
-            <h1>Els 歹運強化自嗨</h1>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 歹運強化自嗨</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calculator">計算區域</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#rate-info">機率一覽</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
+                </ul>
+            </div>
+        </nav>
 
-        </div>
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
 
-        <div class="container p-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
-                </ol>
-            </nav>
-        </div>
+            <!-- Calculator -->
+            <section class="resume-section" id="calculator">
+                <div class="resume-section-content">
 
-        <div class="container p-3">
-            <h5>● 注意事項：</h5>
-            <p>[1] 此頁面之結果<mark>不會反映於實際遊戲中</mark>，請審慎評估。</p>
-            <p>[2] 在計算「直上 +12 / +13」時，由於包含倒退的特性，可能會致使迴圈不停運轉。</p>
-            <p>[3] 延續 [2] 之說明，若計算過程發現電腦延遲、卡頓或其他不良情形發生，請<mark>立即關閉瀏覽器並放棄使用此頁面的功能</mark>。</p>
-        </div>
-
-        <!-- Display Upgrade Level -->
-        <div class="container p-3 text-center">
-            <p class="h2"><span class="badge bg-danger" id="current-upgrade-level">目前強化：+7</span></p>
-        </div>
-
-        <!-- Control Panel & Info -->
-        <div class="container p-3">
-            <div class="row">
-
-                <!-- Upgrade Time & Spend Resource -->
-                <div class="col-3">
-
-                    <!-- Upgrade Time -->
-                    <table class="table table-sm table-striped table-hover text-center p-3">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="col-4">項目</th>
-                                <th scope="col" class="col-8">次數</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">強化次數</th>
-                                <td id="upgrade-time">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">成功次數</th>
-                                <td id="success-time">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">破壞次數</th>
-                                <td id="break-time">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">無變化次數</th>
-                                <td id="no-change-time">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">下降次數</th>
-                                <td id="down-time">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">歸零次數</th>
-                                <td id="return-time">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- Spend Resource -->
-                    <table class="table table-sm table-striped table-hover text-center p-3">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="col-4" >消耗資源</th>
-                                <th scope="col" class="col-8" >個數</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">守護石</th>
-                                <td id="protect-stone">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">守護水晶</th>
-                                <td id="protect-crystal">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">修復卷軸</th>
-                                <td id="repair-scroll">0</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">艾爾鐵鎚</th>
-                                <td id="el-hammer">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-
-                <!-- Control Panel -->
-                <div class="col-3">
-                    <div class="d-grid gap-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="use-el-hammer" checked>
-                            <label class="form-check-label" for="use-el-hammer">
-                                使用艾爾鐵鎚
-                            </label>
-                        </div>
-                        <button type="button" class="btn btn-outline-primary mt-3" onclick="normalUpgrade()">一般強化</button>
-                        <button type="button" class="btn btn-outline-primary mt-3" onclick="protectUpgrade()">守護石強化</button>
-                        <button type="button" class="btn btn-outline-primary mt-3" onclick="upgradeUntil(11)">直上 +11</button>
-                        <button type="button" class="btn btn-outline-danger mt-3" onclick="upgradeUntil(12)">直上 +12</button>
-                        <button type="button" class="btn btn-outline-danger mt-3" onclick="upgradeUntil(13)">直上 +13</button>
-
-                        <div class="input-group mt-3">
-                            <button type="button" class="btn btn-outline-primary col-8" onclick="setUpgradeLevel()">設定強化值</button>
-                            <select class="form-select" id="set-upgrade-level">
-                                <option value="0">+0</option>
-                                <option value="1">+1</option>
-                                <option value="2">+2</option>
-                                <option value="3">+3</option>
-                                <option value="4">+4</option>
-                                <option value="5">+5</option>
-                                <option value="6">+6</option>
-                                <option value="7" selected>+7</option>
-                                <option value="8">+8</option>
-                                <option value="9">+9</option>
-                                <option value="10">+10</option>
-                                <option value="11">+11</option>
-                                <option value="12">+12</option>
-                                <option value="13">+13</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-outline-secondary mt-3" onclick="resetUpgrade()">清空記錄</button>
+                    <!-- Display Upgrade Level -->
+                    <div class="container p-3 text-center">
+                        <p class="h2"><span class="badge bg-danger" id="current-upgrade-level">目前強化：+7</span></p>
                     </div>
 
+                    <!-- Control Panel & Info -->
+                    <div class="container p-3">
+                        <div class="row">
+
+                            <!-- Upgrade Time & Spend Resource -->
+                            <div class="col-3 align-self-center">
+
+                                <!-- Upgrade Time -->
+                                <table class="table table-sm table-striped table-hover text-center p-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-4">項目</th>
+                                            <th scope="col" class="col-8">次數</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">強化次數</th>
+                                            <td id="upgrade-time">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">成功次數</th>
+                                            <td id="success-time">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">破壞次數</th>
+                                            <td id="break-time">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">無變化次數</th>
+                                            <td id="no-change-time">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">下降次數</th>
+                                            <td id="down-time">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">歸零次數</th>
+                                            <td id="return-time">0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- Spend Resource -->
+                                <table class="table table-sm table-striped table-hover text-center p-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-4" >消耗資源</th>
+                                            <th scope="col" class="col-8" >個數</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">守護石</th>
+                                            <td id="protect-stone">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">守護水晶</th>
+                                            <td id="protect-crystal">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">修復卷軸</th>
+                                            <td id="repair-scroll">0</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">艾爾鐵鎚</th>
+                                            <td id="el-hammer">0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <!-- Control Panel -->
+                            <div class="col-3">
+                                <div class="d-grid gap-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="use-el-hammer" checked>
+                                        <label class="form-check-label" for="use-el-hammer">
+                                            使用艾爾鐵鎚
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-primary mt-3" onclick="normalUpgrade()">一般強化</button>
+                                    <button type="button" class="btn btn-outline-primary mt-3" onclick="protectUpgrade()">守護石強化</button>
+                                    <button type="button" class="btn btn-outline-primary mt-3" onclick="upgradeUntil(11)">直上 +11</button>
+                                    <button type="button" class="btn btn-outline-danger mt-3" onclick="upgradeUntil(12)">直上 +12</button>
+                                    <button type="button" class="btn btn-outline-danger mt-3" onclick="upgradeUntil(13)">直上 +13</button>
+
+                                    <div class="input-group mt-3">
+                                        <button type="button" class="btn btn-outline-primary col-8" onclick="setUpgradeLevel()">設定強化值</button>
+                                        <select class="form-select" id="set-upgrade-level">
+                                            <option value="0">+0</option>
+                                            <option value="1">+1</option>
+                                            <option value="2">+2</option>
+                                            <option value="3">+3</option>
+                                            <option value="4">+4</option>
+                                            <option value="5">+5</option>
+                                            <option value="6">+6</option>
+                                            <option value="7" selected>+7</option>
+                                            <option value="8">+8</option>
+                                            <option value="9">+9</option>
+                                            <option value="10">+10</option>
+                                            <option value="11">+11</option>
+                                            <option value="12">+12</option>
+                                            <option value="13">+13</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-secondary mt-3" onclick="resetUpgrade()">清空記錄</button>
+                                </div>
+
+
+                            </div>
+
+                            <!-- Upgrade Info -->
+                            <div class="col-6">
+                                <textarea class="form-control" id="upgradeNote" style="height: 100%;" maxlength="5"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
+            </section>
 
-                <!-- Upgrade Info -->
-                <div class="col-6">
-                    <textarea class="form-control" id="upgradeNote" style="height: 100%;" maxlength="5"></textarea>
+            <hr class="m-0" />
+
+            <!-- Rate Info -->
+            <section class="resume-section" id="rate-info">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">機率一覽</h2>
+                    <table class="table table-sm table-striped table-hover text-center p-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">強化等級</th>
+                                <th scope="col">成功機率</th>
+                                <th scope="col">破壞機率</th>
+                                <th scope="col">無變化機率</th>
+                                <th scope="col">下降機率</th>
+                                <th scope="col">歸零機率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <th scope="row">0 → 1</th>
+                                <td>100%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1 → 2</th>
+                                <td>100%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2 → 3</th>
+                                <td>90%</td>
+                                <td>0%</td>
+                                <td>10%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3 → 4</th>
+                                <td>80%</td>
+                                <td>0%</td>
+                                <td>20%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4 → 5</th>
+                                <td>70%</td>
+                                <td>0%</td>
+                                <td>30%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5 → 6</th>
+                                <td>60%</td>
+                                <td>0%</td>
+                                <td>40%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6 → 7</th>
+                                <td>20%</td>
+                                <td>0%</td>
+                                <td>80%</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7 → 8</th>
+                                <td>5%</td>
+                                <td>0%</td>
+                                <td>15%</td>
+                                <td>30%</td>
+                                <td>50%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8 → 9</th>
+                                <td>2%</td>
+                                <td>20%</td>
+                                <td>10%</td>
+                                <td>28%</td>
+                                <td>40%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9 → 10</th>
+                                <td>1%</td>
+                                <td>25%</td>
+                                <td>7%</td>
+                                <td>27%</td>
+                                <td>40%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10 → 11</th>
+                                <td>0.7%</td>
+                                <td>35.3%</td>
+                                <td>7%</td>
+                                <td>27%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11 → 12</th>
+                                <td>1%</td>
+                                <td>25%</td>
+                                <td>7%</td>
+                                <td>27%</td>
+                                <td>40%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12 → 13</th>
+                                <td>1%</td>
+                                <td>29%</td>
+                                <td>3%</td>
+                                <td>27%</td>
+                                <td>40%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>使用艾爾鐵鎚時，成功機率乘以二，而無變化機率會降低同等數值。</p>
                 </div>
+            </section>
 
-            </div>
-        </div>
+            <hr class="m-0" />
 
-        <!-- Official Data -->
-        <div class="container p-3">
-            <table class="table table-sm table-striped table-hover text-center p-3">
-                <thead>
-                    <tr>
-                        <th scope="col">強化等級</th>
-                        <th scope="col">成功機率</th>
-                        <th scope="col">破壞機率</th>
-                        <th scope="col">無變化機率</th>
-                        <th scope="col">下降機率</th>
-                        <th scope="col">歸零機率</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
 
-                    <tr>
-                        <th scope="row">0 → 1</th>
-                        <td>100%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1 → 2</th>
-                        <td>100%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2 → 3</th>
-                        <td>90%</td>
-                        <td>0%</td>
-                        <td>10%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3 → 4</th>
-                        <td>80%</td>
-                        <td>0%</td>
-                        <td>20%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4 → 5</th>
-                        <td>70%</td>
-                        <td>0%</td>
-                        <td>30%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5 → 6</th>
-                        <td>60%</td>
-                        <td>0%</td>
-                        <td>40%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6 → 7</th>
-                        <td>20%</td>
-                        <td>0%</td>
-                        <td>80%</td>
-                        <td>0%</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7 → 8</th>
-                        <td>5%</td>
-                        <td>0%</td>
-                        <td>15%</td>
-                        <td>30%</td>
-                        <td>50%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8 → 9</th>
-                        <td>2%</td>
-                        <td>20%</td>
-                        <td>10%</td>
-                        <td>28%</td>
-                        <td>40%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9 → 10</th>
-                        <td>1%</td>
-                        <td>25%</td>
-                        <td>7%</td>
-                        <td>27%</td>
-                        <td>40%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10 → 11</th>
-                        <td>0.7%</td>
-                        <td>35.3%</td>
-                        <td>7%</td>
-                        <td>27%</td>
-                        <td>30%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11 → 12</th>
-                        <td>1%</td>
-                        <td>25%</td>
-                        <td>7%</td>
-                        <td>27%</td>
-                        <td>40%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">12 → 13</th>
-                        <td>1%</td>
-                        <td>29%</td>
-                        <td>3%</td>
-                        <td>27%</td>
-                        <td>40%</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>使用艾爾鐵鎚時，成功機率乘以二，而無變化機率會降低同等數值。</p>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            珍重自身身心健康，酌量強化。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            此頁面之結果<mark>不會反映於實際遊戲中</mark>，請審慎評估。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            在計算「直上 +12 / +13」時，由於包含倒退的特性，可能會致使迴圈不停運轉。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            延續上述之說明，若計算過程發現電腦延遲、卡頓或其他不良情形發生，請<mark>立即關閉瀏覽器並放棄使用此頁面的功能</mark>。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            ElWiki · <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-14 · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
         </div>
 
     </body>
