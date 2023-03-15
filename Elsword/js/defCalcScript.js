@@ -41,15 +41,9 @@ function executeCalc() {
 
     var currentDmgReduce = parseFloat(document.getElementById("dmgReduce").value)
     var currentDefence = parseInt(document.getElementById("def").value)
-    
-    // 輸入
+
     currentDefenceDmg = roundTo((currentDefence / (currentDefence + 4154.55)) * 100, 2)
 
-    document.getElementById("inputDmgReduce").innerHTML = currentDmgReduce + "%"
-    document.getElementById("inputDef").innerHTML = int_formatter.format(currentDefence)
-    document.getElementById("inputDefReduce").innerHTML = currentDefenceDmg + "%"
-
-    // 概要
     dmgReduceBuff = roundTo(currentDmgReduce * 1.1, 2)
     dmgReduceDmg = roundTo(((100 - dmgReduceBuff) / (100 - currentDmgReduce)) * 100, 2)
 
@@ -60,8 +54,8 @@ function executeCalc() {
     defBuff = roundTo(currentDefence * 1.1, 2)
     defBuffDmg = roundTo((defBuff / (defBuff + 4154.55)) * 100, 2)
     defBuffDmg = roundTo(((100 - defBuffDmg) / (100 - currentDefenceDmg)) * 100, 2)
-    
-    
+
+
     document.getElementById("resultDef").innerHTML = int_formatter.format(currentDefence)
     document.getElementById("resultDefBuff").innerHTML = int_formatter.format(defBuff)
     document.getElementById("resultDefDmg").innerHTML = defBuffDmg + "%"

@@ -1,106 +1,195 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>Els 防禦屬性性能</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../Elsword/js/defCalcScript.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="防禦屬性性能 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>防禦屬性性能 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/defCalcScript.js"></script>
     </head>
-    <body>
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
+    <body id="page-top">
 
-            <h1>Els 防禦屬性性能</h1>
-
-        </div>
-
-        <div class="container p-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container p-3">
-            <div class="row">
-
-                <div class="col">
-                    <p>此頁面用於<mark>計算泰納布洛斯褲子的二星詞條</mark>，其結果並不適用於其他項目（例如聖獸鎧甲精靈石）。</p>
-
-                    <div class="mb-3">
-                        <label for="dmgReduce" class="form-label">傷害減少：</label>
-                        <input type="input" class="form-control" id="dmgReduce" onchange="executeCalc()" value="30.0">
-                        <div id="dmgReduceHelp" class="form-text">請填入目前角色面板上的傷害減少數值，並請不要填入「%」。</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="def" class="form-label">防禦力：</label>
-                        <input type="input" class="form-control" id="def" onchange="executeCalc()" value="11750">
-                        <div id="defHelp" class="form-text">請填入目前角色面板上的防禦力，可以填入物理、魔法或兩者的平均值。</div>
-                    </div>
-
-                </div>
-
-                <div class="col">
-
-                    <span class="badge bg-primary">輸入</span>
-                    <p>原始傷害減少數值為<mark id="inputDmgReduce">30.0%</mark>。</p>
-                    <p>原始防禦力數值為<mark id="inputDef">11,750</mark>，可以減少<mark id="inputDefReduce">73.88%</mark>的傷害。</p>
-
-                    <span class="badge bg-success">概要</span>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr class="text-center">
-                                <th scope="col">項目</th>
-                                <th scope="col">原始數值</th>
-                                <th scope="col">成長數值</th>
-                                <th scope="col">減傷效益</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center" scope="row">傷害減少</th>
-                                <td class="text-end" id="resultDmgReduce">30.0%</td>
-                                <td class="text-end" id="resultDmgReduceBuff">33.0%</td>
-                                <td class="text-end"><mark id="resultDmgReduceDmg">95.71%</mark></td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">防禦力</th>
-                                <td class="text-end" id="resultDef">11,750</td>
-                                <td class="text-end" id="resultDefBuff">12,925</td>
-                                <td class="text-end"><mark id="resultDefDmg">93.12%</mark></td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">HP</th>
-                                <td class="text-end">-</td>
-                                <td class="text-end">-</td>
-                                <td class="text-end"><mark>90.91%</mark></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>上表列出之成長數值，代表該項數值經過<mark>泰納布洛斯褲子的二星詞條</mark>增幅後的數值。</p>
-                    <p>減傷效益代表為<mark>成長數值所得到的傷害，是原始數值所得到的傷害的多少百分比</mark>，因此<mark>越低者表現越佳</mark>。</p>
-
-                </div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 防禦屬性性能</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calculator">計算區域</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
+                </ul>
             </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Calculator -->
+            <section class="resume-section" id="calculator">
+                <div class="resume-section-content">
+                    <div class="row">
+
+                        <div class="col">
+
+                            <span class="badge bg-primary">當前數值</span>
+
+                            <div class="mb-3">
+                                <label for="dmgReduce" class="form-label">傷害減少：</label>
+                                <input type="input" class="form-control" id="dmgReduce" onchange="executeCalc()" value="30.0">
+                                <div id="dmgReduceHelp" class="form-text">請填入目前角色面板上的傷害減少數值，並請不要填入「%」。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="def" class="form-label">防禦力：</label>
+                                <input type="input" class="form-control" id="def" onchange="executeCalc()" value="11750">
+                                <div id="defHelp" class="form-text">請填入目前角色面板上的防禦力，可以填入物理、魔法或兩者的平均值。</div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <span class="badge bg-primary">計算結果</span>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">項目</th>
+                                        <th scope="col">原始數值</th>
+                                        <th scope="col">成長數值</th>
+                                        <th scope="col">減傷效益</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">傷害減少</th>
+                                        <td class="text-end" id="resultDmgReduce">30.0%</td>
+                                        <td class="text-end" id="resultDmgReduceBuff">33.0%</td>
+                                        <td class="text-end"><mark id="resultDmgReduceDmg">95.71%</mark></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">防禦力</th>
+                                        <td class="text-end" id="resultDef">11,750</td>
+                                        <td class="text-end" id="resultDefBuff">12,925</td>
+                                        <td class="text-end"><mark id="resultDefDmg">93.12%</mark></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>此頁面之計算結果僅適用於<mark>計算泰納布洛斯褲子的二星詞條</mark>，請勿套用到其他項目上。</p>
+                            <p>減傷效益代表為<mark>數值成長後，受到的傷害是原先的多少百分比</mark>，因此<mark>越低者表現越佳</mark>。</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            ElWiki · <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-15 · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
         </div>
-
-        <div class="container p-3">
-
-            <h5>注意事項:</h5>
-            <p>[1] 對數值的運算上可能會出現些許誤差，其結果僅供參考。</p>
-            <p>[2] 未經過嚴謹驗證，請勿過分參照。</p>
-
-        </div>
-
-        <div class="container p-3">
-
-            <h5>參考與引用資料:</h5>
-            <p>[1] <strong>ElWiki</strong>: <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a></p>
-
-        </div>
-
     </body>
 </html>
