@@ -1,134 +1,240 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>Els １５襲擊試算</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="15R 道具交換 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
 
-        <script src="../Elsword/js/raid15CalcScript.js"></script>
+        <title>15R 道具交換 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/raid15CalcScript.js"></script>
     </head>
-    <body>
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
+    <body id="page-top">
 
-            <h1>Els １５襲擊試算</h1>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 15R 道具交換</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#symbol">魂靈的象徵</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#crystal">魂靈的結晶體</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Symbol -->
+            <section class="resume-section" id="symbol">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">魂靈的象徵</h2>
+
+                    <table class="table table-striped align-middle">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" style="width: 35%">兌換項目</th>
+                                <th scope="col" style="width: 20%">項目單價</th>
+                                <th scope="col" style="width: 15%">素材數量</th>
+                                <th scope="col" style="width: 15%">素材單價</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">10x 紅豆冰</th>
+                                <td class="text-center"><input class="form-control" id="inputIcePotion" value="30000" onchange="executeCalcSymbol()"></td>
+                                <td class="text-center">2 顆</td>
+                                <td class="text-end"><mark id="resultIcePotion">150,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">10x 化石藥水</th>
+                                <td class="text-center"><input class="form-control" id="inputMountPotion" value="30000" onchange="executeCalcSymbol()"></td>
+                                <td class="text-center">2 顆</td>
+                                <td class="text-end"><mark id="resultMountPotion">150,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x 適應力靈藥</th>
+                                <td class="text-center"><input class="form-control" id="inputAdaptPotion" value="300000" onchange="executeCalcSymbol()"></td>
+                                <td class="text-center">2 顆</td>
+                                <td class="text-end"><mark id="resultAdaptPotion">150,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x 15R 重置券</th>
+                                <td class="text-center"><input class="form-control" id="input15RCoupon" value="70000000" onchange="executeCalcSymbol()"></td>
+                                <td class="text-center">500 顆</td>
+                                <td class="text-end"><mark id="result15RCoupon">140,000</mark>ED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Crystal -->
+            <section class="resume-section" id="crystal">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">魂靈的結晶體</h2>
+
+                    <table class="table table-striped align-middle">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" style="width: 35%">兌換項目</th>
+                                <th scope="col" style="width: 20%">項目單價</th>
+                                <th scope="col" style="width: 15%">素材數量</th>
+                                <th scope="col" style="width: 15%">素材單價</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center" scope="row">300x 化石藥水</th>
+                                <td class="text-center"><input class="form-control" id="inputMountPotionCrystal" value="80000" onchange="executeCalcCrystal()"></td>
+                                <td class="text-center">2 顆</td>
+                                <td class="text-end"><mark id="resultMountPotionCrystal">4,500,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x [不可交易] 巨型魔力石轉移券</th>
+                                <td class="text-center"><input class="form-control" id="inputGiantStoneCouponCrystal" value="180000000" onchange="executeCalcCrystal()"></td>
+                                <td class="text-center">3 顆</td>
+                                <td class="text-end"><mark id="resultGiantStoneCouponCrystal">60,000,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x 15R 重置券</th>
+                                <td class="text-center"><input class="form-control" id="input15RCouponCrystal" value="70000000" onchange="executeCalcCrystal()"></td>
+                                <td class="text-center">5 顆</td>
+                                <td class="text-end"><mark id="result15RCouponCrystal">14,000,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x [不可交易] 紅色魔力石轉移券</th>
+                                <td class="text-center"><input class="form-control" id="inputRedStoneCouponCrystal" value="288000000" onchange="executeCalcCrystal()"></td>
+                                <td class="text-center">5 顆</td>
+                                <td class="text-end"><mark id="resultRedStoneCouponCrystal">57,600,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x [不可交易] 藍色魔力石轉移券</th>
+                                <td class="text-center"><input class="form-control" id="inputBlueStoneCouponCrystal" value="288000000" onchange="executeCalcCrystal()"></td>
+                                <td class="text-center">5 顆</td>
+                                <td class="text-end"><mark id="resultBlueStoneCouponCrystal">57,600,000</mark>ED</td>
+                            </tr>
+                            <tr>
+                                <th class="text-center" scope="row">1x [不可交易] 黃色魔力石轉移券</th>
+                                <td class="text-center"><input class="form-control" id="inputYellowStoneCouponCrystal" value="288000000" onchange="executeCalcCrystal()"></td>
+                                <td class="text-center">5 顆</td>
+                                <td class="text-end"><mark id="resultYellowStoneCouponCrystal">57,600,000</mark>ED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>請留意「12R 重置券」較難售出的問題。</p>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            ElWiki · <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-15 · 使介面與首頁風格統一，並更新預設價位以符合現在遊戲環境。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
 
         </div>
-
-        <div class="container p-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container p-3">
-
-            <span class="badge bg-primary">魂靈的象徵</span>
-            <table class="table table-striped align-middle">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col" style="width: 35%">兌換項目</th>
-                        <th scope="col" style="width: 20%">項目單價</th>
-                        <th scope="col" style="width: 15%">素材數量</th>
-                        <th scope="col" style="width: 15%">素材單價</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="text-center" scope="row">10x 紅豆冰</th>
-                        <td class="text-center"><input class="form-control" id="inputIcePotion" value="80000" onchange="executeCalcSymbol()"></td>
-                        <td class="text-center">2 顆</td>
-                        <td class="text-end"><mark id="resultIcePotion">400,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">10x 化石藥水</th>
-                        <td class="text-center"><input class="form-control" id="inputMountPotion" value="80000" onchange="executeCalcSymbol()"></td>
-                        <td class="text-center">2 顆</td>
-                        <td class="text-end"><mark id="resultMountPotion">400,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x 適應力靈藥</th>
-                        <td class="text-center"><input class="form-control" id="inputAdaptPotion" value="900000" onchange="executeCalcSymbol()"></td>
-                        <td class="text-center">2 顆</td>
-                        <td class="text-end"><mark id="resultAdaptPotion">450,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x 刻印石箱子</th>
-                        <td class="text-center"><input class="form-control" id="inputImprintStoneBox" value="500000" onchange="executeCalcSymbol()"></td>
-                        <td class="text-center">100 顆</td>
-                        <td class="text-end"><mark id="resultImprintStoneBox">5,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x 15R 重置券</th>
-                        <td class="text-center"><input class="form-control" id="input15RCoupon" value="250000000" onchange="executeCalcSymbol()"></td>
-                        <td class="text-center">500 顆</td>
-                        <td class="text-end"><mark id="result15RCoupon">500,000</mark>ED</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <span class="badge bg-primary mt-5">魂靈的結晶體</span>
-            <table class="table table-striped align-middle">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col" style="width: 35%">兌換項目</th>
-                        <th scope="col" style="width: 20%">項目單價</th>
-                        <th scope="col" style="width: 15%">素材數量</th>
-                        <th scope="col" style="width: 15%">素材單價</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="text-center" scope="row">1x [隨機] 燦爛的刻印石</th>
-                        <td class="text-center"><input class="form-control" id="inputRandomImprintStoneCrystal" value="500000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">1 顆</td>
-                        <td class="text-end"><mark id="resultRandomImprintStoneCrystal">500,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">300x 化石藥水</th>
-                        <td class="text-center"><input class="form-control" id="inputMountPotionCrystal" value="80000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">2 顆</td>
-                        <td class="text-end"><mark id="resultMountPotionCrystal">12,000,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x [不可交易] 巨型魔力石轉移券</th>
-                        <td class="text-center"><input class="form-control" id="inputGiantStoneCouponCrystal" value="230000000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">3 顆</td>
-                        <td class="text-end"><mark id="resultGiantStoneCouponCrystal">76,666,667</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x 15R 重置券</th>
-                        <td class="text-center"><input class="form-control" id="input15RCouponCrystal" value="250000000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">5 顆</td>
-                        <td class="text-end"><mark id="result15RCouponCrystal">50,000,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x [不可交易] 紅色魔力石轉移券</th>
-                        <td class="text-center"><input class="form-control" id="inputRedStoneCouponCrystal" value="368000000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">5 顆</td>
-                        <td class="text-end"><mark id="resultRedStoneCouponCrystal">73,600,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x [不可交易] 藍色魔力石轉移券</th>
-                        <td class="text-center"><input class="form-control" id="inputBlueStoneCouponCrystal" value="368000000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">5 顆</td>
-                        <td class="text-end"><mark id="resultBlueStoneCouponCrystal">73,600,000</mark>ED</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">1x [不可交易] 黃色魔力石轉移券</th>
-                        <td class="text-center"><input class="form-control" id="inputYellowStoneCouponCrystal" value="368000000" onchange="executeCalcCrystal()"></td>
-                        <td class="text-center">5 顆</td>
-                        <td class="text-end"><mark id="resultYellowStoneCouponCrystal">73,600,000</mark>ED</td>
-                    </tr>
-
-                </tbody>
-            </table>
-
-
-        </div>
-
     </body>
 </html>

@@ -6,21 +6,17 @@ function roundTo(num, decimal) {
 
 function inputCheckSymbol() {
     if (isNaN(document.getElementById("inputIcePotion").value)) {
-        document.getElementById("inputIcePotion").value = 80000
+        document.getElementById("inputIcePotion").value = 30000
     }
     if (isNaN(document.getElementById("inputMountPotion").value)) {
-        document.getElementById("inputMountPotion").value = 80000
+        document.getElementById("inputMountPotion").value = 30000
     }
     if (isNaN(document.getElementById("inputAdaptPotion").value)) {
-        document.getElementById("inputAdaptPotion").value = 900000
-    }
-
-    if (isNaN(document.getElementById("inputImprintStoneBox").value)) {
-        document.getElementById("inputImprintStoneBox").value = 1750000
+        document.getElementById("inputAdaptPotion").value = 300000
     }
 
     if (isNaN(document.getElementById("input15RCoupon").value)) {
-        document.getElementById("input15RCoupon").value = 250000000
+        document.getElementById("input15RCoupon").value = 70000000
     }
 }
 
@@ -43,12 +39,6 @@ function executeCalcSymbol() {
         )
     )
 
-    document.getElementById("resultImprintStoneBox").innerHTML = int_formatter.format(
-        roundTo(
-            parseInt(document.getElementById("inputImprintStoneBox").value) * 1 / 100, 0
-        )
-    )
-
     document.getElementById("result15RCoupon").innerHTML = int_formatter.format(
         roundTo(
             parseInt(document.getElementById("input15RCoupon").value) * 1 / 500, 0
@@ -57,41 +47,32 @@ function executeCalcSymbol() {
 }
 
 function inputCheckCrystal() {
-    if (isNaN(document.getElementById("inputRandomImprintStoneCrystal").value)) {
-        document.getElementById("inputRandomImprintStoneCrystal").value = 1750000
-    }
 
     if (isNaN(document.getElementById("inputMountPotionCrystal").value)) {
-        document.getElementById("inputMountPotionCrystal").value = 80000
+        document.getElementById("inputMountPotionCrystal").value = 30000
     }
 
     if (isNaN(document.getElementById("inputGiantStoneCouponCrystal").value)) {
-        document.getElementById("inputGiantStoneCouponCrystal").value = 230000000
+        document.getElementById("inputGiantStoneCouponCrystal").value = 180000000
     }
 
     if (isNaN(document.getElementById("input15RCouponCrystal").value)) {
-        document.getElementById("input15RCouponCrystal").value = 250000000
+        document.getElementById("input15RCouponCrystal").value = 70000000
     }
     if (isNaN(document.getElementById("inputRedStoneCouponCrystal").value)) {
-        document.getElementById("inputRedStoneCouponCrystal").value = 3500000
+        document.getElementById("inputRedStoneCouponCrystal").value = 288000000
     }
     if (isNaN(document.getElementById("inputBlueStoneCouponCrystal").value)) {
-        document.getElementById("inputBlueStoneCouponCrystal").value = 3500000
+        document.getElementById("inputBlueStoneCouponCrystal").value = 288000000
     }
     if (isNaN(document.getElementById("inputYellowStoneCouponCrystal").value)) {
-        document.getElementById("inputYellowStoneCouponCrystal").value = 3500000
+        document.getElementById("inputYellowStoneCouponCrystal").value = 288000000
     }
 }
 
 function executeCalcCrystal() {
     inputCheckCrystal()
-    
-    document.getElementById("resultRandomImprintStoneCrystal").innerHTML = int_formatter.format(
-        roundTo(
-            parseInt(document.getElementById("inputRandomImprintStoneCrystal").value) * 1 / 1, 0
-        )
-    )
-    
+
     document.getElementById("resultMountPotionCrystal").innerHTML = int_formatter.format(
         roundTo(
             parseInt(document.getElementById("inputMountPotionCrystal").value) * 300 / 2, 0

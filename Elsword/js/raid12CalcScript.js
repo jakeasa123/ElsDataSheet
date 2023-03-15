@@ -6,30 +6,30 @@ function roundTo(num, decimal) {
 
 function inputCheckSymbol() {
     if (isNaN(document.getElementById("inputIcePotion").value)) {
-        document.getElementById("inputIcePotion").value = 80000
+        document.getElementById("inputIcePotion").value = 30000
     }
     if (isNaN(document.getElementById("inputMountPotion").value)) {
-        document.getElementById("inputMountPotion").value = 80000
+        document.getElementById("inputMountPotion").value = 30000
     }
     if (isNaN(document.getElementById("inputAdaptPotion").value)) {
-        document.getElementById("inputAdaptPotion").value = 900000
+        document.getElementById("inputAdaptPotion").value = 300000
     }
 
     if (isNaN(document.getElementById("inputRedStone").value)) {
-        document.getElementById("inputRedStone").value = 800000
+        document.getElementById("inputRedStone").value = 200000
     }
     if (isNaN(document.getElementById("inputBlueStone").value)) {
-        document.getElementById("inputBlueStone").value = 800000
+        document.getElementById("inputBlueStone").value = 200000
     }
     if (isNaN(document.getElementById("inputYellowStone").value)) {
-        document.getElementById("inputYellowStone").value = 800000
+        document.getElementById("inputYellowStone").value = 200000
     }
     if (isNaN(document.getElementById("inputGiantStone").value)) {
-        document.getElementById("inputGiantStone").value = 3500000
+        document.getElementById("inputGiantStone").value = 900000
     }
 
     if (isNaN(document.getElementById("input12RCoupon").value)) {
-        document.getElementById("input12RCoupon").value = 90000000
+        document.getElementById("input12RCoupon").value = 30000000
     }
 }
 
@@ -82,30 +82,30 @@ function executeCalcSymbol() {
 
 function inputCheckCrystal() {
     if (isNaN(document.getElementById("inputMountPotionCrystal").value)) {
-        document.getElementById("inputMountPotionCrystal").value = 80000
+        document.getElementById("inputMountPotionCrystal").value = 30000
     }
 
     if (isNaN(document.getElementById("inputRedStoneCrystal").value)) {
-        document.getElementById("inputRedStoneCrystal").value = 800000
+        document.getElementById("inputRedStoneCrystal").value = 200000
     }
     if (isNaN(document.getElementById("inputBlueStoneCrystal").value)) {
-        document.getElementById("inputBlueStoneCrystal").value = 800000
+        document.getElementById("inputBlueStoneCrystal").value = 200000
     }
     if (isNaN(document.getElementById("inputYellowStoneCrystal").value)) {
-        document.getElementById("inputYellowStoneCrystal").value = 800000
+        document.getElementById("inputYellowStoneCrystal").value = 200000
     }
     if (isNaN(document.getElementById("inputGiantStoneCrystal").value)) {
-        document.getElementById("inputGiantStoneCrystal").value = 3500000
+        document.getElementById("inputGiantStoneCrystal").value = 900000
     }
 
     if (isNaN(document.getElementById("input12RCouponCrystal").value)) {
-        document.getElementById("input12RCouponCrystal").value = 90000000
+        document.getElementById("input12RCouponCrystal").value = 30000000
     }
 }
 
 function executeCalcCrystal() {
     inputCheckCrystal()
-    
+
     document.getElementById("resultMountPotionCrystal").innerHTML = int_formatter.format(
         roundTo(
             parseInt(document.getElementById("inputMountPotionCrystal").value) * 300 / 2, 0
