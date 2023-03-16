@@ -16,7 +16,7 @@ function input_check() {
     if (isNaN(document.getElementById("scrollPrice").value)) {
         document.getElementById("scrollPrice").value = 54000000
     }
-    
+
 }
 
 function executeCalc() {
@@ -29,14 +29,7 @@ function executeCalc() {
     var stonePrice = document.getElementById("stonePrice").value
     var crystalPrice = document.getElementById("crystalPrice").value
     var scrollPrice = document.getElementById("scrollPrice").value
-    
-    // 輸入
-    document.getElementById("inputECPrice").innerHTML = int_formatter.format(ecPrice)
-    document.getElementById("inputStonePrice").innerHTML = int_formatter.format(stonePrice)
-    document.getElementById("inputCrystalPrice").innerHTML = int_formatter.format(crystalPrice)
-    document.getElementById("inputScrollPrice").innerHTML = int_formatter.format(scrollPrice)
 
-    // 概要
     // Stone Pack
     var tempPackED = ecPrice * 800
     var tempPackPrice = stonePrice * 20
@@ -68,5 +61,5 @@ function executeCalc() {
     document.getElementById("resultBigStoneED").innerHTML = int_formatter.format(tempPackED)
     document.getElementById("resultBigStonePrice").innerHTML = int_formatter.format(tempPackPrice)
     document.getElementById("resultBigStoneHammer").innerHTML = int_formatter.format(tempPackHammer)
-    
+
 }

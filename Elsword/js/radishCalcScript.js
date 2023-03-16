@@ -27,14 +27,7 @@ function executeCalcPotion() {
     var applePrice = document.getElementById("applePrice").value
     var recoveryPotionPrice = document.getElementById("recoveryPotionPrice").value
     var icePrice = document.getElementById("icePrice").value
-    
-    // 輸入
-    document.getElementById("inputMagicPotionPrice").innerHTML = int_formatter.format(magicPotionPrice)
-    document.getElementById("inputApplePrice").innerHTML = int_formatter.format(applePrice)
-    document.getElementById("inputRecoveryPotionPrice").innerHTML = int_formatter.format(recoveryPotionPrice)
-    document.getElementById("inputIcePrice").innerHTML = int_formatter.format(icePrice)
 
-    // 概要
     // 胖胖杯
     var tempPrice = magicPotionPrice * 5
     var tempPricePerRadish = roundTo(tempPrice / 1, 0)
@@ -125,7 +118,7 @@ function executeCalcHedgehog() {
     var acc1Price = document.getElementById("acc1Price").value * 1000000
     var acc2Price = document.getElementById("acc2Price").value * 1000000
     var acc3Price = document.getElementById("acc3Price").value * 1000000
-    
+
     // 自由兌換項目
     document.getElementById("resultAmetPrice").innerHTML = int_formatter.format(roundTo(glaciaPrice * 666.67 * 10 / 1, 0))
     document.getElementById("resultReScrollPrice").innerHTML = int_formatter.format(roundTo(reScrollPrice * 10 / 3, 0))
