@@ -1,116 +1,216 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
     <head>
-        <title>Els 鐵鎚成本試算</title>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="../Elsword/js/hammerCalcScript.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="鐵鎚成本試算 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>鐵鎚成本試算 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/hammerCalcScript.js"></script>
     </head>
-    <body>
 
-        <div class="container-fluid p-3 bg-info text-black text-center">
+    <body id="page-top" onload="executeCalc()">
 
-            <h1>Els 鐵鎚成本試算</h1>
-
-        </div>
-
-        <div class="container p-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="../index.html">返回入口頁面</a></li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container p-3">
-            <div class="row">
-
-                <div class="col-4">
-
-                    <div class="mb-3">
-                        <label for="ecPrice" class="form-label">EC 比值：</label>
-                        <input type="input" class="form-control" id="ecPrice" onchange="executeCalc()" value="230000">
-                        <div id="ecPriceHelp" class="form-text">請填入目前的 EC 比值，若 1 EC 需要支付 23 萬 ED 時，即是填入「230000」。</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="stonePrice" class="form-label">強化守護石售價：</label>
-                        <input type="input" class="form-control" id="stonePrice" onchange="executeCalc()" value="7000000">
-                        <div id="stonePriceHelp" class="form-text">請填入「用於強化道具至 +11 的強化守護石」，在市場上的 ED 售價。</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="crystalPrice" class="form-label">強化守護水晶售價：</label>
-                        <input type="input" class="form-control" id="crystalPrice" onchange="executeCalc()" value="700000">
-                        <div id="crystalPriceHelp" class="form-text">請填入「用於強化道具至 +12 或 +13 的強化守護水晶」，在市場上的 ED 售價。</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="scrollPrice" class="form-label">強化修復卷售價：</label>
-                        <input type="input" class="form-control" id="scrollPrice" onchange="executeCalc()" value="54000000">
-                        <div id="scrollPriceHelp" class="form-text">請填入「用於修復損壞的防具的強化修復卷」，在市場上的 ED 售價。</div>
-                    </div>
-
-                </div>
-
-                <div class="col">
-
-                    <span class="badge bg-primary">輸入</span>
-                    <p>購買 1 EC，大約需要<mark id="inputECPrice">230,000</mark>的 ED。</p>
-                    <p>販售 1 顆強化守護石，大約能換得<mark id="inputStonePrice">7,000,000</mark>的 ED。</p>
-                    <p>販售 1 顆強化守護水晶，大約能換得<mark id="inputCrystalPrice">700,000</mark>的 ED。</p>
-                    <p>販售 1 張強化修復卷，大約能換得<mark id="inputScrollPrice">54,000,000</mark>的 ED。</p>
-
-                    <span class="badge bg-success">概要</span>
-                    <p>所需 ED = <mark>所需 EC * EC 比值</mark></p>
-                    <p>道具價值 = <mark>強化道具數量 * 強化道具售價</mark></p>
-                    <p>鐵鎚成本 = <mark>(所需 ED - 道具價值) / 鐵鎚數量</mark></p>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr class="text-center">
-                                <th scope="col">購買項目</th>
-                                <th scope="col">所需 EC</th>
-                                <th scope="col">所需 ED</th>
-                                <th scope="col">道具價值</th>
-                                <th scope="col">鐵鎚成本</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center" scope="row">強化守護石組合包</th>
-                                <td class="text-end">800 EC</td>
-                                <td class="text-end"><mark id="resultStoneED">184,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultStonePrice">140,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultStoneHammer">14,666,667</mark>ED</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">強化守護水晶組合包</th>
-                                <td class="text-end">1,050 EC</td>
-                                <td class="text-end"><mark id="resultCrystalED">241,500,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultCrystalPrice">7,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultCrystalHammer">23,450,000</mark>ED</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">強化修復卷組合包</th>
-                                <td class="text-end">1,200 EC</td>
-                                <td class="text-end"><mark id="resultScrollED">276,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultScrollPrice">270,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultScrollHammer">1,200,000</mark>ED</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">大強化守護石組合包</th>
-                                <td class="text-end">3,000 EC</td>
-                                <td class="text-end"><mark id="resultBigStoneED">690,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultBigStonePrice">700,000,000</mark>ED</td>
-                                <td class="text-end"><mark id="resultBigStoneHammer">-500,000</mark>ED</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 鐵鎚成本試算</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calculator">計算區域</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
+                </ul>
             </div>
-        </div>
+        </nav>
 
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Calculator -->
+            <section class="resume-section" id="calculator">
+                <div class="resume-section-content">
+
+                    <div class="row">
+
+                        <div class="col-4">
+
+                            <div class="mb-3">
+                                <label for="ecPrice" class="form-label"><b>EC 比值</b></label>
+                                <input type="input" class="form-control" id="ecPrice" onchange="executeCalc()" value="180000">
+                                <div id="ecPriceHelp" class="form-text">請填入目前的 EC 比值，若 1 EC 需要支付 20 萬 ED 時，即是填入「200000」。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="stonePrice" class="form-label"><b>強化守護石售價</b></label>
+                                <input type="input" class="form-control" id="stonePrice" onchange="executeCalc()" value="5400000">
+                                <div id="stonePriceHelp" class="form-text">請填入「用於強化道具至 +11 的強化守護石」，在市場上的 ED 售價。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="crystalPrice" class="form-label"><b>強化守護水晶售價</b></label>
+                                <input type="input" class="form-control" id="crystalPrice" onchange="executeCalc()" value="300000">
+                                <div id="crystalPriceHelp" class="form-text">請填入「用於強化道具至 +12 或 +13 的強化守護水晶」，在市場上的 ED 售價。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="scrollPrice" class="form-label"><b>強化修復卷售價</b></label>
+                                <input type="input" class="form-control" id="scrollPrice" onchange="executeCalc()" value="38000000">
+                                <div id="scrollPriceHelp" class="form-text">請填入「用於修復損壞的防具的強化修復卷」，在市場上的 ED 售價。</div>
+                            </div>
+
+                        </div>
+
+                        <div class="col align-self-center">
+
+                            <p>所需 ED = <mark>所需 EC * EC 比值</mark></p>
+                            <p>道具價值 = <mark>強化道具數量 * 強化道具售價</mark></p>
+                            <p>鐵鎚成本 = <mark>(所需 ED - 道具價值) / 鐵鎚數量</mark></p>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">購買項目</th>
+                                        <th scope="col">所需 EC</th>
+                                        <th scope="col">所需 ED</th>
+                                        <th scope="col">道具價值</th>
+                                        <th scope="col">鐵鎚成本</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">強化守護石組合包</th>
+                                        <td class="text-end">800 EC</td>
+                                        <td class="text-end"><mark id="resultStoneED"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultStonePrice"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultStoneHammer"></mark>ED</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">強化守護水晶組合包</th>
+                                        <td class="text-end">1,050 EC</td>
+                                        <td class="text-end"><mark id="resultCrystalED"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultCrystalPrice"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultCrystalHammer"></mark>ED</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">強化修復卷組合包</th>
+                                        <td class="text-end">1,200 EC</td>
+                                        <td class="text-end"><mark id="resultScrollED"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultScrollPrice"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultScrollHammer"></mark>ED</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">大強化守護石組合包</th>
+                                        <td class="text-end">3,000 EC</td>
+                                        <td class="text-end"><mark id="resultBigStoneED"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultBigStonePrice"></mark>ED</td>
+                                        <td class="text-end"><mark id="resultBigStoneHammer"></mark>ED</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-16 · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+        </div>
     </body>
 </html>
