@@ -3,48 +3,60 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>RO Hyper Novice 裝備整理</title>
-        <link rel="icon" type="image/x-icon" href="../image/favicon.ico" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Ragnarok、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="Hyper Novice 裝備整理 | 彈跳鯰魚精 · Ragnarok" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>Hyper Novice 裝備整理 | 彈跳鯰魚精 · Ragnarok</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
         <!-- Font Awesome icons (free version) -->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
         <!-- Core theme CSS (includes Bootstrap) -->
         <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/expTable.js"></script>
+        <script src="js/expCalcScript.js"></script>
     </head>
 
     <body id="page-top">
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">RO Hyper Novice 裝備整理</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" alt="..." /></span>
+                <span class="d-block d-lg-none">Ragnarok Hyper Novice 裝備整理</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#main">裝備整理</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref">資訊來源</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#main" onclick="returnIndex()">返回首頁</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#data">資料一覽</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
                 </ul>
             </div>
-
         </nav>
+
         <!-- Page Content -->
         <div class="container-fluid p-0">
-            <!-- Main -->
-            <section class="resume-section" id="main">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Hyper Novice<span class="text-primary">裝備整理</span>
-                    </h1>
 
-                    <div class="subheading mb-5">
-                        Novice · Super Novice · Hyper Novice
-                    </div>
+            <!-- Data -->
+            <section class="resume-section" id="data">
+                <div class="resume-section-content">
 
                     <table class="table table-striped table-hover align-middle table-sm p-3">
                         <thead>
@@ -428,11 +440,48 @@
 
             <hr class="m-0" />
 
-            <!-- Ref -->
-            <section class="resume-section" id="ref">
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
                 <div class="resume-section-content">
                     <h2 class="mb-5">資訊來源</h2>
                     <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
 
                         <li class="mb-3">
                             <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
@@ -467,12 +516,24 @@
                     </ul>
                 </div>
             </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-16 · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
         </div>
-
-
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="../js/scripts.js"></script>
     </body>
 </html>
