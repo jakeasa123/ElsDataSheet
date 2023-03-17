@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="17-4 波數碼表 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>17-4 波數碼表 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="js/timerScript.js"></script>
+    </head>
+
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 17-4 波數碼表</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#timer">波數碼表</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Timer -->
+            <section class="resume-section" id="timer">
+                <div class="resume-section-content">
+
+                    <!-- Dungeon Info -->
+                    <p>[1] 此處分為「開始入場」與「開始動作」兩個時間點。</p>
+                    <p>[1-1] 開始入場 · 表示過場圖片的結束，看見副本內場景的瞬間。</p>
+                    <p>[1-2] 開始動作 · 表示 Boss 特寫或角色開場動作結束，玩家角色可以自由活動的瞬間。</p>
+                    <p>[1-3] 這兩個時間點差距約莫 3 秒，請依照自己的偏好時間點。</p>
+                    <p>[2] 首波 Boss 約莫會在「開始入場」後 20 秒出現。</p>
+                    <p>[3] 後續，每波 Boss 約莫會間隔 40 秒。</p>
+                    <p>[4] 在靠近 Boss 刷新的 3 秒前，會出現音效提示，你可以<mark onclick="notification_sound.play()">點選這裡試聽</mark>是怎樣的音效。</p>
+                    <p>[5] 由於存在一些誤差或伺服器問題，此音效可能不會非常精準。</p>
+
+                    <!-- Control Panel -->
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-outline-primary col-12 mb-3" onclick="executeTimer_Start()" id="btn-start">開始入場</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-outline-primary col-12 mb-3" onclick="executeTimer_Action()" id="btn-action">開始動作</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=7062">Pixabay</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-17 · 建立「17-4 波數碼表」。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </body>
+</html>
