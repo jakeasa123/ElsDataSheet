@@ -12,7 +12,7 @@ function delay(time) {
 async function playNotification(realeaseBtn) {
     for (var i = 0 ; i < 3 ; i++) {
         new Audio('sound/dun174_noti_sound.mp3').play()
-        await delay(100);
+        await delay(1000);
     }
 
     if (realeaseBtn) {
@@ -25,7 +25,7 @@ function executeTimer_Start() {
     document.getElementById('btn-start').disabled = true
     document.getElementById('btn-action').disabled = true
 
-    var notification_1 = setTimeout(playNotification, 0, false)
+    var notification_1 = setTimeout(playNotification, 1900, false)
     var notification_2 = setTimeout(playNotification, 59000, false)
     var notification_3 = setTimeout(playNotification, 99000, false)
     var notification_4 = setTimeout(playNotification, 139000, true)
