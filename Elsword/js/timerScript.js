@@ -15,7 +15,7 @@ async function playNotification(realeaseBtn) {
         await delay(1000);
     }
 
-    if (realeaseBtn) {
+    if (realeaseBtn == true) {
         document.getElementById('btn-start').disabled = false
         document.getElementById('btn-action').disabled = false
     }
@@ -25,10 +25,10 @@ function executeTimer_Start() {
     document.getElementById('btn-start').disabled = true
     document.getElementById('btn-action').disabled = true
 
-    var notification_1 = setTimeout(playNotification, 1900, false)
-    var notification_2 = setTimeout(playNotification, 59000, false)
-    var notification_3 = setTimeout(playNotification, 99000, false)
-    var notification_4 = setTimeout(playNotification, 139000, true)
+    var notification_1 = setTimeout(playNotification, 17500, false)
+    var notification_2 = setTimeout(playNotification, 58500, false)
+    var notification_3 = setTimeout(playNotification, 98500, false)
+    var notification_4 = setTimeout(playNotification, 138500, true)
 
 }
 
@@ -36,9 +36,9 @@ function executeTimer_Action() {
     document.getElementById('btn-start').disabled = true
     document.getElementById('btn-action').disabled = true
 
-    var notification_1 = setTimeout(playNotification, 16000, false)
-    var notification_2 = setTimeout(playNotification, 56000, false)
-    var notification_3 = setTimeout(playNotification, 96000, false)
-    var notification_4 = setTimeout(playNotification, 1360000, true)
+    var notification_1 = setTimeout(playNotification, 15000, false)
+    var notification_2 = setTimeout(playNotification, 55000, false)
+    var notification_3 = setTimeout(playNotification, 95000, false)
+    var notification_4 = setTimeout(playNotification, 1350000, true)
 
 }
