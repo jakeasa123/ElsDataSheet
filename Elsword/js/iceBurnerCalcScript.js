@@ -108,6 +108,32 @@ function adjustTextArea(target_object, max_length) {
     }
 }
 
+function extendList() {
+    var record_area_tag = document.getElementById('recordArea')
+
+    for (var i = 0 ; i < rate_array_len ; i++) {
+        var num_tag_id = 'item-tag-' + rate_array[i][0]
+
+        // tr
+        var trId = "tr-" + rate_array[i][0]
+        var tempChild = document.createElement('tr')
+        tempChild.setAttribute("id", trId)
+        record_area_tag.appendChild(tempChild)
+
+        // th
+        tempChild = document.createElement('th')
+        tempChild.setAttribute("scope", "row")
+        tempChild.textContent = rate_array[i][0]
+        document.getElementById(trId).appendChild(tempChild)
+
+        // td
+        tempChild = document.createElement('td')
+        tempChild.setAttribute("id", num_tag_id)
+        tempChild.textContent = '0'
+        document.getElementById(trId).appendChild(tempChild)
+    }
+}
+
 function executeBurner(execute_time) {
 
     // Disable Btn to prevent multi click
