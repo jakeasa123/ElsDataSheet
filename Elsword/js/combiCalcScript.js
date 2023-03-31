@@ -1416,7 +1416,6 @@ function combiCalcBoth(equipType, charDetail, equipDetail, setDetail, maxPolar, 
         resultValue *= 1.016
     }
     else {
-        charDetail[7] += 10
         ["Top", "Bottom", "Glove", "Shoes"].forEach(function(part) {
             upgradeLv = document.getElementById("inputEquipUpgrade" + part + "Tene").value
             reforgeLv = document.getElementById("inputEquipReforge" + part + "Tene").value

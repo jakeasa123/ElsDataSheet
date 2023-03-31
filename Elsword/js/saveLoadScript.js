@@ -177,14 +177,16 @@ function loadCookie() {
             tempData = cData.split("=")
             if (tempData[0].substr(0, 10) == "combiCalc_") {
                 var tempName = tempData[0].substr(10)
-                if (save_special_target.indexOf(tempName) >= 0) {
-                    if (tempData[1] == "1") {
-                        document.getElementById(tempName).checked = true
+                if (tempName != 'checkBoxVer55') {
+                    if (save_special_target.indexOf(tempName) >= 0) {
+                        if (tempData[1] == "1") {
+                            document.getElementById(tempName).checked = true
+                        } else {
+                            document.getElementById(tempName).checked = false
+                        }
                     } else {
-                        document.getElementById(tempName).checked = false
+                        document.getElementById(tempName).value = tempData[1]
                     }
-                } else {
-                    document.getElementById(tempName).value = tempData[1]
                 }
             }
         });
