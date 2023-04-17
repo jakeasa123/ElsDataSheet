@@ -1,13 +1,9 @@
 // 預設時間差
-defaultTimeDiffrent = 195
+defaultTimeDiffrent = 181
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['18R 改善與技能調整', '2022-09-01', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293480', 'https://kelsword.web.fc2.com/krnotice/138564.htm'],
-    ['臨時背包改善', '2022-09-15', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293501', ''],
-    ['史詩任務消耗道具獎勵改善', '2022-09-29', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293520', ''],
-    ['技能調整', '2022-10-13', '', 'https://kelsword.web.fc2.com/krnotice/138952.htm'],
     ['64 位元版本 (NA)', '2022-10-13', '', ''],
     ['ADD 第四分支 OM', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
     ['64 位元版本 (TW)', '2022-11-10', '', ''],
@@ -21,6 +17,8 @@ updateDetail = [
     ['技能調整', '2023-02-16', '', 'https://kelsword.web.fc2.com/krnotice/140137.htm'],
     ['諾亞第四分支 MO', '2023-03-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293708', ''],
     ['15R 挑戰模式與第四季票', '2023-03-16', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293727', ''],
+    ['技能調整 (共兩篇)', '2023-03-16', 'https://kelsword.web.fc2.com/balance/230316sb.htm', 'https://kelsword.web.fc2.com/balance/230216sb.htm'],
+    ['技能調整', '2023-03-30', '', 'https://kelsword.web.fc2.com/balance/230330sb.htm'],
 
 ]
 
