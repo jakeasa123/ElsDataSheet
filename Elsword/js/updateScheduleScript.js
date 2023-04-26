@@ -19,6 +19,7 @@ updateDetail = [
     ['15R 挑戰模式與第四季票', '2023-03-16', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293727', ''],
     ['技能調整 (共兩篇)', '2023-03-16', 'https://kelsword.web.fc2.com/balance/230316sb.htm', 'https://kelsword.web.fc2.com/balance/230216sb.htm'],
     ['四分支協同與技能調整', '2023-03-30', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293744', 'https://kelsword.web.fc2.com/balance/230330sb.htm'],
+    ['GE、LA、RE 與 CA 新增轉換技能', '2023-04-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293773', ''],
 
 ]
 
