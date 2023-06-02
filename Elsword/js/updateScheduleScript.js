@@ -4,10 +4,6 @@ defaultTimeDiffrent = 181
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['64 位元版本 (NA)', '2022-10-13', '', ''],
-    ['ADD 第四分支 OM', '2022-10-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293554', ''],
-    ['64 位元版本 (TW)', '2022-11-10', '', ''],
-    ['公會系統改編與 OM 技能調整', '2022-11-10', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293574', ''],
     ['第三季票、染髮系統與技能調整', '2022-11-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293588', 'https://kelsword.web.fc2.com/krnotice/139336.htm'],
     ['愛利西斯第四分支 AD', '2022-12-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293601', ''],
     ['12R 挑戰模式與泰納抽取改善', '2022-12-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293614', ''],
@@ -21,7 +17,15 @@ updateDetail = [
     ['四分支協同與技能調整', '2023-03-30', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293744', 'https://kelsword.web.fc2.com/balance/230330sb.htm'],
     ['GE、LA、RE 與 CA 新增轉換技能', '2023-04-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293773', ''],
     ['流血 BUG 修正與所有襲擊血量下修', '2023-05-04', 'https://elsword.nexon.com/News/Notice/View?n4ArticleSN=140919', ''],
-    ['技能調整', '2023-05-11', '', 'https://kelsword.web.fc2.com/balance/230511sb.htm'],
+    ['PR、SU、DE 與 TP 新增轉換技能 & 技能調整', '2023-05-11', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293787', 'https://kelsword.web.fc2.com/balance/230511sb.htm'],
+    ['DiA、AD、OM、BG 與 MO 新增轉換技能', '2023-05-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293797', ''],
+    ['靈魂伴侶系統', '2023-06-08', '', ''],
+    ['PvP 技能調整', '2023-06-22', '', ''],
+    ['武防具與便利性改善', '2023-07-06', '', ''],
+    ['襲擊與便利性改善', '2023-07-20', '', ''],
+    ['三張新副本與推出新防具', '2023-08-03', '', ''],
+    ['新巨大 Boss', '2023-08-17', '', ''],
+    ['18R 故事模式', '2023-08-31', '', ''],
 
 ]
 
