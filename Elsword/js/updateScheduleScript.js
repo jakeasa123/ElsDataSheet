@@ -1,12 +1,9 @@
 // 預設時間差
-defaultTimeDiffrent = 181
+defaultTimeDiffrent = 195
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['第三季票、染髮系統與技能調整', '2022-11-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293588', 'https://kelsword.web.fc2.com/krnotice/139336.htm'],
-    ['愛利西斯第四分支 AD', '2022-12-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293601', ''],
-    ['12R 挑戰模式與泰納抽取改善', '2022-12-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293614', ''],
     ['澄第四分支 DiA 與技能調整', '2023-01-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293631', 'https://kelsword.web.fc2.com/krnotice/139723.htm'],
     ['18R 改善與 DiA 技能調整', '2023-01-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293656', ''],
     ['亞殷第四分支 BG', '2023-02-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293672', ''],
@@ -19,9 +16,9 @@ updateDetail = [
     ['流血 BUG 修正與所有襲擊血量下修', '2023-05-04', 'https://elsword.nexon.com/News/Notice/View?n4ArticleSN=140919', ''],
     ['PR、SU、DE 與 TP 新增轉換技能 & 技能調整', '2023-05-11', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293787', 'https://kelsword.web.fc2.com/balance/230511sb.htm'],
     ['DiA、AD、OM、BG 與 MO 新增轉換技能', '2023-05-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293797', ''],
-    ['靈魂伴侶系統', '2023-06-08', '', ''],
-    ['PvP 技能調整', '2023-06-22', '', ''],
-    ['武防具與便利性改善', '2023-07-06', '', ''],
+    ['挑戰模式改善與靈魂伴侶系統', '2023-06-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293812', ''],
+    ['挑戰模式再改善與 PvP 技能調整', '2023-06-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293832', ''],
+    ['噗老師 3、泰納套校與鍛造緩和等', '2023-07-06', '', ''],
     ['襲擊與便利性改善', '2023-07-20', '', ''],
     ['三張新副本與推出新防具', '2023-08-03', '', ''],
     ['新巨大 Boss', '2023-08-17', '', ''],
