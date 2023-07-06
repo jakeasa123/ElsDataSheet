@@ -29,9 +29,10 @@
         <!-- Self JavaScripts -->
         <script src="js/reforge/reforgeInfo.js"></script>
         <script src="js/reforge/reforgeScript.js"></script>
+        <script src="js/reforge/reforgeTableScript.js"></script>
     </head>
 
-    <body id="page-top">
+    <body id="page-top" onload="initialData()">
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -104,10 +105,10 @@
                         <table class="table table-sm table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th class="text-center" scope="col" id="tEquipType">虹霓防具 0 → 21</th>
+                                    <th class="text-center" scope="col" id="tEquipType"></th>
                                     <th class="text-center" scope="col">鍛造次數</th>
-                                    <th class="text-center" scope="col" id="tReforgeMaterial_1">13 珠</th>
-                                    <th class="text-center" scope="col" id="tReforgeMaterial_2">13 冰</th>
+                                    <th class="text-center" scope="col" id="tReforgeMaterial_1">初始化失敗</th>
+                                    <th class="text-center" scope="col" id="tReforgeMaterial_2">初始化失敗</th>
                                     <th class="text-center" scope="col">魔法結晶</th>
                                     <th class="text-center" scope="col">ED</th>
                                 </tr>
@@ -115,44 +116,44 @@
                             <tbody>
                                 <tr>
                                     <th class="text-center" scope="row">期望值</th>
-                                    <td class="text-center" id="tExcTime">959 次</td>
-                                    <td class="text-center" id="tExcQuestMat">7,455</td>
-                                    <td class="text-center" id="tExcDropMat">4,970,000</td>
-                                    <td class="text-center" id="tExcMagicCrystal">248,500</td>
-                                    <td class="text-center" id="tExcED">1,406,400,000</td>
+                                    <td class="text-center" id="tExcTime">初始化失敗</td>
+                                    <td class="text-center" id="tExcQuestMat">初始化失敗</td>
+                                    <td class="text-center" id="tExcDropMat">初始化失敗</td>
+                                    <td class="text-center" id="tExcMagicCrystal">初始化失敗</td>
+                                    <td class="text-center" id="tExcED">初始化失敗</td>
                                 </tr>
                                 <tr class="table-warning">
                                     <th style="text-align:right" colspan="2" scope="row" id="tRequireDaysLbl_1">所需天數 (350 / 週)</th>
-                                    <td class="text-center" id="tRequireDays_1">21.3 週</td>
+                                    <td class="text-center" id="tRequireDays_1">初始化失敗</td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                 </tr>
                                 <tr class="table-danger">
                                     <th style="text-align:right" colspan="2" scope="row" id="tRequireDaysFullLbl_1">所需天數 (550 / 週)</th>
-                                    <td class="text-center" id="tRequireDaysFull_1">13.55 週</td>
+                                    <td class="text-center" id="tRequireDaysFull_1">初始化失敗</td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                 </tr>
                                 <tr>
                                     <th class="text-center" scope="row">保底</th>
-                                    <td class="text-center" id="tGuaTime">1,393 次</td>
-                                    <td class="text-center" id="tGuaQuestMat">10,788</td>
-                                    <td class="text-center" id="tGuaDropMat">7,192,000</td>
-                                    <td class="text-center" id="tGuaMagicCrystal">359,600</td>
-                                    <td class="text-center" id="tGuaED">2,034,000,000</td>
+                                    <td class="text-center" id="tGuaTime">初始化失敗</td>
+                                    <td class="text-center" id="tGuaQuestMat">初始化失敗</td>
+                                    <td class="text-center" id="tGuaDropMat">初始化失敗</td>
+                                    <td class="text-center" id="tGuaMagicCrystal">初始化失敗</td>
+                                    <td class="text-center" id="tGuaED">初始化失敗</td>
                                 </tr>
                                 <tr class="table-warning">
                                     <th style="text-align:right" colspan="2" scope="row" id="tRequireDaysLbl_2">所需天數 (350 / 週)</th>
-                                    <td class="text-center" id="tRequireDays_2">30.82 週</td>
+                                    <td class="text-center" id="tRequireDays_2">初始化失敗</td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                 </tr>
                                 <tr class="table-danger">
                                     <th style="text-align:right" colspan="2" scope="row" id="tRequireDaysFullLbl_2">所需天數 (550 / 週)</th>
-                                    <td class="text-center" id="tRequireDaysFull_2">19.61 週</td>
+                                    <td class="text-center" id="tRequireDaysFull_2">初始化失敗</td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
                                     <td class="text-center"> </td>
@@ -196,8 +197,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" scope="col">鍛造階級</th>
-                                            <th class="text-center" scope="col">13 珠</th>
-                                            <th class="text-center" scope="col">13 冰</th>
+                                            <th class="text-center" scope="col">虹霓珠</th>
+                                            <th class="text-center" scope="col">冰塊</th>
                                             <th class="text-center" scope="col">魔法結晶</th>
                                             <th class="text-center" scope="col">ED</th>
                                             <th class="text-center" scope="col">保底計量</th>
@@ -205,217 +206,7 @@
                                             <th class="text-center" scope="col">效果</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" scope="row">1 (0 → 1)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">12%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">2 (1 → 2)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">3 (2 → 3)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center">6%</td>
-                                            <td class="text-center">暴擊傷害 + 3%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">4 (3 → 4)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">5 (4 → 5)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">8%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">6 (5 → 6)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">4%</td>
-                                            <td class="text-center">指定技能傷害 + 5%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">7 (6 → 7)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">8%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">8 (7 → 8)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">9 (8 → 9)</th>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">2%</td>
-                                            <td class="text-center">暴擊傷害 + 3%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">10 (9 → 10)</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">6%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">11 (10 → 11)</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">3%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">12 (11 → 12)</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">1.667%</td>
-                                            <td class="text-center">1%</td>
-                                            <td class="text-center">指定技能傷害 + 5%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">13 (12 → 13)</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">14 (13 → 14)</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">2%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">15 (14 → 15)</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">1.25%</td>
-                                            <td class="text-center">1%</td>
-                                            <td class="text-center">適應力 + 1%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">16 (15 → 16)</th>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">3%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">17 (16 → 17)</th>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.833%</td>
-                                            <td class="text-center">0.5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">18 (17 → 18)</th>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.417%</td>
-                                            <td class="text-center">0.25%</td>
-                                            <td class="text-center">暴擊傷害 + 3%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">19 (18 → 19)</th>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">3%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">20 (19 → 20)</th>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.556%</td>
-                                            <td class="text-center">0.5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">21 (20 → 21)</th>
-                                            <td class="text-center">9</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.278%</td>
-                                            <td class="text-center">0.25%</td>
-                                            <td class="text-center">物理與魔法攻擊力 + 3%</td>
-                                        </tr>
+                                    <tbody id="amethystineBasicTable">
                                     </tbody>
                                 </table>
                             </div>
@@ -425,8 +216,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" scope="col">鍛造階級</th>
-                                            <th class="text-center" scope="col">17 珠</th>
-                                            <th class="text-center" scope="col">17 冰</th>
+                                            <th class="text-center" scope="col">泰納布洛斯氣息</th>
+                                            <th class="text-center" scope="col">塔斯瑪氣息</th>
                                             <th class="text-center" scope="col">魔法結晶</th>
                                             <th class="text-center" scope="col">ED</th>
                                             <th class="text-center" scope="col">保底計量</th>
@@ -434,217 +225,7 @@
                                             <th class="text-center" scope="col">效果</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" scope="row">1 (0 → 1)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">12%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">2 (1 → 2)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">3 (2 → 3)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center">6%</td>
-                                            <td class="text-center">暴擊傷害 + 3%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">4 (3 → 4)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">5 (4 → 5)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">8%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">6 (5 → 6)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">4%</td>
-                                            <td class="text-center">指定技能傷害 + 5%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">7 (6 → 7)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">8%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">8 (7 → 8)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">9 (8 → 9)</th>
-                                            <td class="text-center">15</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">100</td>
-                                            <td class="text-center">300,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">2%</td>
-                                            <td class="text-center">暴擊傷害 + 3%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">10 (9 → 10)</th>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">6%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">11 (10 → 11)</th>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">3%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">12 (11 → 12)</th>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">1.667%</td>
-                                            <td class="text-center">1%</td>
-                                            <td class="text-center">指定技能傷害 + 5%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">13 (12 → 13)</th>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center">5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">14 (13 → 14)</th>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">2%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">15 (14 → 15)</th>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">200</td>
-                                            <td class="text-center">900,000</td>
-                                            <td class="text-center">1.25%</td>
-                                            <td class="text-center">1%</td>
-                                            <td class="text-center">物理與魔法攻擊力 + 2%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">16 (15 → 16)</th>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">3%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">17 (16 → 17)</th>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.833%</td>
-                                            <td class="text-center">0.5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">18 (17 → 18)</th>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.417%</td>
-                                            <td class="text-center">0.25%</td>
-                                            <td class="text-center">指定技能傷害 + 5%</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">19 (18 → 19)</th>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">3%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">20 (19 → 20)</th>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.556%</td>
-                                            <td class="text-center">0.5%</td>
-                                            <td class="text-center"> </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">21 (20 → 21)</th>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">6,000</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">1,800,000</td>
-                                            <td class="text-center">0.278%</td>
-                                            <td class="text-center">0.25%</td>
-                                            <td class="text-center">適應力 + 2%</td>
-                                        </tr>
+                                    <tbody id="tenebrousBasicTable">
                                     </tbody>
                                 </table>
                             </div>
@@ -691,307 +272,15 @@
                                             <th class="text-center" scope="col">鍛造階級</th>
                                             <th class="text-center" scope="col">保底計量</th>
                                             <th class="text-center" scope="col">保底所需次數</th>
-                                            <th class="text-center" scope="col">13 珠</th>
-                                            <th class="text-center" scope="col">13 冰</th>
+                                            <th class="text-center" scope="col">虹霓珠</th>
+                                            <th class="text-center" scope="col">冰塊</th>
                                             <th class="text-center" scope="col">魔法結晶</th>
                                             <th class="text-center" scope="col">ED</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" scope="row">1 (0 → 1)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">20,000</td>
-                                            <td class="text-center">1,000</td>
-                                            <td class="text-center">3,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">2 (1 → 2)</th>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">15 次</td>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">30,000</td>
-                                            <td class="text-center">1,500</td>
-                                            <td class="text-center">4,500,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">3 (2 → 3)</th>
-                                            <td class="text-center">5.0%</td>
-                                            <td class="text-center">20 次</td>
-                                            <td class="text-center">60</td>
-                                            <td class="text-center">40,000</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">6,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 3</th>
-                                            <td class="text-center">45 次</td>
-                                            <td class="text-center">135</td>
-                                            <td class="text-center">90,000</td>
-                                            <td class="text-center">4,500</td>
-                                            <td class="text-center">13,500,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">4 (3 → 4)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">20,000</td>
-                                            <td class="text-center">1,000</td>
-                                            <td class="text-center">3,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">5 (4 → 5)</th>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">15 次</td>
-                                            <td class="text-center">45</td>
-                                            <td class="text-center">30,000</td>
-                                            <td class="text-center">1,500</td>
-                                            <td class="text-center">4,500,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">6 (5 → 6)</th>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">31 次</td>
-                                            <td class="text-center">93</td>
-                                            <td class="text-center">62,000</td>
-                                            <td class="text-center">3,100</td>
-                                            <td class="text-center">9,300,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 3 → 6</th>
-                                            <td class="text-center">56 次</td>
-                                            <td class="text-center">168</td>
-                                            <td class="text-center">112,000</td>
-                                            <td class="text-center">5,600</td>
-                                            <td class="text-center">16,800,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 6</th>
-                                            <td class="text-center">101 次</td>
-                                            <td class="text-center">303</td>
-                                            <td class="text-center">202,000</td>
-                                            <td class="text-center">10,100</td>
-                                            <td class="text-center">30,300,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">7 (6 → 7)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">20,000</td>
-                                            <td class="text-center">1,000</td>
-                                            <td class="text-center">3,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">8 (7 → 8)</th>
-                                            <td class="text-center">5.0%</td>
-                                            <td class="text-center">20 次</td>
-                                            <td class="text-center">60</td>
-                                            <td class="text-center">40,000</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">6,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">9 (8 → 9)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">120</td>
-                                            <td class="text-center">80,000</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">12,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 6 → 9</th>
-                                            <td class="text-center">70 次</td>
-                                            <td class="text-center">210</td>
-                                            <td class="text-center">140,000</td>
-                                            <td class="text-center">7,000</td>
-                                            <td class="text-center">21,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 9</th>
-                                            <td class="text-center">171 次</td>
-                                            <td class="text-center">513</td>
-                                            <td class="text-center">342,000</td>
-                                            <td class="text-center">17,100</td>
-                                            <td class="text-center">51,300,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">10 (9 → 10)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">60</td>
-                                            <td class="text-center">40,000</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">9,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">11 (10 → 11)</th>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">31 次</td>
-                                            <td class="text-center">186</td>
-                                            <td class="text-center">124,000</td>
-                                            <td class="text-center">6,200</td>
-                                            <td class="text-center">27,900,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">12 (11 → 12)</th>
-                                            <td class="text-center">1.667%</td>
-                                            <td class="text-center">60 次</td>
-                                            <td class="text-center">360</td>
-                                            <td class="text-center">240,000</td>
-                                            <td class="text-center">12,000</td>
-                                            <td class="text-center">54,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 9 → 12</th>
-                                            <td class="text-center">101 次</td>
-                                            <td class="text-center">606</td>
-                                            <td class="text-center">404,000</td>
-                                            <td class="text-center">20,200</td>
-                                            <td class="text-center">90,900,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 12</th>
-                                            <td class="text-center">272 次</td>
-                                            <td class="text-center">1,119</td>
-                                            <td class="text-center">746,000</td>
-                                            <td class="text-center">37,300</td>
-                                            <td class="text-center">142,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">13 (12 → 13)</th>
-                                            <td class="text-center">5.0%</td>
-                                            <td class="text-center">20 次</td>
-                                            <td class="text-center">120</td>
-                                            <td class="text-center">80,000</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">18,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">14 (13 → 14)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">240</td>
-                                            <td class="text-center">160,000</td>
-                                            <td class="text-center">8,000</td>
-                                            <td class="text-center">36,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">15 (14 → 15)</th>
-                                            <td class="text-center">1.25%</td>
-                                            <td class="text-center">80 次</td>
-                                            <td class="text-center">480</td>
-                                            <td class="text-center">320,000</td>
-                                            <td class="text-center">16,000</td>
-                                            <td class="text-center">72,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 12 → 15</th>
-                                            <td class="text-center">140 次</td>
-                                            <td class="text-center">840</td>
-                                            <td class="text-center">560,000</td>
-                                            <td class="text-center">28,000</td>
-                                            <td class="text-center">126,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 15</th>
-                                            <td class="text-center">412 次</td>
-                                            <td class="text-center">1,959</td>
-                                            <td class="text-center">1,306,000</td>
-                                            <td class="text-center">65,300</td>
-                                            <td class="text-center">268,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">16 (15 → 16)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">360</td>
-                                            <td class="text-center">240,000</td>
-                                            <td class="text-center">12,000</td>
-                                            <td class="text-center">72,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">17 (16 → 17)</th>
-                                            <td class="text-center">0.833%</td>
-                                            <td class="text-center">121 次</td>
-                                            <td class="text-center">1,089</td>
-                                            <td class="text-center">726,000</td>
-                                            <td class="text-center">36,300</td>
-                                            <td class="text-center">217,800,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">18 (17 → 18)</th>
-                                            <td class="text-center">0.417%</td>
-                                            <td class="text-center">240 次</td>
-                                            <td class="text-center">2,160</td>
-                                            <td class="text-center">1,440,000</td>
-                                            <td class="text-center">72,000</td>
-                                            <td class="text-center">432,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 15 → 18</th>
-                                            <td class="text-center">401 次</td>
-                                            <td class="text-center">3,609</td>
-                                            <td class="text-center">2,406,000</td>
-                                            <td class="text-center">120,300</td>
-                                            <td class="text-center">721,800,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 18</th>
-                                            <td class="text-center">813 次</td>
-                                            <td class="text-center">5,568</td>
-                                            <td class="text-center">3,712,000</td>
-                                            <td class="text-center">185,600</td>
-                                            <td class="text-center">990,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">19 (18 → 19)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">360</td>
-                                            <td class="text-center">240,000</td>
-                                            <td class="text-center">12,000</td>
-                                            <td class="text-center">72,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">20 (19 → 20)</th>
-                                            <td class="text-center">0.556%</td>
-                                            <td class="text-center">180 次</td>
-                                            <td class="text-center">1,620</td>
-                                            <td class="text-center">1,080,000</td>
-                                            <td class="text-center">54,000</td>
-                                            <td class="text-center">324,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">21 (20 → 21)</th>
-                                            <td class="text-center">0.278%</td>
-                                            <td class="text-center">360 次</td>
-                                            <td class="text-center">3,240</td>
-                                            <td class="text-center">2,160,000</td>
-                                            <td class="text-center">108,000</td>
-                                            <td class="text-center">648,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 18 → 21</th>
-                                            <td class="text-center">580 次</td>
-                                            <td class="text-center">5,220</td>
-                                            <td class="text-center">3,480,000</td>
-                                            <td class="text-center">174,000</td>
-                                            <td class="text-center">1,044,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 21</th>
-                                            <td class="text-center">1,393 次</td>
-                                            <td class="text-center">10,788</td>
-                                            <td class="text-center">7,192,000</td>
-                                            <td class="text-center">359,600</td>
-                                            <td class="text-center">2,034,000,000</td>
-                                        </tr>
+                                    <tbody id="amethystineGuaranteedTable">
                                     </tbody>
+
                                 </table>
                             </div>
 
@@ -1002,307 +291,15 @@
                                             <th class="text-center" scope="col">鍛造階級</th>
                                             <th class="text-center" scope="col">保底計量</th>
                                             <th class="text-center" scope="col">保底所需次數</th>
-                                            <th class="text-center" scope="col">17 珠</th>
-                                            <th class="text-center" scope="col">17 冰</th>
+                                            <th class="text-center" scope="col">泰納布洛斯氣息</th>
+                                            <th class="text-center" scope="col">塔斯瑪氣息</th>
                                             <th class="text-center" scope="col">魔法結晶</th>
                                             <th class="text-center" scope="col">ED</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" scope="row">1 (0 → 1)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">150</td>
-                                            <td class="text-center">20,000</td>
-                                            <td class="text-center">1,000</td>
-                                            <td class="text-center">3,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">2 (1 → 2)</th>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">15 次</td>
-                                            <td class="text-center">225</td>
-                                            <td class="text-center">30,000</td>
-                                            <td class="text-center">1,500</td>
-                                            <td class="text-center">4,500,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">3 (2 → 3)</th>
-                                            <td class="text-center">5.0%</td>
-                                            <td class="text-center">20 次</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">40,000</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">6,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 3</th>
-                                            <td class="text-center">45 次</td>
-                                            <td class="text-center">675</td>
-                                            <td class="text-center">90,000</td>
-                                            <td class="text-center">4,500</td>
-                                            <td class="text-center">13,500,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">4 (3 → 4)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">150</td>
-                                            <td class="text-center">20,000</td>
-                                            <td class="text-center">1,000</td>
-                                            <td class="text-center">3,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">5 (4 → 5)</th>
-                                            <td class="text-center">6.667%</td>
-                                            <td class="text-center">15 次</td>
-                                            <td class="text-center">225</td>
-                                            <td class="text-center">30,000</td>
-                                            <td class="text-center">1,500</td>
-                                            <td class="text-center">4,500,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">6 (5 → 6)</th>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">31 次</td>
-                                            <td class="text-center">465</td>
-                                            <td class="text-center">62,000</td>
-                                            <td class="text-center">3,100</td>
-                                            <td class="text-center">9,300,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 3 → 6</th>
-                                            <td class="text-center">56 次</td>
-                                            <td class="text-center">840</td>
-                                            <td class="text-center">112,000</td>
-                                            <td class="text-center">5,600</td>
-                                            <td class="text-center">16,800,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 6</th>
-                                            <td class="text-center">101 次</td>
-                                            <td class="text-center">1,515</td>
-                                            <td class="text-center">202,000</td>
-                                            <td class="text-center">10,100</td>
-                                            <td class="text-center">30,300,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">7 (6 → 7)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">150</td>
-                                            <td class="text-center">20,000</td>
-                                            <td class="text-center">1,000</td>
-                                            <td class="text-center">3,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">8 (7 → 8)</th>
-                                            <td class="text-center">5.0%</td>
-                                            <td class="text-center">20 次</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">40,000</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">6,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">9 (8 → 9)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">600</td>
-                                            <td class="text-center">160,000</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">12,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 6 → 9</th>
-                                            <td class="text-center">70 次</td>
-                                            <td class="text-center">1,050</td>
-                                            <td class="text-center">220,000</td>
-                                            <td class="text-center">7,000</td>
-                                            <td class="text-center">21,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 9</th>
-                                            <td class="text-center">171 次</td>
-                                            <td class="text-center">2,565</td>
-                                            <td class="text-center">422,000</td>
-                                            <td class="text-center">17,100</td>
-                                            <td class="text-center">51,300,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">10 (9 → 10)</th>
-                                            <td class="text-center">10.0%</td>
-                                            <td class="text-center">10 次</td>
-                                            <td class="text-center">300</td>
-                                            <td class="text-center">40,000</td>
-                                            <td class="text-center">2,000</td>
-                                            <td class="text-center">9,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">11 (10 → 11)</th>
-                                            <td class="text-center">3.333%</td>
-                                            <td class="text-center">31 次</td>
-                                            <td class="text-center">930</td>
-                                            <td class="text-center">124,000</td>
-                                            <td class="text-center">6,200</td>
-                                            <td class="text-center">27,900,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">12 (11 → 12)</th>
-                                            <td class="text-center">1.667%</td>
-                                            <td class="text-center">60 次</td>
-                                            <td class="text-center">1,800</td>
-                                            <td class="text-center">240,000</td>
-                                            <td class="text-center">12,000</td>
-                                            <td class="text-center">54,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 9 → 12</th>
-                                            <td class="text-center">101 次</td>
-                                            <td class="text-center">3,030</td>
-                                            <td class="text-center">404,000</td>
-                                            <td class="text-center">20,200</td>
-                                            <td class="text-center">90,900,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 12</th>
-                                            <td class="text-center">272 次</td>
-                                            <td class="text-center">5,595</td>
-                                            <td class="text-center">826,000</td>
-                                            <td class="text-center">37,300</td>
-                                            <td class="text-center">142,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">13 (12 → 13)</th>
-                                            <td class="text-center">5.0%</td>
-                                            <td class="text-center">20 次</td>
-                                            <td class="text-center">600</td>
-                                            <td class="text-center">80,000</td>
-                                            <td class="text-center">4,000</td>
-                                            <td class="text-center">18,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">14 (13 → 14)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">1,200</td>
-                                            <td class="text-center">160,000</td>
-                                            <td class="text-center">8,000</td>
-                                            <td class="text-center">36,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">15 (14 → 15)</th>
-                                            <td class="text-center">1.25%</td>
-                                            <td class="text-center">80 次</td>
-                                            <td class="text-center">2,400</td>
-                                            <td class="text-center">320,000</td>
-                                            <td class="text-center">16,000</td>
-                                            <td class="text-center">72,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 12 → 15</th>
-                                            <td class="text-center">140 次</td>
-                                            <td class="text-center">4,200</td>
-                                            <td class="text-center">560,000</td>
-                                            <td class="text-center">28,000</td>
-                                            <td class="text-center">126,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 15</th>
-                                            <td class="text-center">412 次</td>
-                                            <td class="text-center">9,795</td>
-                                            <td class="text-center">1,386,000</td>
-                                            <td class="text-center">65,300</td>
-                                            <td class="text-center">268,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">16 (15 → 16)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">1,800</td>
-                                            <td class="text-center">240,000</td>
-                                            <td class="text-center">12,000</td>
-                                            <td class="text-center">72,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">17 (16 → 17)</th>
-                                            <td class="text-center">0.833%</td>
-                                            <td class="text-center">121 次</td>
-                                            <td class="text-center">5,445</td>
-                                            <td class="text-center">726,000</td>
-                                            <td class="text-center">36,300</td>
-                                            <td class="text-center">217,800,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">18 (17 → 18)</th>
-                                            <td class="text-center">0.417%</td>
-                                            <td class="text-center">240 次</td>
-                                            <td class="text-center">10,800</td>
-                                            <td class="text-center">1,440,000</td>
-                                            <td class="text-center">72,000</td>
-                                            <td class="text-center">432,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 15 → 18</th>
-                                            <td class="text-center">401 次</td>
-                                            <td class="text-center">18,045</td>
-                                            <td class="text-center">2,406,000</td>
-                                            <td class="text-center">120,300</td>
-                                            <td class="text-center">721,800,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 18</th>
-                                            <td class="text-center">813 次</td>
-                                            <td class="text-center">27,840</td>
-                                            <td class="text-center">3,792,000</td>
-                                            <td class="text-center">185,600</td>
-                                            <td class="text-center">990,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">19 (18 → 19)</th>
-                                            <td class="text-center">2.5%</td>
-                                            <td class="text-center">40 次</td>
-                                            <td class="text-center">1,800</td>
-                                            <td class="text-center">240,000</td>
-                                            <td class="text-center">12,000</td>
-                                            <td class="text-center">72,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">20 (19 → 20)</th>
-                                            <td class="text-center">0.556%</td>
-                                            <td class="text-center">180 次</td>
-                                            <td class="text-center">8,100</td>
-                                            <td class="text-center">1,080,000</td>
-                                            <td class="text-center">54,000</td>
-                                            <td class="text-center">324,000,000</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" scope="row">21 (20 → 21)</th>
-                                            <td class="text-center">0.278%</td>
-                                            <td class="text-center">360 次</td>
-                                            <td class="text-center">16,200</td>
-                                            <td class="text-center">2,160,000</td>
-                                            <td class="text-center">108,000</td>
-                                            <td class="text-center">648,000,000</td>
-                                        </tr>
-                                        <tr class="table-warning">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 18 → 21</th>
-                                            <td class="text-center">580 次</td>
-                                            <td class="text-center">26,100</td>
-                                            <td class="text-center">3,480,000</td>
-                                            <td class="text-center">174,000</td>
-                                            <td class="text-center">1,044,000,000</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <th style="text-align:right" colspan="2" scope="row">合計 0 → 21</th>
-                                            <td class="text-center">1,393 次</td>
-                                            <td class="text-center">53,940</td>
-                                            <td class="text-center">7,272,000</td>
-                                            <td class="text-center">359,600</td>
-                                            <td class="text-center">2,034,000,000</td>
-                                        </tr>
+                                    <tbody id="tenebrousGuaranteedTable">
                                     </tbody>
+
                                 </table>
                             </div>
 
