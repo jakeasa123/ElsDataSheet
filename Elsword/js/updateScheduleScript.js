@@ -1,11 +1,9 @@
 // 預設時間差
-defaultTimeDiffrent = 195
+defaultTimeDiffrent = 202
 
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['澄第四分支 DiA 與技能調整', '2023-01-05', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293631', 'https://kelsword.web.fc2.com/krnotice/139723.htm'],
-    ['18R 改善與 DiA 技能調整', '2023-01-18', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293656', ''],
     ['亞殷第四分支 BG', '2023-02-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293672', ''],
     ['技能調整', '2023-02-16', '', 'https://kelsword.web.fc2.com/krnotice/140137.htm'],
     ['諾亞第四分支 MO', '2023-03-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293708', ''],
@@ -18,9 +16,9 @@ updateDetail = [
     ['DiA、AD、OM、BG 與 MO 新增轉換技能', '2023-05-24', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293797', ''],
     ['挑戰模式改善與靈魂伴侶系統', '2023-06-08', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293812', ''],
     ['挑戰模式再改善與 PvP 技能調整', '2023-06-22', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293832', ''],
-    ['噗老師 3、泰納套校與鍛造緩和等', '2023-07-06', '', ''],
-    ['襲擊與便利性改善', '2023-07-20', '', ''],
-    ['三張新副本與推出新防具', '2023-08-03', '', ''],
+    ['噗老師 3 期、泰納套效與成長緩和', '2023-07-06', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293842', ''],
+    ['襲擊改善與第五季票', '2023-07-20', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293854', ''],
+    ['新副本與泰納改造系統', '2023-08-03', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293874&tnum=1', ''],
     ['新巨大 Boss', '2023-08-17', '', ''],
     ['18R 故事模式', '2023-08-31', '', ''],
 
