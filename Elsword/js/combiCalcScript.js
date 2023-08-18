@@ -958,7 +958,7 @@ function executeCalc(noteArea, charDetail, equipDetail, setDetail) {
                                                         equipTypeList.forEach(function(equipType) {
 
                                                             if (needCoolDown) {
-                                                                if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣") || (acc_top[0] == "聖光上衣") || (acc_top[0] == "乙太上衣")) {
+                                                                if ((ava_left[0] == "埃力格") || (acc_top[0] == "童話上衣") || (acc_top[0] == "聖騎上衣") || (acc_top[0] == "乙太上衣")) {
                                                                     bestAnswer = combiCalcBoth(
                                                                         equipType,
                                                                         charDetail.slice(),
