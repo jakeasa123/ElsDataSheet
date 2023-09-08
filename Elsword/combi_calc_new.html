@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的 Namazu、Elsword、Ragnarok 和 FINAL FANTASY XIV 資料。" />
+        <meta name="author" content="裝備組合試算 | 彈跳鯰魚精 · Elsword" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>裝備組合試算 | 彈跳鯰魚精 · Elsword</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+
+        <!-- Self JavaScripts -->
+        <script src="../Elsword/js/combi/combiCalcScript.js"></script>
+    </head>
+
+    <body id="page-top" onload="initialData()">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Elsword 裝備組合試算</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notice">注意事項</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#character-status">角色性能</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#job-status">職業性能</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#weapon-status">武器性能</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#equip-status">防具性能</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#equip-list">時裝飾品</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#conut-area">計算過程</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#result-area">檢視結果</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#edit-history">編輯記錄</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick="location.href='../index.html'">返回首頁</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Notice -->
+            <section class="resume-section" id="notice">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">注意事項</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            資料未必經過驗證，可能記載著錯誤的資料。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            此處的計算<mark>採用暴力解法</mark>，預計會<mark>占用電腦相當大的記憶體與運算能力</mark>。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            若計算過程發現電腦延遲、卡頓或其他不良情形發生，請<mark>立即關閉瀏覽器並放棄使用此頁面的功能</mark>。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            數據僅供參考，不要過分參照。
+                        </li>
+
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                            請同意鯰魚精很可愛。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Character Status -->
+            <section class="resume-section" id="character-status">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">角色性能</h2>
+
+                    <ul class="fa-ul mb-5">
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            請於此區域中填入目標角色的獨有加成；例如「稱號」、「溫泉」、「協同」、「靈藥」與「共鳴」。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            常用的稱號效果中，如「黑白之道」與「純淨」，僅有適應力需要計入。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            溫泉的效果中，僅有適應力與對 Boss 傷害需要計入。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            靈藥的效果中，僅有適應力需要計入。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            共鳴的效果中，技能傷害是屬於「特定技能傷害」。
+                        </li>
+                    </ul>
+
+                    <div class="mb-3">
+                        <label class="form-label">攻擊力：</label>
+                        <input type="input" class="form-control" id="characterStatusAtk" value="0">
+                        <div class="form-text">請填入目標角色的攻擊力加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">暴擊傷害：</label>
+                        <input type="input" class="form-control" id="characterStatusCritDmg" value="0">
+                        <div class="form-text">請填入目標角色的暴擊傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">對 Boss 傷害：</label>
+                        <input type="input" class="form-control" id="characterStatusBossDmg" value="0">
+                        <div class="form-text">請填入目標角色的對 Boss 傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">特定技能傷害：</label>
+                        <input type="input" class="form-control" id="characterStatusSkillDmg" value="0">
+                        <div class="form-text">請填入目標角色的特定技能傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">所有技能傷害：</label>
+                        <input type="input" class="form-control" id="characterStatusAllSkillDmg" value="0">
+                        <div class="form-text">請填入目標角色的所有技能傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">兩極化：</label>
+                        <input type="input" class="form-control" id="characterStatusPolar" value="0">
+                        <div class="form-text">請填入目標角色的兩極化加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">適應力：</label>
+                        <input type="input" class="form-control" id="characterStatusAdapt" value="0">
+                        <div class="form-text">請填入目標角色的適應力加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">流血：</label>
+                        <input type="input" class="form-control" id="characterStatusBleed" value="0">
+                        <div class="form-text">請填入目標角色的流血加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">環境 Debuff：</label>
+                        <input type="input" class="form-control" id="characterStatusDebuff" value="0">
+                        <div class="form-text">請填入目標副本的所帶有的環境 Debuff，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">對 Boss 傷害魔法石：</label>
+                        <input type="input" class="form-control" id="characterStatusBossDmgStone" value="0">
+                        <div class="form-text">請填入目標角色使用的對 Boss 傷害魔法石數量，每顆將計算為 2.5% 對 Boss 傷害，並請留意武器上的單個凹槽有兩倍效果。</div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Job Status -->
+            <section class="resume-section" id="job-status">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">職業性能</h2>
+
+                    <ul class="fa-ul mb-5">
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            請於此區域中填入目標職業技能的「加算」屬性加成。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            出現於狀態列中的 Buff 普遍是以乘算形式進行計算，因此若目標職業的被動技能是會出現於狀態列的話，不必計入下述欄位。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            但，唯獨「暴擊傷害」與「Boss 傷害」的 Buff 經常以加算形式計算，請確認 ElWiki 中是否有說明該技能屬於何者計算方式。
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fa-solid fa-circle-info"></i></span>
+                            例如，露希爾角色的懲戒光環，雖然是會出現於狀態列中的 Buff 技能，但暴擊傷害增加效果屬於「加算」，應計入下方欄位中。
+                        </li>
+                    </ul>
+
+                    <div class="mb-3">
+                        <label class="form-label">攻擊力：</label>
+                        <input type="input" class="form-control" id="jobStatusAtk" value="0">
+                        <div class="form-text">請填入目標職業技能中，加算的攻擊力加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">暴擊傷害：</label>
+                        <input type="input" class="form-control" id="jobStatusCritDmg" value="0">
+                        <div class="form-text">請填入目標職業技能中，加算的暴擊傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">對 Boss 傷害：</label>
+                        <input type="input" class="form-control" id="jobStatusBossDmg" value="0">
+                        <div class="form-text">請填入目標職業技能中，加算的對 Boss 傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">特定技能傷害：</label>
+                        <input type="input" class="form-control" id="jobStatusSkillDmg" value="0">
+                        <div class="form-text">請填入目標職業技能中，加算的特定技能傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">所有技能傷害：</label>
+                        <input type="input" class="form-control" id="jobStatusAllSkillDmg" value="0">
+                        <div class="form-text">請填入目標職業技能中，加算的所有技能傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Weapon Status -->
+            <section class="resume-section" id="weapon-status">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">武器性能</h2>
+
+                    <div class="mb-3">
+                        <label class="form-label">武器類型</label>
+                        <select class="form-select" id="weaponStatusType" onchange="weaponTypeSelect()">
+                            <option value="FOJ">12R 魔人 FOJ</option>
+                            <option value="VOS" selected>15R 鎮魂 VOS</option>
+                            <option value="SOA">18R 暗鬼 SOA</option>
+                        </select>
+                        <div class="form-text">請選擇目標角色中，目前使用的武器。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">成長階段</label>
+                        <select class="form-select" id="weaponStatusGrowLevel">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected>5</option>
+                        </select>
+                        <div class="form-text">請選擇目標角色中，目前使用武器的成長階段。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">強化等級</label>
+                        <input type="input" class="form-control" id="weaponStatusUpgradeLevel" value="11">
+                        <div class="form-text">請填入目標角色中，目前使用武器的強化等級。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">魔力石 - 攻擊力：</label>
+                        <input type="input" class="form-control" id="weaponStatusAtk" value="0">
+                        <div class="form-text">請填入目標角色中，目前使用武器魔力石提供的攻擊力加成，並請不要填入「%」也不要加入攻擊力等級。</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">魔力石 - 暴擊傷害：</label>
+                        <input type="input" class="form-control" id="weaponStatusCritDmg" value="0">
+                        <div class="form-text">請填入目標角色中，目前使用武器魔力石提供的暴擊傷害加成，並請不要填入「%」。</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Equip Status -->
+            <section class="resume-section" id="equip-status">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">防具性能</h2>
+
+                    <div class="mb-3">
+                        <span class="badge bg-info mb-3">計算機制</span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="equipStatusCalcRadio" id="equipStatusRadioAmet">
+                            <label class="form-check-label">
+                                試算虹霓降魔防具
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="equipStatusCalcRadio" id="equipStatusRadioTene" checked>
+                            <label class="form-check-label">
+                                試算泰納布洛斯防具
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="equipStatusCalcRadio" id="equipStatusRadioBoth">
+                            <label class="form-check-label">
+                                完整試算（試算虹霓降魔防具、泰納布洛斯防具與混搭的數據，會花費更多的時間與電腦資源）
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="badge bg-dark mb-3">虹霓降魔防具</span>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="equipStatusAmetCrimson" checked>
+                            <label class="form-check-label">
+                                以「丹套」進行計算
+                            </label>
+                        </div>
+
+                        <table class="table table-striped align-middle table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" style="width: 40%">部位</th>
+                                    <th scope="col" style="width: 30%">強化</th>
+                                    <th scope="col" style="width: 30%">鍛造</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th class="text-center" scope="row">上衣</th>
+                                    <td><input class="form-control" id="equipStatusAmetTopUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusAmetTopReforgeLevel" value="15"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">下褲</th>
+                                    <td><input class="form-control" id="equipStatusAmetBottomUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusAmetBottomReforgeLevel" value="15"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">手套</th>
+                                    <td><input class="form-control" id="equipStatusAmetGloveUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusAmetGloveReforgeLevel" value="15"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">鞋子</th>
+                                    <td><input class="form-control" id="equipStatusAmetShoesUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusAmetShoesReforgeLevel" value="15"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="badge bg-dark mb-3">泰納布洛斯防具</span>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="equipStatusTeneTopType" id="equipStatusTeneTopTypeBleed" checked>
+                                <label class="form-check-label">
+                                    上衣以「流血」進行計算（流血屬性 + 10%）
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="equipStatusTeneTopType" id="equipStatusTeneTopTypeGroupAtk">
+                                <label class="form-check-label">
+                                    上衣以「團隊攻擊力」進行計算（最終數值乘以 1.1）
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="equipStatusTeneTopType" id="equipStatusTeneTopTypeNormal">
+                                <label class="form-check-label">
+                                    上衣不以特殊詞條進行計算
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="equipStatusTeneOption1st" checked>
+                                <label class="form-check-label">
+                                    第一詞條以「所有技能傷害」進行計算（所有技能傷害屬性 + 1.5% / 件泰納布洛斯防具）
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="equipStatusTeneOption3rd" checked>
+                                <label class="form-check-label">
+                                    第三詞條以「血殺」進行計算（兩件時最終數值乘以 1.016%、四件時最終數值乘以 1.064%）
+                                </label>
+                            </div>
+                        </div>
+
+                        <table class="table table-striped align-middle table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" style="width: 40%">部位</th>
+                                    <th scope="col" style="width: 30%">強化</th>
+                                    <th scope="col" style="width: 30%">鍛造</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th class="text-center" scope="row">上衣</th>
+                                    <td><input class="form-control" id="equipStatusTeneTopUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusTeneTopReforgeLevel" value="15"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">下褲</th>
+                                    <td><input class="form-control" id="equipStatusTeneBottomUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusTeneBottomReforgeLevel" value="15"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">手套</th>
+                                    <td><input class="form-control" id="equipStatusTeneGloveUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusTeneGloveReforgeLevel" value="15"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="row">鞋子</th>
+                                    <td><input class="form-control" id="equipStatusTeneShoesUpgradeLevel" value="11"></td>
+                                    <td><input class="form-control" id="equipStatusTeneShoesReforgeLevel" value="15"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Equip List -->
+            <section class="resume-section" id="equip-list">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">時裝飾品</h2>
+
+                    <div class="mb-3">
+                        <div class="mb-3"><span class="badge bg-info mb-3">道具效果</span></div>
+
+                        <button type="button" class="btn btn-info btn-small" onclick="appendEquip(false)">新增道具</button>
+                        <table class="table table-striped align-middle table-sm mb-3" id="equipListEquipTable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" style="width: 7%">啟用</th>
+                                    <th scope="col" style="width: 11%">名稱</th>
+                                    <th scope="col" style="width: 9%">部位</th>
+                                    <th scope="col" style="width: 9%">套裝</th>
+                                    <th scope="col" style="width: 9%">技傷</th>
+                                    <th scope="col" style="width: 9%">攻擊</th>
+                                    <th scope="col" style="width: 9%">暴傷</th>
+                                    <th scope="col" style="width: 9%">兩極</th>
+                                    <th scope="col" style="width: 9%">Ｂ傷</th>
+                                    <th scope="col" style="width: 9%">適應</th>
+                                    <th scope="col" style="width: 9%">流血</th>
+                                </tr>
+                            </thead>
+                            <tbody id="equipListEquipTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="mb-3"><span class="badge bg-info mb-3">套裝效果</span></div>
+
+                        <button type="button" class="btn btn-info btn-small" onclick="appendSet(false)">新增套裝</button>
+                        <table class="table table-striped align-middle table-sm mb-3" id="equipListSetTable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" style="width: 7%">啟用</th>
+                                    <th scope="col" style="width: 11%">名稱</th>
+                                    <th scope="col" style="width: 9%">部位</th>
+                                    <th scope="col" style="width: 9%">套裝</th>
+                                    <th scope="col" style="width: 9%">技傷</th>
+                                    <th scope="col" style="width: 9%">攻擊</th>
+                                    <th scope="col" style="width: 9%">暴傷</th>
+                                    <th scope="col" style="width: 9%">兩極</th>
+                                    <th scope="col" style="width: 9%">Ｂ傷</th>
+                                    <th scope="col" style="width: 9%">適應</th>
+                                    <th scope="col" style="width: 9%">流血</th>
+                                </tr>
+                            </thead>
+                            <tbody id="equipListSetTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Conut Area -->
+            <section class="resume-section" id="conut-area">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">計算過程</h2>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="countAreaNeedCoolDown">
+                        <label class="form-check-label">
+                            僅考慮具備冷卻時間減少效果 5% 的配置
+                        </label>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#submitModal">開始試算</button>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">計算筆記本</label>
+                        <textarea class="form-control" id="countAreaNotebook" rows="10"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Conut Area -->
+            <section class="resume-section" id="conut-area">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">計算過程</h2>
+
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            艾爾之光 Elsword Online © NEXON KOREA Corp. & KOG Corp. All Rights Reserved.
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            ElWiki · <a class="link-primary" href="https://elwiki.net/w/Main_Page" target="_blank">https://elwiki.net/w/Main_Page</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Edit History -->
+            <section class="resume-section" id="edit-history">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">編輯記錄</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            2023-03-15 · 使介面與首頁風格統一。
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </body>
+</html>
