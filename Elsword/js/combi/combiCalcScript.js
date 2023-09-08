@@ -15,7 +15,7 @@ function getOccurrence(array, value) {
 
 // Object
 function initialData() {
-    fetch("equipInfo.json")
+    fetch("../Elsword/js/combi/equipInfo.json")
         .then(function (response) {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
@@ -23,7 +23,7 @@ function initialData() {
             return response.json();
         })
         .then(function (data) {
-            equipInfo.forEach(function(item) {
+            data.forEach(function(item) {
                 appendEquip(item, true)
             });
         })
@@ -31,16 +31,37 @@ function initialData() {
             console.error("There was a problem with the fetch operation:", error);
         });
 
-    // const unreleaseEquipInfo = JSON.parse(unreleaseEquipInfo)
-    // const setInfo = JSON.parse(setInfo)
+    fetch("../Elsword/js/combi/unreleaseEquipInfo.json")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            data.forEach(function(item) {
+                appendEquip(item, false)
+            });
+        })
+        .catch(function (error) {
+            console.error("There was a problem with the fetch operation:", error);
+        });
 
-
-    // unreleaseEquipInfo.forEach(function(item) {
-    //     appendEquip(item, false)
-    // });
-    // setInfo.forEach(function(item) {
-    //     appendSet(item)
-    // });
+    fetch("../Elsword/js/combi/setInfo.json")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            data.forEach(function(item) {
+                appendSet(item)
+            });
+        })
+        .catch(function (error) {
+            console.error("There was a problem with the fetch operation:", error);
+        });
 
     // loadCookie()
 }
