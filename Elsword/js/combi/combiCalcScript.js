@@ -15,55 +15,17 @@ function getOccurrence(array, value) {
 
 // Object
 function initialData() {
-    fetch("../Elsword/js/combi/equipInfo.json")
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            data.forEach(function(item) {
-                appendEquip(item, true)
-            });
-        })
-        .catch(function (error) {
-            console.error("There was a problem with the fetch operation:", error);
-        });
+    equipInfo.forEach(function(item) {
+        appendEquip(item, true)
+    });
 
-    fetch("../Elsword/js/combi/unreleaseEquipInfo.json")
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            data.forEach(function(item) {
-                appendEquip(item, false)
-            });
-        })
-        .catch(function (error) {
-            console.error("There was a problem with the fetch operation:", error);
-        });
+    unreleaseEquipInfo.forEach(function(item) {
+        appendEquip(item, false)
+    });
 
-    fetch("../Elsword/js/combi/setInfo.json")
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            data.forEach(function(item) {
-                appendSet(item)
-            });
-        })
-        .catch(function (error) {
-            console.error("There was a problem with the fetch operation:", error);
-        });
-
-    // loadCookie()
+    setInfo.forEach(function(item) {
+        appendSet(item)
+    });
 }
 
 function appendEquip(input_data, default_enable) {
@@ -189,7 +151,7 @@ function appendEquip(input_data, default_enable) {
     tempChild.setAttribute("class", "form-control")
     document.getElementById("equipListEquipBleed_" + idNumber).appendChild(tempChild)
 
-    // 流血
+    // 冷卻
     tempChild = document.createElement('td')
     tempChild.setAttribute("id", "equipListEquipCoolDown_" + idNumber)
     document.getElementById("equipListEquipTr_" + idNumber).appendChild(tempChild)
@@ -227,136 +189,148 @@ function appendEquip(input_data, default_enable) {
 }
 
 function appendSet(input_data) {
-    var idNumber = (document.getElementById("combiSetTable").rows.length - 1).toString()
+    var idNumber = (document.getElementById("equipListSetTableBody").rows.length - 1).toString()
 
     // tr
     var tempChild = document.createElement('tr')
-    tempChild.setAttribute("id", "combiSetTr_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetTr_" + idNumber)
     tempChild.setAttribute("class", "text-center")
-    document.getElementById("combiSetList").appendChild(tempChild)
+    document.getElementById("equipListSetTableBody").appendChild(tempChild)
 
     // 名稱
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdName_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdName_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetName_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetName_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdName_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdName_" + idNumber).appendChild(tempChild)
 
     // 套裝
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdSetName_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdSetName_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetSetName_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetSetName_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdSetName_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdSetName_" + idNumber).appendChild(tempChild)
 
     // 件數
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdSetRequire_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdSetRequire_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetSetRequire_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetSetRequire_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdSetRequire_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdSetRequire_" + idNumber).appendChild(tempChild)
 
     // 技能傷害
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdSkillDmg_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdSkillDmg_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetSkillDmg_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetSkillDmg_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdSkillDmg_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdSkillDmg_" + idNumber).appendChild(tempChild)
 
     // 攻擊力
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdAtk_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdAtk_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetAtk_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetAtk_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdAtk_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdAtk_" + idNumber).appendChild(tempChild)
 
     // 暴擊傷害
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdCritDmg_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdCritDmg_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetCritDmg_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetCritDmg_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdCritDmg_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdCritDmg_" + idNumber).appendChild(tempChild)
 
     // 兩極化
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdPolar_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdPolar_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetPolar_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetPolar_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdPolar_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdPolar_" + idNumber).appendChild(tempChild)
 
     // Boss 傷害
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdBossDmg_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdBossDmg_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetBossDmg_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetBossDmg_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdBossDmg_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdBossDmg_" + idNumber).appendChild(tempChild)
 
     // 適應力
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdAdapt_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdAdapt_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetAdapt_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetAdapt_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdAdapt_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdAdapt_" + idNumber).appendChild(tempChild)
 
     // 流血
     tempChild = document.createElement('td')
-    tempChild.setAttribute("id", "combiSetTdBleed_" + idNumber)
-    document.getElementById("combiSetTr_" + idNumber).appendChild(tempChild)
+    tempChild.setAttribute("id", "equipListSetTdBleed_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
 
     tempChild = document.createElement('input')
-    tempChild.setAttribute("id", "combiSetBleed_" + idNumber)
+    tempChild.setAttribute("id", "equipListSetBleed_" + idNumber)
     tempChild.setAttribute("class", "form-control")
-    document.getElementById("combiSetTdBleed_" + idNumber).appendChild(tempChild)
+    document.getElementById("equipListSetTdBleed_" + idNumber).appendChild(tempChild)
+
+    // 冷卻
+    tempChild = document.createElement('td')
+    tempChild.setAttribute("id", "equipListSetCoolDown_" + idNumber)
+    document.getElementById("equipListSetTr_" + idNumber).appendChild(tempChild)
+
+    tempChild = document.createElement('input')
+    tempChild.setAttribute("id", "equipListSetCoolDown_" + idNumber)
+    tempChild.setAttribute("class", "form-control")
+    document.getElementById("equipListSetCoolDown_" + idNumber).appendChild(tempChild)
 
     if (input_data == false) {
-        document.getElementById("combiSetName_" + idNumber).value = "新增套裝 " + idNumber
-        document.getElementById("combiSetSetName_" + idNumber).value = ""
-        document.getElementById("combiSetSetRequire_" + idNumber).value = "2"
-        document.getElementById("combiSetSkillDmg_" + idNumber).value = "0"
-        document.getElementById("combiSetAtk_" + idNumber).value = "0"
-        document.getElementById("combiSetCritDmg_" + idNumber).value = "0"
-        document.getElementById("combiSetPolar_" + idNumber).value = "0"
-        document.getElementById("combiSetBossDmg_" + idNumber).value = "0"
-        document.getElementById("combiSetAdapt_" + idNumber).value = "0"
-        document.getElementById("combiSetBleed_" + idNumber).value = "0"
+        document.getElementById("equipListSetName_" + idNumber).value = "新增套裝 " + idNumber
+        document.getElementById("equipListSetSetName_" + idNumber).value = ""
+        document.getElementById("equipListSetSetRequire_" + idNumber).value = "2"
+        document.getElementById("equipListSetSkillDmg_" + idNumber).value = "0"
+        document.getElementById("equipListSetAtk_" + idNumber).value = "0"
+        document.getElementById("equipListSetCritDmg_" + idNumber).value = "0"
+        document.getElementById("equipListSetPolar_" + idNumber).value = "0"
+        document.getElementById("equipListSetBossDmg_" + idNumber).value = "0"
+        document.getElementById("equipListSetAdapt_" + idNumber).value = "0"
+        document.getElementById("equipListSetBleed_" + idNumber).value = "0"
+        document.getElementById("equipListSetCoolDown_" + idNumber).value = "0"
     } else {
-        document.getElementById("combiSetName_" + idNumber).value = input_data[0]
-        document.getElementById("combiSetSetName_" + idNumber).value = input_data[1]
-        document.getElementById("combiSetSetRequire_" + idNumber).value = input_data[2]
-        document.getElementById("combiSetSkillDmg_" + idNumber).value = input_data[3]
-        document.getElementById("combiSetAtk_" + idNumber).value = input_data[4]
-        document.getElementById("combiSetCritDmg_" + idNumber).value = input_data[5]
-        document.getElementById("combiSetPolar_" + idNumber).value = input_data[6]
-        document.getElementById("combiSetBossDmg_" + idNumber).value = input_data[7]
-        document.getElementById("combiSetAdapt_" + idNumber).value = input_data[8]
-        document.getElementById("combiSetBleed_" + idNumber).value = input_data[9]
+        document.getElementById("equipListSetName_" + idNumber).value = input_data.name
+        document.getElementById("equipListSetPart_" + idNumber).value = input_data.part
+        document.getElementById("equipListSetSetName_" + idNumber).value = input_data.set
+        document.getElementById("equipListSetAllSkillDmg_" + idNumber).value = input_data.allSkillDmg
+        document.getElementById("equipListSetAtk_" + idNumber).value = input_data.atk
+        document.getElementById("equipListSetCritDmg_" + idNumber).value = input_data.critDmg
+        document.getElementById("equipListSetPolar_" + idNumber).value = input_data.polar
+        document.getElementById("equipListSetBossDmg_" + idNumber).value = input_data.bossDmg
+        document.getElementById("equipListSetAdapt_" + idNumber).value = input_data.adapt
+        document.getElementById("equipListSetBleed_" + idNumber).value = input_data.bleed
+        document.getElementById("equipListSetCoolDown_" + idNumber).value = input_data.cooldown
     }
 }
 
@@ -865,22 +839,22 @@ function readEquipInfo() {
 }
 
 function readSetInfo() {
-    var idNumber = (document.getElementById("combiSetTable").rows.length - 1)
+    var idNumber = (document.getElementById("equipListSetTable").rows.length - 1)
     var tempArray = []
 
     for (i = 0 ; i < idNumber ; i++) {
         tempArray.push(
             [
-                document.getElementById("combiSetName_" + i).value,
-                document.getElementById("combiSetSetName_" + i).value,
-                parseInt(document.getElementById("combiSetSetRequire_" + i).value),
-                parseFloat(document.getElementById("combiSetSkillDmg_" + i).value),
-                parseFloat(document.getElementById("combiSetAtk_" + i).value),
-                parseFloat(document.getElementById("combiSetCritDmg_" + i).value),
-                parseFloat(document.getElementById("combiSetPolar_" + i).value),
-                parseFloat(document.getElementById("combiSetBossDmg_" + i).value),
-                parseFloat(document.getElementById("combiSetAdapt_" + i).value),
-                parseFloat(document.getElementById("combiSetBleed_" + i).value),
+                document.getElementById("equipListSetName_" + i).value,
+                document.getElementById("equipListSetSetName_" + i).value,
+                parseInt(document.getElementById("equipListSetSetRequire_" + i).value),
+                parseFloat(document.getElementById("equipListSetSkillDmg_" + i).value),
+                parseFloat(document.getElementById("equipListSetAtk_" + i).value),
+                parseFloat(document.getElementById("equipListSetCritDmg_" + i).value),
+                parseFloat(document.getElementById("equipListSetPolar_" + i).value),
+                parseFloat(document.getElementById("equipListSetBossDmg_" + i).value),
+                parseFloat(document.getElementById("equipListSetAdapt_" + i).value),
+                parseFloat(document.getElementById("equipListSetBleed_" + i).value),
             ]
         )
     }
