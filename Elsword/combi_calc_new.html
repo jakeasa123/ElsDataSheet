@@ -269,8 +269,8 @@
                         <label class="form-label">武器類型</label>
                         <select class="form-select" id="weaponStatusType" onchange="weaponTypeSelect()">
                             <option value="FOJ">12R 魔人 FOJ</option>
-                            <option value="VOS" selected>15R 鎮魂 VOS</option>
-                            <option value="SOA">18R 暗鬼 SOA</option>
+                            <option value="VOS">15R 鎮魂 VOS</option>
+                            <option value="SOA" selected>18R 暗鬼 SOA</option>
                         </select>
                         <div class="form-text">請選擇目標角色中，目前使用的武器。</div>
                     </div>
@@ -331,7 +331,7 @@
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="equipStatusCalcRadio" id="equipStatusRadioBoth">
+                            <input class="form-check-input" type="radio" name="equipStatusCalcRadio" id="equipStatusRadioMix">
                             <label class="form-check-label">
                                 完整試算（試算虹霓降魔防具、泰納布洛斯防具與混搭的數據，會花費更多的時間與電腦資源）
                             </label>
@@ -473,17 +473,18 @@
                         <table class="table table-striped align-middle table-sm mb-3" id="equipListEquipTable">
                             <thead>
                                 <tr class="text-center">
-                                    <th scope="col" style="width: 7%">啟用</th>
-                                    <th scope="col" style="width: 11%">名稱</th>
-                                    <th scope="col" style="width: 9%">部位</th>
-                                    <th scope="col" style="width: 9%">套裝</th>
-                                    <th scope="col" style="width: 9%">技傷</th>
-                                    <th scope="col" style="width: 9%">攻擊</th>
-                                    <th scope="col" style="width: 9%">暴傷</th>
-                                    <th scope="col" style="width: 9%">兩極</th>
-                                    <th scope="col" style="width: 9%">Ｂ傷</th>
-                                    <th scope="col" style="width: 9%">適應</th>
-                                    <th scope="col" style="width: 9%">流血</th>
+                                    <th scope="col" style="width: 8%">啟用</th>
+                                    <th scope="col" style="width: 12%">名稱</th>
+                                    <th scope="col" style="width: 8%">部位</th>
+                                    <th scope="col" style="width: 8%">套裝</th>
+                                    <th scope="col" style="width: 8%">技傷</th>
+                                    <th scope="col" style="width: 8%">攻擊</th>
+                                    <th scope="col" style="width: 8%">暴傷</th>
+                                    <th scope="col" style="width: 8%">兩極</th>
+                                    <th scope="col" style="width: 8%">Ｂ傷</th>
+                                    <th scope="col" style="width: 8%">適應</th>
+                                    <th scope="col" style="width: 8%">流血</th>
+                                    <th scope="col" style="width: 8%">冷卻</th>
                                 </tr>
                             </thead>
                             <tbody id="equipListEquipTableBody">
@@ -498,17 +499,17 @@
                         <table class="table table-striped align-middle table-sm mb-3" id="equipListSetTable">
                             <thead>
                                 <tr class="text-center">
-                                    <th scope="col" style="width: 7%">啟用</th>
-                                    <th scope="col" style="width: 11%">名稱</th>
-                                    <th scope="col" style="width: 9%">部位</th>
-                                    <th scope="col" style="width: 9%">套裝</th>
-                                    <th scope="col" style="width: 9%">技傷</th>
-                                    <th scope="col" style="width: 9%">攻擊</th>
-                                    <th scope="col" style="width: 9%">暴傷</th>
-                                    <th scope="col" style="width: 9%">兩極</th>
-                                    <th scope="col" style="width: 9%">Ｂ傷</th>
-                                    <th scope="col" style="width: 9%">適應</th>
-                                    <th scope="col" style="width: 9%">流血</th>
+                                    <th scope="col" style="width: 16%">名稱</th>
+                                    <th scope="col" style="width: 12%">套裝</th>
+                                    <th scope="col" style="width: 8%">件數</th>
+                                    <th scope="col" style="width: 8%">技傷</th>
+                                    <th scope="col" style="width: 8%">攻擊</th>
+                                    <th scope="col" style="width: 8%">暴傷</th>
+                                    <th scope="col" style="width: 8%">兩極</th>
+                                    <th scope="col" style="width: 8%">Ｂ傷</th>
+                                    <th scope="col" style="width: 8%">適應</th>
+                                    <th scope="col" style="width: 8%">流血</th>
+                                    <th scope="col" style="width: 8%">冷卻</th>
                                 </tr>
                             </thead>
                             <tbody id="equipListSetTableBody">
@@ -526,9 +527,16 @@
                     <h2 class="mb-5">計算過程</h2>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="countAreaNeedCoolDown">
+                        <input class="form-check-input" type="checkbox" id="countAreaNeedCooldown">
                         <label class="form-check-label">
                             僅考慮具備冷卻時間減少效果 5% 的配置
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="countAreaBossKiller" checked>
+                        <label class="form-check-label">
+                            計入嗜骨肉斷的效果
                         </label>
                     </div>
 
@@ -596,6 +604,63 @@
                     </ul>
                 </div>
             </section>
+
+            <!-- Submit Modal -->
+            <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="submitModalLabel">警告</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>確定要開始進行試算嗎？</p>
+                            <ul class="fa-ul mb-0">
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    資料未必經過驗證，可能記載著錯誤的資料。
+                                </li>
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    個人的更新頻率不定，可能與遊戲現行版本有所差異。
+                                </li>
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    部分功能中包含計算的過程，而計算可能會出現些許的誤差。
+                                </li>
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    此處的計算<mark>採用暴力解法</mark>，預計會<mark>占用電腦相當大的記憶體與運算能力</mark>。
+                                </li>
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    若計算過程發現電腦延遲、卡頓或其他不良情形發生，請<mark>立即關閉瀏覽器並放棄使用此頁面的功能</mark>。
+                                </li>
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    數據僅供參考，不要過分參照。
+                                </li>
+
+                                <li>
+                                    <span class="fa-li"><i class="fa-solid fa-triangle-exclamation text-danger"></i></span>
+                                    請同意鯰魚精很可愛。
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">放棄試算</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="submitCalc()">確定進行</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </body>

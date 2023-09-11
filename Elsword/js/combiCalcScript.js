@@ -1232,6 +1232,7 @@ function combiCalc(equipType, charDetail, equipDetail, setDetail, maxPolar, maxA
     } else if (equipDetail[3][0] == "156皇冠") {
         resultValue *= 1.05
     }
+     // 0 攻擊力 + %, 1 暴擊傷害, 2 Boss 傷害, 3 特定技能傷害, 4 所有技能傷害, 5 兩極化, 6 適應力, 7 流血
     resultValue *= (100 + charDetail[0]) / 100 * (150 + charDetail[1]) / 100 * (100 + charDetail[2]) / 100 * (100 + charDetail[3]) / 100 * (100 + charDetail[4]) / 100
     resultValue *= (100 + Math.min(maxPolar, charDetail[5])) / 100
     resultValue *= (100 - deBuff + Math.min(maxAdapt, charDetail[6])) / 100

@@ -10,7 +10,7 @@ equipInfo = [
         bossDmg: 0,
         adapt: 0,
         bleed: 0,
-        cooldown: 0
+        cooldown: 5
     },
     {
         name: '童話',
@@ -49,7 +49,7 @@ equipInfo = [
         bossDmg: 0,
         adapt: 0,
         bleed: 0,
-        cooldown: 0
+        cooldown: 5
     },
     {
         name: '童話手臂',
@@ -296,7 +296,7 @@ equipInfo = [
         bossDmg: 0,
         adapt: 0,
         bleed: 0,
-        cooldown: 0
+        cooldown: 5
     },
     {
         name: '聖騎下衣',
@@ -351,19 +351,6 @@ equipInfo = [
         cooldown: 0
     },
     {
-        name: '薔薇臉下',
-        part: '臉下',
-        set: '薔薇',
-        allSkillDmg: 0,
-        atk: 0,
-        critDmg: 1,
-        polar: 0,
-        bossDmg: 0,
-        adapt: 0,
-        bleed: 0,
-        cooldown: 0
-    },
-    {
         name: '薔薇上衣',
         part: '上衣',
         set: '薔薇',
@@ -377,8 +364,73 @@ equipInfo = [
         cooldown: 0
     },
     {
+        name: '自動人形',
+        part: '左五',
+        set: '',
+        allSkillDmg: 0,
+        atk: 0,
+        critDmg: 0,
+        polar: 5,
+        bossDmg: 0,
+        adapt: 3,
+        bleed: 2,
+        cooldown: 0
+    },
+    {
+        name: '人形武器',
+        part: '武器',
+        set: '人形',
+        allSkillDmg: 0,
+        atk: 0,
+        critDmg: 0,
+        polar: 5,
+        bossDmg: 0,
+        adapt: 0,
+        bleed: 0,
+        cooldown: 0
+    },
+    {
+        name: '人形上衣',
+        part: '上衣',
+        set: '人形',
+        allSkillDmg: 0,
+        atk: 0,
+        critDmg: 0,
+        polar: 0,
+        bossDmg: 0,
+        adapt: 0,
+        bleed: 0,
+        cooldown: 0
+    },
+    {
+        name: '人形下衣',
+        part: '下衣',
+        set: '人形',
+        allSkillDmg: 0,
+        atk: 0,
+        critDmg: 0,
+        polar: 0,
+        bossDmg: 0,
+        adapt: 0,
+        bleed: 0,
+        cooldown: 0
+    },
+    {
+        name: '人形項鍊',
+        part: '項鍊',
+        set: '人形',
+        allSkillDmg: 0,
+        atk: 1,
+        critDmg: 0,
+        polar: 0,
+        bossDmg: 0,
+        adapt: 0,
+        bleed: 0,
+        cooldown: 0
+    },
+    {
         name: '122花冠',
-        part: '頭上',
+        part: '臉上',
         set: '',
         allSkillDmg: 0,
         atk: -5,
@@ -391,7 +443,7 @@ equipInfo = [
     },
     {
         name: '156皇冠',
-        part: '頭上',
+        part: '臉上',
         set: '',
         allSkillDmg: 0,
         atk: 0,
