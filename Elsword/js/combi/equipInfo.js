@@ -426,7 +426,7 @@ equipInfo = [
         bossDmg: 0,
         adapt: 0,
         bleed: 0,
-        cooldown: 0
+        cooldown: 5
     },
     {
         name: '122花冠',
