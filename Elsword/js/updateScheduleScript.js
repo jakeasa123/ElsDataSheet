@@ -8,7 +8,7 @@ updateDetail = [
     ['技能調整', '2023-02-16', '', 'https://kelsword.web.fc2.com/krnotice/140137.htm'],
     ['諾亞第四分支 MO', '2023-03-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293708', ''],
     ['15R 挑戰模式與第四季票', '2023-03-16', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293727', ''],
-    ['技能調整 (共兩篇)', '2023-03-16', 'https://kelsword.web.fc2.com/balance/230316sb.htm', 'https://kelsword.web.fc2.com/balance/230216sb.htm'],
+    ['技能調整', '2023-03-16', '', 'https://kelsword.web.fc2.com/balance/230316sb.htm'],
     ['四分支協同與技能調整', '2023-03-30', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293744', 'https://kelsword.web.fc2.com/balance/230330sb.htm'],
     ['GE、LA、RE 與 CA 新增轉換技能', '2023-04-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293773', ''],
     ['流血 BUG 修正與所有襲擊血量下修', '2023-05-04', 'https://elsword.nexon.com/News/Notice/View?n4ArticleSN=140919', ''],
@@ -19,8 +19,8 @@ updateDetail = [
     ['噗老師 3 期、泰納套效與成長緩和', '2023-07-06', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293842', ''],
     ['襲擊改善與第五季票', '2023-07-20', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293854', ''],
     ['新副本與泰納改造系統', '2023-08-03', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293874&tnum=1', ''],
-    ['新巨大 Boss', '2023-08-17', '', ''],
-    ['18R 故事模式', '2023-08-31', '', ''],
+    ['新巨大 Boss', '2023-08-17', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293880', ''],
+    ['18R 故事模式', '2023-08-31', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293897', ''],
 
 ]
 
