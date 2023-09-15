@@ -553,11 +553,640 @@
 
             <hr class="m-0" />
 
-            <!-- Conut Area -->
+            <!-- Result Area -->
             <section class="resume-section" id="conut-area">
                 <div class="resume-section-content">
                     <h2 class="mb-5">計算過程</h2>
+                    <span class="badge bg-info mb-3">第 1 建議</span>
+                    <div class="row">
+                        <!-- 基本屬性 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">屬性</th>
+                                        <th scope="col" style="width: 60%">數值</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">計算數值</th>
+                                        <th class="text-center" id="bestAnswerValue_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">技能傷害</th>
+                                        <td class="text-center" id="bestAnswerSkillDmg_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">全技傷</th>
+                                        <td class="text-center" id="bestAnswerAllSkillDmg_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">攻擊力</th>
+                                        <td class="text-center" id="bestAnswerAtk_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">暴擊傷害</th>
+                                        <td class="text-center" id="bestAnswerCritDmg_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">對 Boss 傷害</th>
+                                        <td class="text-center" id="bestAnswerBossDmg_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">兩極化</th>
+                                        <td class="text-center" id="bestAnswerPolar_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">適應力</th>
+                                        <td class="text-center" id="bestAnswerAdapt_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">流血</th>
+                                        <td class="text-center" id="bestAnswerBleed_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">冷卻時間</th>
+                                        <td class="text-center" id="bestAnswerCooldown_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">魔界環境</th>
+                                        <td class="text-center" id="bestAnswerDebuff_1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
+                        <!-- 裝備選擇 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">項目</th>
+                                        <th scope="col" style="width: 60%">選擇</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">防具類型</th>
+                                        <td class="text-center" id="bestAnswerEquipType_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">左五時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatar_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatarWeapon_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器飾品</th>
+                                        <td class="text-center" id="bestAnswerAccWeapon_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">支援飾品</th>
+                                        <td class="text-center" id="bestAnswerAccSupport_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉上飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceTop_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉中飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceMiddle_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">上衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccTop_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">下衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccBottom_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">手臂飾品</th>
+                                        <td class="text-center" id="bestAnswerAccArm_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">耳環飾品</th>
+                                        <td class="text-center" id="bestAnswerAccEarring_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">項鍊飾品</th>
+                                        <td class="text-center" id="bestAnswerAccNecklace_1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">聖獸戒指</th>
+                                        <td class="text-center" id="bestAnswerAccArtifactRing_1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span class="badge bg-info mb-3">第 2 建議</span>
+                    <div class="row">
+                        <!-- 基本屬性 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">屬性</th>
+                                        <th scope="col" style="width: 60%">數值</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">計算數值</th>
+                                        <th class="text-center" id="bestAnswerValue_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">技能傷害</th>
+                                        <td class="text-center" id="bestAnswerSkillDmg_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">全技傷</th>
+                                        <td class="text-center" id="bestAnswerAllSkillDmg_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">攻擊力</th>
+                                        <td class="text-center" id="bestAnswerAtk_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">暴擊傷害</th>
+                                        <td class="text-center" id="bestAnswerCritDmg_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">對 Boss 傷害</th>
+                                        <td class="text-center" id="bestAnswerBossDmg_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">兩極化</th>
+                                        <td class="text-center" id="bestAnswerPolar_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">適應力</th>
+                                        <td class="text-center" id="bestAnswerAdapt_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">流血</th>
+                                        <td class="text-center" id="bestAnswerBleed_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">冷卻時間</th>
+                                        <td class="text-center" id="bestAnswerCooldown_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">魔界環境</th>
+                                        <td class="text-center" id="bestAnswerDebuff_2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 裝備選擇 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">項目</th>
+                                        <th scope="col" style="width: 60%">選擇</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">防具類型</th>
+                                        <td class="text-center" id="bestAnswerEquipType_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">左五時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatar_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatarWeapon_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器飾品</th>
+                                        <td class="text-center" id="bestAnswerAccWeapon_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">支援飾品</th>
+                                        <td class="text-center" id="bestAnswerAccSupport_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉上飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceTop_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉中飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceMiddle_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">上衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccTop_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">下衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccBottom_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">手臂飾品</th>
+                                        <td class="text-center" id="bestAnswerAccArm_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">耳環飾品</th>
+                                        <td class="text-center" id="bestAnswerAccEarring_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">項鍊飾品</th>
+                                        <td class="text-center" id="bestAnswerAccNecklace_2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">聖獸戒指</th>
+                                        <td class="text-center" id="bestAnswerAccArtifactRing_2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span class="badge bg-info mb-3">第 3 建議</span>
+                    <div class="row">
+                        <!-- 基本屬性 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">屬性</th>
+                                        <th scope="col" style="width: 60%">數值</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">計算數值</th>
+                                        <th class="text-center" id="bestAnswerValue_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">技能傷害</th>
+                                        <td class="text-center" id="bestAnswerSkillDmg_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">全技傷</th>
+                                        <td class="text-center" id="bestAnswerAllSkillDmg_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">攻擊力</th>
+                                        <td class="text-center" id="bestAnswerAtk_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">暴擊傷害</th>
+                                        <td class="text-center" id="bestAnswerCritDmg_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">對 Boss 傷害</th>
+                                        <td class="text-center" id="bestAnswerBossDmg_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">兩極化</th>
+                                        <td class="text-center" id="bestAnswerPolar_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">適應力</th>
+                                        <td class="text-center" id="bestAnswerAdapt_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">流血</th>
+                                        <td class="text-center" id="bestAnswerBleed_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">冷卻時間</th>
+                                        <td class="text-center" id="bestAnswerCooldown_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">魔界環境</th>
+                                        <td class="text-center" id="bestAnswerDebuff_3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 裝備選擇 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">項目</th>
+                                        <th scope="col" style="width: 60%">選擇</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">防具類型</th>
+                                        <td class="text-center" id="bestAnswerEquipType_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">左五時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatar_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatarWeapon_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器飾品</th>
+                                        <td class="text-center" id="bestAnswerAccWeapon_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">支援飾品</th>
+                                        <td class="text-center" id="bestAnswerAccSupport_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉上飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceTop_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉中飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceMiddle_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">上衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccTop_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">下衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccBottom_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">手臂飾品</th>
+                                        <td class="text-center" id="bestAnswerAccArm_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">耳環飾品</th>
+                                        <td class="text-center" id="bestAnswerAccEarring_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">項鍊飾品</th>
+                                        <td class="text-center" id="bestAnswerAccNecklace_3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">聖獸戒指</th>
+                                        <td class="text-center" id="bestAnswerAccArtifactRing_3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span class="badge bg-info mb-3">第 4 建議</span>
+                    <div class="row">
+                        <!-- 基本屬性 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">屬性</th>
+                                        <th scope="col" style="width: 60%">數值</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">計算數值</th>
+                                        <th class="text-center" id="bestAnswerValue_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">技能傷害</th>
+                                        <td class="text-center" id="bestAnswerSkillDmg_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">全技傷</th>
+                                        <td class="text-center" id="bestAnswerAllSkillDmg_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">攻擊力</th>
+                                        <td class="text-center" id="bestAnswerAtk_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">暴擊傷害</th>
+                                        <td class="text-center" id="bestAnswerCritDmg_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">對 Boss 傷害</th>
+                                        <td class="text-center" id="bestAnswerBossDmg_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">兩極化</th>
+                                        <td class="text-center" id="bestAnswerPolar_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">適應力</th>
+                                        <td class="text-center" id="bestAnswerAdapt_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">流血</th>
+                                        <td class="text-center" id="bestAnswerBleed_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">冷卻時間</th>
+                                        <td class="text-center" id="bestAnswerCooldown_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">魔界環境</th>
+                                        <td class="text-center" id="bestAnswerDebuff_4"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 裝備選擇 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">項目</th>
+                                        <th scope="col" style="width: 60%">選擇</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">防具類型</th>
+                                        <td class="text-center" id="bestAnswerEquipType_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">左五時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatar_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatarWeapon_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器飾品</th>
+                                        <td class="text-center" id="bestAnswerAccWeapon_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">支援飾品</th>
+                                        <td class="text-center" id="bestAnswerAccSupport_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉上飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceTop_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉中飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceMiddle_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">上衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccTop_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">下衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccBottom_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">手臂飾品</th>
+                                        <td class="text-center" id="bestAnswerAccArm_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">耳環飾品</th>
+                                        <td class="text-center" id="bestAnswerAccEarring_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">項鍊飾品</th>
+                                        <td class="text-center" id="bestAnswerAccNecklace_4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">聖獸戒指</th>
+                                        <td class="text-center" id="bestAnswerAccArtifactRing_4"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span class="badge bg-info mb-3">第 5 建議</span>
+                    <div class="row">
+                        <!-- 基本屬性 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">屬性</th>
+                                        <th scope="col" style="width: 60%">數值</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">計算數值</th>
+                                        <th class="text-center" id="bestAnswerValue_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">技能傷害</th>
+                                        <td class="text-center" id="bestAnswerSkillDmg_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">全技傷</th>
+                                        <td class="text-center" id="bestAnswerAllSkillDmg_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">攻擊力</th>
+                                        <td class="text-center" id="bestAnswerAtk_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">暴擊傷害</th>
+                                        <td class="text-center" id="bestAnswerCritDmg_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">對 Boss 傷害</th>
+                                        <td class="text-center" id="bestAnswerBossDmg_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">兩極化</th>
+                                        <td class="text-center" id="bestAnswerPolar_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">適應力</th>
+                                        <td class="text-center" id="bestAnswerAdapt_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">流血</th>
+                                        <td class="text-center" id="bestAnswerBleed_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">冷卻時間</th>
+                                        <td class="text-center" id="bestAnswerCooldown_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">魔界環境</th>
+                                        <td class="text-center" id="bestAnswerDebuff_5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 裝備選擇 -->
+                        <div class="col-6">
+                            <table class="table table-striped align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col" style="width: 40%">項目</th>
+                                        <th scope="col" style="width: 60%">選擇</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">防具類型</th>
+                                        <td class="text-center" id="bestAnswerEquipType_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">左五時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatar_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器時裝</th>
+                                        <td class="text-center" id="bestAnswerAvatarWeapon_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">武器飾品</th>
+                                        <td class="text-center" id="bestAnswerAccWeapon_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">支援飾品</th>
+                                        <td class="text-center" id="bestAnswerAccSupport_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉上飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceTop_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">臉中飾品</th>
+                                        <td class="text-center" id="bestAnswerAccFaceMiddle_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">上衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccTop_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">下衣飾品</th>
+                                        <td class="text-center" id="bestAnswerAccBottom_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">手臂飾品</th>
+                                        <td class="text-center" id="bestAnswerAccArm_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">耳環飾品</th>
+                                        <td class="text-center" id="bestAnswerAccEarring_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">項鍊飾品</th>
+                                        <td class="text-center" id="bestAnswerAccNecklace_5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row">聖獸戒指</th>
+                                        <td class="text-center" id="bestAnswerAccArtifactRing_5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </section>
 
