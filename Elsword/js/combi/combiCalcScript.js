@@ -51,7 +51,7 @@ function initialData() {
 }
 
 function appendEquip(input_data, default_enable) {
-    var idNumber = (document.getElementById('equipListEquipTableBody').rows.length - 1).toString()
+    var idNumber = (document.getElementById('equipListEquipTableBody').rows.length).toString()
 
     // tr
     var tempChild = document.createElement('tr')
@@ -211,7 +211,7 @@ function appendEquip(input_data, default_enable) {
 }
 
 function appendSet(input_data) {
-    var idNumber = (document.getElementById('equipListSetTableBody').rows.length - 1).toString()
+    var idNumber = (document.getElementById('equipListSetTableBody').rows.length).toString()
 
     // tr
     var tempChild = document.createElement('tr')
@@ -701,15 +701,19 @@ function executeCalc(notebook, characterStatus) {
     })
     notebook.value += `# - 應當考量配置數量: ${numberWithCommas(combiExpectCount)} 套\n`
 
-    const combiList = buildCombi(equipDetail)
-    notebook.value += `# - 運算得出配置數量: ${numberWithCommas(combiList.length)} 套\n\n`
+    const combiList = buildCombi(equipDetail, document.getElementById('equipStatusRadioMix').checked)
+    notebook.value += `# - 運算得出配置數量: ${numberWithCommas(
+        document.getElementById('equipStatusRadioMix').checked ?
+        combiList.length * 3 :
+        combiList.length
+    )} 套\n\n`
 
     const calcResult = processCalc(charWithEquipStatus, combiList, equipDetail, setDetail)
 
 }
 
 function addAttributeByAmetEquipStatus(inputStatus) {
-    var calcStatus = Array.from(inputStatus)
+    var calcStatus = JSON.parse(JSON.stringify(inputStatus))
 
     const inputValue = {
         crimson: document.getElementById('equipStatusAmetCrimson').checked,
@@ -1016,7 +1020,7 @@ function addAttributeByTeneEquipStatus(inputStatus) {
 }
 
 function addAttributeByMixEquipStatus(inputStatus) {
-    var calcStatus = Array.from(inputStatus)
+    var calcStatus = JSON.parse(JSON.stringify(inputStatus))
 
     const inputValue = {
         crimson: document.getElementById('equipStatusAmetCrimson').checked,
@@ -1257,7 +1261,7 @@ function buildCombi(equipDetail) {
     }
 
     generate({}, 0);
-    return combinations;
+    return combinations
 }
 
 function processCalc(characterWithEquipStatus, combiDetail, equipDetail, setDetail) {
@@ -1312,9 +1316,9 @@ function processCalc(characterWithEquipStatus, combiDetail, equipDetail, setDeta
                 continue
             }
 
-            if (tempStatus.adapt < 45) {
-                continue
-            }
+            // if (tempStatus.adapt < 45) {
+            //     continue
+            // }
 
             const combiAnswer = calcValue(tempStatus, combiDetail[combiIndex], equipType, equipDetail)
 
@@ -1342,7 +1346,6 @@ function processCalc(characterWithEquipStatus, combiDetail, equipDetail, setDeta
                 bestAnswer = bestAnswer.sort((a, b) => b.value - a.value)
                 if (bestAnswer.length > 5) {
                     bestAnswer = bestAnswer.slice(0, 5)
-
                 }
             }
         }
@@ -1352,6 +1355,7 @@ function processCalc(characterWithEquipStatus, combiDetail, equipDetail, setDeta
     bestAnswer.forEach((ans) => {
         console.log(ans)
     })
+    displayResult(bestAnswer)
 }
 
 function addEquipEffect(characterStatus, equipStatus) {
@@ -1409,4 +1413,68 @@ function calcValue(status, useEquipList, equipType, equipDetail) {
     }
 
     return value
+}
+
+function displayResult(bestAnswer) {
+    const dataLength = bestAnswer.length
+    for (let i = 0; i < 5; i++) {
+        let docKey = '_' + (i + 1).toString()
+        if (i >= dataLength) {
+            document.getElementById('bestAnswerValue' + docKey).innerHTML = ''
+    
+            document.getElementById('bestAnswerSkillDmg' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAllSkillDmg' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAtk' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerCritDmg' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerBossDmg' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerPolar' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAdapt' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerBleed' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerCooldown' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerDebuff' + docKey).innerHTML = ''
+            
+    
+            document.getElementById('bestAnswerEquipType' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAvatar' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAvatarWeapon' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccWeapon' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccSupport' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccFaceTop' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccFaceMiddle' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccTop' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccBottom' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccArm' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccEarring' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccNecklace' + docKey).innerHTML = ''
+            document.getElementById('bestAnswerAccArtifactRing' + docKey).innerHTML = ''
+        } else {
+            document.getElementById('bestAnswerValue' + docKey).innerHTML = bestAnswer[i].value
+    
+            document.getElementById('bestAnswerSkillDmg' + docKey).innerHTML = bestAnswer[i].data.skillDmg
+            document.getElementById('bestAnswerAllSkillDmg' + docKey).innerHTML = bestAnswer[i].data.allSkillDmg
+            document.getElementById('bestAnswerAtk' + docKey).innerHTML = bestAnswer[i].data.atk
+            document.getElementById('bestAnswerCritDmg' + docKey).innerHTML = bestAnswer[i].data.critDmg
+            document.getElementById('bestAnswerBossDmg' + docKey).innerHTML = bestAnswer[i].data.bossDmg
+            document.getElementById('bestAnswerPolar' + docKey).innerHTML = bestAnswer[i].data.polar
+            document.getElementById('bestAnswerAdapt' + docKey).innerHTML = bestAnswer[i].data.adapt
+            document.getElementById('bestAnswerBleed' + docKey).innerHTML = bestAnswer[i].data.bleed
+            document.getElementById('bestAnswerCooldown' + docKey).innerHTML = bestAnswer[i].data.cooldown
+            document.getElementById('bestAnswerDebuff' + docKey).innerHTML = bestAnswer[i].data.debuff
+            
+    
+            document.getElementById('bestAnswerEquipType' + docKey).innerHTML = bestAnswer[i].data['equipType']
+            document.getElementById('bestAnswerAvatar' + docKey).innerHTML = bestAnswer[i].data['左五']
+            document.getElementById('bestAnswerAvatarWeapon' + docKey).innerHTML = bestAnswer[i].data['武器']
+            document.getElementById('bestAnswerAccWeapon' + docKey).innerHTML = bestAnswer[i].data['武飾']
+            document.getElementById('bestAnswerAccSupport' + docKey).innerHTML = bestAnswer[i].data['支援']
+            document.getElementById('bestAnswerAccFaceTop' + docKey).innerHTML = bestAnswer[i].data['臉上']
+            document.getElementById('bestAnswerAccFaceMiddle' + docKey).innerHTML = bestAnswer[i].data['臉中']
+            document.getElementById('bestAnswerAccTop' + docKey).innerHTML = bestAnswer[i].data['上衣']
+            document.getElementById('bestAnswerAccBottom' + docKey).innerHTML = bestAnswer[i].data['下衣']
+            document.getElementById('bestAnswerAccArm' + docKey).innerHTML = bestAnswer[i].data['手臂']
+            document.getElementById('bestAnswerAccEarring' + docKey).innerHTML = bestAnswer[i].data['耳環']
+            document.getElementById('bestAnswerAccNecklace' + docKey).innerHTML = bestAnswer[i].data['項鍊']
+            document.getElementById('bestAnswerAccArtifactRing' + docKey).innerHTML = bestAnswer[i].data['聖獸戒指']
+        }
+    }
 }
