@@ -4,12 +4,6 @@ defaultTimeDiffrent = 202
 // 概要, 韓版日期, 公告網址, 技能調整網址
 updateDetail = [
 
-    ['亞殷第四分支 BG', '2023-02-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293672', ''],
-    ['技能調整', '2023-02-16', '', 'https://kelsword.web.fc2.com/krnotice/140137.htm'],
-    ['諾亞第四分支 MO', '2023-03-02', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293708', ''],
-    ['15R 挑戰模式與第四季票', '2023-03-16', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293727', ''],
-    ['技能調整', '2023-03-16', '', 'https://kelsword.web.fc2.com/balance/230316sb.htm'],
-    ['四分支協同與技能調整', '2023-03-30', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293744', 'https://kelsword.web.fc2.com/balance/230330sb.htm'],
     ['GE、LA、RE 與 CA 新增轉換技能', '2023-04-27', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293773', ''],
     ['流血 BUG 修正與所有襲擊血量下修', '2023-05-04', 'https://elsword.nexon.com/News/Notice/View?n4ArticleSN=140919', ''],
     ['PR、SU、DE 與 TP 新增轉換技能 & 技能調整', '2023-05-11', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293787', 'https://kelsword.web.fc2.com/balance/230511sb.htm'],
@@ -21,6 +15,17 @@ updateDetail = [
     ['新副本與泰納改造系統', '2023-08-03', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293874&tnum=1', ''],
     ['新巨大 Boss', '2023-08-17', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293880', ''],
     ['18R 故事模式', '2023-08-31', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293897', ''],
+    ['公會 UI 改編', '2023-10-26', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293964', ''],
+    ['隱藏副本、副本 ED 產出與部分職業調整', '2023-11-09', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293972', 'https://kelsword.web.fc2.com/krnotice/142616.htm'],
+    ['安安成長季票、副本與部分職業二次調整', '2023-11-23', 'https://forum.gamer.com.tw/C.php?bsn=12259&snA=293984', ''],
+    ['新角色 Lithia 第 1 分支', '2023-12-07', '', ''],
+    ['挑戰模式改善', '2023-12-21', '', ''],
+    ['部分角色調整', '2024-01-04', '', ''],
+    ['新角色 Lithia 第 2 分支', '2024-02-01', '', ''],
+    ['部分角色調整', '2024-02-29', '', ''],
+    ['新角色 Lithia 第 3 分支', '2024-03-28', '', ''],
+    ['部分角色調整', '2024-04-25', '', ''],
+    ['新角色 Lithia 第 4 分支', '2024-05-23', '', ''],
 
 ]
 

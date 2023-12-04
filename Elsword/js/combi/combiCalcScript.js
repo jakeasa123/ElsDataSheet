@@ -1412,6 +1412,10 @@ function calcValue(status, useEquipList, equipType, equipDetail) {
         }
     }
 
+    if (equipDetail['上衣'][useEquipList['上衣']].name === '強者排熱') {
+        value *= 1.1
+    }
+
     return value
 }
 
@@ -1421,7 +1425,7 @@ function displayResult(bestAnswer) {
         let docKey = '_' + (i + 1).toString()
         if (i >= dataLength) {
             document.getElementById('bestAnswerValue' + docKey).innerHTML = ''
-    
+
             document.getElementById('bestAnswerSkillDmg' + docKey).innerHTML = ''
             document.getElementById('bestAnswerAllSkillDmg' + docKey).innerHTML = ''
             document.getElementById('bestAnswerAtk' + docKey).innerHTML = ''
@@ -1432,8 +1436,8 @@ function displayResult(bestAnswer) {
             document.getElementById('bestAnswerBleed' + docKey).innerHTML = ''
             document.getElementById('bestAnswerCooldown' + docKey).innerHTML = ''
             document.getElementById('bestAnswerDebuff' + docKey).innerHTML = ''
-            
-    
+
+
             document.getElementById('bestAnswerEquipType' + docKey).innerHTML = ''
             document.getElementById('bestAnswerAvatar' + docKey).innerHTML = ''
             document.getElementById('bestAnswerAvatarWeapon' + docKey).innerHTML = ''
@@ -1449,7 +1453,7 @@ function displayResult(bestAnswer) {
             document.getElementById('bestAnswerAccArtifactRing' + docKey).innerHTML = ''
         } else {
             document.getElementById('bestAnswerValue' + docKey).innerHTML = bestAnswer[i].value
-    
+
             document.getElementById('bestAnswerSkillDmg' + docKey).innerHTML = bestAnswer[i].data.skillDmg
             document.getElementById('bestAnswerAllSkillDmg' + docKey).innerHTML = bestAnswer[i].data.allSkillDmg
             document.getElementById('bestAnswerAtk' + docKey).innerHTML = bestAnswer[i].data.atk
@@ -1460,8 +1464,8 @@ function displayResult(bestAnswer) {
             document.getElementById('bestAnswerBleed' + docKey).innerHTML = bestAnswer[i].data.bleed
             document.getElementById('bestAnswerCooldown' + docKey).innerHTML = bestAnswer[i].data.cooldown
             document.getElementById('bestAnswerDebuff' + docKey).innerHTML = bestAnswer[i].data.debuff
-            
-    
+
+
             document.getElementById('bestAnswerEquipType' + docKey).innerHTML = bestAnswer[i].data['equipType']
             document.getElementById('bestAnswerAvatar' + docKey).innerHTML = bestAnswer[i].data['左五']
             document.getElementById('bestAnswerAvatarWeapon' + docKey).innerHTML = bestAnswer[i].data['武器']
