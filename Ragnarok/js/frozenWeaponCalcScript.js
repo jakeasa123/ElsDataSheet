@@ -28,7 +28,7 @@ function input_check() {
 
 function executeCalc(editTarget) {
     input_check();
-    const int_formatter = new Intl.NumberFormat('en-US');
+    var int_formatter = new Intl.NumberFormat('en-US');
 
     const autoCalc = document.getElementById("autoCalc").checked;
     var snowForzenOre = parseFloat(document.getElementById("snowForzenOre").value);
@@ -75,7 +75,7 @@ function executeCalc(editTarget) {
     const thirdPrize = snowForzenStone_1 * 55 + snowForzenStone_2 * 65 * snowForzenStone_3 * 45;
     const fourthPrize = snowForzenStone_1 * 55 + snowForzenStone_2 * 75 * snowForzenStone_3 * 70;
 
-    document.getElementById("genericPrize").innerHTML = int_formatter.format(roundTo(genericPrize, 0))
-    document.getElementById("thirdPrize").innerHTML = int_formatter.format(roundTo(thirdPrize, 0))
-    document.getElementById("fourthPrize").innerHTML = int_formatter.format(roundTo(fourthPrize, 0))
+    document.getElementById("genericPrize").innerHTML = int_formatter.format(genericPrize, 0)
+    document.getElementById("thirdPrize").innerHTML = int_formatter.format(thirdPrize, 0)
+    document.getElementById("fourthPrize").innerHTML = int_formatter.format(fourthPrize, 0)
 }
