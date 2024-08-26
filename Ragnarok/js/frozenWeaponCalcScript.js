@@ -39,32 +39,32 @@ function executeCalc(editTarget) {
     if (autoCalc) {
         if (editTarget == 0) {
             snowForzenStone_1 = snowForzenOre * 5;
-            document.getElementById("snowForzenStone_1").innerHTML = roundTo(snowForzenStone_1, 0);
+            document.getElementById("snowForzenStone_1").value = roundTo(snowForzenStone_1, 0);
             snowForzenStone_2 = snowForzenStone_1 * 5;
-            document.getElementById("snowForzenStone_2").innerHTML = roundTo(snowForzenStone_2, 0);
+            document.getElementById("snowForzenStone_2").value = roundTo(snowForzenStone_2, 0);
             snowForzenStone_3 = snowForzenStone_2 * 5;
-            document.getElementById("snowForzenStone_3").innerHTML = roundTo(snowForzenStone_3, 0);
+            document.getElementById("snowForzenStone_3").value = roundTo(snowForzenStone_3, 0);
         } else if (editTarget == 1) {
             snowForzenStone_2 = snowForzenStone_1 * 5;
-            document.getElementById("snowForzenStone_2").innerHTML = roundTo(snowForzenStone_2, 0);
+            document.getElementById("snowForzenStone_2").value = roundTo(snowForzenStone_2, 0);
             snowForzenStone_3 = snowForzenStone_2 * 5;
-            document.getElementById("snowForzenStone_3").innerHTML = roundTo(snowForzenStone_3, 0);
+            document.getElementById("snowForzenStone_3").value = roundTo(snowForzenStone_3, 0);
             snowForzenOre = snowForzenStone_1 / 5;
-            document.getElementById("snowForzenOre").innerHTML = roundTo(snowForzenOre, 0);
+            document.getElementById("snowForzenOre").value = roundTo(snowForzenOre, 0);
         } else if (editTarget == 2) {
             snowForzenStone_3 = snowForzenStone_2 * 5;
-            document.getElementById("snowForzenStone_3").innerHTML = roundTo(snowForzenStone_3, 0);
+            document.getElementById("snowForzenStone_3").value = roundTo(snowForzenStone_3, 0);
             snowForzenStone_1 = snowForzenStone_2 / 5;
-            document.getElementById("snowForzenStone_1").innerHTML = roundTo(snowForzenStone_1, 0);
+            document.getElementById("snowForzenStone_1").value = roundTo(snowForzenStone_1, 0);
             snowForzenOre = snowForzenStone_1 / 5;
-            document.getElementById("snowForzenOre").innerHTML = roundTo(snowForzenOre, 0);
+            document.getElementById("snowForzenOre").value = roundTo(snowForzenOre, 0);
         } else if (editTarget == 3) {
             snowForzenStone_2 = snowForzenStone_3 / 5;
-            document.getElementById("snowForzenStone_2").innerHTML = roundTo(snowForzenStone_2, 0);
+            document.getElementById("snowForzenStone_2").value = roundTo(snowForzenStone_2, 0);
             snowForzenStone_1 = snowForzenStone_2 / 5;
-            document.getElementById("snowForzenStone_1").innerHTML = roundTo(snowForzenStone_1, 0);
+            document.getElementById("snowForzenStone_1").value = roundTo(snowForzenStone_1, 0);
             snowForzenOre = snowForzenStone_1 / 5;
-            document.getElementById("snowForzenOre").innerHTML = roundTo(snowForzenOre, 0);
+            document.getElementById("snowForzenOre").value = roundTo(snowForzenOre, 0);
         }
     }
 
@@ -74,5 +74,5 @@ function executeCalc(editTarget) {
 
     document.getElementById("genericPrize").innerHTML = int_formatter.format(roundTo(genericPrize, 0))
     document.getElementById("thirdPrize").innerHTML = int_formatter.format(roundTo(thirdPrize, 0))
-    document.getElementById("fourthPrize").innerHTML = dint_formatter.format(roundTo(fourthPrize, 0))
+    document.getElementById("fourthPrize").innerHTML = int_formatter.format(roundTo(fourthPrize, 0))
 }
