@@ -36,7 +36,7 @@ function executeCalc(editTarget) {
     var snowForzenStone_2 = parseFloat(document.getElementById("snowForzenStone_2").value);
     var snowForzenStone_3 = parseFloat(document.getElementById("snowForzenStone_3").value);
 
-    if (autoCalc) {
+    if (!autoCalc) {
         if (editTarget == 0) {
             snowForzenStone_1 = snowForzenOre * 5;
             document.getElementById("snowForzenStone_1").value = roundTo(snowForzenStone_1, 0);
@@ -68,6 +68,9 @@ function executeCalc(editTarget) {
         }
     }
 
+    console.log(snowForzenStone_1);
+    console.log(snowForzenStone_2);
+    console.log(snowForzenStone_3);
     const genericPrize = snowForzenStone_1 * 30 + snowForzenStone_2 * 60 * snowForzenStone_3 * 30;
     const thirdPrize = snowForzenStone_1 * 55 + snowForzenStone_2 * 65 * snowForzenStone_3 * 45;
     const fourthPrize = snowForzenStone_1 * 55 + snowForzenStone_2 * 75 * snowForzenStone_3 * 70;
