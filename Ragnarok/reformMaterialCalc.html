@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="這裡是個人使用的網站，用於練習 HTML、JavaScript 以及 CSS 等項目，並同時收集或整理個人感興趣的資料。" />
+        <meta name="author" content="改造素材計算機 | 彈跳鯰魚精 · Ragnarok" />
+        <meta property="og:image" content="https://saketora95.github.io/GameDataColle/image/icon.png" />
+
+        <title>升階素材計算機 | 彈跳鯰魚精 · Ragnarok</title>
+        <link rel="icon" type="image/x-icon" href="../image/icon.png" />
+
+        <!-- Font Awesome icons (free version) -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+        <script src="js/reformMaterialCalc.js"></script>
+    </head>
+
+    <body id="page-top" onload="executeCalc()">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">改造素材計算機</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../image/profile.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#main">計算區域</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#ref-and-copyright">資訊來源</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#main" onclick="returnIndex()">返回首頁</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content -->
+        <div class="container-fluid p-0">
+
+            <!-- Main -->
+            <section class="resume-section" id="main">
+                <div class="resume-section-content">
+
+                    <div class="row">
+
+                        <div class="col-2">
+
+                            <span class="badge bg-primary">市面售價</span>
+
+                            <div class="mb-3">
+                                <img src="image/shadowdecon.png" class="img-fluid" alt="shadowdecon">
+                                <label for="etelDust" class="form-label">影子神秘金屬：</label>
+                                <input type="input" class="form-control" id="shadowdecon" onchange="executeCalc()" value="125000">
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <span class="badge bg-primary">快速試算</span>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col-2">素材</th>
+                                        <th scope="col">數量</th>
+                                        <th scope="col">總價</th>
+                                        <th scope="col"><img src="image/shadowdecon.png" class="img-fluid" alt="shadowdecon">影子神秘金屬數量</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_1.png" class="img-fluid" alt="reformStone_1">強化石(下級)</th>
+                                        <td class="text-center"><input type="input" class="form-control" id="reformStoneCountInput_1" onchange="executeCalc()" value="100"></td>
+                                        <td class="text-end"><mark id="reformStoneCountPrize_1">-</mark></td>
+                                        <td class="text-end"><mark id="reformShadowdeconCount_1">-</mark></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_2.png" class="img-fluid" alt="reformStone_2">強化石(中級)</th>
+                                        <td class="text-center"><input type="input" class="form-control" id="reformStoneCountInput_2" onchange="executeCalc()" value="100"></td>
+                                        <td class="text-end"><mark id="reformStoneCountPrize_2">-</mark></td>
+                                        <td class="text-end"><mark id="reformShadowdeconCount_2">-</mark></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_3.png" class="img-fluid" alt="reformStone_3">強化石(高級)</th>
+                                        <td class="text-center"><input type="input" class="form-control" id="reformStoneCountInput_3" onchange="executeCalc()" value="100"></td>
+                                        <td class="text-end"><mark id="reformStoneCountPrize_3">-</mark></td>
+                                        <td class="text-end"><mark id="reformShadowdeconCount_3">-</mark></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_4.png" class="img-fluid" alt="reformStone_4">強化石(頂級)</th>
+                                        <td class="text-center"><input type="input" class="form-control" id="reformStoneCountInput_4" onchange="executeCalc()" value="100"></td>
+                                        <td class="text-end"><mark id="reformStoneCountPrize_4">-</mark></td>
+                                        <td class="text-end"><mark id="reformShadowdeconCount_4">-</mark></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <span class="badge bg-primary">素材價格</span>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">素材</th>
+                                        <th scope="col">單價</th>
+                                        <th scope="col">備註</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/shadowdeconOre.png" class="img-fluid" alt="shadowdeconOre">影子神秘原石</th>
+                                        <td class="text-end"><mark id="shadowdeconOrePrize">-</mark></td>
+                                        <td class="text">1x 影子神秘金屬 = 20x 影子神秘原石</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformOre_1.png" class="img-fluid" alt="reformOre_1">強化原石(下級)</th>
+                                        <td class="text-end"><mark id="reformOrePrize_1">-</mark></td>
+                                        <td class="text">1x 強化石(下級) = 5x 強化原石(下級) + 10,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_1.png" class="img-fluid" alt="reformStone_1">強化石(下級)</th>
+                                        <td class="text-end"><mark id="reformStonePrize_1">-</mark></td>
+                                        <td class="text">1x 強化石(下級) = 1x 影子神秘金屬 + 20,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformOre_2.png" class="img-fluid" alt="reformOre_2">強化原石(中級)</th>
+                                        <td class="text-end"><mark id="reformOrePrize_2">-</mark></td>
+                                        <td class="text">1x 強化石(中級) = 5x 強化原石(中級) + 20,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_2.png" class="img-fluid" alt="reformStone_2">強化石(中級)</th>
+                                        <td class="text-end"><mark id="reformStonePrize_2">-</mark></td>
+                                        <td class="text">1x 強化石(中級) = 3x 強化石(下級) + 10,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformOre_3.png" class="img-fluid" alt="reformOre_3">強化原石(高級)</th>
+                                        <td class="text-end"><mark id="reformOrePrize_3">-</mark></td>
+                                        <td class="text">1x 強化石(高級) = 5x 強化原石(高級) + 50,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_3.png" class="img-fluid" alt="reformStone_3">強化石(高級)</th>
+                                        <td class="text-end"><mark id="reformStonePrize_3">-</mark></td>
+                                        <td class="text">1x 強化石(高級) = 3x 強化石(中級) + 20,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformOre_4.png" class="img-fluid" alt="reformOre_4">強化原石(頂級)</th>
+                                        <td class="text-end"><mark id="reformOrePrize_4">-</mark></td>
+                                        <td class="text">1x 強化石(頂級) = 5x 強化原石(頂級) + 100,000z</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" scope="row"><img src="image/reformStone_4.png" class="img-fluid" alt="reformStone_4">強化石(頂級)</th>
+                                        <td class="text-end"><mark id="reformStonePrize_4">-</mark></td>
+                                        <td class="text">1x 強化石(頂級) = 3x 強化石(高級) + 50,000z</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+            </section>
+
+            <hr class="m-0" />
+
+            <!-- Ref & Copyright -->
+            <section class="resume-section" id="ref-and-copyright">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">資訊來源</h2>
+                    <ul class="fa-ul mb-0">
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            <a href="https://www.flaticon.com/free-icons/tiger" title="tiger icons">Tiger icons created by Freepik - Flaticon</a>
+                        </li>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                            仙境傳說 Ragnarok Online © GRAVITY CO., Ltd. & Lee MyoungJin(studio DTDS). ALL Rights Reserved.
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </body>
+</html>

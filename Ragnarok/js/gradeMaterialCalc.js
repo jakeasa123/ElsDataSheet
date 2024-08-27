@@ -11,7 +11,7 @@ function input_check() {
     }
 }
 
-function executeCalc(editTarget) {
+function executeCalc() {
     input_check();
     var int_formatter = new Intl.NumberFormat('en-US');
 
