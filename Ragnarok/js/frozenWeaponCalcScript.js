@@ -68,9 +68,9 @@ function executeCalc(editTarget) {
         }
     }
 
-    const genericPrize = snowForzenStone_1 * 30 + snowForzenStone_2 * 60 + snowForzenStone_3 * 30;
-    const thirdPrize = snowForzenStone_1 * 55 + snowForzenStone_2 * 65 + snowForzenStone_3 * 45;
-    const fourthPrize = snowForzenStone_1 * 55 + snowForzenStone_2 * 75 + snowForzenStone_3 * 70;
+    const genericPrize = snowForzenStone_1 * 50 + snowForzenStone_2 * 60 + snowForzenStone_3 * 30;
+    const thirdPrize = snowForzenStone_1 * 75 + snowForzenStone_2 * 65 + snowForzenStone_3 * 45;
+    const fourthPrize = snowForzenStone_1 * 75 + snowForzenStone_2 * 75 + snowForzenStone_3 * 70;
 
     document.getElementById("genericPrize").innerHTML = int_formatter.format(genericPrize, 0)
     document.getElementById("thirdPrize").innerHTML = int_formatter.format(thirdPrize, 0)
