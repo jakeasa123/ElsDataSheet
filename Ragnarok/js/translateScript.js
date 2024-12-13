@@ -41,14 +41,30 @@ function initialPage() {
     wordLengthList.reverse()
 }
 
+function replaceMatchingParts(text) {
+    for (const [regex, handler] of regexKeywordDict) {
+        // 確保正規表達式具有全局標誌 'g'
+        const globalRegex = new RegExp(regex.source, regex.flags + 'g');
+        
+        text = text.replace(globalRegex, (match, ...groups) => {
+            console.log(...groups);
+            return handler([match, ...groups]);
+        });
+    }
+    return text;
+}
+
+
 function executeTranslate() {
     input = document.getElementById('inputArea').value
+
+    // regexKeywordDict
+    input = replaceMatchingParts(input)
 
     wordLengthList.forEach(function(char_count) {
         for (const [kr_char, tc_char] of Object.entries(wordDict[char_count])) {
             if (input.includes(kr_char)) {
                 input = input.replaceAll(kr_char, tc_char)
-                console.log(true)
             }
         }
     });
